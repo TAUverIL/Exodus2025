@@ -1,0 +1,32 @@
+[1.727s] Invoking command in '/home/brittc/ros2_ws/src/mars_rover_control': PYTHONPATH=/home/brittc/ros2_ws/build/mars_rover_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/brittc/ros2_ws/install/mars_rover_control/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/mars_rover_control build --build-base /home/brittc/ros2_ws/build/mars_rover_control/build install --record /home/brittc/ros2_ws/build/mars_rover_control/install.log --single-version-externally-managed install_data
+[2.051s] running egg_info
+[2.051s] creating ../../build/mars_rover_control/mars_rover_control.egg-info
+[2.075s] writing ../../build/mars_rover_control/mars_rover_control.egg-info/PKG-INFO
+[2.075s] writing dependency_links to ../../build/mars_rover_control/mars_rover_control.egg-info/dependency_links.txt
+[2.076s] writing requirements to ../../build/mars_rover_control/mars_rover_control.egg-info/requires.txt
+[2.076s] writing top-level names to ../../build/mars_rover_control/mars_rover_control.egg-info/top_level.txt
+[2.076s] writing manifest file '../../build/mars_rover_control/mars_rover_control.egg-info/SOURCES.txt'
+[2.126s] reading manifest file '../../build/mars_rover_control/mars_rover_control.egg-info/SOURCES.txt'
+[2.126s] writing manifest file '../../build/mars_rover_control/mars_rover_control.egg-info/SOURCES.txt'
+[2.127s] running build
+[2.127s] running build_py
+[2.127s] creating /home/brittc/ros2_ws/build/mars_rover_control/build
+[2.128s] creating /home/brittc/ros2_ws/build/mars_rover_control/build/lib
+[2.128s] creating /home/brittc/ros2_ws/build/mars_rover_control/build/lib/mars_rover_control
+[2.128s] copying mars_rover_control/__init__.py -> /home/brittc/ros2_ws/build/mars_rover_control/build/lib/mars_rover_control
+[2.128s] running install
+[2.136s] running install_lib
+[2.162s] creating /home/brittc/ros2_ws/install/mars_rover_control/lib/python3.12/site-packages/mars_rover_control
+[2.162s] copying /home/brittc/ros2_ws/build/mars_rover_control/build/lib/mars_rover_control/__init__.py -> /home/brittc/ros2_ws/install/mars_rover_control/lib/python3.12/site-packages/mars_rover_control
+[2.163s] byte-compiling /home/brittc/ros2_ws/install/mars_rover_control/lib/python3.12/site-packages/mars_rover_control/__init__.py to __init__.cpython-312.pyc
+[2.163s] running install_data
+[2.164s] creating /home/brittc/ros2_ws/install/mars_rover_control/share/ament_index
+[2.164s] creating /home/brittc/ros2_ws/install/mars_rover_control/share/ament_index/resource_index
+[2.164s] creating /home/brittc/ros2_ws/install/mars_rover_control/share/ament_index/resource_index/packages
+[2.164s] copying resource/mars_rover_control -> /home/brittc/ros2_ws/install/mars_rover_control/share/ament_index/resource_index/packages
+[2.164s] copying package.xml -> /home/brittc/ros2_ws/install/mars_rover_control/share/mars_rover_control
+[2.165s] running install_egg_info
+[2.193s] Copying ../../build/mars_rover_control/mars_rover_control.egg-info to /home/brittc/ros2_ws/install/mars_rover_control/lib/python3.12/site-packages/mars_rover_control-0.0.0-py3.12.egg-info
+[2.194s] running install_scripts
+[2.358s] writing list of installed files to '/home/brittc/ros2_ws/build/mars_rover_control/install.log'
+[2.426s] Invoked command in '/home/brittc/ros2_ws/src/mars_rover_control' returned '0': PYTHONPATH=/home/brittc/ros2_ws/build/mars_rover_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/brittc/ros2_ws/install/mars_rover_control/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/mars_rover_control build --build-base /home/brittc/ros2_ws/build/mars_rover_control/build install --record /home/brittc/ros2_ws/build/mars_rover_control/install.log --single-version-externally-managed install_data

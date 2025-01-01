@@ -1,0 +1,12 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/brittc/ros2_ws/build/my_robot_controller",
+        "/home/brittc/ros2_ws/install/my_robot_controller/lib/python3.12/site-packages",
+        "/opt/ros/jazzy/lib/python3.12/site-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/brittc/ros2_ws/build/my_robot_controller",
+        "/home/brittc/ros2_ws/install/my_robot_controller/lib/python3.12/site-packages",
+        "/opt/ros/jazzy/lib/python3.12/site-packages"
+    ]
+}

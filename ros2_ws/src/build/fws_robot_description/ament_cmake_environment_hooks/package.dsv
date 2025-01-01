@@ -1,0 +1,4 @@
+source;share/fws_robot_description/local_setup.bash
+source;share/fws_robot_description/local_setup.dsv
+source;share/fws_robot_description/local_setup.sh
+source;share/fws_robot_description/local_setup.zsh

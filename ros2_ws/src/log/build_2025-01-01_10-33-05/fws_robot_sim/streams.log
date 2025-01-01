@@ -1,0 +1,51 @@
+[0.056s] Invoking command in '/home/brittc/ros2_ws/src/build/fws_robot_sim': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/brittc/ros2_ws/install/my_robot_controller:/home/brittc/ros2_ws/install/mars_rover_control:/opt/ros/jazzy /usr/bin/cmake /home/brittc/ros2_ws/src/fws_robot_sim -DCMAKE_INSTALL_PREFIX=/home/brittc/ros2_ws/src/install/fws_robot_sim
+[0.585s] -- The C compiler identification is GNU 13.3.0
+[1.029s] -- The CXX compiler identification is GNU 13.3.0
+[1.527s] -- Detecting C compiler ABI info
+[1.753s] -- Detecting C compiler ABI info - done
+[1.765s] -- Check for working C compiler: /usr/bin/cc - skipped
+[1.767s] -- Detecting C compile features
+[1.768s] -- Detecting C compile features - done
+[1.832s] -- Detecting CXX compiler ABI info
+[2.062s] -- Detecting CXX compiler ABI info - done
+[2.073s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[2.073s] -- Detecting CXX compile features
+[2.074s] -- Detecting CXX compile features - done
+[2.109s] -- Found ament_cmake: 2.5.2 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[2.285s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[2.462s] -- Found xacro: 2.0.11 (/opt/ros/jazzy/share/xacro/cmake)
+[2.466s] -- Found ament_lint_auto: 0.17.1 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+[2.597s] -- Added test 'copyright' to check source files copyright and LICENSE
+[2.601s] -- Added test 'flake8' to check Python code syntax and style conventions
+[2.602s] -- Configured 'flake8' exclude dirs and/or files: 
+[2.603s] -- Added test 'lint_cmake' to check CMake code style
+[2.604s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[2.606s] -- Added test 'xmllint' to check XML markup files
+[2.609s] -- Configuring done (2.4s)
+[2.612s] -- Generating done (0.0s)
+[2.615s] -- Build files have been written to: /home/brittc/ros2_ws/src/build/fws_robot_sim
+[2.619s] Invoked command in '/home/brittc/ros2_ws/src/build/fws_robot_sim' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/brittc/ros2_ws/install/my_robot_controller:/home/brittc/ros2_ws/install/mars_rover_control:/opt/ros/jazzy /usr/bin/cmake /home/brittc/ros2_ws/src/fws_robot_sim -DCMAKE_INSTALL_PREFIX=/home/brittc/ros2_ws/src/install/fws_robot_sim
+[2.621s] Invoking command in '/home/brittc/ros2_ws/src/build/fws_robot_sim': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/brittc/ros2_ws/install/my_robot_controller:/home/brittc/ros2_ws/install/mars_rover_control:/opt/ros/jazzy /usr/bin/cmake --build /home/brittc/ros2_ws/src/build/fws_robot_sim -- -j8 -l8
+[2.652s] Invoked command in '/home/brittc/ros2_ws/src/build/fws_robot_sim' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/brittc/ros2_ws/install/my_robot_controller:/home/brittc/ros2_ws/install/mars_rover_control:/opt/ros/jazzy /usr/bin/cmake --build /home/brittc/ros2_ws/src/build/fws_robot_sim -- -j8 -l8
+[2.660s] Invoking command in '/home/brittc/ros2_ws/src/build/fws_robot_sim': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/brittc/ros2_ws/install/my_robot_controller:/home/brittc/ros2_ws/install/mars_rover_control:/opt/ros/jazzy /usr/bin/cmake --install /home/brittc/ros2_ws/src/build/fws_robot_sim
+[2.668s] -- Install configuration: ""
+[2.668s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_sim/share/fws_robot_sim/launch
+[2.668s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_sim/share/fws_robot_sim/launch/fws_robot_spawn.launch.py
+[2.668s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_sim/share/fws_robot_sim/worlds
+[2.668s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_sim/share/fws_robot_sim/worlds/fws_robot_world.sdf
+[2.669s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_sim/share/ament_index/resource_index/package_run_dependencies/fws_robot_sim
+[2.669s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_sim/share/ament_index/resource_index/parent_prefix_path/fws_robot_sim
+[2.670s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_sim/share/fws_robot_sim/environment/ament_prefix_path.sh
+[2.670s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_sim/share/fws_robot_sim/environment/ament_prefix_path.dsv
+[2.670s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_sim/share/fws_robot_sim/environment/path.sh
+[2.670s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_sim/share/fws_robot_sim/environment/path.dsv
+[2.670s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_sim/share/fws_robot_sim/local_setup.bash
+[2.671s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_sim/share/fws_robot_sim/local_setup.sh
+[2.671s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_sim/share/fws_robot_sim/local_setup.zsh
+[2.671s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_sim/share/fws_robot_sim/local_setup.dsv
+[2.671s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_sim/share/fws_robot_sim/package.dsv
+[2.671s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_sim/share/ament_index/resource_index/packages/fws_robot_sim
+[2.672s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_sim/share/fws_robot_sim/cmake/fws_robot_simConfig.cmake
+[2.672s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_sim/share/fws_robot_sim/cmake/fws_robot_simConfig-version.cmake
+[2.672s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_sim/share/fws_robot_sim/package.xml
+[2.674s] Invoked command in '/home/brittc/ros2_ws/src/build/fws_robot_sim' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/brittc/ros2_ws/install/my_robot_controller:/home/brittc/ros2_ws/install/mars_rover_control:/opt/ros/jazzy /usr/bin/cmake --install /home/brittc/ros2_ws/src/build/fws_robot_sim

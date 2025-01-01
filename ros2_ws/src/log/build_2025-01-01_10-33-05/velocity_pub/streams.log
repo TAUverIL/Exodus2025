@@ -1,0 +1,63 @@
+[0.550s] Invoking command in '/home/brittc/ros2_ws/src/build/velocity_pub': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/brittc/ros2_ws/install/my_robot_controller:/home/brittc/ros2_ws/install/mars_rover_control:/opt/ros/jazzy /usr/bin/cmake /home/brittc/ros2_ws/src/velocity_pub -DCMAKE_INSTALL_PREFIX=/home/brittc/ros2_ws/src/install/velocity_pub
+[0.674s] -- The C compiler identification is GNU 13.3.0
+[1.260s] -- The CXX compiler identification is GNU 13.3.0
+[1.760s] -- Detecting C compiler ABI info
+[1.974s] -- Detecting C compiler ABI info - done
+[1.984s] -- Check for working C compiler: /usr/bin/cc - skipped
+[1.984s] -- Detecting C compile features
+[1.985s] -- Detecting C compile features - done
+[2.083s] -- Detecting CXX compiler ABI info
+[2.330s] -- Detecting CXX compiler ABI info - done
+[2.339s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[2.340s] -- Detecting CXX compile features
+[2.340s] -- Detecting CXX compile features - done
+[2.344s] -- Found ament_cmake: 2.5.2 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[2.480s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[2.600s] -- Found rclcpp: 28.1.5 (/opt/ros/jazzy/share/rclcpp/cmake)
+[2.751s] -- Found rosidl_generator_c: 4.6.4 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[2.768s] -- Found rosidl_generator_cpp: 4.6.4 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[2.785s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[2.805s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[2.906s] -- Found rmw_implementation_cmake: 7.3.1 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[2.910s] -- Found rmw_fastrtps_cpp: 8.4.1 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[3.024s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.13")  
+[3.139s] -- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") 
+[3.211s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[3.393s] -- Found geometry_msgs: 5.3.5 (/opt/ros/jazzy/share/geometry_msgs/cmake)
+[3.447s] -- Found ament_lint_auto: 0.17.1 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+[3.561s] -- Added test 'copyright' to check source files copyright and LICENSE
+[3.564s] -- Added test 'flake8' to check Python code syntax and style conventions
+[3.564s] -- Configured 'flake8' exclude dirs and/or files: 
+[3.564s] -- Added test 'lint_cmake' to check CMake code style
+[3.566s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[3.567s] -- Added test 'xmllint' to check XML markup files
+[3.569s] -- Configuring done (3.0s)
+[3.574s] -- Generating done (0.0s)
+[3.576s] -- Build files have been written to: /home/brittc/ros2_ws/src/build/velocity_pub
+[3.587s] Invoked command in '/home/brittc/ros2_ws/src/build/velocity_pub' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/brittc/ros2_ws/install/my_robot_controller:/home/brittc/ros2_ws/install/mars_rover_control:/opt/ros/jazzy /usr/bin/cmake /home/brittc/ros2_ws/src/velocity_pub -DCMAKE_INSTALL_PREFIX=/home/brittc/ros2_ws/src/install/velocity_pub
+[3.589s] Invoking command in '/home/brittc/ros2_ws/src/build/velocity_pub': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/brittc/ros2_ws/install/my_robot_controller:/home/brittc/ros2_ws/install/mars_rover_control:/opt/ros/jazzy /usr/bin/cmake --build /home/brittc/ros2_ws/src/build/velocity_pub -- -j8 -l8
+[3.619s] Invoked command in '/home/brittc/ros2_ws/src/build/velocity_pub' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/brittc/ros2_ws/install/my_robot_controller:/home/brittc/ros2_ws/install/mars_rover_control:/opt/ros/jazzy /usr/bin/cmake --build /home/brittc/ros2_ws/src/build/velocity_pub -- -j8 -l8
+[3.621s] Invoking command in '/home/brittc/ros2_ws/src/build/velocity_pub': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/brittc/ros2_ws/install/my_robot_controller:/home/brittc/ros2_ws/install/mars_rover_control:/opt/ros/jazzy /usr/bin/cmake --install /home/brittc/ros2_ws/src/build/velocity_pub
+[3.627s] -- Install configuration: ""
+[3.627s] -- Installing: /home/brittc/ros2_ws/src/install/velocity_pub/share/velocity_pub//scripts
+[3.628s] -- Installing: /home/brittc/ros2_ws/src/install/velocity_pub/share/velocity_pub//scripts/robot_control.py
+[3.628s] -- Installing: /home/brittc/ros2_ws/src/install/velocity_pub/share/velocity_pub//launch
+[3.628s] -- Installing: /home/brittc/ros2_ws/src/install/velocity_pub/share/velocity_pub//launch/four_ws_control.launch.py
+[3.628s] -- Installing: /home/brittc/ros2_ws/src/install/velocity_pub/lib/velocity_pub/robot_control.py
+[3.628s] -- Installing: /home/brittc/ros2_ws/src/install/velocity_pub/lib/velocity_pub/four_ws_control.launch.py
+[3.628s] -- Installing: /home/brittc/ros2_ws/src/install/velocity_pub/share/ament_index/resource_index/package_run_dependencies/velocity_pub
+[3.628s] -- Installing: /home/brittc/ros2_ws/src/install/velocity_pub/share/ament_index/resource_index/parent_prefix_path/velocity_pub
+[3.628s] -- Installing: /home/brittc/ros2_ws/src/install/velocity_pub/share/velocity_pub/environment/ament_prefix_path.sh
+[3.629s] -- Installing: /home/brittc/ros2_ws/src/install/velocity_pub/share/velocity_pub/environment/ament_prefix_path.dsv
+[3.629s] -- Installing: /home/brittc/ros2_ws/src/install/velocity_pub/share/velocity_pub/environment/path.sh
+[3.629s] -- Installing: /home/brittc/ros2_ws/src/install/velocity_pub/share/velocity_pub/environment/path.dsv
+[3.629s] -- Installing: /home/brittc/ros2_ws/src/install/velocity_pub/share/velocity_pub/local_setup.bash
+[3.629s] -- Installing: /home/brittc/ros2_ws/src/install/velocity_pub/share/velocity_pub/local_setup.sh
+[3.629s] -- Installing: /home/brittc/ros2_ws/src/install/velocity_pub/share/velocity_pub/local_setup.zsh
+[3.629s] -- Installing: /home/brittc/ros2_ws/src/install/velocity_pub/share/velocity_pub/local_setup.dsv
+[3.630s] -- Installing: /home/brittc/ros2_ws/src/install/velocity_pub/share/velocity_pub/package.dsv
+[3.630s] -- Installing: /home/brittc/ros2_ws/src/install/velocity_pub/share/ament_index/resource_index/packages/velocity_pub
+[3.630s] -- Installing: /home/brittc/ros2_ws/src/install/velocity_pub/share/velocity_pub/cmake/velocity_pubConfig.cmake
+[3.630s] -- Installing: /home/brittc/ros2_ws/src/install/velocity_pub/share/velocity_pub/cmake/velocity_pubConfig-version.cmake
+[3.630s] -- Installing: /home/brittc/ros2_ws/src/install/velocity_pub/share/velocity_pub/package.xml
+[3.632s] Invoked command in '/home/brittc/ros2_ws/src/build/velocity_pub' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/brittc/ros2_ws/install/my_robot_controller:/home/brittc/ros2_ws/install/mars_rover_control:/opt/ros/jazzy /usr/bin/cmake --install /home/brittc/ros2_ws/src/build/velocity_pub

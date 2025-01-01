@@ -1,0 +1,17 @@
+/home/brittc/ros2_ws/src/install/fws_robot_sim/share/fws_robot_sim/launch/fws_robot_spawn.launch.py
+/home/brittc/ros2_ws/src/install/fws_robot_sim/share/fws_robot_sim/worlds/fws_robot_world.sdf
+/home/brittc/ros2_ws/src/install/fws_robot_sim/share/ament_index/resource_index/package_run_dependencies/fws_robot_sim
+/home/brittc/ros2_ws/src/install/fws_robot_sim/share/ament_index/resource_index/parent_prefix_path/fws_robot_sim
+/home/brittc/ros2_ws/src/install/fws_robot_sim/share/fws_robot_sim/environment/ament_prefix_path.sh
+/home/brittc/ros2_ws/src/install/fws_robot_sim/share/fws_robot_sim/environment/ament_prefix_path.dsv
+/home/brittc/ros2_ws/src/install/fws_robot_sim/share/fws_robot_sim/environment/path.sh
+/home/brittc/ros2_ws/src/install/fws_robot_sim/share/fws_robot_sim/environment/path.dsv
+/home/brittc/ros2_ws/src/install/fws_robot_sim/share/fws_robot_sim/local_setup.bash
+/home/brittc/ros2_ws/src/install/fws_robot_sim/share/fws_robot_sim/local_setup.sh
+/home/brittc/ros2_ws/src/install/fws_robot_sim/share/fws_robot_sim/local_setup.zsh
+/home/brittc/ros2_ws/src/install/fws_robot_sim/share/fws_robot_sim/local_setup.dsv
+/home/brittc/ros2_ws/src/install/fws_robot_sim/share/fws_robot_sim/package.dsv
+/home/brittc/ros2_ws/src/install/fws_robot_sim/share/ament_index/resource_index/packages/fws_robot_sim
+/home/brittc/ros2_ws/src/install/fws_robot_sim/share/fws_robot_sim/cmake/fws_robot_simConfig.cmake
+/home/brittc/ros2_ws/src/install/fws_robot_sim/share/fws_robot_sim/cmake/fws_robot_simConfig-version.cmake
+/home/brittc/ros2_ws/src/install/fws_robot_sim/share/fws_robot_sim/package.xml

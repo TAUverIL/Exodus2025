@@ -1,0 +1,30 @@
+running egg_info
+creating ../../build/mars_rover_control/mars_rover_control.egg-info
+writing ../../build/mars_rover_control/mars_rover_control.egg-info/PKG-INFO
+writing dependency_links to ../../build/mars_rover_control/mars_rover_control.egg-info/dependency_links.txt
+writing requirements to ../../build/mars_rover_control/mars_rover_control.egg-info/requires.txt
+writing top-level names to ../../build/mars_rover_control/mars_rover_control.egg-info/top_level.txt
+writing manifest file '../../build/mars_rover_control/mars_rover_control.egg-info/SOURCES.txt'
+reading manifest file '../../build/mars_rover_control/mars_rover_control.egg-info/SOURCES.txt'
+writing manifest file '../../build/mars_rover_control/mars_rover_control.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/brittc/ros2_ws/build/mars_rover_control/build
+creating /home/brittc/ros2_ws/build/mars_rover_control/build/lib
+creating /home/brittc/ros2_ws/build/mars_rover_control/build/lib/mars_rover_control
+copying mars_rover_control/__init__.py -> /home/brittc/ros2_ws/build/mars_rover_control/build/lib/mars_rover_control
+running install
+running install_lib
+creating /home/brittc/ros2_ws/install/mars_rover_control/lib/python3.12/site-packages/mars_rover_control
+copying /home/brittc/ros2_ws/build/mars_rover_control/build/lib/mars_rover_control/__init__.py -> /home/brittc/ros2_ws/install/mars_rover_control/lib/python3.12/site-packages/mars_rover_control
+byte-compiling /home/brittc/ros2_ws/install/mars_rover_control/lib/python3.12/site-packages/mars_rover_control/__init__.py to __init__.cpython-312.pyc
+running install_data
+creating /home/brittc/ros2_ws/install/mars_rover_control/share/ament_index
+creating /home/brittc/ros2_ws/install/mars_rover_control/share/ament_index/resource_index
+creating /home/brittc/ros2_ws/install/mars_rover_control/share/ament_index/resource_index/packages
+copying resource/mars_rover_control -> /home/brittc/ros2_ws/install/mars_rover_control/share/ament_index/resource_index/packages
+copying package.xml -> /home/brittc/ros2_ws/install/mars_rover_control/share/mars_rover_control
+running install_egg_info
+Copying ../../build/mars_rover_control/mars_rover_control.egg-info to /home/brittc/ros2_ws/install/mars_rover_control/lib/python3.12/site-packages/mars_rover_control-0.0.0-py3.12.egg-info
+running install_scripts
+writing list of installed files to '/home/brittc/ros2_ws/build/mars_rover_control/install.log'

@@ -1,0 +1,132 @@
+[0.056s] Invoking command in '/home/brittc/ros2_ws/src/build/fws_robot_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/brittc/ros2_ws/install/my_robot_controller:/home/brittc/ros2_ws/install/mars_rover_control:/opt/ros/jazzy /usr/bin/cmake /home/brittc/ros2_ws/src/fws_robot_description -DCMAKE_INSTALL_PREFIX=/home/brittc/ros2_ws/src/install/fws_robot_description
+[0.599s] -- The C compiler identification is GNU 13.3.0
+[1.044s] -- The CXX compiler identification is GNU 13.3.0
+[1.531s] -- Detecting C compiler ABI info
+[1.774s] -- Detecting C compiler ABI info - done
+[1.783s] -- Check for working C compiler: /usr/bin/cc - skipped
+[1.784s] -- Detecting C compile features
+[1.784s] -- Detecting C compile features - done
+[1.859s] -- Detecting CXX compiler ABI info
+[2.075s] -- Detecting CXX compiler ABI info - done
+[2.086s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[2.086s] -- Detecting CXX compile features
+[2.087s] -- Detecting CXX compile features - done
+[2.125s] -- Found ament_cmake: 2.5.2 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[2.304s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[2.478s] -- Found xacro: 2.0.11 (/opt/ros/jazzy/share/xacro/cmake)
+[2.483s] -- Found robot_state_publisher: 3.3.3 (/opt/ros/jazzy/share/robot_state_publisher/cmake)
+[2.702s] -- Found rosidl_generator_c: 4.6.4 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[2.726s] -- Found rosidl_generator_cpp: 4.6.4 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[2.758s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[2.791s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[2.945s] -- Found rmw_implementation_cmake: 7.3.1 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[2.952s] -- Found rmw_fastrtps_cpp: 8.4.1 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[3.068s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.13")  
+[3.188s] -- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") 
+[3.255s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[3.812s] -- Found ament_lint_auto: 0.17.1 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+[3.925s] -- Added test 'copyright' to check source files copyright and LICENSE
+[3.932s] -- Added test 'lint_cmake' to check CMake code style
+[3.936s] -- Added test 'xmllint' to check XML markup files
+[3.937s] -- Configuring done (3.7s)
+[3.943s] -- Generating done (0.0s)
+[3.946s] -- Build files have been written to: /home/brittc/ros2_ws/src/build/fws_robot_description
+[3.956s] Invoked command in '/home/brittc/ros2_ws/src/build/fws_robot_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/brittc/ros2_ws/install/my_robot_controller:/home/brittc/ros2_ws/install/mars_rover_control:/opt/ros/jazzy /usr/bin/cmake /home/brittc/ros2_ws/src/fws_robot_description -DCMAKE_INSTALL_PREFIX=/home/brittc/ros2_ws/src/install/fws_robot_description
+[3.958s] Invoking command in '/home/brittc/ros2_ws/src/build/fws_robot_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/brittc/ros2_ws/install/my_robot_controller:/home/brittc/ros2_ws/install/mars_rover_control:/opt/ros/jazzy /usr/bin/cmake --build /home/brittc/ros2_ws/src/build/fws_robot_description -- -j8 -l8
+[3.991s] Invoked command in '/home/brittc/ros2_ws/src/build/fws_robot_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/brittc/ros2_ws/install/my_robot_controller:/home/brittc/ros2_ws/install/mars_rover_control:/opt/ros/jazzy /usr/bin/cmake --build /home/brittc/ros2_ws/src/build/fws_robot_description -- -j8 -l8
+[3.992s] Invoking command in '/home/brittc/ros2_ws/src/build/fws_robot_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/brittc/ros2_ws/install/my_robot_controller:/home/brittc/ros2_ws/install/mars_rover_control:/opt/ros/jazzy /usr/bin/cmake --install /home/brittc/ros2_ws/src/build/fws_robot_description
+[3.998s] -- Install configuration: ""
+[3.998s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/robots
+[3.998s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/robots/fws_robot.urdf.xacro
+[3.998s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/robots/parts
+[3.999s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/robots/parts/lidar_head
+[3.999s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/robots/parts/lidar_head/lidar_head.gazebo.xacro
+[3.999s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/robots/parts/lidar_head/lidar_head.urdf.xacro
+[3.999s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/robots/parts/lidar_base
+[4.000s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/robots/parts/lidar_base/lidar_base.urdf.xacro
+[4.000s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/robots/parts/lidar_base/lidar_base.gazebo.xacro
+[4.000s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/robots/parts/base
+[4.000s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/robots/parts/base/base.urdf.xacro
+[4.000s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/robots/parts/base/base.gazebo.xacro
+[4.000s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/robots/parts/wheel
+[4.000s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/robots/parts/wheel/wheel.gazebo.xacro
+[4.001s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/robots/parts/wheel/wheel.urdf.xacro
+[4.001s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/robots/parts/suspension
+[4.001s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/robots/parts/suspension/suspension.urdf.xacro
+[4.001s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/robots/parts/suspension/suspension.gazebo.xacro
+[4.001s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/gazebo
+[4.001s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/gazebo/fws_robot.gazebo.xacro
+[4.001s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/ros2_control
+[4.002s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/ros2_control/fws_robot.ros2_control.xacro
+[4.002s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/config
+[4.002s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/config/fws_robot_config.rviz
+[4.002s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/config/fws_robot_sim.yaml
+[4.002s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/meshes
+[4.002s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/meshes/DAE
+[4.003s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/meshes/DAE/lidar_head
+[4.003s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/meshes/DAE/lidar_head/YDlidar_head.dae
+[4.003s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/meshes/DAE/lidar_base
+[4.003s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/meshes/DAE/lidar_base/YDlidar_base.dae
+[4.004s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/meshes/DAE/base
+[4.004s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/meshes/DAE/base/base_linkOLD.dae
+[4.012s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/meshes/DAE/base/base_link.dae
+[4.019s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/meshes/DAE/wheel
+[4.019s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/meshes/DAE/wheel/wheel_link.dae
+[4.020s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/meshes/DAE/suspension
+[4.020s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/meshes/DAE/suspension/fr_link.dae
+[4.023s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/meshes/DAE/suspension/rr_link.dae
+[4.025s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/meshes/DAE/suspension/fl_link.dae
+[4.027s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/meshes/DAE/suspension/rl_link.dae
+[4.028s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/meshes/DAE/sensors
+[4.029s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/meshes/DAE/sensors/camera
+[4.029s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/meshes/DAE/sensors/camera/camera.dae
+[4.029s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/meshes/DAE/sensors/rear_lrf
+[4.029s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/meshes/DAE/sensors/rear_lrf/rear_lrf.dae
+[4.030s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/meshes/DAE/sensors/rear_lrf/urg_texture.png
+[4.030s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/meshes/DAE/sensors/gim30
+[4.030s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/meshes/DAE/sensors/gim30/gim30_lrf_texture.png
+[4.030s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/meshes/DAE/sensors/gim30/gim30.dae
+[4.046s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/meshes/DAE/sensors/gps
+[4.047s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/meshes/DAE/sensors/gps/gps_texture.png
+[4.047s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/meshes/DAE/sensors/gps/gps.dae
+[4.050s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/meshes/DAE/sensors/front_lrf
+[4.050s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/meshes/DAE/sensors/front_lrf/front_lrf.dae
+[4.065s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/meshes/DAE/sensors/front_lrf/lrf_texture.png
+[4.065s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/meshes/STL
+[4.065s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/meshes/STL/lidar_head
+[4.066s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/meshes/STL/lidar_head/YDlidar_head.stl
+[4.066s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/meshes/STL/lidar_base
+[4.066s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/meshes/STL/lidar_base/YDlidar_base.stl
+[4.066s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/meshes/STL/base
+[4.066s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/meshes/STL/base/base_link.stl
+[4.067s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/meshes/STL/base/base_link_old.stl
+[4.067s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/meshes/STL/wheel
+[4.067s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/meshes/STL/wheel/robot_wheel.stl
+[4.068s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/meshes/STL/suspension
+[4.068s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/meshes/STL/suspension/sus_link.stl
+[4.068s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/meshes/STL/sensors
+[4.068s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/meshes/STL/sensors/camera
+[4.068s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/meshes/STL/sensors/rear_lrf
+[4.068s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/meshes/STL/sensors/rear_lrf/rear_lrf.stl
+[4.069s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/meshes/STL/sensors/gim30
+[4.069s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/meshes/STL/sensors/gim30/gim30.stl
+[4.075s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/meshes/STL/sensors/gps
+[4.076s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/meshes/STL/sensors/gps/gps.stl
+[4.078s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/meshes/STL/sensors/front_lrf
+[4.078s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/meshes/STL/sensors/front_lrf/front_lrf.stl
+[4.083s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/ament_index/resource_index/package_run_dependencies/fws_robot_description
+[4.083s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/ament_index/resource_index/parent_prefix_path/fws_robot_description
+[4.084s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/environment/ament_prefix_path.sh
+[4.084s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/environment/ament_prefix_path.dsv
+[4.084s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/environment/path.sh
+[4.084s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/environment/path.dsv
+[4.085s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/local_setup.bash
+[4.085s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/local_setup.sh
+[4.085s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/local_setup.zsh
+[4.085s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/local_setup.dsv
+[4.085s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/package.dsv
+[4.086s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/ament_index/resource_index/packages/fws_robot_description
+[4.086s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/cmake/fws_robot_descriptionConfig.cmake
+[4.086s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/cmake/fws_robot_descriptionConfig-version.cmake
+[4.086s] -- Installing: /home/brittc/ros2_ws/src/install/fws_robot_description/share/fws_robot_description/package.xml
+[4.088s] Invoked command in '/home/brittc/ros2_ws/src/build/fws_robot_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/brittc/ros2_ws/install/my_robot_controller:/home/brittc/ros2_ws/install/mars_rover_control:/opt/ros/jazzy /usr/bin/cmake --install /home/brittc/ros2_ws/src/build/fws_robot_description

@@ -1,0 +1,14 @@
+package.xml
+setup.cfg
+setup.py
+../../build/mars_rover_control/mars_rover_control.egg-info/PKG-INFO
+../../build/mars_rover_control/mars_rover_control.egg-info/SOURCES.txt
+../../build/mars_rover_control/mars_rover_control.egg-info/dependency_links.txt
+../../build/mars_rover_control/mars_rover_control.egg-info/requires.txt
+../../build/mars_rover_control/mars_rover_control.egg-info/top_level.txt
+../../build/mars_rover_control/mars_rover_control.egg-info/zip-safe
+mars_rover_control/__init__.py
+resource/mars_rover_control
+test/test_copyright.py
+test/test_flake8.py
+test/test_pep257.py
