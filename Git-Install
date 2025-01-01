@@ -18,5 +18,5 @@ How to link VSCode:
 How to create a branch: **IMPORTANT** do not work on main, all code should first be created on your own branch
 * Click 'main' at the bottom of the page
 * At the top of the screen, click "+ Create new branch"
-* Type in the name for your branch (could be your own name, so we can see who's committing changes and confront them in person if necessary ;))
+* Type in the name for your branch
 * Click enter and verify that 'main' at the bottom changes to the name of the branch
