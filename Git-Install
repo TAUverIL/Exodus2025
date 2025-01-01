@@ -1,0 +1,22 @@
+How to install git on the computer:
+* Go to WSL workspace (where you want to save all of your files)
+* In the command line, type:  git clone https://github.com/TAUverIL/Exodus2025.git
+  * Add git user name
+  * Instead of password, create a token using https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
+    (I used the personal token (classic) instructions at the bottom of the page)
+* Type cd /Exodus2025 to enter the git repository
+* Type the following commands:
+  git config --global user.name "GitHub user name"
+  git config --global user.email "GitHub registered email"
+
+How to link VSCode:
+* Open VSCode
+* Click File -> Open Folder and select the git depository
+  * This should add all git add-ons to VSCode
+  * You can see 'main' at the bottom, and click on the Source Control button on the left hand side to commit changes
+
+How to create a branch: **IMPORTANT** do not work on main, all code should first be created on your own branch
+* Click 'main' at the bottom of the page
+* At the top of the screen, click "+ Create new branch"
+* Type in the name for your branch (could be your own name, so we can see who's committing changes and confront them in person if necessary ;))
+* Click enter and verify that 'main' at the bottom changes to the name of the branch
