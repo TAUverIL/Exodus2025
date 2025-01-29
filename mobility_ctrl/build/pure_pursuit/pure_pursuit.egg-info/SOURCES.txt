@@ -1,0 +1,12 @@
+package.xml
+setup.cfg
+setup.py
+pure_pursuit/__init__.py
+pure_pursuit.egg-info/PKG-INFO
+pure_pursuit.egg-info/SOURCES.txt
+pure_pursuit.egg-info/dependency_links.txt
+pure_pursuit.egg-info/entry_points.txt
+pure_pursuit.egg-info/requires.txt
+pure_pursuit.egg-info/top_level.txt
+pure_pursuit.egg-info/zip-safe
+resource/pure_pursuit

@@ -1,0 +1,26 @@
+[1.051s] Invoking command in '/home/brittc/Exodus2025/mobility_ctrl/build/gazebo_ackermann_control': PYTHONPATH=/home/brittc/Exodus2025/mobility_ctrl/build/gazebo_ackermann_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/brittc/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/brittc/Exodus2025/mobility_ctrl/build/gazebo_ackermann_control/build --no-deps symlink_data
+[1.275s] running develop
+[1.408s] running egg_info
+[1.408s] creating gazebo_ackermann_control.egg-info
+[1.409s] writing gazebo_ackermann_control.egg-info/PKG-INFO
+[1.409s] writing dependency_links to gazebo_ackermann_control.egg-info/dependency_links.txt
+[1.410s] writing entry points to gazebo_ackermann_control.egg-info/entry_points.txt
+[1.410s] writing requirements to gazebo_ackermann_control.egg-info/requires.txt
+[1.410s] writing top-level names to gazebo_ackermann_control.egg-info/top_level.txt
+[1.410s] writing manifest file 'gazebo_ackermann_control.egg-info/SOURCES.txt'
+[1.411s] reading manifest file 'gazebo_ackermann_control.egg-info/SOURCES.txt'
+[1.411s] writing manifest file 'gazebo_ackermann_control.egg-info/SOURCES.txt'
+[1.413s] running build_ext
+[1.413s] Creating /home/brittc/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/lib/python3.10/site-packages/gazebo-ackermann-control.egg-link (link to .)
+[1.414s] Installing control_node script to /home/brittc/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/lib/gazebo_ackermann_control
+[1.415s] 
+[1.415s] Installed /home/brittc/Exodus2025/mobility_ctrl/build/gazebo_ackermann_control
+[1.415s] running symlink_data
+[1.415s] creating /home/brittc/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/share/ament_index
+[1.416s] creating /home/brittc/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/share/ament_index/resource_index
+[1.416s] creating /home/brittc/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/share/ament_index/resource_index/packages
+[1.417s] symbolically linking /home/brittc/Exodus2025/mobility_ctrl/build/gazebo_ackermann_control/resource/gazebo_ackermann_control -> /home/brittc/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/share/ament_index/resource_index/packages
+[1.417s] symbolically linking /home/brittc/Exodus2025/mobility_ctrl/build/gazebo_ackermann_control/package.xml -> /home/brittc/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/share/gazebo_ackermann_control
+[1.417s] creating /home/brittc/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/share/gazebo_ackermann_control/launch
+[1.417s] symbolically linking /home/brittc/Exodus2025/mobility_ctrl/build/gazebo_ackermann_control/launch/spawn_rover.launch.py -> /home/brittc/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/share/gazebo_ackermann_control/launch
+[1.460s] Invoked command in '/home/brittc/Exodus2025/mobility_ctrl/build/gazebo_ackermann_control' returned '0': PYTHONPATH=/home/brittc/Exodus2025/mobility_ctrl/build/gazebo_ackermann_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/brittc/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/brittc/Exodus2025/mobility_ctrl/build/gazebo_ackermann_control/build --no-deps symlink_data
