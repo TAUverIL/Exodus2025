@@ -1,2 +1,0 @@
-Running launch file and spawning rover:  ros2 launch gazebo_ackermann_control spawn_rover.launch.py
-Running initial control node:  ros2 run gazebo_ackermann_control control_node
