@@ -1,0 +1,12 @@
+package.xml
+setup.cfg
+setup.py
+ack_rover/__init__.py
+ack_rover.egg-info/PKG-INFO
+ack_rover.egg-info/SOURCES.txt
+ack_rover.egg-info/dependency_links.txt
+ack_rover.egg-info/entry_points.txt
+ack_rover.egg-info/requires.txt
+ack_rover.egg-info/top_level.txt
+ack_rover.egg-info/zip-safe
+resource/ack_rover
