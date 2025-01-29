@@ -1,0 +1,15 @@
+package.xml
+setup.cfg
+setup.py
+../../build/pure_p_test/pure_p_test.egg-info/PKG-INFO
+../../build/pure_p_test/pure_p_test.egg-info/SOURCES.txt
+../../build/pure_p_test/pure_p_test.egg-info/dependency_links.txt
+../../build/pure_p_test/pure_p_test.egg-info/entry_points.txt
+../../build/pure_p_test/pure_p_test.egg-info/requires.txt
+../../build/pure_p_test/pure_p_test.egg-info/top_level.txt
+../../build/pure_p_test/pure_p_test.egg-info/zip-safe
+pure_p_test/__init__.py
+resource/pure_p_test
+test/test_copyright.py
+test/test_flake8.py
+test/test_pep257.py

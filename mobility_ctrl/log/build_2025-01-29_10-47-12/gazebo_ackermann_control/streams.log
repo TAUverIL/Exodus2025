@@ -1,0 +1,39 @@
+[0.656s] Invoking command in '/home/tauver/Exodus2025/mobility_ctrl/src/gazebo_ackermann_control': PYTHONPATH=/home/tauver/Exodus2025/mobility_ctrl/build/gazebo_ackermann_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tauver/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/gazebo_ackermann_control build --build-base /home/tauver/Exodus2025/mobility_ctrl/build/gazebo_ackermann_control/build install --record /home/tauver/Exodus2025/mobility_ctrl/build/gazebo_ackermann_control/install.log --single-version-externally-managed install_data
+[0.852s] running egg_info
+[0.852s] creating ../../build/gazebo_ackermann_control/gazebo_ackermann_control.egg-info
+[0.852s] writing ../../build/gazebo_ackermann_control/gazebo_ackermann_control.egg-info/PKG-INFO
+[0.853s] writing dependency_links to ../../build/gazebo_ackermann_control/gazebo_ackermann_control.egg-info/dependency_links.txt
+[0.853s] writing entry points to ../../build/gazebo_ackermann_control/gazebo_ackermann_control.egg-info/entry_points.txt
+[0.853s] writing requirements to ../../build/gazebo_ackermann_control/gazebo_ackermann_control.egg-info/requires.txt
+[0.853s] writing top-level names to ../../build/gazebo_ackermann_control/gazebo_ackermann_control.egg-info/top_level.txt
+[0.853s] writing manifest file '../../build/gazebo_ackermann_control/gazebo_ackermann_control.egg-info/SOURCES.txt'
+[0.854s] reading manifest file '../../build/gazebo_ackermann_control/gazebo_ackermann_control.egg-info/SOURCES.txt'
+[0.855s] writing manifest file '../../build/gazebo_ackermann_control/gazebo_ackermann_control.egg-info/SOURCES.txt'
+[0.855s] running build
+[0.855s] running build_py
+[0.855s] creating /home/tauver/Exodus2025/mobility_ctrl/build/gazebo_ackermann_control/build
+[0.855s] creating /home/tauver/Exodus2025/mobility_ctrl/build/gazebo_ackermann_control/build/lib
+[0.855s] creating /home/tauver/Exodus2025/mobility_ctrl/build/gazebo_ackermann_control/build/lib/gazebo_ackermann_control
+[0.856s] copying gazebo_ackermann_control/control_node.py -> /home/tauver/Exodus2025/mobility_ctrl/build/gazebo_ackermann_control/build/lib/gazebo_ackermann_control
+[0.856s] copying gazebo_ackermann_control/__init__.py -> /home/tauver/Exodus2025/mobility_ctrl/build/gazebo_ackermann_control/build/lib/gazebo_ackermann_control
+[0.856s] running install
+[0.857s] running install_lib
+[0.858s] creating /home/tauver/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/lib/python3.10/site-packages/gazebo_ackermann_control
+[0.858s] copying /home/tauver/Exodus2025/mobility_ctrl/build/gazebo_ackermann_control/build/lib/gazebo_ackermann_control/control_node.py -> /home/tauver/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/lib/python3.10/site-packages/gazebo_ackermann_control
+[0.859s] copying /home/tauver/Exodus2025/mobility_ctrl/build/gazebo_ackermann_control/build/lib/gazebo_ackermann_control/__init__.py -> /home/tauver/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/lib/python3.10/site-packages/gazebo_ackermann_control
+[0.859s] byte-compiling /home/tauver/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/lib/python3.10/site-packages/gazebo_ackermann_control/control_node.py to control_node.cpython-310.pyc
+[0.859s] byte-compiling /home/tauver/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/lib/python3.10/site-packages/gazebo_ackermann_control/__init__.py to __init__.cpython-310.pyc
+[0.860s] running install_data
+[0.860s] creating /home/tauver/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/share/ament_index
+[0.860s] creating /home/tauver/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/share/ament_index/resource_index
+[0.860s] creating /home/tauver/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/share/ament_index/resource_index/packages
+[0.860s] copying resource/gazebo_ackermann_control -> /home/tauver/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/share/ament_index/resource_index/packages
+[0.860s] copying package.xml -> /home/tauver/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/share/gazebo_ackermann_control
+[0.861s] creating /home/tauver/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/share/gazebo_ackermann_control/launch
+[0.861s] copying launch/spawn_rover.launch.py -> /home/tauver/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/share/gazebo_ackermann_control/launch
+[0.861s] running install_egg_info
+[0.862s] Copying ../../build/gazebo_ackermann_control/gazebo_ackermann_control.egg-info to /home/tauver/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/lib/python3.10/site-packages/gazebo_ackermann_control-0.0.0-py3.10.egg-info
+[0.862s] running install_scripts
+[0.878s] Installing control_node script to /home/tauver/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/lib/gazebo_ackermann_control
+[0.878s] writing list of installed files to '/home/tauver/Exodus2025/mobility_ctrl/build/gazebo_ackermann_control/install.log'
+[0.894s] Invoked command in '/home/tauver/Exodus2025/mobility_ctrl/src/gazebo_ackermann_control' returned '0': PYTHONPATH=/home/tauver/Exodus2025/mobility_ctrl/build/gazebo_ackermann_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tauver/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/gazebo_ackermann_control build --build-base /home/tauver/Exodus2025/mobility_ctrl/build/gazebo_ackermann_control/build install --record /home/tauver/Exodus2025/mobility_ctrl/build/gazebo_ackermann_control/install.log --single-version-externally-managed install_data
