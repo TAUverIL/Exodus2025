@@ -1,0 +1,37 @@
+running egg_info
+creating ../../build/gazebo_ackermann_control/gazebo_ackermann_control.egg-info
+writing ../../build/gazebo_ackermann_control/gazebo_ackermann_control.egg-info/PKG-INFO
+writing dependency_links to ../../build/gazebo_ackermann_control/gazebo_ackermann_control.egg-info/dependency_links.txt
+writing entry points to ../../build/gazebo_ackermann_control/gazebo_ackermann_control.egg-info/entry_points.txt
+writing requirements to ../../build/gazebo_ackermann_control/gazebo_ackermann_control.egg-info/requires.txt
+writing top-level names to ../../build/gazebo_ackermann_control/gazebo_ackermann_control.egg-info/top_level.txt
+writing manifest file '../../build/gazebo_ackermann_control/gazebo_ackermann_control.egg-info/SOURCES.txt'
+reading manifest file '../../build/gazebo_ackermann_control/gazebo_ackermann_control.egg-info/SOURCES.txt'
+writing manifest file '../../build/gazebo_ackermann_control/gazebo_ackermann_control.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/brittc/Exodus2025/mobility_ctrl/build/gazebo_ackermann_control/build
+creating /home/brittc/Exodus2025/mobility_ctrl/build/gazebo_ackermann_control/build/lib
+creating /home/brittc/Exodus2025/mobility_ctrl/build/gazebo_ackermann_control/build/lib/gazebo_ackermann_control
+copying gazebo_ackermann_control/__init__.py -> /home/brittc/Exodus2025/mobility_ctrl/build/gazebo_ackermann_control/build/lib/gazebo_ackermann_control
+copying gazebo_ackermann_control/control_node.py -> /home/brittc/Exodus2025/mobility_ctrl/build/gazebo_ackermann_control/build/lib/gazebo_ackermann_control
+running install
+running install_lib
+creating /home/brittc/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/lib/python3.10/site-packages/gazebo_ackermann_control
+copying /home/brittc/Exodus2025/mobility_ctrl/build/gazebo_ackermann_control/build/lib/gazebo_ackermann_control/__init__.py -> /home/brittc/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/lib/python3.10/site-packages/gazebo_ackermann_control
+copying /home/brittc/Exodus2025/mobility_ctrl/build/gazebo_ackermann_control/build/lib/gazebo_ackermann_control/control_node.py -> /home/brittc/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/lib/python3.10/site-packages/gazebo_ackermann_control
+byte-compiling /home/brittc/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/lib/python3.10/site-packages/gazebo_ackermann_control/__init__.py to __init__.cpython-310.pyc
+byte-compiling /home/brittc/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/lib/python3.10/site-packages/gazebo_ackermann_control/control_node.py to control_node.cpython-310.pyc
+running install_data
+creating /home/brittc/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/share/ament_index
+creating /home/brittc/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/share/ament_index/resource_index
+creating /home/brittc/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/share/ament_index/resource_index/packages
+copying resource/gazebo_ackermann_control -> /home/brittc/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/share/ament_index/resource_index/packages
+copying package.xml -> /home/brittc/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/share/gazebo_ackermann_control
+creating /home/brittc/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/share/gazebo_ackermann_control/launch
+copying launch/spawn_rover.launch.py -> /home/brittc/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/share/gazebo_ackermann_control/launch
+running install_egg_info
+Copying ../../build/gazebo_ackermann_control/gazebo_ackermann_control.egg-info to /home/brittc/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/lib/python3.10/site-packages/gazebo_ackermann_control-0.0.0-py3.10.egg-info
+running install_scripts
+Installing control_node script to /home/brittc/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/lib/gazebo_ackermann_control
+writing list of installed files to '/home/brittc/Exodus2025/mobility_ctrl/build/gazebo_ackermann_control/install.log'
