@@ -1,0 +1,3 @@
+[console_scripts]
+control_node = gazebo_ackermann_control.control_node:main
+
