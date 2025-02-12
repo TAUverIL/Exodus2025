@@ -20,6 +20,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'pure_pursuit_ackermann = pure_pursuit.pure_pursuit_ackermann:main',
+            'twist_converter = pure_pursuit.ack_to_twist_converter:main'
         ],
     },
 )

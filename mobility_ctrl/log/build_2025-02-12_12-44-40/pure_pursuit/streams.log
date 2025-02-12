@@ -1,0 +1,17 @@
+[1.487s] Invoking command in '/home/brittc/Exodus2025/mobility_ctrl/build/pure_pursuit': PYTHONPATH=/home/brittc/Exodus2025/mobility_ctrl/build/pure_pursuit/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/brittc/Exodus2025/mobility_ctrl/install/pure_pursuit/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/brittc/Exodus2025/mobility_ctrl/build/pure_pursuit/build --no-deps symlink_data
+[1.905s] running develop
+[2.135s] running egg_info
+[2.136s] writing pure_pursuit.egg-info/PKG-INFO
+[2.136s] writing dependency_links to pure_pursuit.egg-info/dependency_links.txt
+[2.138s] writing entry points to pure_pursuit.egg-info/entry_points.txt
+[2.138s] writing requirements to pure_pursuit.egg-info/requires.txt
+[2.138s] writing top-level names to pure_pursuit.egg-info/top_level.txt
+[2.139s] reading manifest file 'pure_pursuit.egg-info/SOURCES.txt'
+[2.140s] writing manifest file 'pure_pursuit.egg-info/SOURCES.txt'
+[2.143s] running build_ext
+[2.143s] Creating /home/brittc/Exodus2025/mobility_ctrl/install/pure_pursuit/lib/python3.10/site-packages/pure-pursuit.egg-link (link to .)
+[2.144s] Installing pure_pursuit_ackermann script to /home/brittc/Exodus2025/mobility_ctrl/install/pure_pursuit/lib/pure_pursuit
+[2.145s] 
+[2.145s] Installed /home/brittc/Exodus2025/mobility_ctrl/build/pure_pursuit
+[2.145s] running symlink_data
+[2.223s] Invoked command in '/home/brittc/Exodus2025/mobility_ctrl/build/pure_pursuit' returned '0': PYTHONPATH=/home/brittc/Exodus2025/mobility_ctrl/build/pure_pursuit/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/brittc/Exodus2025/mobility_ctrl/install/pure_pursuit/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/brittc/Exodus2025/mobility_ctrl/build/pure_pursuit/build --no-deps symlink_data

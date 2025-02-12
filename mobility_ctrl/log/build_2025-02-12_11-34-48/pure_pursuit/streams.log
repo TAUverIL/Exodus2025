@@ -1,0 +1,21 @@
+[0.823s] Invoking command in '/home/brittc/Exodus2025/mobility_ctrl/src/pure_pursuit': PYTHONPATH=/home/brittc/Exodus2025/mobility_ctrl/build/pure_pursuit/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/brittc/Exodus2025/mobility_ctrl/install/pure_pursuit/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/pure_pursuit build --build-base /home/brittc/Exodus2025/mobility_ctrl/build/pure_pursuit/build install --record /home/brittc/Exodus2025/mobility_ctrl/build/pure_pursuit/install.log --single-version-externally-managed install_data
+[1.030s] running egg_info
+[1.030s] writing ../../build/pure_pursuit/pure_pursuit.egg-info/PKG-INFO
+[1.031s] writing dependency_links to ../../build/pure_pursuit/pure_pursuit.egg-info/dependency_links.txt
+[1.031s] writing entry points to ../../build/pure_pursuit/pure_pursuit.egg-info/entry_points.txt
+[1.031s] writing requirements to ../../build/pure_pursuit/pure_pursuit.egg-info/requires.txt
+[1.031s] writing top-level names to ../../build/pure_pursuit/pure_pursuit.egg-info/top_level.txt
+[1.032s] reading manifest file '../../build/pure_pursuit/pure_pursuit.egg-info/SOURCES.txt'
+[1.033s] writing manifest file '../../build/pure_pursuit/pure_pursuit.egg-info/SOURCES.txt'
+[1.033s] running build
+[1.033s] running build_py
+[1.035s] running install
+[1.035s] running install_lib
+[1.037s] running install_data
+[1.037s] running install_egg_info
+[1.039s] removing '/home/brittc/Exodus2025/mobility_ctrl/install/pure_pursuit/lib/python3.10/site-packages/pure_pursuit-0.0.0-py3.10.egg-info' (and everything under it)
+[1.040s] Copying ../../build/pure_pursuit/pure_pursuit.egg-info to /home/brittc/Exodus2025/mobility_ctrl/install/pure_pursuit/lib/python3.10/site-packages/pure_pursuit-0.0.0-py3.10.egg-info
+[1.040s] running install_scripts
+[1.059s] Installing pure_pursuit_ackermann script to /home/brittc/Exodus2025/mobility_ctrl/install/pure_pursuit/lib/pure_pursuit
+[1.060s] writing list of installed files to '/home/brittc/Exodus2025/mobility_ctrl/build/pure_pursuit/install.log'
+[1.099s] Invoked command in '/home/brittc/Exodus2025/mobility_ctrl/src/pure_pursuit' returned '0': PYTHONPATH=/home/brittc/Exodus2025/mobility_ctrl/build/pure_pursuit/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/brittc/Exodus2025/mobility_ctrl/install/pure_pursuit/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/pure_pursuit build --build-base /home/brittc/Exodus2025/mobility_ctrl/build/pure_pursuit/build install --record /home/brittc/Exodus2025/mobility_ctrl/build/pure_pursuit/install.log --single-version-externally-managed install_data
