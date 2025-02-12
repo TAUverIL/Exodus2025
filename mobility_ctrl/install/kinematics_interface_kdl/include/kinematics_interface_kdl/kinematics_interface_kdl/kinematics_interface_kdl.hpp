@@ -1,1 +1,0 @@
-/home/brittc/ros2_ws/src/ros-controls/kinematics_interface/kinematics_interface_kdl/include/kinematics_interface_kdl/kinematics_interface_kdl.hpp
