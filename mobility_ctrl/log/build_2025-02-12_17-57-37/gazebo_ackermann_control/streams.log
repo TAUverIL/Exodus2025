@@ -1,0 +1,32 @@
+[1.109s] Invoking command in '/home/brittc/Exodus2025/mobility_ctrl/build/gazebo_ackermann_control': PYTHONPATH=/home/brittc/Exodus2025/mobility_ctrl/build/gazebo_ackermann_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/brittc/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/brittc/Exodus2025/mobility_ctrl/build/gazebo_ackermann_control/build
+[1.358s] running develop
+[1.505s] Removing /home/brittc/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/lib/python3.10/site-packages/gazebo-ackermann-control.egg-link (link to .)
+[1.567s] Invoked command in '/home/brittc/Exodus2025/mobility_ctrl/build/gazebo_ackermann_control' returned '0': PYTHONPATH=/home/brittc/Exodus2025/mobility_ctrl/build/gazebo_ackermann_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/brittc/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/brittc/Exodus2025/mobility_ctrl/build/gazebo_ackermann_control/build
+[1.571s] Invoking command in '/home/brittc/Exodus2025/mobility_ctrl/src/gazebo_ackermann_control': PYTHONPATH=/home/brittc/Exodus2025/mobility_ctrl/build/gazebo_ackermann_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/brittc/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/gazebo_ackermann_control build --build-base /home/brittc/Exodus2025/mobility_ctrl/build/gazebo_ackermann_control/build install --record /home/brittc/Exodus2025/mobility_ctrl/build/gazebo_ackermann_control/install.log --single-version-externally-managed install_data --force
+[1.813s] running egg_info
+[1.814s] writing ../../build/gazebo_ackermann_control/gazebo_ackermann_control.egg-info/PKG-INFO
+[1.814s] writing dependency_links to ../../build/gazebo_ackermann_control/gazebo_ackermann_control.egg-info/dependency_links.txt
+[1.816s] writing entry points to ../../build/gazebo_ackermann_control/gazebo_ackermann_control.egg-info/entry_points.txt
+[1.816s] writing requirements to ../../build/gazebo_ackermann_control/gazebo_ackermann_control.egg-info/requires.txt
+[1.816s] writing top-level names to ../../build/gazebo_ackermann_control/gazebo_ackermann_control.egg-info/top_level.txt
+[1.818s] reading manifest file '../../build/gazebo_ackermann_control/gazebo_ackermann_control.egg-info/SOURCES.txt'
+[1.818s] writing manifest file '../../build/gazebo_ackermann_control/gazebo_ackermann_control.egg-info/SOURCES.txt'
+[1.818s] running build
+[1.819s] running build_py
+[1.819s] running install
+[1.819s] running install_lib
+[1.819s] creating /home/brittc/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/lib/python3.10/site-packages/gazebo_ackermann_control
+[1.820s] copying /home/brittc/Exodus2025/mobility_ctrl/build/gazebo_ackermann_control/build/lib/gazebo_ackermann_control/__init__.py -> /home/brittc/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/lib/python3.10/site-packages/gazebo_ackermann_control
+[1.820s] copying /home/brittc/Exodus2025/mobility_ctrl/build/gazebo_ackermann_control/build/lib/gazebo_ackermann_control/control_node.py -> /home/brittc/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/lib/python3.10/site-packages/gazebo_ackermann_control
+[1.821s] byte-compiling /home/brittc/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/lib/python3.10/site-packages/gazebo_ackermann_control/__init__.py to __init__.cpython-310.pyc
+[1.823s] byte-compiling /home/brittc/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/lib/python3.10/site-packages/gazebo_ackermann_control/control_node.py to control_node.cpython-310.pyc
+[1.823s] running install_data
+[1.824s] copying resource/gazebo_ackermann_control -> /home/brittc/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/share/ament_index/resource_index/packages
+[1.824s] copying package.xml -> /home/brittc/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/share/gazebo_ackermann_control
+[1.824s] copying launch/spawn_rover.launch.py -> /home/brittc/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/share/gazebo_ackermann_control/launch
+[1.824s] running install_egg_info
+[1.826s] Copying ../../build/gazebo_ackermann_control/gazebo_ackermann_control.egg-info to /home/brittc/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/lib/python3.10/site-packages/gazebo_ackermann_control-0.0.0-py3.10.egg-info
+[1.827s] running install_scripts
+[1.848s] Installing control_node script to /home/brittc/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/lib/gazebo_ackermann_control
+[1.849s] writing list of installed files to '/home/brittc/Exodus2025/mobility_ctrl/build/gazebo_ackermann_control/install.log'
+[1.908s] Invoked command in '/home/brittc/Exodus2025/mobility_ctrl/src/gazebo_ackermann_control' returned '0': PYTHONPATH=/home/brittc/Exodus2025/mobility_ctrl/build/gazebo_ackermann_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/brittc/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/gazebo_ackermann_control build --build-base /home/brittc/Exodus2025/mobility_ctrl/build/gazebo_ackermann_control/build install --record /home/brittc/Exodus2025/mobility_ctrl/build/gazebo_ackermann_control/install.log --single-version-externally-managed install_data --force

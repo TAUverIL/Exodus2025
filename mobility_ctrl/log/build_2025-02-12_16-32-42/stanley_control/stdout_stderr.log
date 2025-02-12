@@ -1,0 +1,19 @@
+running develop
+running egg_info
+writing stanley_control.egg-info/PKG-INFO
+writing dependency_links to stanley_control.egg-info/dependency_links.txt
+writing entry points to stanley_control.egg-info/entry_points.txt
+writing requirements to stanley_control.egg-info/requires.txt
+writing top-level names to stanley_control.egg-info/top_level.txt
+reading manifest file 'stanley_control.egg-info/SOURCES.txt'
+writing manifest file 'stanley_control.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/brittc/Exodus2025/mobility_ctrl/install/stanley_control/lib/python3.10/site-packages/stanley-control.egg-link (link to .)
+Installing stanley_controller script to /home/brittc/Exodus2025/mobility_ctrl/install/stanley_control/lib/stanley_control
+
+Installed /home/brittc/Exodus2025/mobility_ctrl/build/stanley_control
+running symlink_data
+symbolically linking /home/brittc/Exodus2025/mobility_ctrl/build/stanley_control/resource/stanley_control -> /home/brittc/Exodus2025/mobility_ctrl/install/stanley_control/share/ament_index/resource_index/packages
+symbolically linking /home/brittc/Exodus2025/mobility_ctrl/build/stanley_control/package.xml -> /home/brittc/Exodus2025/mobility_ctrl/install/stanley_control/share/stanley_control
+symbolically linking /home/brittc/Exodus2025/mobility_ctrl/build/stanley_control/launch/spawn_rover.launch.py -> /home/brittc/Exodus2025/mobility_ctrl/install/stanley_control/share/stanley_control/launch
+symbolically linking /home/brittc/Exodus2025/mobility_ctrl/build/stanley_control/config/ackermann_drive_controller.yaml -> /home/brittc/Exodus2025/mobility_ctrl/install/stanley_control/share/stanley_control/config

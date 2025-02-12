@@ -1,0 +1,19 @@
+[1.127s] Invoking command in '/home/brittc/Exodus2025/mobility_ctrl/build/stanley_control': PYTHONPATH=/home/brittc/Exodus2025/mobility_ctrl/build/stanley_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/brittc/Exodus2025/mobility_ctrl/install/stanley_control/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/brittc/Exodus2025/mobility_ctrl/build/stanley_control/build --no-deps symlink_data
+[1.377s] running develop
+[1.527s] running egg_info
+[1.528s] writing stanley_control.egg-info/PKG-INFO
+[1.528s] writing dependency_links to stanley_control.egg-info/dependency_links.txt
+[1.528s] writing entry points to stanley_control.egg-info/entry_points.txt
+[1.528s] writing requirements to stanley_control.egg-info/requires.txt
+[1.529s] writing top-level names to stanley_control.egg-info/top_level.txt
+[1.530s] reading manifest file 'stanley_control.egg-info/SOURCES.txt'
+[1.532s] writing manifest file 'stanley_control.egg-info/SOURCES.txt'
+[1.534s] running build_ext
+[1.534s] Creating /home/brittc/Exodus2025/mobility_ctrl/install/stanley_control/lib/python3.10/site-packages/stanley-control.egg-link (link to .)
+[1.535s] Installing stanley_controller script to /home/brittc/Exodus2025/mobility_ctrl/install/stanley_control/lib/stanley_control
+[1.535s] Installing twist_converter script to /home/brittc/Exodus2025/mobility_ctrl/install/stanley_control/lib/stanley_control
+[1.535s] 
+[1.535s] Installed /home/brittc/Exodus2025/mobility_ctrl/build/stanley_control
+[1.535s] running symlink_data
+[1.536s] error: can't copy '/home/brittc/Exodus2025/mobility_ctrl/build/stanley_control/config/ackermann_drive_controller.yaml': doesn't exist or not a regular file
+[1.602s] Invoked command in '/home/brittc/Exodus2025/mobility_ctrl/build/stanley_control' returned '1': PYTHONPATH=/home/brittc/Exodus2025/mobility_ctrl/build/stanley_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/brittc/Exodus2025/mobility_ctrl/install/stanley_control/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/brittc/Exodus2025/mobility_ctrl/build/stanley_control/build --no-deps symlink_data

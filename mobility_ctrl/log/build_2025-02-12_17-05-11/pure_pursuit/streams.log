@@ -1,0 +1,34 @@
+[1.917s] Invoking command in '/home/brittc/Exodus2025/mobility_ctrl/build/pure_pursuit': PYTHONPATH=/home/brittc/Exodus2025/mobility_ctrl/build/pure_pursuit/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/brittc/Exodus2025/mobility_ctrl/install/pure_pursuit/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/brittc/Exodus2025/mobility_ctrl/build/pure_pursuit/build
+[2.318s] running develop
+[2.573s] Removing /home/brittc/Exodus2025/mobility_ctrl/install/pure_pursuit/lib/python3.10/site-packages/pure-pursuit.egg-link (link to .)
+[2.646s] Invoked command in '/home/brittc/Exodus2025/mobility_ctrl/build/pure_pursuit' returned '0': PYTHONPATH=/home/brittc/Exodus2025/mobility_ctrl/build/pure_pursuit/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/brittc/Exodus2025/mobility_ctrl/install/pure_pursuit/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/brittc/Exodus2025/mobility_ctrl/build/pure_pursuit/build
+[2.649s] Invoking command in '/home/brittc/Exodus2025/mobility_ctrl/src/pure_pursuit': PYTHONPATH=/home/brittc/Exodus2025/mobility_ctrl/build/pure_pursuit/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/brittc/Exodus2025/mobility_ctrl/install/pure_pursuit/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/pure_pursuit build --build-base /home/brittc/Exodus2025/mobility_ctrl/build/pure_pursuit/build install --record /home/brittc/Exodus2025/mobility_ctrl/build/pure_pursuit/install.log --single-version-externally-managed install_data --force
+[3.014s] running egg_info
+[3.016s] writing ../../build/pure_pursuit/pure_pursuit.egg-info/PKG-INFO
+[3.017s] writing dependency_links to ../../build/pure_pursuit/pure_pursuit.egg-info/dependency_links.txt
+[3.017s] writing entry points to ../../build/pure_pursuit/pure_pursuit.egg-info/entry_points.txt
+[3.018s] writing requirements to ../../build/pure_pursuit/pure_pursuit.egg-info/requires.txt
+[3.018s] writing top-level names to ../../build/pure_pursuit/pure_pursuit.egg-info/top_level.txt
+[3.021s] reading manifest file '../../build/pure_pursuit/pure_pursuit.egg-info/SOURCES.txt'
+[3.024s] writing manifest file '../../build/pure_pursuit/pure_pursuit.egg-info/SOURCES.txt'
+[3.024s] running build
+[3.025s] running build_py
+[3.025s] running install
+[3.025s] running install_lib
+[3.026s] creating /home/brittc/Exodus2025/mobility_ctrl/install/pure_pursuit/lib/python3.10/site-packages/pure_pursuit
+[3.026s] copying /home/brittc/Exodus2025/mobility_ctrl/build/pure_pursuit/build/lib/pure_pursuit/pure_pursuit_ackermann.py -> /home/brittc/Exodus2025/mobility_ctrl/install/pure_pursuit/lib/python3.10/site-packages/pure_pursuit
+[3.026s] copying /home/brittc/Exodus2025/mobility_ctrl/build/pure_pursuit/build/lib/pure_pursuit/__init__.py -> /home/brittc/Exodus2025/mobility_ctrl/install/pure_pursuit/lib/python3.10/site-packages/pure_pursuit
+[3.026s] copying /home/brittc/Exodus2025/mobility_ctrl/build/pure_pursuit/build/lib/pure_pursuit/ack_to_twist_converter.py -> /home/brittc/Exodus2025/mobility_ctrl/install/pure_pursuit/lib/python3.10/site-packages/pure_pursuit
+[3.029s] byte-compiling /home/brittc/Exodus2025/mobility_ctrl/install/pure_pursuit/lib/python3.10/site-packages/pure_pursuit/pure_pursuit_ackermann.py to pure_pursuit_ackermann.cpython-310.pyc
+[3.029s] byte-compiling /home/brittc/Exodus2025/mobility_ctrl/install/pure_pursuit/lib/python3.10/site-packages/pure_pursuit/__init__.py to __init__.cpython-310.pyc
+[3.029s] byte-compiling /home/brittc/Exodus2025/mobility_ctrl/install/pure_pursuit/lib/python3.10/site-packages/pure_pursuit/ack_to_twist_converter.py to ack_to_twist_converter.cpython-310.pyc
+[3.029s] running install_data
+[3.029s] copying resource/pure_pursuit -> /home/brittc/Exodus2025/mobility_ctrl/install/pure_pursuit/share/ament_index/resource_index/packages
+[3.029s] copying package.xml -> /home/brittc/Exodus2025/mobility_ctrl/install/pure_pursuit/share/pure_pursuit
+[3.029s] running install_egg_info
+[3.035s] Copying ../../build/pure_pursuit/pure_pursuit.egg-info to /home/brittc/Exodus2025/mobility_ctrl/install/pure_pursuit/lib/python3.10/site-packages/pure_pursuit-0.0.0-py3.10.egg-info
+[3.036s] running install_scripts
+[3.071s] Installing pure_pursuit_ackermann script to /home/brittc/Exodus2025/mobility_ctrl/install/pure_pursuit/lib/pure_pursuit
+[3.071s] Installing twist_converter script to /home/brittc/Exodus2025/mobility_ctrl/install/pure_pursuit/lib/pure_pursuit
+[3.071s] writing list of installed files to '/home/brittc/Exodus2025/mobility_ctrl/build/pure_pursuit/install.log'
+[3.141s] Invoked command in '/home/brittc/Exodus2025/mobility_ctrl/src/pure_pursuit' returned '0': PYTHONPATH=/home/brittc/Exodus2025/mobility_ctrl/build/pure_pursuit/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/brittc/Exodus2025/mobility_ctrl/install/pure_pursuit/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/pure_pursuit build --build-base /home/brittc/Exodus2025/mobility_ctrl/build/pure_pursuit/build install --record /home/brittc/Exodus2025/mobility_ctrl/build/pure_pursuit/install.log --single-version-externally-managed install_data --force

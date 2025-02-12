@@ -1,0 +1,17 @@
+[1.866s] Invoking command in '/home/brittc/Exodus2025/mobility_ctrl/build/gazebo_ackermann_control': PYTHONPATH=/home/brittc/Exodus2025/mobility_ctrl/build/gazebo_ackermann_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/brittc/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/brittc/Exodus2025/mobility_ctrl/build/gazebo_ackermann_control/build --no-deps symlink_data
+[2.293s] running develop
+[2.545s] running egg_info
+[2.546s] writing gazebo_ackermann_control.egg-info/PKG-INFO
+[2.546s] writing dependency_links to gazebo_ackermann_control.egg-info/dependency_links.txt
+[2.547s] writing entry points to gazebo_ackermann_control.egg-info/entry_points.txt
+[2.547s] writing requirements to gazebo_ackermann_control.egg-info/requires.txt
+[2.548s] writing top-level names to gazebo_ackermann_control.egg-info/top_level.txt
+[2.551s] reading manifest file 'gazebo_ackermann_control.egg-info/SOURCES.txt'
+[2.552s] writing manifest file 'gazebo_ackermann_control.egg-info/SOURCES.txt'
+[2.555s] running build_ext
+[2.556s] Creating /home/brittc/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/lib/python3.10/site-packages/gazebo-ackermann-control.egg-link (link to .)
+[2.558s] Installing control_node script to /home/brittc/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/lib/gazebo_ackermann_control
+[2.558s] 
+[2.558s] Installed /home/brittc/Exodus2025/mobility_ctrl/build/gazebo_ackermann_control
+[2.558s] running symlink_data
+[2.630s] Invoked command in '/home/brittc/Exodus2025/mobility_ctrl/build/gazebo_ackermann_control' returned '0': PYTHONPATH=/home/brittc/Exodus2025/mobility_ctrl/build/gazebo_ackermann_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/brittc/Exodus2025/mobility_ctrl/install/gazebo_ackermann_control/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/brittc/Exodus2025/mobility_ctrl/build/gazebo_ackermann_control/build --no-deps symlink_data

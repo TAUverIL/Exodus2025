@@ -1,0 +1,124 @@
+[0.202s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'list', '-p', '--base-paths', '/home/brittc/Exodus2025/mobility_ctrl']
+[0.202s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='list', build_base='build', ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['/home/brittc/Exodus2025/mobility_ctrl'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], topological_order=False, names_only=False, paths_only=True, topological_graph=False, topological_graph_dot=False, topological_graph_density=False, topological_graph_legend=False, topological_graph_dot_cluster=False, topological_graph_dot_include_skipped=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x7f469cead930>, verb_extension=<colcon_package_information.verb.list.ListVerb object at 0x7f469ceacb80>, main=<bound method ListVerb.main of <colcon_package_information.verb.list.ListVerb object at 0x7f469ceacb80>>, mixin_verb=('list',))
+[0.387s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.387s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.387s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.387s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.387s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.388s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/brittc/Exodus2025/mobility_ctrl'
+[0.388s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl) by extensions ['ignore', 'ignore_ament_install']
+[0.388s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl) by extension 'ignore'
+[0.388s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl) by extension 'ignore_ament_install'
+[0.388s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl) by extensions ['colcon_pkg']
+[0.388s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl) by extension 'colcon_pkg'
+[0.388s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl) by extensions ['colcon_meta']
+[0.388s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl) by extension 'colcon_meta'
+[0.388s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl) by extensions ['ros']
+[0.388s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl) by extension 'ros'
+[0.402s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl) by extensions ['cmake', 'python']
+[0.402s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl) by extension 'cmake'
+[0.402s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl) by extension 'python'
+[0.402s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl) by extensions ['python_setup_py']
+[0.402s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl) by extension 'python_setup_py'
+[0.402s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/build) by extensions ['ignore', 'ignore_ament_install']
+[0.403s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/build) by extension 'ignore'
+[0.403s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/build) ignored
+[0.403s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/install) by extensions ['ignore', 'ignore_ament_install']
+[0.404s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/install) by extension 'ignore'
+[0.404s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/install) ignored
+[0.404s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/log) by extensions ['ignore', 'ignore_ament_install']
+[0.404s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/log) by extension 'ignore'
+[0.405s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/log) ignored
+[0.405s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src) by extensions ['ignore', 'ignore_ament_install']
+[0.405s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src) by extension 'ignore'
+[0.405s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src) by extension 'ignore_ament_install'
+[0.405s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src) by extensions ['colcon_pkg']
+[0.405s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src) by extension 'colcon_pkg'
+[0.405s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src) by extensions ['colcon_meta']
+[0.405s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src) by extension 'colcon_meta'
+[0.405s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src) by extensions ['ros']
+[0.405s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src) by extension 'ros'
+[0.405s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src) by extensions ['cmake', 'python']
+[0.405s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src) by extension 'cmake'
+[0.405s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src) by extension 'python'
+[0.405s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src) by extensions ['python_setup_py']
+[0.406s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src) by extension 'python_setup_py'
+[0.406s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/build) by extensions ['ignore', 'ignore_ament_install']
+[0.406s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/build) by extension 'ignore'
+[0.406s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/build) ignored
+[0.406s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/description) by extensions ['ignore', 'ignore_ament_install']
+[0.406s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/description) by extension 'ignore'
+[0.406s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/description) by extension 'ignore_ament_install'
+[0.407s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/description) by extensions ['colcon_pkg']
+[0.407s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/description) by extension 'colcon_pkg'
+[0.407s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/description) by extensions ['colcon_meta']
+[0.407s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/description) by extension 'colcon_meta'
+[0.407s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/description) by extensions ['ros']
+[0.407s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/description) by extension 'ros'
+[0.407s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/description) by extensions ['cmake', 'python']
+[0.407s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/description) by extension 'cmake'
+[0.407s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/description) by extension 'python'
+[0.407s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/description) by extensions ['python_setup_py']
+[0.407s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/description) by extension 'python_setup_py'
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/gazebo_ackermann_control) by extensions ['ignore', 'ignore_ament_install']
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/gazebo_ackermann_control) by extension 'ignore'
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/gazebo_ackermann_control) by extension 'ignore_ament_install'
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/gazebo_ackermann_control) by extensions ['colcon_pkg']
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/gazebo_ackermann_control) by extension 'colcon_pkg'
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/gazebo_ackermann_control) by extensions ['colcon_meta']
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/gazebo_ackermann_control) by extension 'colcon_meta'
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/gazebo_ackermann_control) by extensions ['ros']
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/gazebo_ackermann_control) by extension 'ros'
+[0.411s] DEBUG:colcon.colcon_core.package_identification:Package '/home/brittc/Exodus2025/mobility_ctrl/src/gazebo_ackermann_control' with type 'ros.ament_python' and name 'gazebo_ackermann_control'
+[0.411s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/install) by extensions ['ignore', 'ignore_ament_install']
+[0.412s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/install) by extension 'ignore'
+[0.412s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/install) ignored
+[0.412s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/launch) by extensions ['ignore', 'ignore_ament_install']
+[0.413s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/launch) by extension 'ignore'
+[0.413s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/launch) by extension 'ignore_ament_install'
+[0.414s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/launch) by extensions ['colcon_pkg']
+[0.414s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/launch) by extension 'colcon_pkg'
+[0.414s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/launch) by extensions ['colcon_meta']
+[0.415s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/launch) by extension 'colcon_meta'
+[0.415s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/launch) by extensions ['ros']
+[0.415s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/launch) by extension 'ros'
+[0.415s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/launch) by extensions ['cmake', 'python']
+[0.416s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/launch) by extension 'cmake'
+[0.416s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/launch) by extension 'python'
+[0.416s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/launch) by extensions ['python_setup_py']
+[0.416s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/launch) by extension 'python_setup_py'
+[0.416s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/pure_pursuit) by extensions ['ignore', 'ignore_ament_install']
+[0.416s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/pure_pursuit) by extension 'ignore'
+[0.416s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/pure_pursuit) by extension 'ignore_ament_install'
+[0.416s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/pure_pursuit) by extensions ['colcon_pkg']
+[0.416s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/pure_pursuit) by extension 'colcon_pkg'
+[0.416s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/pure_pursuit) by extensions ['colcon_meta']
+[0.416s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/pure_pursuit) by extension 'colcon_meta'
+[0.417s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/pure_pursuit) by extensions ['ros']
+[0.417s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/pure_pursuit) by extension 'ros'
+[0.418s] DEBUG:colcon.colcon_core.package_identification:Package '/home/brittc/Exodus2025/mobility_ctrl/src/pure_pursuit' with type 'ros.ament_python' and name 'pure_pursuit'
+[0.418s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/stanley_control) by extensions ['ignore', 'ignore_ament_install']
+[0.418s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/stanley_control) by extension 'ignore'
+[0.419s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/stanley_control) by extension 'ignore_ament_install'
+[0.419s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/stanley_control) by extensions ['colcon_pkg']
+[0.419s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/stanley_control) by extension 'colcon_pkg'
+[0.419s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/stanley_control) by extensions ['colcon_meta']
+[0.419s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/stanley_control) by extension 'colcon_meta'
+[0.419s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/stanley_control) by extensions ['ros']
+[0.419s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/stanley_control) by extension 'ros'
+[0.420s] DEBUG:colcon.colcon_core.package_identification:Package '/home/brittc/Exodus2025/mobility_ctrl/src/stanley_control' with type 'ros.ament_python' and name 'stanley_control'
+[0.420s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/worlds) by extensions ['ignore', 'ignore_ament_install']
+[0.420s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/worlds) by extension 'ignore'
+[0.421s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/worlds) by extension 'ignore_ament_install'
+[0.421s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/worlds) by extensions ['colcon_pkg']
+[0.421s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/worlds) by extension 'colcon_pkg'
+[0.421s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/worlds) by extensions ['colcon_meta']
+[0.421s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/worlds) by extension 'colcon_meta'
+[0.422s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/worlds) by extensions ['ros']
+[0.422s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/worlds) by extension 'ros'
+[0.422s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/worlds) by extensions ['cmake', 'python']
+[0.422s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/worlds) by extension 'cmake'
+[0.422s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/worlds) by extension 'python'
+[0.422s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/worlds) by extensions ['python_setup_py']
+[0.422s] Level 1:colcon.colcon_core.package_identification:_identify(/home/brittc/Exodus2025/mobility_ctrl/src/worlds) by extension 'python_setup_py'
+[0.423s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults

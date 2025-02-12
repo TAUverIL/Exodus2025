@@ -1,0 +1,22 @@
+[1.758s] Invoking command in '/home/brittc/Exodus2025/mobility_ctrl/build/stanley_control': PYTHONPATH=/home/brittc/Exodus2025/mobility_ctrl/build/stanley_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/brittc/Exodus2025/mobility_ctrl/install/stanley_control/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/brittc/Exodus2025/mobility_ctrl/build/stanley_control/build --no-deps symlink_data --force
+[2.157s] running develop
+[2.369s] running egg_info
+[2.370s] writing stanley_control.egg-info/PKG-INFO
+[2.371s] writing dependency_links to stanley_control.egg-info/dependency_links.txt
+[2.371s] writing entry points to stanley_control.egg-info/entry_points.txt
+[2.371s] writing requirements to stanley_control.egg-info/requires.txt
+[2.371s] writing top-level names to stanley_control.egg-info/top_level.txt
+[2.374s] reading manifest file 'stanley_control.egg-info/SOURCES.txt'
+[2.375s] writing manifest file 'stanley_control.egg-info/SOURCES.txt'
+[2.378s] running build_ext
+[2.378s] Creating /home/brittc/Exodus2025/mobility_ctrl/install/stanley_control/lib/python3.10/site-packages/stanley-control.egg-link (link to .)
+[2.379s] Installing stanley_controller script to /home/brittc/Exodus2025/mobility_ctrl/install/stanley_control/lib/stanley_control
+[2.381s] Installing twist_converter script to /home/brittc/Exodus2025/mobility_ctrl/install/stanley_control/lib/stanley_control
+[2.381s] 
+[2.381s] Installed /home/brittc/Exodus2025/mobility_ctrl/build/stanley_control
+[2.381s] running symlink_data
+[2.381s] symbolically linking /home/brittc/Exodus2025/mobility_ctrl/build/stanley_control/resource/stanley_control -> /home/brittc/Exodus2025/mobility_ctrl/install/stanley_control/share/ament_index/resource_index/packages
+[2.384s] symbolically linking /home/brittc/Exodus2025/mobility_ctrl/build/stanley_control/package.xml -> /home/brittc/Exodus2025/mobility_ctrl/install/stanley_control/share/stanley_control
+[2.384s] symbolically linking /home/brittc/Exodus2025/mobility_ctrl/build/stanley_control/launch/spawn_rover.launch.py -> /home/brittc/Exodus2025/mobility_ctrl/install/stanley_control/share/stanley_control/launch
+[2.384s] error: can't copy '/home/brittc/Exodus2025/mobility_ctrl/build/stanley_control/config/ackermann_drive_controller.yaml': doesn't exist or not a regular file
+[2.452s] Invoked command in '/home/brittc/Exodus2025/mobility_ctrl/build/stanley_control' returned '1': PYTHONPATH=/home/brittc/Exodus2025/mobility_ctrl/build/stanley_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/brittc/Exodus2025/mobility_ctrl/install/stanley_control/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/brittc/Exodus2025/mobility_ctrl/build/stanley_control/build --no-deps symlink_data --force

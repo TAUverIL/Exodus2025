@@ -64,7 +64,7 @@ class PurePursuit(Node):
         # Send drive command
         drive_msg = AckermannDriveStamped()
         drive_msg.drive.speed = min(self.max_speed, distance)  # Reduce speed near target
-        drive_msg.drive.acceleration = 1.0  # Set a positive acceleration
+        #drive_msg.drive.acceleration = 1.0  # Set a positive acceleration
         drive_msg.drive.steering_angle = steering_angle
         self.drive_publisher.publish(drive_msg)
 

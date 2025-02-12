@@ -1,0 +1,41 @@
+[1.085s] Invoking command in '/home/brittc/Exodus2025/mobility_ctrl/build/stanley_control': PYTHONPATH=/home/brittc/Exodus2025/mobility_ctrl/build/stanley_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/brittc/Exodus2025/mobility_ctrl/install/stanley_control/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/brittc/Exodus2025/mobility_ctrl/build/stanley_control/build
+[1.333s] running develop
+[1.476s] Removing /home/brittc/Exodus2025/mobility_ctrl/install/stanley_control/lib/python3.10/site-packages/stanley-control.egg-link (link to .)
+[1.523s] Invoked command in '/home/brittc/Exodus2025/mobility_ctrl/build/stanley_control' returned '0': PYTHONPATH=/home/brittc/Exodus2025/mobility_ctrl/build/stanley_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/brittc/Exodus2025/mobility_ctrl/install/stanley_control/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/brittc/Exodus2025/mobility_ctrl/build/stanley_control/build
+[1.526s] Invoking command in '/home/brittc/Exodus2025/mobility_ctrl/src/stanley_control': PYTHONPATH=/home/brittc/Exodus2025/mobility_ctrl/build/stanley_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/brittc/Exodus2025/mobility_ctrl/install/stanley_control/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/stanley_control build --build-base /home/brittc/Exodus2025/mobility_ctrl/build/stanley_control/build install --record /home/brittc/Exodus2025/mobility_ctrl/build/stanley_control/install.log --single-version-externally-managed install_data --force
+[1.742s] running egg_info
+[1.744s] writing ../../build/stanley_control/stanley_control.egg-info/PKG-INFO
+[1.744s] writing dependency_links to ../../build/stanley_control/stanley_control.egg-info/dependency_links.txt
+[1.744s] writing entry points to ../../build/stanley_control/stanley_control.egg-info/entry_points.txt
+[1.744s] writing requirements to ../../build/stanley_control/stanley_control.egg-info/requires.txt
+[1.744s] writing top-level names to ../../build/stanley_control/stanley_control.egg-info/top_level.txt
+[1.746s] reading manifest file '../../build/stanley_control/stanley_control.egg-info/SOURCES.txt'
+[1.746s] writing manifest file '../../build/stanley_control/stanley_control.egg-info/SOURCES.txt'
+[1.747s] running build
+[1.748s] running build_py
+[1.748s] creating /home/brittc/Exodus2025/mobility_ctrl/build/stanley_control/build
+[1.748s] creating /home/brittc/Exodus2025/mobility_ctrl/build/stanley_control/build/lib
+[1.750s] creating /home/brittc/Exodus2025/mobility_ctrl/build/stanley_control/build/lib/stanley_control
+[1.752s] copying stanley_control/__init__.py -> /home/brittc/Exodus2025/mobility_ctrl/build/stanley_control/build/lib/stanley_control
+[1.752s] copying stanley_control/ack_to_twist_converter.py -> /home/brittc/Exodus2025/mobility_ctrl/build/stanley_control/build/lib/stanley_control
+[1.752s] copying stanley_control/stanley_control.py -> /home/brittc/Exodus2025/mobility_ctrl/build/stanley_control/build/lib/stanley_control
+[1.753s] running install
+[1.753s] running install_lib
+[1.753s] creating /home/brittc/Exodus2025/mobility_ctrl/install/stanley_control/lib/python3.10/site-packages/stanley_control
+[1.754s] copying /home/brittc/Exodus2025/mobility_ctrl/build/stanley_control/build/lib/stanley_control/__init__.py -> /home/brittc/Exodus2025/mobility_ctrl/install/stanley_control/lib/python3.10/site-packages/stanley_control
+[1.754s] copying /home/brittc/Exodus2025/mobility_ctrl/build/stanley_control/build/lib/stanley_control/ack_to_twist_converter.py -> /home/brittc/Exodus2025/mobility_ctrl/install/stanley_control/lib/python3.10/site-packages/stanley_control
+[1.754s] copying /home/brittc/Exodus2025/mobility_ctrl/build/stanley_control/build/lib/stanley_control/stanley_control.py -> /home/brittc/Exodus2025/mobility_ctrl/install/stanley_control/lib/python3.10/site-packages/stanley_control
+[1.756s] byte-compiling /home/brittc/Exodus2025/mobility_ctrl/install/stanley_control/lib/python3.10/site-packages/stanley_control/__init__.py to __init__.cpython-310.pyc
+[1.756s] byte-compiling /home/brittc/Exodus2025/mobility_ctrl/install/stanley_control/lib/python3.10/site-packages/stanley_control/ack_to_twist_converter.py to ack_to_twist_converter.cpython-310.pyc
+[1.757s] byte-compiling /home/brittc/Exodus2025/mobility_ctrl/install/stanley_control/lib/python3.10/site-packages/stanley_control/stanley_control.py to stanley_control.cpython-310.pyc
+[1.758s] running install_data
+[1.758s] copying resource/stanley_control -> /home/brittc/Exodus2025/mobility_ctrl/install/stanley_control/share/ament_index/resource_index/packages
+[1.758s] copying package.xml -> /home/brittc/Exodus2025/mobility_ctrl/install/stanley_control/share/stanley_control
+[1.759s] copying launch/spawn_rover.launch.py -> /home/brittc/Exodus2025/mobility_ctrl/install/stanley_control/share/stanley_control/launch
+[1.759s] copying config/ackermann_drive_controller.yaml -> /home/brittc/Exodus2025/mobility_ctrl/install/stanley_control/share/stanley_control/config
+[1.759s] running install_egg_info
+[1.760s] Copying ../../build/stanley_control/stanley_control.egg-info to /home/brittc/Exodus2025/mobility_ctrl/install/stanley_control/lib/python3.10/site-packages/stanley_control-0.0.0-py3.10.egg-info
+[1.760s] running install_scripts
+[1.778s] Installing stanley_controller script to /home/brittc/Exodus2025/mobility_ctrl/install/stanley_control/lib/stanley_control
+[1.778s] writing list of installed files to '/home/brittc/Exodus2025/mobility_ctrl/build/stanley_control/install.log'
+[1.820s] Invoked command in '/home/brittc/Exodus2025/mobility_ctrl/src/stanley_control' returned '0': PYTHONPATH=/home/brittc/Exodus2025/mobility_ctrl/build/stanley_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/brittc/Exodus2025/mobility_ctrl/install/stanley_control/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/stanley_control build --build-base /home/brittc/Exodus2025/mobility_ctrl/build/stanley_control/build install --record /home/brittc/Exodus2025/mobility_ctrl/build/stanley_control/install.log --single-version-externally-managed install_data --force

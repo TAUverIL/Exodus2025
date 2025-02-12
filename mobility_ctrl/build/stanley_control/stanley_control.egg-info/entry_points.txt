@@ -1,0 +1,4 @@
+[console_scripts]
+stanley_controller = stanley_control.stanley_control:main
+twist_converter = stanley_control.ack_to_twist_converter:main
+
