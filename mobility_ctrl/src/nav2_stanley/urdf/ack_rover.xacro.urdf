@@ -54,6 +54,13 @@
     <xacro:property name="steering_limit_lower" value="-${pi_div_2}"/>
     <xacro:property name="steering_velocity" value="30"/>
 
+    <!-- IMU Parameters -->
+    <xacro:property name="imu_mass" value="0.1"/>
+    <xacro:property name="imu_length_x" value="0.1"/>
+    <xacro:property name="imu_length_y" value="0.1"/>
+    <xacro:property name="imu_height" value="0.1"/>
+    <xacro:property name="imu_position" value="0 0 ${chassis_height+imu_height/2}"/>
+
     <!-- Base Link -->
     <link name="base_link" />
 
@@ -276,6 +283,105 @@
     <dynamics damping="${wheel_damping}" />
 
   </joint>
+
+  <!-- IMU -->
+  <link name="imu_link">
+        <visual>
+            <geometry>
+                <box size="${imu_length_x} ${imu_length_y} ${imu_height}" />
+            </geometry>
+            <material name="Cyan">
+                <color rgba="0 1.0 1.0 1.0" />
+            </material>
+        </visual>
+
+        <collision>
+            <geometry>
+                <box size="${imu_length_x} ${imu_length_y} ${imu_height}" />
+            </geometry>
+        </collision>
+
+        <inertial>
+            <mass value="${imu_mass}" />
+            <inertia ixx="0.145833" ixy="0.0" ixz="0.0" iyy="0.145833" iyz="0.0" izz="0.125" />
+        </inertial>
+  </link>
+
+<joint name="imu_joint" type="fixed">
+  <parent link="chassis" />
+  <child link="imu_link" />
+  <origin xyz="${imu_position}" />
+</joint>  
+
+<gazebo reference="imu_link">
+  <sensor name="imu_sensor" type="imu">
+    <plugin filename="libignition-gazebo-imu-system.so" name="ignition::gazebo::systems::Imu">
+      <ros>
+        <namespace>/demo</namespace>
+        <remapping>~/out:=imu</remapping>
+      </ros>
+      <initial_orientation_as_reference>false</initial_orientation_as_reference>
+    </plugin>
+    <always_on>true</always_on>
+    <update_rate>100</update_rate>
+    <visualize>true</visualize>
+    <imu>
+      <angular_velocity>
+          <x>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>2e-4</stddev>
+              <bias_mean>0.0000075</bias_mean>
+              <bias_stddev>0.0000008</bias_stddev>
+            </noise>
+          </x>
+          <y>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>2e-4</stddev>
+              <bias_mean>0.0000075</bias_mean>
+              <bias_stddev>0.0000008</bias_stddev>
+            </noise>
+          </y>
+          <z>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>2e-4</stddev>
+              <bias_mean>0.0000075</bias_mean>
+              <bias_stddev>0.0000008</bias_stddev>
+            </noise>
+          </z>
+        </angular_velocity>
+
+        <linear_acceleration>
+          <x>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>1.7e-2</stddev>
+              <bias_mean>0.1</bias_mean>
+              <bias_stddev>0.001</bias_stddev>
+            </noise>
+          </x>
+          <y>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>1.7e-2</stddev>
+              <bias_mean>0.1</bias_mean>
+              <bias_stddev>0.001</bias_stddev>
+            </noise>
+          </y>
+          <z>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>1.7e-2</stddev>
+              <bias_mean>0.1</bias_mean>
+              <bias_stddev>0.001</bias_stddev>
+            </noise>
+          </z>
+        </linear_acceleration>
+      </imu>
+    </sensor>
+   </gazebo>
   
   <!-- Ackermann Control -->
   <ros2_control name="IgnitionSystem" type="system">
