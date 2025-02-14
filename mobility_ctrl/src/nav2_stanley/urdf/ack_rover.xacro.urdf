@@ -21,41 +21,52 @@
     <color rgba="0.2 0.2 1 1" />
   </material>
   
-  <!-- Origin Parameters -->
-  <xacro:property name="origin_xy" value="0 0 0"/>
-  <xacro:property name="origin_rpy" value="0 0 0"/>
+    <!-- Origin Parameters -->
+    <xacro:property name="origin_xy" value="0 0 0"/>
+    <xacro:property name="origin_rpy" value="0 0 0"/>
   
-  <!-- Chassis Parameters -->
-  <xacro:property name="chassis_length" value="2"/>
-  <xacro:property name="chassis_width" value="1"/>
-  <xacro:property name="chassis_height" value="0.5"/>
-  <xacro:property name="chassis_offset_x" value="0"/>
-  <xacro:property name="chassis_offset_y" value="0"/>
-  <xacro:property name="chassis_offset_z" value="0.5"/>
-  <xacro:property name="chassis_mass" value="0.5"/>
+    <!-- Chassis Parameters -->
+    <xacro:property name="chassis_length" value="2"/>
+    <xacro:property name="chassis_width" value="1"/>
+    <xacro:property name="chassis_height" value="0.5"/>
+    <xacro:property name="chassis_offset_x" value="0"/>
+    <xacro:property name="chassis_offset_y" value="0"/>
+    <xacro:property name="chassis_offset_z" value="0.5"/>
+    <xacro:property name="chassis_mass" value="0.5"/>
 
-  <!-- Wheel Parameters -->
-  <xacro:property name="pi_div_2" value="1.57"/>
-  <xacro:property name="wheel_length" value="0.08"/>
-  <xacro:property name="wheel_radius" value="0.3"/>
-  <xacro:property name="wheel_mass" value="11.3"/>
-  <xacro:property name="wheel_offset_x" value="0.8"/>
-  <xacro:property name="wheel_offset_y" value="0.5"/>
-  <xacro:property name="wheel_offset_z" value="0.3"/>
-  <xacro:property name="wheel_damping" value="0.2"/>
-  <xacro:property name="wheel_axis" value="0 0 1"/>
+    <!-- Wheel Parameters -->
+    <xacro:property name="pi_div_2" value="1.57"/>
+    <xacro:property name="wheel_length" value="0.08"/>
+    <xacro:property name="wheel_radius" value="0.3"/>
+    <xacro:property name="wheel_mass" value="11.3"/>
+    <xacro:property name="wheel_offset_x" value="0.8"/>
+    <xacro:property name="wheel_offset_y" value="0.5"/>
+    <xacro:property name="wheel_offset_z" value="0.3"/>
+    <xacro:property name="wheel_damping" value="0.2"/>
+    <xacro:property name="wheel_axis" value="0 0 1"/>
 
-  <!-- Steering Parameters -->
-  <xacro:property name="steering_mass" value="0.1"/>
-  <xacro:property name="steering_offset_x" value="0.9"/>
-  <xacro:property name="steering_axis" value="0 1 0"/>
-  <xacro:property name="steering_effort" value="1000.0"/>
-  <xacro:property name="steering_limit_upper" value="${pi_div_2}"/>
-  <xacro:property name="steering_limit_lower" value="-${pi_div_2}"/>
-  <xacro:property name="steering_velocity" value="30"/>
+    <!-- Steering Parameters -->
+    <xacro:property name="steering_mass" value="0.1"/>
+    <xacro:property name="steering_offset_x" value="0.9"/>
+    <xacro:property name="steering_axis" value="0 1 0"/>
+    <xacro:property name="steering_effort" value="1000.0"/>
+    <xacro:property name="steering_limit_upper" value="${pi_div_2}"/>
+    <xacro:property name="steering_limit_lower" value="-${pi_div_2}"/>
+    <xacro:property name="steering_velocity" value="30"/>
 
-  <!-- Base Link -->
-  <link name="base_link" />
+    <!-- Base Link -->
+    <link name="base_link" />
+
+    <!-- Base_Footprint Link -->
+
+    <joint name="base_footprint_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="base_footprint"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+
+    <link name="base_footprint">
+    </link>
 
   <!-- Chassis -->
 

@@ -67,6 +67,7 @@ def generate_launch_description():
         output='screen'
     )
 
+
     # Bridge
     bridge = Node(
         package='ros_gz_bridge',
@@ -102,5 +103,12 @@ def generate_launch_description():
         DeclareLaunchArgument(
             'use_sim_time',
             default_value=use_sim_time,
-            description='If true, use simulated clock'),
+            description='If true, use simulated clock')
+            
+        # Node(
+        #     package='nav2_stanley',  # Replace with the package name where you put tf_relay.py
+        #     executable='tf_remap',
+        #     name='tf_remap',
+        #     output='screen'
+        # )
     ])

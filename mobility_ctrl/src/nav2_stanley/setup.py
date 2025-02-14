@@ -30,6 +30,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'tf_remap = nav2_stanley.tf_remap:main',
         ],
     },
 )
