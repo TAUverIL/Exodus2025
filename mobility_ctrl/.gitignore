@@ -2,6 +2,7 @@
 build/
 install/
 log/
+src/nav2_outdoor_example
 
 # Ignore Python cache files
 *.pyc
