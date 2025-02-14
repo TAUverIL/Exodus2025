@@ -72,7 +72,11 @@ def generate_launch_description():
     bridge = Node(
         package='ros_gz_bridge',
         executable='parameter_bridge',
-        arguments=['/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock'],
+        arguments=[
+            '/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock',
+            # IMU (IGN -> ROS2)
+            '/imu@sensor_msgs/msg/Imu[ignition.msgs.IMU'
+        ],
         output='screen'
     )
 
