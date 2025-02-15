@@ -77,7 +77,9 @@ def generate_launch_description():
             # IMU (IGN -> ROS2)
             '/imu@sensor_msgs/msg/Imu[ignition.msgs.IMU',
             # GPS (IGN -> ROS2)
-            '/gps/fix@sensor_msgs/msg/NavSatFix[gz.msgs.NavSat'
+            '/gps/fix@sensor_msgs/msg/NavSatFix[gz.msgs.NavSat',
+            # CAMERA (IGN -> ROS)
+            '/camera@sensor_msgs/msg/Image@ignition.msgs.Image'
         ],
         output='screen'
     )
