@@ -31,11 +31,24 @@
         <pose>3.0 0.0 0.0 0 0 0</pose>
     </gazebo>
 
+    <gazebo reference="gnss_link">
+        <sensor name="GazeboNavSat" type="navsat">
+            <always_on>1</always_on>
+            <update_rate>25.0</update_rate>
+            <visualize>true</visualize>
+            <topic>gps/fix</topic>
+            <ignition_frame_id>gnss_link</ignition_frame_id>
+        </sensor>
+    </gazebo>
+
     <!-- Ackermann Controller -->
 
     <gazebo>
         <plugin filename="ign_ros2_control-system" name="ign_ros2_control::IgnitionROS2ControlPlugin">
             <parameters>$(find nav2_stanley)/config/ackermann_drive_controller.yaml</parameters>
+            <ros>
+                <remapping>/ackermann_steering_controller/tf_odometry:=/tf</remapping>
+            </ros>
         </plugin>
     </gazebo>
 

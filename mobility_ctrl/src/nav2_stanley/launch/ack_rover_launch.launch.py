@@ -75,7 +75,9 @@ def generate_launch_description():
         arguments=[
             '/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock',
             # IMU (IGN -> ROS2)
-            '/imu@sensor_msgs/msg/Imu[ignition.msgs.IMU'
+            '/imu@sensor_msgs/msg/Imu[ignition.msgs.IMU',
+            # GPS (IGN -> ROS2)
+            '/gps/fix@sensor_msgs/msg/NavSatFix[gz.msgs.NavSat'
         ],
         output='screen'
     )
