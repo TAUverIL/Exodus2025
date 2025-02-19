@@ -25,6 +25,10 @@
         <material>Gazebo/Black</material>
     </gazebo>
 
+    <gazebo reference="lidar_link">
+        <material>Gazebo/Red</material>
+    </gazebo>
+
     <!-- Initial Pose -->
 
     <gazebo>
@@ -68,6 +72,38 @@
             <plugin filename="libgazebo_ros_camera.so" name="ignition::gazebo::systems::Camera">
                 <ignition_frame_id>camera_link_optical</ignition_frame_id>
             </plugin>
+        </sensor>
+
+        <sensor name="depth_camera" type="rgbd_camera">
+            <always_on>true</always_on>
+            <visualize>true</visualize>
+            <update_rate>5.0</update_rate>
+            <topic>depth_camera</topic>
+            <ignition_frame_id>camera_link</ignition_frame_id>
+            <camera>
+            <horizontal_fov>1.047198</horizontal_fov>
+            <image>
+                <width>640</width>
+                <height>480</height>
+            </image>
+            <clip>
+                <near>0.05</near>
+                <far>3</far>
+            </clip>
+            </camera>
+            <baseline>0.2</baseline>
+            <pointCloudCutoff>0.5</pointCloudCutoff>
+            <pointCloudCutoffMax>3.0</pointCloudCutoffMax>
+            <distortionK1>0</distortionK1>
+            <distortionK2>0</distortionK2>
+            <distortionK3>0</distortionK3>
+            <distortionT1>0</distortionT1>
+            <distortionT2>0</distortionT2>
+            <CxPrime>0</CxPrime>
+            <Cx>0</Cx>
+            <Cy>0</Cy>
+            <focalLength>0</focalLength>
+            <hackBaseline>0</hackBaseline>
         </sensor>
     </gazebo>
 

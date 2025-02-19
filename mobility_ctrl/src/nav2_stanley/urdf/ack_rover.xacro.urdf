@@ -3,6 +3,7 @@
 
   <xacro:include filename="inertial_macros.xacro.urdf"/>
   <xacro:include filename="ack_rover_gazebo.xacro.urdf"/>
+  <xacro:include filename="lidar.xacro.urdf"/>
 
   <!-- Colours -->
   <material name="Black">
@@ -19,6 +20,9 @@
   </material>
   <material name="Blue">
     <color rgba="0.2 0.2 1 1" />
+  </material>
+  <material name="Red">
+    <color rgba="1 0.2 0.2 1" />
   </material>
   
     <!-- Origin Parameters -->
@@ -78,6 +82,9 @@
     <xacro:property name="camera_offset_z" value="0.16"/>
     <xacro:property name="camera_cyl_offset_z" value="-0.1"/>
     <xacro:property name="camera_position" value="0 0 ${chassis_height+camera_height+camera_cyl_length+camera_offset_z}"/>
+
+    <!-- LiDAR Parameters -->
+    <xacro:property name="lidar_position" value="0.5 0 ${chassis_height+imu_height+imu_offset_z}"/>
 
     <!-- Base Link -->
     <link name="base_link" />
