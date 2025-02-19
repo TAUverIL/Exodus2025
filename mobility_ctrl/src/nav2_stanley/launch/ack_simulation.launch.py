@@ -1,23 +1,12 @@
-# Copyright 2024 Open Source Robotics Foundation, Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, ExecuteProcess, IncludeLaunchDescription
 from launch.actions import RegisterEventHandler
 from launch.event_handlers import OnProcessExit
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import Command, FindExecutable, LaunchConfiguration, PathJoinSubstitution
+from launch.actions import DeclareLaunchArgument
+from launch.conditions import IfCondition, UnlessCondition
+import os
 
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
@@ -26,6 +15,9 @@ from launch_ros.substitutions import FindPackageShare
 def generate_launch_description():
     # Launch Arguments
     use_sim_time = LaunchConfiguration('use_sim_time', default=True)
+    pkg_share = FindPackageShare(package='nav2_stanley').find('nav2_stanley')
+    default_model_path = os.path.join(pkg_share, 'src', 'urdf', 'ack_rover.xacro.urdf')
+    default_rviz_config_path = os.path.join(pkg_share, 'rviz', 'config.rviz')
 
     # Get URDF via xacro
     robot_description_content = Command(
@@ -44,7 +36,8 @@ def generate_launch_description():
         package='robot_state_publisher',
         executable='robot_state_publisher',
         output='screen',
-        parameters=[robot_description]
+        parameters=[robot_description, {'use_sim_time': LaunchConfiguration('use_sim_time')}]
+        #parameters=[{'robot_description': robot_description}, {'use_sim_time': LaunchConfiguration('use_sim_time')}]
     )
 
     gz_spawn_entity = Node(
@@ -53,6 +46,14 @@ def generate_launch_description():
         output='screen',
         arguments=['-topic', 'robot_description', '-name',
                    'ack_rover', '-allow_renaming', 'true'],
+    )
+
+    joint_state_publisher_node = Node(
+        package='joint_state_publisher',
+        executable='joint_state_publisher',
+        name='joint_state_publisher',
+        parameters=[{'robot_description': Command(['xacro ', default_model_path])}],
+        condition=UnlessCondition(LaunchConfiguration('gui'))
     )
 
     load_joint_state_broadcaster = ExecuteProcess(
@@ -67,6 +68,20 @@ def generate_launch_description():
         output='screen'
     )
 
+    joint_state_publisher_gui_node = Node(
+        package='joint_state_publisher_gui',
+        executable='joint_state_publisher_gui',
+        name='joint_state_publisher_gui',
+        condition=IfCondition(LaunchConfiguration('gui'))
+    )
+
+    rviz_node = Node(
+        package='rviz2',
+        executable='rviz2',
+        name='rviz2',
+        output='screen',
+        arguments=['-d', LaunchConfiguration('rvizconfig')],
+    )
 
     # Bridge
     bridge = Node(
@@ -85,6 +100,10 @@ def generate_launch_description():
     )
 
     return LaunchDescription([
+        DeclareLaunchArgument(name='gui', default_value='True', description='Flag to enable joint_state_publisher_gui'),
+        DeclareLaunchArgument(name='use_sim_time', default_value='True', description='Flag to enable use_sim_time'),
+        DeclareLaunchArgument(name='model', default_value=default_model_path, description='Absolute path to robot model file'),
+        DeclareLaunchArgument(name='rvizconfig', default_value=default_rviz_config_path, description='Absolute path to rviz config file'),
         bridge,
         # Launch gazebo environment
         IncludeLaunchDescription(
@@ -106,17 +125,13 @@ def generate_launch_description():
             )
         ),
         node_robot_state_publisher,
+        joint_state_publisher_node,
         gz_spawn_entity,
+        joint_state_publisher_gui_node,
+        rviz_node,
         # Launch Arguments
         DeclareLaunchArgument(
             'use_sim_time',
             default_value=use_sim_time,
             description='If true, use simulated clock')
-            
-        # Node(
-        #     package='nav2_stanley',  # Replace with the package name where you put tf_relay.py
-        #     executable='tf_remap',
-        #     name='tf_remap',
-        #     output='screen'
-        # )
     ])

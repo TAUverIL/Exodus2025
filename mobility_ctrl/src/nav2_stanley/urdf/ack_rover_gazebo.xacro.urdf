@@ -78,7 +78,15 @@
             <parameters>$(find nav2_stanley)/config/ackermann_drive_controller.yaml</parameters>
             <ros>
                 <remapping>/ackermann_steering_controller/tf_odometry:=/tf</remapping>
+                <remapping>/ackermann_steering_controller/odometry:=/odom</remapping>
+                <remapping>/ackermann_steering_controller/reference_unstamped:=/cmd_vel</remapping>
             </ros>
+        </plugin>
+
+        <plugin
+            filename="gz-sim-joint-state-publisher-system"
+            name="ignition::gazebo::systems::JointStatePublisher">
+            <topic>joint_states</topic>
         </plugin>
     </gazebo>
 
