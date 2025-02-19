@@ -20,6 +20,8 @@ setup(
         (os.path.join('share', package_name, 'urdf'), glob('urdf/*.xacro.urdf')),
         # Include world files if you have any
         (os.path.join('share', package_name, 'urdf'), glob('world/*.sdf')),
+        # Include rviz files if you have any
+        (os.path.join('share', package_name, 'rviz'), glob('rviz/*.rviz')),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
