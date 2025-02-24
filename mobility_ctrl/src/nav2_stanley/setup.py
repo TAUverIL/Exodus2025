@@ -18,8 +18,9 @@ setup(
         (os.path.join('share', package_name, 'config'), glob('config/*.yaml')),
         # Include urdf files if you have any
         (os.path.join('share', package_name, 'urdf'), glob('urdf/*.xacro.urdf')),
+        (os.path.join('share', package_name, 'urdf'), glob('urdf/*.xacro')),
         # Include world files if you have any
-        (os.path.join('share', package_name, 'urdf'), glob('world/*.sdf')),
+        (os.path.join('share', package_name, 'world'), glob('world/*.sdf')),
         # Include rviz files if you have any
         (os.path.join('share', package_name, 'rviz'), glob('rviz/*.rviz')),
     ],

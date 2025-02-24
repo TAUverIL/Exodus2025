@@ -88,7 +88,7 @@
     </model>
 
     <model name="box2">
-      <pose>1 0 1 0 0 0</pose>
+      <pose>2 0 1 0 0 0</pose>
       <link name="box_link2">
         <collision name="box_collision">
           <geometry>
@@ -108,7 +108,7 @@
     </model>
 
     <model name="sph1">
-      <pose>7 2 0 0 0 0</pose>
+      <pose>9 2 0 0 0 0</pose>
       <link name="sph_link1">
         <collision name="sph_collision">
           <geometry>

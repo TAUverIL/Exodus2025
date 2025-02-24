@@ -24,7 +24,7 @@ def generate_launch_description():
     # )
 
     localization = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(os.path.join(pkg_share, 'launch/ack_localization.launch.py'))
+        PythonLaunchDescriptionSource(os.path.join(pkg_share, 'launch/ack_loc2.launch.py'))
     )
 
     # navigation = IncludeLaunchDescription(

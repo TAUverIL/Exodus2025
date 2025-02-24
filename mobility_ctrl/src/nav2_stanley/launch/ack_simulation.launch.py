@@ -18,6 +18,7 @@ def generate_launch_description():
     pkg_share = FindPackageShare(package='nav2_stanley').find('nav2_stanley')
     default_model_path = os.path.join(pkg_share, 'src', 'urdf', 'ack_rover.xacro.urdf')
     default_rviz_config_path = os.path.join(pkg_share, 'rviz', 'config.rviz')
+    default_world_path = os.path.join(pkg_share, 'world', 'world_trial.sdf')
 
     # Get URDF via xacro
     robot_description_content = Command(
@@ -90,11 +91,17 @@ def generate_launch_description():
         arguments=[
             '/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock',
             # IMU (IGN -> ROS2)
-            '/imu@sensor_msgs/msg/Imu[ignition.msgs.IMU',
+            '/imu@sensor_msgs/msg/Imu@ignition.msgs.IMU',
             # GPS (IGN -> ROS2)
-            '/gps/fix@sensor_msgs/msg/NavSatFix[gz.msgs.NavSat',
+            '/gps/fix@sensor_msgs/msg/NavSatFix@ignition.msgs.NavSat',
             # CAMERA (IGN -> ROS)
-            '/camera@sensor_msgs/msg/Image@ignition.msgs.Image'
+            '/camera@sensor_msgs/msg/Image@ignition.msgs.Image',
+            # DEPTH_CAMERA (IGN -> ROS)
+            '/depth_camera/camera_info@sensor_msgs/msg/CameraInfo@ignition.msgs.CameraInfo',
+            '/depth_camera/points@sensor_msgs/msg/PointCloud2@ignition.msgs.PointCloudPacked',
+            # LIDAR (IGN -> ROS)
+            '/scan@sensor_msgs/msg/LaserScan@ignition.msgs.LaserScan',
+            '/scan/points@sensor_msgs/msg/PointCloud2@ignition.msgs.PointCloudPacked'
         ],
         output='screen'
     )
@@ -111,7 +118,7 @@ def generate_launch_description():
                 [PathJoinSubstitution([FindPackageShare('ros_gz_sim'),
                                        'launch',
                                        'gz_sim.launch.py'])]),
-            launch_arguments=[('gz_args', [' -r -v 4 empty.sdf'])]),
+            launch_arguments=[('gz_args', f'-r -v 4 {default_world_path}')]),
         RegisterEventHandler(
             event_handler=OnProcessExit(
                 target_action=gz_spawn_entity,
