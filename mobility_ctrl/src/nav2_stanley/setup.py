@@ -14,15 +14,17 @@ setup(
         ('share/' + package_name, ['package.xml']),
         # Include all launch files
         (os.path.join('share', package_name, 'launch'), glob('launch/*.launch.py')),
-        # Include config files if you have any
-        (os.path.join('share', package_name, 'config'), glob('config/*.yaml')),
-        # Include urdf files if you have any
+        # Include config files
+        (os.path.join('share', package_name, 'config'), glob('config/*')),
+        # Include urdf files
         (os.path.join('share', package_name, 'urdf'), glob('urdf/*.xacro.urdf')),
         (os.path.join('share', package_name, 'urdf'), glob('urdf/*.xacro')),
-        # Include world files if you have any
+        # Include world files
         (os.path.join('share', package_name, 'world'), glob('world/*.sdf')),
-        # Include rviz files if you have any
+        # Include rviz files
         (os.path.join('share', package_name, 'rviz'), glob('rviz/*.rviz')),
+        # Include map files
+        (os.path.join('share', package_name, 'maps'), glob('maps/*')),
     ],
     install_requires=['setuptools'],
     zip_safe=True,

@@ -3,7 +3,6 @@
 
     <xacro:property name="chassis_height" value="0.5"/>
     
-
     <!-- LiDAR Parameters -->
     <xacro:property name="lidar_height" value="0.1"/>
     <xacro:property name="lidar_offset_z" value="0.2"/>

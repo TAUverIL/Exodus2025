@@ -1,0 +1,7 @@
+image: map_trial.png
+resolution: 0.050000
+origin: [-20, -10, 0.000000]
+# origin: [-15.800000, -15.200000, 0.000000]
+negate: 0
+occupied_thresh: 0.8
+free_thresh: 0.2

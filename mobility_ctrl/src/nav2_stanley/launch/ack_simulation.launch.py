@@ -37,7 +37,7 @@ def generate_launch_description():
         package='robot_state_publisher',
         executable='robot_state_publisher',
         output='screen',
-        parameters=[robot_description, {'use_sim_time': LaunchConfiguration('use_sim_time')}]
+        parameters=[robot_description, {'use_sim_time': use_sim_time}]
         #parameters=[{'robot_description': robot_description}, {'use_sim_time': LaunchConfiguration('use_sim_time')}]
     )
 
@@ -53,7 +53,7 @@ def generate_launch_description():
         package='joint_state_publisher',
         executable='joint_state_publisher',
         name='joint_state_publisher',
-        parameters=[{'robot_description': Command(['xacro ', default_model_path])}],
+        parameters=[{'robot_description': Command(['xacro ', default_model_path])}, {'use_sim_time': use_sim_time}],
         condition=UnlessCondition(LaunchConfiguration('gui'))
     )
 
@@ -69,12 +69,12 @@ def generate_launch_description():
         output='screen'
     )
 
-    joint_state_publisher_gui_node = Node(
-        package='joint_state_publisher_gui',
-        executable='joint_state_publisher_gui',
-        name='joint_state_publisher_gui',
-        condition=IfCondition(LaunchConfiguration('gui'))
-    )
+    # joint_state_publisher_gui_node = Node(
+    #     package='joint_state_publisher_gui',
+    #     executable='joint_state_publisher_gui',
+    #     name='joint_state_publisher_gui',
+    #     condition=IfCondition(LaunchConfiguration('gui'))
+    # )
 
     rviz_node = Node(
         package='rviz2',
@@ -82,6 +82,7 @@ def generate_launch_description():
         name='rviz2',
         output='screen',
         arguments=['-d', LaunchConfiguration('rvizconfig')],
+        parameters=[{'use_sim_time': True}],
     )
 
     # Bridge
@@ -134,7 +135,7 @@ def generate_launch_description():
         node_robot_state_publisher,
         joint_state_publisher_node,
         gz_spawn_entity,
-        joint_state_publisher_gui_node,
+        # joint_state_publisher_gui_node,
         rviz_node,
         # Launch Arguments
         DeclareLaunchArgument(

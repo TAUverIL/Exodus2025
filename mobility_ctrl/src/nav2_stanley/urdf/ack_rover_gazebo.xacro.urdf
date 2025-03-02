@@ -70,11 +70,11 @@
                 </clip>
             </camera>
             <plugin filename="libgazebo_ros_camera.so" name="ignition::gazebo::systems::Camera">
-                <ignition_frame_id>camera_link_optical</ignition_frame_id>
+                <ignition_frame_id>camera_link</ignition_frame_id>
             </plugin>
         </sensor>
 
-        <sensor name="depth_camera" type="rgbd_camera">
+        <!-- <sensor name="depth_camera" type="rgbd_camera">
             <always_on>true</always_on>
             <visualize>true</visualize>
             <update_rate>5.0</update_rate>
@@ -104,7 +104,7 @@
             <Cy>0</Cy>
             <focalLength>0</focalLength>
             <hackBaseline>0</hackBaseline>
-        </sensor>
+        </sensor> -->
     </gazebo>
 
     <!-- Ackermann Controller -->
