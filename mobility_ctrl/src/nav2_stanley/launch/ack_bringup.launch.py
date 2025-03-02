@@ -19,6 +19,10 @@ def generate_launch_description():
         PythonLaunchDescriptionSource(os.path.join(pkg_share, 'launch/ack_simulation.launch.py'))
     )
 
+    navigation = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(os.path.join(pkg_share, 'launch/ack_nav.launch.py'))
+    )
+
     # visualization = IncludeLaunchDescription(
     #     PythonLaunchDescriptionSource(os.path.join(pkg_share, 'launch/visualization.launch.py'))
     # )
@@ -27,16 +31,13 @@ def generate_launch_description():
         PythonLaunchDescriptionSource(os.path.join(pkg_share, 'launch/ack_loc2.launch.py'))
     )
 
-    # navigation = IncludeLaunchDescription(
-    #     PythonLaunchDescriptionSource(os.path.join(pkg_share, 'launch/navigation.launch.py'))
-    # )
 
     return LaunchDescription(
         [
             simulation,
+            navigation,
             # visualization,
-            localization,
-            # navigation,
+            localization
         ]
     )
 

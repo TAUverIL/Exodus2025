@@ -1,0 +1,28 @@
+planner_server:
+ros__parameters:
+  expected_planner_frequency: 20.0
+  use_sim_time: false
+  planner_plugins: ["GridBased"]
+  GridBased:
+    plugin: "nav2_smac_planner/SmacPlannerHybrid"
+
+map_server:
+  ros__parameters:
+    use_sim_time: false
+    # Overridden in launch by the "map" launch configuration or provided default value.
+    # To use in yaml, remove the default "map" value in the tb3_simulation_launch.py file & provide full path to map below.
+    yaml_filename: "config/ack_map.yaml"
+
+lifecycle_manager:
+  ros__parameters:
+    autostart: true
+    node_names: ['planner_server', 'controller_server']
+    # node_names: ['controller_server', 'planner_server', 'behavior_server', 'bt_navigator', 'waypoint_follower']
+    bond_timeout: 4.0
+    attempt_respawn_reconnection: true
+
+controller_server:
+  ros__parameters:
+    controller_plugins: ["FollowPath"]
+    FollowPath:
+       plugin: "dwb_core/DWBLocalPlanner"
