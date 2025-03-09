@@ -68,7 +68,7 @@
     </model>
 
     <model name="box1">
-      <pose>-3 0 0.5 0 0 0</pose>
+      <pose>-3 0 7 0 0 0</pose>
       <link name="box_link1">
         <collision name="box_collision">
           <geometry>
@@ -88,7 +88,7 @@
     </model>
 
     <model name="box2">
-      <pose>2 0 1 0 0 0</pose>
+      <pose>2 -7 1 0 0 0</pose>
       <link name="box_link2">
         <collision name="box_collision">
           <geometry>
@@ -121,6 +121,46 @@
           <geometry>
             <sphere>
               <radius>5</radius>
+            </sphere>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="sph2">
+      <pose>11 -13 0 0 0 0</pose>
+      <link name="sph_link2">
+        <collision name="sph_collision2">
+          <geometry>
+            <sphere>
+              <radius>3</radius> <!-- Size of the ball -->
+            </sphere>
+          </geometry>
+        </collision>
+        <visual name="sph_visual2">
+          <geometry>
+            <sphere>
+              <radius>3</radius>
+            </sphere>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="sph3">
+      <pose>11 17 0 0 0 0</pose>
+      <link name="sph_link3">
+        <collision name="sph_collision3">
+          <geometry>
+            <sphere>
+              <radius>3</radius> <!-- Size of the ball -->
+            </sphere>
+          </geometry>
+        </collision>
+        <visual name="sph_visual3">
+          <geometry>
+            <sphere>
+              <radius>3</radius>
             </sphere>
           </geometry>
         </visual>
