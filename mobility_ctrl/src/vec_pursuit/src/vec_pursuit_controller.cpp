@@ -215,7 +215,7 @@ void VecPursuitController::cleanup()
   RCLCPP_INFO(
     logger_,
     "Cleaning up controller: %s of type"
-    " vec_pursuit_controller::VecPursuitController",
+    "vec_pursuit_controller::VecPursuitController",
     plugin_name_.c_str());
     global_path_pub_.reset();
     target_pub_.reset();
