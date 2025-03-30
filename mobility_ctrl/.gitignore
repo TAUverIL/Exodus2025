@@ -2,7 +2,12 @@
 build/
 install/
 log/
+src/build
+src/install
+src/log
 src/nav2_outdoor_example
+src/f1_tenth_ros2
+src/.vscode/c_cpp_properties.json
 
 # Ignore Python cache files
 *.pyc
