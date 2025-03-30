@@ -20,7 +20,7 @@ setup(
         (os.path.join('share', package_name, 'urdf'), glob('urdf/*.xacro.urdf')),
         (os.path.join('share', package_name, 'urdf'), glob('urdf/*.xacro')),
         # Include world files
-        (os.path.join('share', package_name, 'world'), glob('world/*.sdf')),
+        (os.path.join('share', package_name, 'world'), glob('world/*')),
         # Include rviz files
         (os.path.join('share', package_name, 'rviz'), glob('rviz/*.rviz')),
         # Include map files
