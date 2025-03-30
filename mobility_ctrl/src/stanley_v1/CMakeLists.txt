@@ -1,54 +1,71 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.8)
 project(stanley_v1)
 
-# Default to C++14
-if(NOT CMAKE_CXX_STANDARD)
-  set(CMAKE_CXX_STANDARD 14)
-endif()
-
-# Find dependencies
-find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
-find_package(rclcpp_lifecycle REQUIRED)
+find_package(nav2_common REQUIRED)
 find_package(nav2_core REQUIRED)
-find_package(pluginlib REQUIRED)
+find_package(nav2_util REQUIRED)
+find_package(nav2_costmap_2d REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(nav_msgs REQUIRED)
+find_package(nav2_msgs REQUIRED)
+find_package(pluginlib REQUIRED)
+find_package(tf2 REQUIRED)
+find_package(tf2_geometry_msgs REQUIRED)
 find_package(tf2_ros REQUIRED)
 
-# Include headers from the include/ folder
-include_directories(include)
+nav2_package()
+set(CMAKE_CXX_STANDARD 17)
 
-# Build the shared library from your source file
-add_library(${PROJECT_NAME} SHARED
-  src/stanley_controller.cpp
+include_directories(
+  include
 )
-ament_target_dependencies(${PROJECT_NAME}
+
+set(dependencies
   rclcpp
-  rclcpp_lifecycle
+  nav2_common
   nav2_core
-  pluginlib
+  nav2_util
+  nav2_costmap_2d
   geometry_msgs
   nav_msgs
+  nav2_msgs
+  pluginlib
+  tf2
+  tf2_geometry_msgs
   tf2_ros
 )
 
-# Install the shared library to the lib directory
-install(TARGETS ${PROJECT_NAME}
+set(library_name stanley_v1)
+
+add_library(${library_name} SHARED
+        src/stanley_controller.cpp)
+
+ament_target_dependencies(${library_name}
+  ${dependencies}
+)
+
+install(TARGETS ${library_name}
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION bin
 )
 
-# Install the header files so that they are available for other packages
-install(DIRECTORY include/
-  DESTINATION include
+install(
+  DIRECTORY include/
+  DESTINATION include/
 )
 
-# Install the plugin description file for pluginlib
-install(FILES plugin_description.xml
-  DESTINATION share/${PROJECT_NAME}
-)
+# if(BUILD_TESTING)
+#   find_package(ament_lint_auto REQUIRED)
+#   set(ament_cmake_copyright_FOUND TRUE)
+#   ament_lint_auto_find_test_dependencies()
+#   add_subdirectory(test)
+# endif()
+
+ament_export_include_directories(include)
+ament_export_libraries(${library_name})
+ament_export_dependencies(${dependencies})
 
 pluginlib_export_plugin_description_file(nav2_core plugin_description.xml)
 

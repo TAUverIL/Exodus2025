@@ -139,8 +139,10 @@ controller_server:
       xy_goal_tolerance: 0.25
       yaw_goal_tolerance: 0.25
     # Vector Pursuit parameters - demo: vector_pursuit_controller::VectorPursuitController
+    # FollowPath:
+    #   plugin: "vec_pursuit_controller::VecPursuitController"
     FollowPath:
-      plugin: "vec_pursuit_controller::VecPursuitController"
+      plugin: "stanley_controller::StanleyController"
     # Stanley:
     #   plugin: "stanley_controller::StanleyController"
 
