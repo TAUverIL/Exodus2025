@@ -1,18 +1,4 @@
-// Copyright (c) 2020 Shrijit Singh
-// Copyright (c) 2020 Samsung Research America
-// Copyright (c) 2024 Black Coffee Robotics
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//     http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+// Stanley Algorithm HPP Code
 
 #ifndef STANLEY__STANLEY_CONTROLLER_HPP_
 #define STANLEY__STANLEY_CONTROLLER_HPP_
@@ -56,7 +42,7 @@ public:
    * @param parent WeakPtr to node
    * @param name Name of plugin
    * @param tf TF buffer
-   * @param costmap_ros Costmap2DROS object of environment
+   * @param costmap_ros Costmap2DROS object of environment taken from Nav2
    */
   void configure(
     const rclcpp_lifecycle::LifecycleNode::WeakPtr & parent,
@@ -78,6 +64,25 @@ public:
    */
   void deactivate() override;
 
+  /** 
+   * Parameters that we need for Stanley:
+   * Pose: geometry_msgs/msg/PoseStamped has Point values for x,y -> current x,y values of rover
+   * Distance between waypoints: need access to full path vector, add function for distance calculation
+   * Create a hash table for interpolation if necessary
+   */
+
+   // calculate the distance between two points (any), return double
+   static double computeDistance(double x1, double y1, double x2, double y2); 
+
+   // makes a short vector of nearest waypoints, find closest
+   void findNearestWpt(const geometry_msgs::msg::PoseStamped & robot_pose, const nav_msgs::msg::Path & global_plan_); 
+
+   void computeCrossTrackError(); // use pose and yaw (AckermannDrive msg), L (?) and wpt position
+
+   void computePID();
+
+   void computeSteeringAngle();
+
   /**
    * @brief Compute the best command given the current pose and velocity, with possible debug information
    *
@@ -85,10 +90,10 @@ public:
    * If the results pointer is not null, additional information about the twists
    * evaluated will be in results after the call.
    *
-   * @param pose      Current robot pose
-   * @param velocity  Current robot velocity
-   * @param goal_checker   Ptr to the goal checker for this task in case useful in computing commands
-   * @return          Best command
+   * @param pose            Current robot pose
+   * @param velocity        Current robot velocity
+   * @param goal_checker    Ptr to the goal checker for this task in case useful in computing commands
+   * @return                Best command
    */
   geometry_msgs::msg::TwistStamped computeVelocityCommands(
     const geometry_msgs::msg::PoseStamped & pose,
@@ -304,7 +309,9 @@ protected:
   rclcpp::Logger logger_ {rclcpp::get_logger("StanleyController")};
   rclcpp::Clock::SharedPtr clock_;
 
-  double k_;
+  // Stanley parameters
+  double k_, epsilon_;
+
   double desired_linear_vel_, base_desired_linear_vel_;
   double lookahead_dist_;
   double rotate_to_heading_angular_vel_;

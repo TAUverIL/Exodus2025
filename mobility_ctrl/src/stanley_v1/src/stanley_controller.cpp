@@ -1,18 +1,4 @@
-// Copyright (c) 2020 Shrijit Singh
-// Copyright (c) 2020 Samsung Research America
-// Copyright (c) 2024 Black Coffee Robotics
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//     http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+// Stanley Algorithm CPP Code
 
 #include <algorithm>
 #include <string>
@@ -55,6 +41,20 @@ void StanleyController::configure(
   double transform_tolerance = 0.1;
   double control_frequency = 20.0;
   goal_dist_tol_ = 0.25;  // reasonable default before first update
+
+  // Stanley parameter declaration
+
+  declare_parameter_if_not_declared(
+    node, plugin_name_ + ".k", rclcpp::ParameterValue(1.0));
+
+  declare_parameter_if_not_declared(
+    node, plugin_name_ + ".epsilon", rclcpp::ParameterValue(1e-9));
+
+  node->get_parameter(plugin_name_ + ".k", k_);
+
+  node->get_parameter(plugin_name_ + ".epsilon", epsilon_);
+
+  // end of stanley params
 
   declare_parameter_if_not_declared(
     node, plugin_name_ + ".k", rclcpp::ParameterValue(8.0));
@@ -254,6 +254,30 @@ void StanleyController::deactivate()
     dyn_params_handler_.reset();
 }
 
+double StanleyController::computeDistance(double x1, double y1, double x2, double y2) {
+  return std::sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
+}
+
+void StanleyController::setPlan(const nav_msgs::msg::Path & path)
+{
+  global_plan_ = path;
+}
+
+void StanleyController::findNearestWpt(const geometry_msgs::msg::PoseStamped & robot_pose, const nav_msgs::msg::Path & global_plan_) {
+  
+  std::vector<double> distances;
+  double curr_x = robot_pose.pose.position.x;
+  double curr_y = robot_pose.pose.position.y;
+
+  for (size_t i = 0; i < global_plan_.poses.size(); i++) {
+      double path_x = global_plan_.poses[i].pose.position.x;
+      double path_y = global_plan_.poses[i].pose.position.y;
+      distances.push_back(StanleyController::computeDistance(path_x, path_y, curr_x, curr_y));
+      RCLCPP_INFO(logger_, "Current X: %.2f Current Y: %.2f Waypoint Dist: %.2f", curr_x, curr_y, distances[i]);
+  }
+  
+}
+
 double StanleyController::getLookAheadDistance(
   const geometry_msgs::msg::Twist & speed)
 {
@@ -398,6 +422,9 @@ geometry_msgs::msg::TwistStamped StanleyController::computeVelocityCommands(
   // Use speed instead when branch with the fix is merged.
   last_cmd_vel_ = speed;
   last_cmd_vel_ = cmd_vel.twist;
+
+  findNearestWpt(pose, global_plan_);
+
   return cmd_vel;
 }
 
@@ -653,11 +680,6 @@ geometry_msgs::msg::PoseStamped StanleyController::getLookAheadPoint(
     }
   }
   return pose;
-}
-
-void StanleyController::setPlan(const nav_msgs::msg::Path & path)
-{
-  global_plan_ = path;
 }
 
 void StanleyController::rotateToHeading(
