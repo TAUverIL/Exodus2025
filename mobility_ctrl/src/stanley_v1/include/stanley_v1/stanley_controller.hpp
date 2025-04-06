@@ -77,11 +77,16 @@ public:
    // makes a short vector of nearest waypoints, find closest
    void findNearestWpt(const geometry_msgs::msg::PoseStamped & robot_pose, const nav_msgs::msg::Path & global_plan_); 
 
-   void computeCrossTrackError(); // use pose and yaw (AckermannDrive msg), L (?) and wpt position
+   // Normalize angle
+   static double getNormalizedAngle(double angle);
+   
+   // use pose and yaw (AckermannDrive msg), L (?) and wpt position
+   void computeCrossTrackError(const geometry_msgs::msg::PoseStamped & robot_pose, 
+    const nav_msgs::msg::Path & global_plan_, double wheel_base, double target_idx);
 
    void computePID();
 
-   void computeSteeringAngle();
+   void computeSteeringAngle(const geometry_msgs::msg::PoseStamped & robot_pose, double vel);
 
   /**
    * @brief Compute the best command given the current pose and velocity, with possible debug information
@@ -311,6 +316,9 @@ protected:
 
   // Stanley parameters
   double k_, epsilon_;
+  double wheel_base_; 
+  double target_idx_ = 0.0;
+  double error_front_axle_ = 0.0;
 
   double desired_linear_vel_, base_desired_linear_vel_;
   double lookahead_dist_;

@@ -50,9 +50,14 @@ void StanleyController::configure(
   declare_parameter_if_not_declared(
     node, plugin_name_ + ".epsilon", rclcpp::ParameterValue(1e-9));
 
+    declare_parameter_if_not_declared(
+      node, plugin_name_ + ".wheel_base", rclcpp::ParameterValue(1.6));
+
   node->get_parameter(plugin_name_ + ".k", k_);
 
   node->get_parameter(plugin_name_ + ".epsilon", epsilon_);
+
+  node->get_parameter(plugin_name_ + ".wheel_base", wheel_base_);
 
   // end of stanley params
 
@@ -273,9 +278,70 @@ void StanleyController::findNearestWpt(const geometry_msgs::msg::PoseStamped & r
       double path_x = global_plan_.poses[i].pose.position.x;
       double path_y = global_plan_.poses[i].pose.position.y;
       distances.push_back(StanleyController::computeDistance(path_x, path_y, curr_x, curr_y));
-      RCLCPP_INFO(logger_, "Current X: %.2f Current Y: %.2f Waypoint Dist: %.2f", curr_x, curr_y, distances[i]);
+      // RCLCPP_INFO(logger_, "Current X: %.2f Current Y: %.2f Path X: %.2f Path Y: %.2f Waypoint Dist: %.2f", curr_x, curr_y, path_x, path_y, distances[i]);
   }
+
+  // auto min_dist = std::min_element(distances.begin() , distances.end());
+  // RCLCPP_INFO(logger_, "Distance to nearest point: %.2f", *min_dist);
+
+}
+
+double StanleyController::getNormalizedAngle(double angle) {
+  if (angle > M_PI) angle -= 2 * M_PI;
+  if (angle < -M_PI) angle += 2 * M_PI;
+  return angle;
+}
+
+void StanleyController::computeCrossTrackError(const geometry_msgs::msg::PoseStamped & robot_pose, 
+  const nav_msgs::msg::Path & global_plan_, double wheel_base_, double target_idx_) {
   
+  double curr_x = robot_pose.pose.position.x;
+  double curr_y = robot_pose.pose.position.y;
+  double curr_yaw = StanleyController::getNormalizedAngle(tf2::getYaw(robot_pose.pose.orientation));
+
+  double front_x = curr_x + (wheel_base_/2) * cos(curr_yaw);
+  double front_y = curr_y + (wheel_base_/2) * sin(curr_yaw);
+
+  double min_dist = std::numeric_limits<double>::max();
+
+  for (size_t i = 0; i < global_plan_.poses.size(); i++) {
+      double path_x = global_plan_.poses[i].pose.position.x;
+      double path_y = global_plan_.poses[i].pose.position.y;
+      double dist = StanleyController::computeDistance(path_x, path_y, front_x, front_y);
+      
+      if (dist < min_dist) {
+        min_dist = dist;
+        target_idx_ = i;
+      }
+  }
+
+  double front_axle_vec[2] = {-std::cos(curr_yaw + M_PI / 2), -std::sin(curr_yaw + M_PI / 2)};
+  
+  error_front_axle_ = (front_x - global_plan_.poses[target_idx_].pose.position.x) * front_axle_vec[0] 
+      + (front_y - global_plan_.poses[target_idx_].pose.position.y) * front_axle_vec[1];
+
+  RCLCPP_INFO(logger_, "Front X: %.3f Front Y: %.3f Target Idx: %.2f Error: %.3f", front_x, front_y, target_idx_, error_front_axle_);
+
+}
+
+void StanleyController::computeSteeringAngle(const geometry_msgs::msg::PoseStamped & robot_pose,
+    double vel) {
+  double curr_yaw = StanleyController::getNormalizedAngle(tf2::getYaw(robot_pose.pose.orientation));
+
+  double first_x = global_plan_.poses.front().pose.position.x;
+  double last_x = global_plan_.poses.back().pose.position.x;
+
+  double first_y = global_plan_.poses.front().pose.position.y;
+  double last_y = global_plan_.poses.back().pose.position.y;
+
+  double yaw_path = StanleyController::getNormalizedAngle(std::atan2(last_y - first_y, last_x - first_x));
+
+  double theta_e = StanleyController::getNormalizedAngle(yaw_path - curr_yaw);
+  double delta_t = std::atan2(k_ * error_front_axle_, vel);
+  double delta =  StanleyController::getNormalizedAngle(theta_e + delta_t);
+
+  RCLCPP_INFO(logger_, "Yaw Path: %.3f Theta E: %.3f Error FA: %.3f, Vel: %.2f, Delta T: %.5f Delta: %.3f", yaw_path, theta_e, error_front_axle_, vel, delta_t, delta);
+
 }
 
 double StanleyController::getLookAheadDistance(
@@ -424,6 +490,10 @@ geometry_msgs::msg::TwistStamped StanleyController::computeVelocityCommands(
   last_cmd_vel_ = cmd_vel.twist;
 
   findNearestWpt(pose, global_plan_);
+
+  computeCrossTrackError(pose, global_plan_, wheel_base_, target_idx_);
+
+  computeSteeringAngle(pose, linear_vel);
 
   return cmd_vel;
 }
