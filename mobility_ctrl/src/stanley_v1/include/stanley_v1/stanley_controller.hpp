@@ -76,14 +76,14 @@ public:
    static double computeDistance(double x1, double y1, double x2, double y2); 
 
    // makes a short vector of nearest waypoints, find closest
-   void findNearestWpt(const geometry_msgs::msg::PoseStamped & robot_pose, const nav_msgs::msg::Path & global_plan_); 
+   void findNearestWpt(const geometry_msgs::msg::PoseStamped & robot_pose); 
 
    // Normalize angle
    static double getNormalizedAngle(double angle);
    
    // use pose and yaw (AckermannDrive msg), L (?) and wpt position
    void computeCrossTrackError(const geometry_msgs::msg::PoseStamped & robot_pose, 
-    const nav_msgs::msg::Path & global_plan_, double wheel_base, int target_idx);
+     double wheel_base, int target_idx);
 
    void computePID();
 
