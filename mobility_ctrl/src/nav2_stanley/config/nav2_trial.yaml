@@ -144,6 +144,9 @@ controller_server:
     FollowPath:
       plugin: "stanley_controller::StanleyController"
       wheel_base: 1.6
+      min_lookahead_dist: 1.0
+      max_lookahead_dist: 2.0
+      allow_reversing: true
 
 local_costmap:
   local_costmap:
@@ -157,12 +160,13 @@ local_costmap:
       width: 3
       height: 3
       resolution: 0.05
-      robot_radius: 0.22
+      # footprint: "[[-1.0, -0.7], [1.0, -0.7], [1.0, 0.7], [-1.0, 0.7]]"
+      robot_radius: 0.6
       plugins: ["voxel_layer", "inflation_layer"]
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
-        cost_scaling_factor: 3.0
-        inflation_radius: 0.55
+        cost_scaling_factor: 1.0
+        inflation_radius: 1.0
       voxel_layer:
         plugin: "nav2_costmap_2d::VoxelLayer"
         enabled: True
@@ -196,7 +200,8 @@ global_costmap:
       global_frame: map
       robot_base_frame: base_link
       use_sim_time: True
-      robot_radius: 0.22
+      # footprint: "[[-0.6, -0.7], [0.6, -0.7], [0.6, 0.7], [-0.6, 0.7]]"
+      robot_radius: 0.6
       resolution: 0.05
       track_unknown_space: true
       plugins: ["static_layer", "obstacle_layer", "inflation_layer"]
@@ -219,8 +224,8 @@ global_costmap:
         map_subscribe_transient_local: True
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
-        cost_scaling_factor: 3.0
-        inflation_radius: 0.55
+        cost_scaling_factor: 1.5
+        inflation_radius: 1.0
       always_send_full_costmap: True
 
 map_server:
@@ -245,6 +250,7 @@ planner_server:
     planner_plugins: ["GridBased"]
     GridBased:
       plugin: "nav2_smac_planner/SmacPlannerHybrid"
+      cost_penalty: 4.0
 
 smoother_server:
   ros__parameters:

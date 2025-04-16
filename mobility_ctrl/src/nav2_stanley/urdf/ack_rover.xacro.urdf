@@ -215,7 +215,7 @@
 
   <joint name="left_wheel_steering_joint" type="revolute">
 
-    <origin xyz="${steering_offset_x} -${wheel_offset_y} ${wheel_offset_z}" rpy="${pi_div_2} 0 0" />
+    <origin xyz="${steering_offset_x} ${wheel_offset_y} ${wheel_offset_z}" rpy="${pi_div_2} 0 0" />
     <parent link="chassis" />
     <child link="left_wheel_steering" />
     <axis xyz="${steering_axis}" />
@@ -236,7 +236,7 @@
 
   <joint name="right_wheel_steering_joint" type="revolute">
 
-    <origin xyz="${steering_offset_x} ${wheel_offset_y} ${wheel_offset_z}" rpy="${pi_div_2} 0 0" />
+    <origin xyz="${steering_offset_x} -${wheel_offset_y} ${wheel_offset_z}" rpy="${pi_div_2} 0 0" />
     <parent link="chassis" />
     <child link="right_wheel_steering" />
     <axis xyz="${steering_axis}" />

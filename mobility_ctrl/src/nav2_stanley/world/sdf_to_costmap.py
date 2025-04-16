@@ -34,7 +34,7 @@ sdf_data = r"""<?xml version="1.0"?>
     </model>
 
     <model name="sph1">
-      <pose>9 2 0 0 0 0</pose>
+      <pose>16 2 0 0 0 0</pose>
       <link name="sph_link1">
         <collision name="sph_collision">
           <geometry>
