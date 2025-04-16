@@ -18,6 +18,7 @@ def generate_launch_description():
     pkg_share = FindPackageShare(package='nav2_stanley').find('nav2_stanley')
     default_model_path = os.path.join(pkg_share, 'src', 'urdf', 'ack_rover.xacro.urdf')
     default_rviz_config_path = os.path.join(pkg_share, 'rviz', 'config.rviz')
+    # default_world_path = os.path.join(pkg_share, 'world', 'empty.sdf')
     default_world_path = os.path.join(pkg_share, 'world', 'world_trial.sdf')
 
     # Get URDF via xacro

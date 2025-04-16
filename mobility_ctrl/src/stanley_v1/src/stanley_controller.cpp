@@ -13,6 +13,7 @@
 #include "nav2_core/exceptions.hpp"
 #include "nav2_util/node_utils.hpp"
 #include "nav2_costmap_2d/costmap_filters/filter_values.hpp"
+#include "visualization_msgs/msg/marker.hpp"
 
 using nav2_util::declare_parameter_if_not_declared;
 using nav2_util::geometry_utils::euclidean_distance;
@@ -208,6 +209,7 @@ void StanleyController::configure(
   global_path_pub_ = node->create_publisher<nav_msgs::msg::Path>("received_global_plan", 1);
   target_pub_ = node->create_publisher<geometry_msgs::msg::PoseStamped>("lookahead_point", 1);
   target_arc_pub_ = node->create_publisher<nav_msgs::msg::Path>("lookahead_collision_arc", 1);
+  marker_pub_ = node->create_publisher<visualization_msgs::msg::Marker>("/visualization_marker", 10);
 
   // initialize collision checker and set costmap
   collision_checker_ = std::make_unique<nav2_costmap_2d::
@@ -225,6 +227,7 @@ void StanleyController::cleanup()
     global_path_pub_.reset();
     target_pub_.reset();
     target_arc_pub_.reset();
+    marker_pub_.reset();
 }
 
 void StanleyController::activate()
@@ -237,6 +240,7 @@ void StanleyController::activate()
     global_path_pub_->on_activate();
     target_pub_->on_activate();
     target_arc_pub_->on_activate();
+    // marker_pub_->on_activate();
     // Add callback for dynamic parameters
     auto node = node_.lock();
     dyn_params_handler_ = node->add_on_set_parameters_callback(
@@ -256,6 +260,7 @@ void StanleyController::deactivate()
     global_path_pub_->on_deactivate();
     target_pub_->on_deactivate();
     target_arc_pub_->on_deactivate();
+    // marker_pub_->on_deactivate();
     dyn_params_handler_.reset();
 }
 
@@ -281,8 +286,8 @@ void StanleyController::findNearestWpt(const geometry_msgs::msg::PoseStamped & r
       // RCLCPP_INFO(logger_, "Current X: %.2f Current Y: %.2f Path X: %.2f Path Y: %.2f Waypoint Dist: %.2f", curr_x, curr_y, path_x, path_y, distances[i]);
   }
 
-  // auto min_dist = std::min_element(distances.begin() , distances.end());
-  // RCLCPP_INFO(logger_, "Distance to nearest point: %.2f", *min_dist);
+  auto min_dist = std::min_element(distances.begin() , distances.end());
+  RCLCPP_INFO(logger_, "Distance to nearest point: %.2f", *min_dist);
 
 }
 
@@ -293,7 +298,7 @@ double StanleyController::getNormalizedAngle(double angle) {
 }
 
 void StanleyController::computeCrossTrackError(const geometry_msgs::msg::PoseStamped & robot_pose, 
-  const nav_msgs::msg::Path & global_plan_, double wheel_base_, double target_idx_) {
+  const nav_msgs::msg::Path & global_plan_, double wheel_base_, int target_idx_) {
   
   double curr_x = robot_pose.pose.position.x;
   double curr_y = robot_pose.pose.position.y;
@@ -320,7 +325,7 @@ void StanleyController::computeCrossTrackError(const geometry_msgs::msg::PoseSta
   error_front_axle_ = (front_x - global_plan_.poses[target_idx_].pose.position.x) * front_axle_vec[0] 
       + (front_y - global_plan_.poses[target_idx_].pose.position.y) * front_axle_vec[1];
 
-  RCLCPP_INFO(logger_, "Front X: %.3f Front Y: %.3f Target Idx: %.2f Error: %.3f", front_x, front_y, target_idx_, error_front_axle_);
+  RCLCPP_INFO(logger_, "Front X: %.3f Front Y: %.3f Target Idx: %d Error: %.3f", front_x, front_y, target_idx_, error_front_axle_);
 
 }
 
@@ -494,6 +499,56 @@ geometry_msgs::msg::TwistStamped StanleyController::computeVelocityCommands(
   computeCrossTrackError(pose, global_plan_, wheel_base_, target_idx_);
 
   computeSteeringAngle(pose, linear_vel);
+  
+  // Markers
+
+  visualization_msgs::msg::Marker marker;
+  marker.header = global_plan_.header;
+  marker.ns = "stanley_controller";
+  marker.id = 0;
+  marker.type = visualization_msgs::msg::Marker::SPHERE_LIST;
+  marker.action = visualization_msgs::msg::Marker::ADD;
+
+  // Size of each sphere
+  marker.scale.x = 0.1;
+  marker.scale.y = 0.1;
+  marker.scale.z = 0.1;
+
+  // Green color
+  marker.points.clear();
+  marker.colors.clear();
+
+  for (size_t i = 0; i < global_plan_.poses.size(); ++i)
+  {
+      const auto & pose_stamped = global_plan_.poses[i];
+
+      geometry_msgs::msg::Point pt;
+      pt.x = pose_stamped.pose.position.x;
+      pt.y = pose_stamped.pose.position.y;
+      pt.z = 0.1;
+
+      std_msgs::msg::ColorRGBA color;
+      if (static_cast<int>(i) == target_idx_)
+      {
+          color.r = 1.0f;
+          color.g = 0.0f;
+          color.b = 0.0f;
+          color.a = 1.0f; // Red for target
+      }
+      else
+      {
+          color.r = 0.0f;
+          color.g = 1.0f;
+          color.b = 0.0f;
+          color.a = 1.0f; // Green for regular points
+      }
+      marker.points.push_back(pt);
+      marker.colors.push_back(color);
+  }
+
+  marker_pub_->publish(marker);
+
+  // End Markers
 
   return cmd_vel;
 }
