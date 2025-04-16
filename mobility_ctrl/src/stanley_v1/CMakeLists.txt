@@ -13,6 +13,7 @@ find_package(pluginlib REQUIRED)
 find_package(tf2 REQUIRED)
 find_package(tf2_geometry_msgs REQUIRED)
 find_package(tf2_ros REQUIRED)
+find_package(visualization_msgs REQUIRED)
 
 nav2_package()
 set(CMAKE_CXX_STANDARD 17)
@@ -28,6 +29,7 @@ set(dependencies
   nav2_util
   nav2_costmap_2d
   geometry_msgs
+  visualization_msgs
   nav_msgs
   nav2_msgs
   pluginlib

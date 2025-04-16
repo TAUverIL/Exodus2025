@@ -20,6 +20,7 @@
 #include "geometry_msgs/msg/pose_stamped.hpp"
 #include "geometry_msgs/msg/quaternion.hpp"
 #include "tf2_geometry_msgs/tf2_geometry_msgs.hpp"
+#include "visualization_msgs/msg/marker.hpp"
 
 namespace stanley_controller
 {
@@ -82,7 +83,7 @@ public:
    
    // use pose and yaw (AckermannDrive msg), L (?) and wpt position
    void computeCrossTrackError(const geometry_msgs::msg::PoseStamped & robot_pose, 
-    const nav_msgs::msg::Path & global_plan_, double wheel_base, double target_idx);
+    const nav_msgs::msg::Path & global_plan_, double wheel_base, int target_idx);
 
    void computePID();
 
@@ -360,6 +361,7 @@ protected:
   std::shared_ptr<rclcpp_lifecycle::LifecyclePublisher<nav_msgs::msg::Path>> target_arc_pub_;
   std::unique_ptr<nav2_costmap_2d::FootprintCollisionChecker<nav2_costmap_2d::Costmap2D *>>
   collision_checker_;
+  rclcpp::Publisher<visualization_msgs::msg::Marker>::SharedPtr marker_pub_;
 
   // Dynamic parameters handler
   std::mutex mutex_;
