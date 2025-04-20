@@ -292,9 +292,11 @@ void StanleyController::findNearestWpt(const geometry_msgs::msg::PoseStamped & r
   }
 
   auto min_dist = std::min_element(distances.begin() , distances.end());
+
   size_t index = std::distance(distances.begin(), min_dist);
 
   RCLCPP_INFO(logger_, "Distance to nearest point: %.2f , with Index: %ld", *min_dist, index);
+
 
 }
 
@@ -305,8 +307,9 @@ double StanleyController::getNormalizedAngle(double angle) {
 }
 
 void StanleyController::computeCrossTrackError(const geometry_msgs::msg::PoseStamped & robot_pose, 
+
   double wheel_base_, int target_idx_) {
-  
+
   nav_msgs::msg::Path transformed_plan = transformGlobalPlan(robot_pose);
 
   double curr_yaw = StanleyController::getNormalizedAngle(tf2::getYaw(robot_pose.pose.orientation));
