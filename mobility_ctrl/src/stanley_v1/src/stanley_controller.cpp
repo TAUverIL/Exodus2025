@@ -292,7 +292,7 @@ void StanleyController::findNearestWpt(const geometry_msgs::msg::PoseStamped & r
   
   auto min_dist = std::min_element(distances.begin() , distances.end());
   size_t index = std::distance(distances.begin(), min_dist);
-  double Closest_Point_X = transformed_plan.poses[index].pose.position.x ;
+  double Closest_Point_X = transformed_plan.poses[index].pose.position.x;
   double Closest_Point_Y = transformed_plan.poses[index].pose.position.y;
 
   RCLCPP_INFO(logger_, "Closest Point (X Y) in Robot TF: (%.2f %.2f)", Closest_Point_X, Closest_Point_Y);
@@ -329,10 +329,15 @@ void StanleyController::computeCrossTrackError(const geometry_msgs::msg::PoseSta
       }
   }
 
+  // computes the unit vector 90 degrees shifted from the current rover direction
   double front_axle_vec[2] = {-std::cos(curr_yaw + M_PI / 2), -std::sin(curr_yaw + M_PI / 2)};
+
+  double Closest_Point_X = transformed_plan.poses[target_idx_].pose.position.x;
+  double Closest_Point_Y = transformed_plan.poses[target_idx_].pose.position.y;
   
-  error_front_axle_ = (front_x - transformed_plan.poses[target_idx_].pose.position.x) * front_axle_vec[0] 
-      + (front_y - transformed_plan.poses[target_idx_].pose.position.y) * front_axle_vec[1];
+  // dot product between the unit vector above and the X and Y errors of the rover direction
+  error_front_axle_ = (front_x - Closest_Point_X) * front_axle_vec[0] 
+      + (front_y - Closest_Point_Y) * front_axle_vec[1];
 
   RCLCPP_INFO(logger_, "Cross Track Error: %.3f", error_front_axle_);
 
@@ -341,6 +346,7 @@ void StanleyController::computeCrossTrackError(const geometry_msgs::msg::PoseSta
 void StanleyController::computeSteeringAngle(const geometry_msgs::msg::PoseStamped & robot_pose,
     double vel) {
   double curr_yaw = StanleyController::getNormalizedAngle(tf2::getYaw(robot_pose.pose.orientation));
+  double curr_yaw_deg = (curr_yaw * 180) / M_PI;
 
   double first_x = global_plan_.poses.front().pose.position.x;
   double last_x = global_plan_.poses.back().pose.position.x;
@@ -348,13 +354,22 @@ void StanleyController::computeSteeringAngle(const geometry_msgs::msg::PoseStamp
   double first_y = global_plan_.poses.front().pose.position.y;
   double last_y = global_plan_.poses.back().pose.position.y;
 
+  // tangential yaw of the global path - FIXME change this to closest points only for accuracy
   double yaw_path = StanleyController::getNormalizedAngle(std::atan2(last_y - first_y, last_x - first_x));
+  double yaw_path_deg = (yaw_path * 180) / M_PI;
 
+  // theta_e is the angle error between the rover and global path angles
   double theta_e = StanleyController::getNormalizedAngle(yaw_path - curr_yaw);
+  double theta_e_deg = (theta_e * 180) / M_PI;
+  
+  // delta_t is the adjustment to rover angle to correct the cross track error (uses e(t))
   double delta_t = std::atan2(k_ * error_front_axle_, vel);
+
+  // delta is the final adjustment to the rover angle, adds the theta_e adjustment
   double delta =  StanleyController::getNormalizedAngle(theta_e + delta_t);
 
-  RCLCPP_INFO(logger_, "Yaw Path: %.3f Theta E: %.3f Error FA: %.3f, Vel: %.2f, Delta T: %.5f Delta: %.3f", yaw_path, theta_e, error_front_axle_, vel, delta_t, delta);
+  // RCLCPP_INFO(logger_, "Rover Yaw: %.3f Yaw Path: %.3f Theta E: %.3f, Vel: %.2f", curr_yaw_deg, yaw_path_deg, theta_e_deg, vel);
+  RCLCPP_INFO(logger_, "Rover Yaw: %.3f Yaw Path: %.3f Theta E: %.3f Delta T: %.5f Delta: %.3f", curr_yaw_deg, yaw_path_deg, theta_e_deg, delta_t, delta);
 
 }
 
