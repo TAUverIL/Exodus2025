@@ -1,9 +1,0 @@
-source;share/gazebo_ackermann_control/hook/pythonpath.ps1
-source;share/gazebo_ackermann_control/hook/pythonpath.dsv
-source;share/gazebo_ackermann_control/hook/pythonpath.sh
-source;share/gazebo_ackermann_control/hook/ament_prefix_path.ps1
-source;share/gazebo_ackermann_control/hook/ament_prefix_path.dsv
-source;share/gazebo_ackermann_control/hook/ament_prefix_path.sh
-source;../../build/gazebo_ackermann_control/share/gazebo_ackermann_control/hook/pythonpath_develop.ps1
-source;../../build/gazebo_ackermann_control/share/gazebo_ackermann_control/hook/pythonpath_develop.dsv
-source;../../build/gazebo_ackermann_control/share/gazebo_ackermann_control/hook/pythonpath_develop.sh

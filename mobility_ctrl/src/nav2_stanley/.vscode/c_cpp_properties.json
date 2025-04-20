@@ -18,7 +18,6 @@
         "/home/brittc/ros2_ws/install/controller_manager_msgs/include/**",
         "/home/brittc/ros2_ws/install/control_msgs/include/**",
         "/opt/ros/humble/include/**",
-        "/home/brittc/Exodus2025/mobility_ctrl/src/navigation2_ignition_gazebo_turtlebot3/turtlebot3/include/**",
         "/usr/include/**"
       ],
       "name": "ROS",

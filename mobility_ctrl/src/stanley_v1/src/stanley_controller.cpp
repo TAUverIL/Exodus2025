@@ -273,21 +273,30 @@ void StanleyController::setPlan(const nav_msgs::msg::Path & path)
   global_plan_ = path;
 }
 
-void StanleyController::findNearestWpt(const geometry_msgs::msg::PoseStamped & robot_pose, const nav_msgs::msg::Path & global_plan_) {
+void StanleyController::findNearestWpt(const geometry_msgs::msg::PoseStamped & robot_pose) {
   
   std::vector<double> distances;
-  double curr_x = robot_pose.pose.position.x;
-  double curr_y = robot_pose.pose.position.y;
 
-  for (size_t i = 0; i < global_plan_.poses.size(); i++) {
-      double path_x = global_plan_.poses[i].pose.position.x;
-      double path_y = global_plan_.poses[i].pose.position.y;
-      distances.push_back(StanleyController::computeDistance(path_x, path_y, curr_x, curr_y));
+  // FIXME edit transformed global plan to verify that it corresponds with Stanley parameters
+  nav_msgs::msg::Path transformed_plan = transformGlobalPlan(robot_pose);
+
+  // RCLCPP_INFO(logger_, "Transformed plan has %zu poses", transformed_plan.poses.size());
+
+  distances.clear();
+
+  for (size_t i = 0; i < transformed_plan.poses.size(); i++) {
+      double path_x = transformed_plan.poses[i].pose.position.x;
+      double path_y = transformed_plan.poses[i].pose.position.y;
+      distances.push_back(StanleyController::computeDistance(path_x, path_y, 0, 0));
       // RCLCPP_INFO(logger_, "Current X: %.2f Current Y: %.2f Path X: %.2f Path Y: %.2f Waypoint Dist: %.2f", curr_x, curr_y, path_x, path_y, distances[i]);
   }
 
   auto min_dist = std::min_element(distances.begin() , distances.end());
-  RCLCPP_INFO(logger_, "Distance to nearest point: %.2f", *min_dist);
+
+  size_t index = std::distance(distances.begin(), min_dist);
+
+  RCLCPP_INFO(logger_, "Distance to nearest point: %.2f , with Index: %ld", *min_dist, index);
+
 
 }
 
@@ -298,20 +307,21 @@ double StanleyController::getNormalizedAngle(double angle) {
 }
 
 void StanleyController::computeCrossTrackError(const geometry_msgs::msg::PoseStamped & robot_pose, 
-  const nav_msgs::msg::Path & global_plan_, double wheel_base_, int target_idx_) {
-  
-  double curr_x = robot_pose.pose.position.x;
-  double curr_y = robot_pose.pose.position.y;
+
+  double wheel_base_, int target_idx_) {
+
+  nav_msgs::msg::Path transformed_plan = transformGlobalPlan(robot_pose);
+
   double curr_yaw = StanleyController::getNormalizedAngle(tf2::getYaw(robot_pose.pose.orientation));
 
-  double front_x = curr_x + (wheel_base_/2) * cos(curr_yaw);
-  double front_y = curr_y + (wheel_base_/2) * sin(curr_yaw);
+  double front_x = (wheel_base_/2) * cos(curr_yaw);
+  double front_y = (wheel_base_/2) * sin(curr_yaw);
 
   double min_dist = std::numeric_limits<double>::max();
 
-  for (size_t i = 0; i < global_plan_.poses.size(); i++) {
-      double path_x = global_plan_.poses[i].pose.position.x;
-      double path_y = global_plan_.poses[i].pose.position.y;
+  for (size_t i = 0; i < transformed_plan.poses.size(); i++) {
+      double path_x = transformed_plan.poses[i].pose.position.x;
+      double path_y = transformed_plan.poses[i].pose.position.y;
       double dist = StanleyController::computeDistance(path_x, path_y, front_x, front_y);
       
       if (dist < min_dist) {
@@ -322,8 +332,8 @@ void StanleyController::computeCrossTrackError(const geometry_msgs::msg::PoseSta
 
   double front_axle_vec[2] = {-std::cos(curr_yaw + M_PI / 2), -std::sin(curr_yaw + M_PI / 2)};
   
-  error_front_axle_ = (front_x - global_plan_.poses[target_idx_].pose.position.x) * front_axle_vec[0] 
-      + (front_y - global_plan_.poses[target_idx_].pose.position.y) * front_axle_vec[1];
+  error_front_axle_ = (front_x - transformed_plan.poses[target_idx_].pose.position.x) * front_axle_vec[0] 
+      + (front_y - transformed_plan.poses[target_idx_].pose.position.y) * front_axle_vec[1];
 
   RCLCPP_INFO(logger_, "Front X: %.3f Front Y: %.3f Target Idx: %d Error: %.3f", front_x, front_y, target_idx_, error_front_axle_);
 
@@ -494,9 +504,9 @@ geometry_msgs::msg::TwistStamped StanleyController::computeVelocityCommands(
   last_cmd_vel_ = speed;
   last_cmd_vel_ = cmd_vel.twist;
 
-  findNearestWpt(pose, global_plan_);
+  findNearestWpt(pose);
 
-  computeCrossTrackError(pose, global_plan_, wheel_base_, target_idx_);
+  computeCrossTrackError(pose, wheel_base_, target_idx_);
 
   computeSteeringAngle(pose, linear_vel);
   
