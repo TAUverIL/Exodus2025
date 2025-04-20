@@ -268,6 +268,12 @@ double StanleyController::computeDistance(double x1, double y1, double x2, doubl
   return std::sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
 }
 
+double StanleyController::getNormalizedAngle(double angle) {
+  if (angle > M_PI) angle -= 2 * M_PI;
+  if (angle < -M_PI) angle += 2 * M_PI;
+  return angle;
+}
+
 void StanleyController::setPlan(const nav_msgs::msg::Path & path)
 {
   global_plan_ = path;
@@ -298,12 +304,6 @@ void StanleyController::findNearestWpt(const geometry_msgs::msg::PoseStamped & r
   RCLCPP_INFO(logger_, "Closest Point (X Y) in Robot TF: (%.2f %.2f)", Closest_Point_X, Closest_Point_Y);
   RCLCPP_INFO(logger_, "Distance to nearest point: %.2f , with Index: %ld", *min_dist, index);
 
-}
-
-double StanleyController::getNormalizedAngle(double angle) {
-  if (angle > M_PI) angle -= 2 * M_PI;
-  if (angle < -M_PI) angle += 2 * M_PI;
-  return angle;
 }
 
 void StanleyController::computeCrossTrackError(const geometry_msgs::msg::PoseStamped & robot_pose, 
@@ -349,10 +349,12 @@ void StanleyController::computeSteeringAngle(const geometry_msgs::msg::PoseStamp
   double curr_yaw_deg = (curr_yaw * 180) / M_PI;
 
   double first_x = global_plan_.poses.front().pose.position.x;
-  double last_x = global_plan_.poses.back().pose.position.x;
+  // double last_x = global_plan_.poses.back().pose.position.x;
+  double last_x = global_plan_.poses[50].pose.position.x;
 
   double first_y = global_plan_.poses.front().pose.position.y;
-  double last_y = global_plan_.poses.back().pose.position.y;
+  // double last_y = global_plan_.poses.back().pose.position.y;
+  double last_y = global_plan_.poses[50].pose.position.y;
 
   // tangential yaw of the global path - FIXME change this to closest points only for accuracy
   double yaw_path = StanleyController::getNormalizedAngle(std::atan2(last_y - first_y, last_x - first_x));
@@ -364,12 +366,15 @@ void StanleyController::computeSteeringAngle(const geometry_msgs::msg::PoseStamp
   
   // delta_t is the adjustment to rover angle to correct the cross track error (uses e(t))
   double delta_t = std::atan2(k_ * error_front_axle_, vel);
+  double delta_t_deg = (delta_t * 180) / M_PI;
 
   // delta is the final adjustment to the rover angle, adds the theta_e adjustment
   double delta =  StanleyController::getNormalizedAngle(theta_e + delta_t);
+  double delta_deg = (delta * 180) / M_PI;
 
   // RCLCPP_INFO(logger_, "Rover Yaw: %.3f Yaw Path: %.3f Theta E: %.3f, Vel: %.2f", curr_yaw_deg, yaw_path_deg, theta_e_deg, vel);
-  RCLCPP_INFO(logger_, "Rover Yaw: %.3f Yaw Path: %.3f Theta E: %.3f Delta T: %.5f Delta: %.3f", curr_yaw_deg, yaw_path_deg, theta_e_deg, delta_t, delta);
+  RCLCPP_INFO(logger_, "Rover Yaw: %.3f Yaw Path: %.3f Theta E: %.3f", curr_yaw_deg, yaw_path_deg, theta_e_deg);
+  RCLCPP_INFO(logger_, "Delta T: %.5f Delta: %.3f", delta_t_deg, delta_deg);
 
 }
 
