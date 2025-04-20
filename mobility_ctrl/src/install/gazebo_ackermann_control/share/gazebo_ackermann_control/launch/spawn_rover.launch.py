@@ -1,1 +1,0 @@
-/home/brittc/Exodus2025/mobility_ctrl/src/build/gazebo_ackermann_control/launch/spawn_rover.launch.py
