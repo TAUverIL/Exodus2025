@@ -288,15 +288,15 @@ void StanleyController::findNearestWpt(const geometry_msgs::msg::PoseStamped & r
       double path_x = transformed_plan.poses[i].pose.position.x;
       double path_y = transformed_plan.poses[i].pose.position.y;
       distances.push_back(StanleyController::computeDistance(path_x, path_y, 0, 0));
-      // RCLCPP_INFO(logger_, "Current X: %.2f Current Y: %.2f Path X: %.2f Path Y: %.2f Waypoint Dist: %.2f", curr_x, curr_y, path_x, path_y, distances[i]);
   }
-
+  
   auto min_dist = std::min_element(distances.begin() , distances.end());
-
   size_t index = std::distance(distances.begin(), min_dist);
+  double Closest_Point_X = transformed_plan.poses[index].pose.position.x ;
+  double Closest_Point_Y = transformed_plan.poses[index].pose.position.y;
 
+  RCLCPP_INFO(logger_, "Closest Point (X Y) in Robot TF: (%.2f %.2f)", Closest_Point_X, Closest_Point_Y);
   RCLCPP_INFO(logger_, "Distance to nearest point: %.2f , with Index: %ld", *min_dist, index);
-
 
 }
 
@@ -307,9 +307,8 @@ double StanleyController::getNormalizedAngle(double angle) {
 }
 
 void StanleyController::computeCrossTrackError(const geometry_msgs::msg::PoseStamped & robot_pose, 
-
   double wheel_base_, int target_idx_) {
-
+  
   nav_msgs::msg::Path transformed_plan = transformGlobalPlan(robot_pose);
 
   double curr_yaw = StanleyController::getNormalizedAngle(tf2::getYaw(robot_pose.pose.orientation));
@@ -335,7 +334,7 @@ void StanleyController::computeCrossTrackError(const geometry_msgs::msg::PoseSta
   error_front_axle_ = (front_x - transformed_plan.poses[target_idx_].pose.position.x) * front_axle_vec[0] 
       + (front_y - transformed_plan.poses[target_idx_].pose.position.y) * front_axle_vec[1];
 
-  RCLCPP_INFO(logger_, "Front X: %.3f Front Y: %.3f Target Idx: %d Error: %.3f", front_x, front_y, target_idx_, error_front_axle_);
+  RCLCPP_INFO(logger_, "Cross Track Error: %.3f", error_front_axle_);
 
 }
 
