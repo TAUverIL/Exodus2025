@@ -159,6 +159,7 @@ local_costmap:
       height: 3
       resolution: 0.05
       # footprint: "[[-1.0, -0.7], [1.0, -0.7], [1.0, 0.7], [-1.0, 0.7]]"
+      # footprint: "[ [1.0, 0.7], [1.0, -0.7], [-1.0, -0.7], [-1.0, 0.7] ]" # new
       robot_radius: 0.6
       plugins: ["voxel_layer", "inflation_layer"]
       inflation_layer:

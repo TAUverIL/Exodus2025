@@ -58,17 +58,19 @@ void StanleyController::configure(
   declare_parameter_if_not_declared(
     node, plugin_name_ + ".max_wpts", rclcpp::ParameterValue(20));
 
+    declare_parameter_if_not_declared(
+      node, plugin_name_ + ".desired_linear_vel", rclcpp::ParameterValue(1.1));
+
   node->get_parameter(plugin_name_ + ".k", k_);
   node->get_parameter(plugin_name_ + ".epsilon", epsilon_);
   node->get_parameter(plugin_name_ + ".wheel_base", wheel_base_);
   node->get_parameter(plugin_name_ + ".max_wpts", max_wpts_);
+  node->get_parameter(plugin_name_ + ".desired_linear_vel", desired_linear_vel_);
 
   // end of stanley params
 
   declare_parameter_if_not_declared(
     node, plugin_name_ + ".k", rclcpp::ParameterValue(8.0));
-  declare_parameter_if_not_declared(
-    node, plugin_name_ + ".desired_linear_vel", rclcpp::ParameterValue(0.5));
   declare_parameter_if_not_declared(
     node, plugin_name_ + ".min_turning_radius", rclcpp::ParameterValue(1.0));
   declare_parameter_if_not_declared(
@@ -133,7 +135,6 @@ void StanleyController::configure(
     rclcpp::ParameterValue(true));
 
   node->get_parameter(plugin_name_ + ".k", k_);
-  node->get_parameter(plugin_name_ + ".desired_linear_vel", desired_linear_vel_);
   base_desired_linear_vel_ = desired_linear_vel_;
   node->get_parameter(plugin_name_ + ".min_turning_radius", min_turning_radius_);
   node->get_parameter(
@@ -353,13 +354,16 @@ double StanleyController::computeCrossTrackError(const geometry_msgs::msg::PoseS
   return cte;
 
 }
+double StanleyController::computeSpeed(double k, double target_vel, geometry_msgs::msg::Twist curr_vel) {
+  return k * (target_vel - curr_vel.linear.x);
+}
 
-void StanleyController::computeSteeringAngle(const geometry_msgs::msg::PoseStamped & robot_pose,
+double StanleyController::computeSteeringAngle(const geometry_msgs::msg::PoseStamped & robot_pose,
     double vel) {
 
   // rover yaw
   double curr_yaw = StanleyController::getNormalizedAngle(tf2::getYaw(robot_pose.pose.orientation));
-  double curr_yaw_deg = StanleyController::radToDeg(curr_yaw);
+  // double curr_yaw_deg = StanleyController::radToDeg(curr_yaw);
 
   double first_x = global_plan_.poses.front().pose.position.x;
   double last_x = global_plan_.poses[max_wpts_].pose.position.x;
@@ -368,26 +372,33 @@ void StanleyController::computeSteeringAngle(const geometry_msgs::msg::PoseStamp
   double last_y = global_plan_.poses[max_wpts_].pose.position.y;
 
   double yaw_path = StanleyController::getNormalizedAngle(std::atan2(last_y - first_y, last_x - first_x));
-  double yaw_path_deg = StanleyController::radToDeg(yaw_path);
+  // double yaw_path_deg = StanleyController::radToDeg(yaw_path);
 
   // angle_err is the angle error between the rover and global path angles
   double angle_err = StanleyController::getNormalizedAngle(yaw_path - curr_yaw);
-  double angle_err_deg = StanleyController::radToDeg(angle_err);
+  // double angle_err_deg = StanleyController::radToDeg(angle_err);
   
   // track_err_corr is the adjustment to rover angle to correct the cross track error
   double cte = StanleyController::computeCrossTrackError(robot_pose);
   double xtrack_err_corr = std::atan2(k_ * cte, vel);
-  double xtrack_err_corr_deg = StanleyController::radToDeg(xtrack_err_corr);
+  // double xtrack_err_corr_deg = StanleyController::radToDeg(xtrack_err_corr);
 
   // delta is the final adjustment to the rover angle, adds the angle_err adjustment
   double delta =  StanleyController::getNormalizedAngle(angle_err + xtrack_err_corr);
   double delta_deg = StanleyController::radToDeg(delta);
 
   // RCLCPP_INFO(logger_, "Rover Yaw: %.3f Yaw Path: %.3f Theta E: %.3f, Vel: %.2f", curr_yaw_deg, yaw_path_deg, theta_e_deg, vel);
-  RCLCPP_INFO(logger_, "Rover Yaw: %.3f Yaw Path: %.3f Angle Error: %.3f", curr_yaw_deg, yaw_path_deg, angle_err_deg);
-  RCLCPP_INFO(logger_, "X-Track Correction: %.5f Delta: %.3f", xtrack_err_corr_deg, delta_deg);
+  // RCLCPP_INFO(logger_, "Rover Yaw: %.3f Yaw Path: %.3f Angle Error: %.3f", curr_yaw_deg, yaw_path_deg, angle_err_deg);
+  // RCLCPP_INFO(logger_, "X-Track Correction: %.5f Delta: %.3f", xtrack_err_corr_deg, delta_deg);
+
+  return delta_deg;
 
 }
+
+// void StanleyController::publishAckermannDrive(double speed, double steering_angle) {
+//   ackermann_msgs::msg::AckermannDriveStamped drive_msg;
+
+// }
 
 double StanleyController::getLookAheadDistance(
   const geometry_msgs::msg::Twist & speed)
@@ -534,11 +545,18 @@ geometry_msgs::msg::TwistStamped StanleyController::computeVelocityCommands(
   last_cmd_vel_ = speed;
   last_cmd_vel_ = cmd_vel.twist;
 
+  double cte, target_angle;
+
   findNearestWpt(pose);
 
-  computeCrossTrackError(pose);
+  cte = computeCrossTrackError(pose);
 
-  computeSteeringAngle(pose, linear_vel);
+  target_angle = computeSteeringAngle(pose, linear_vel);
+
+  double stanley_vel;
+  stanley_vel = computeSpeed(k_, desired_linear_vel_, speed);
+
+  RCLCPP_INFO(logger_, "CTE: %.3f Tgt Angle: %.3f Stanley Vel: %.3f, Tgt Vel: %.3f, Curr Vel: %.3f", cte, target_angle, stanley_vel, desired_linear_vel_, speed.linear.x);
   
   // Markers
 
@@ -1151,6 +1169,7 @@ rcl_interfaces::msg::SetParametersResult StanleyController::dynamicParametersCal
       if (name == plugin_name_ + ".k") k_ = parameter.as_double();
       else if (name == plugin_name_ + ".epsilon") epsilon_ = parameter.as_double();
       else if (name == plugin_name_ + ".wheel_base") wheel_base_ = parameter.as_double();
+      else if (name == plugin_name_ + ".desired_linear_vel") desired_linear_vel_ = parameter.as_double();
     } else if (type == ParameterType::PARAMETER_INTEGER) {
       if (name == plugin_name_ + ".max_wpts") max_wpts_ = parameter.as_int();
     }

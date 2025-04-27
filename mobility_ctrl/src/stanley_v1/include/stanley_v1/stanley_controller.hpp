@@ -91,9 +91,11 @@ public:
    double computeCrossTrackError(const geometry_msgs::msg::PoseStamped & robot_pose);
 
 
-   void computePID();
+   double computeSpeed(double k, double target_vel, geometry_msgs::msg::Twist curr_vel);
 
-   void computeSteeringAngle(const geometry_msgs::msg::PoseStamped & robot_pose, double vel);
+   double computeSteeringAngle(const geometry_msgs::msg::PoseStamped & robot_pose, double vel);
+
+  //  void StanleyController::publishAckermannDrive(double speed, double steering_angle);
 
   /**
    * @brief Compute the best command given the current pose and velocity, with possible debug information

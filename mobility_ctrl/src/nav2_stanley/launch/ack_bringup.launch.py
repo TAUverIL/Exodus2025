@@ -15,20 +15,20 @@ def generate_launch_description():
 
     pkg_share = get_package_share_directory('nav2_stanley')
 
+    # launch Gazebo simulation and spawn rover
     simulation = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(os.path.join(pkg_share, 'launch/ack_simulation.launch.py'))
     )
 
+    # Launch Nav2 packages
     navigation = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(os.path.join(pkg_share, 'launch/ack_nav.launch.py'))
     )
 
-    # visualization = IncludeLaunchDescription(
-    #     PythonLaunchDescriptionSource(os.path.join(pkg_share, 'launch/visualization.launch.py'))
-    # )
-
+    # Launch EKF node (currently only including IMU)
+    # ack_localization_ukf uses UKF node instead (not in use)
     localization = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(os.path.join(pkg_share, 'launch/ack_loc2.launch.py'))
+        PythonLaunchDescriptionSource(os.path.join(pkg_share, 'launch/ack_localization.launch.py'))
     )
 
 
@@ -36,7 +36,6 @@ def generate_launch_description():
         [
             simulation,
             navigation,
-            # visualization,
             localization
         ]
     )
