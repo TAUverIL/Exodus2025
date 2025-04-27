@@ -15,8 +15,8 @@ def generate_launch_description():
 
     pkg_share = get_package_share_directory('nav2_stanley')
 
-    # Update map file path in params file
-    params_file = os.path.join(pkg_share, 'config/nav2_trial.yaml')
+    # Update navigation parameters (find yaml file) and map file path
+    params_file = os.path.join(pkg_share, 'config/navigation.yaml')
     map_file = os.path.join(pkg_share, 'maps/ack_map.yaml')
 
     pkg_nav2_bringup = get_package_share_directory('nav2_bringup')

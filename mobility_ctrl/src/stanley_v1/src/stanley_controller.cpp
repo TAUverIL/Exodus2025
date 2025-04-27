@@ -51,21 +51,26 @@ void StanleyController::configure(
   declare_parameter_if_not_declared(
     node, plugin_name_ + ".epsilon", rclcpp::ParameterValue(1e-9));
 
+  declare_parameter_if_not_declared(
+    node, plugin_name_ + ".wheel_base", rclcpp::ParameterValue(1.6));
+
+  // number of waypoints to use when calculating global path yaw
+  declare_parameter_if_not_declared(
+    node, plugin_name_ + ".max_wpts", rclcpp::ParameterValue(20));
+
     declare_parameter_if_not_declared(
-      node, plugin_name_ + ".wheel_base", rclcpp::ParameterValue(1.6));
+      node, plugin_name_ + ".desired_linear_vel", rclcpp::ParameterValue(1.1));
 
   node->get_parameter(plugin_name_ + ".k", k_);
-
   node->get_parameter(plugin_name_ + ".epsilon", epsilon_);
-
   node->get_parameter(plugin_name_ + ".wheel_base", wheel_base_);
+  node->get_parameter(plugin_name_ + ".max_wpts", max_wpts_);
+  node->get_parameter(plugin_name_ + ".desired_linear_vel", desired_linear_vel_);
 
   // end of stanley params
 
   declare_parameter_if_not_declared(
     node, plugin_name_ + ".k", rclcpp::ParameterValue(8.0));
-  declare_parameter_if_not_declared(
-    node, plugin_name_ + ".desired_linear_vel", rclcpp::ParameterValue(0.5));
   declare_parameter_if_not_declared(
     node, plugin_name_ + ".min_turning_radius", rclcpp::ParameterValue(1.0));
   declare_parameter_if_not_declared(
@@ -130,7 +135,6 @@ void StanleyController::configure(
     rclcpp::ParameterValue(true));
 
   node->get_parameter(plugin_name_ + ".k", k_);
-  node->get_parameter(plugin_name_ + ".desired_linear_vel", desired_linear_vel_);
   base_desired_linear_vel_ = desired_linear_vel_;
   node->get_parameter(plugin_name_ + ".min_turning_radius", min_turning_radius_);
   node->get_parameter(
@@ -206,6 +210,7 @@ void StanleyController::configure(
       "Reversing will be overriden in all cases.");
   }
 
+  // publishers
   global_path_pub_ = node->create_publisher<nav_msgs::msg::Path>("received_global_plan", 1);
   target_pub_ = node->create_publisher<geometry_msgs::msg::PoseStamped>("lookahead_point", 1);
   target_arc_pub_ = node->create_publisher<nav_msgs::msg::Path>("lookahead_collision_arc", 1);
@@ -268,36 +273,8 @@ double StanleyController::computeDistance(double x1, double y1, double x2, doubl
   return std::sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
 }
 
-void StanleyController::setPlan(const nav_msgs::msg::Path & path)
-{
-  global_plan_ = path;
-}
-
-void StanleyController::findNearestWpt(const geometry_msgs::msg::PoseStamped & robot_pose) {
-  
-  std::vector<double> distances;
-
-  // FIXME edit transformed global plan to verify that it corresponds with Stanley parameters
-  nav_msgs::msg::Path transformed_plan = transformGlobalPlan(robot_pose);
-
-  // RCLCPP_INFO(logger_, "Transformed plan has %zu poses", transformed_plan.poses.size());
-
-  distances.clear();
-
-  for (size_t i = 0; i < transformed_plan.poses.size(); i++) {
-      double path_x = transformed_plan.poses[i].pose.position.x;
-      double path_y = transformed_plan.poses[i].pose.position.y;
-      distances.push_back(StanleyController::computeDistance(path_x, path_y, 0, 0));
-  }
-  
-  auto min_dist = std::min_element(distances.begin() , distances.end());
-  size_t index = std::distance(distances.begin(), min_dist);
-  double Closest_Point_X = transformed_plan.poses[index].pose.position.x ;
-  double Closest_Point_Y = transformed_plan.poses[index].pose.position.y;
-
-  RCLCPP_INFO(logger_, "Closest Point (X Y) in Robot TF: (%.2f %.2f)", Closest_Point_X, Closest_Point_Y);
-  RCLCPP_INFO(logger_, "Distance to nearest point: %.2f , with Index: %ld", *min_dist, index);
-
+double StanleyController::radToDeg(double angle) {
+  return (angle * 180) / M_PI;
 }
 
 double StanleyController::getNormalizedAngle(double angle) {
@@ -306,57 +283,122 @@ double StanleyController::getNormalizedAngle(double angle) {
   return angle;
 }
 
-void StanleyController::computeCrossTrackError(const geometry_msgs::msg::PoseStamped & robot_pose, 
-  double wheel_base_, int target_idx_) {
+void StanleyController::setPlan(const nav_msgs::msg::Path & path)
+{
+  global_plan_ = path;
+}
+
+std::pair<size_t, double> StanleyController::findNearestIndex(const nav_msgs::msg::Path & path,
+  double x_ref, double y_ref) const {
+  
+  double min_dist = std::numeric_limits<double>::max();
+  size_t best_idx = 0;
+
+  for (size_t i = 0; i < path.poses.size(); ++i) {
+    double px = path.poses[i].pose.position.x;
+    double py = path.poses[i].pose.position.y;
+
+    double d = StanleyController::computeDistance(px, py, x_ref, y_ref);
+    if (d < min_dist) {
+      min_dist = d;
+      best_idx = i;
+    }
+  }
+
+  return {best_idx, min_dist};
+
+  }
+
+void StanleyController::findNearestWpt(const geometry_msgs::msg::PoseStamped & robot_pose) {
   
   nav_msgs::msg::Path transformed_plan = transformGlobalPlan(robot_pose);
 
-  double curr_yaw = StanleyController::getNormalizedAngle(tf2::getYaw(robot_pose.pose.orientation));
+  // Find the waypoint closest to the robot origin (0,0) in that frame
+  auto [idx, min_dist] = findNearestIndex(transformed_plan, 0.0, 0.0);
 
-  double front_x = (wheel_base_/2) * cos(curr_yaw);
-  double front_y = (wheel_base_/2) * sin(curr_yaw);
+  double Closest_Point_X = transformed_plan.poses[idx].pose.position.x;
+  double Closest_Point_Y = transformed_plan.poses[idx].pose.position.y;
 
-  double min_dist = std::numeric_limits<double>::max();
-
-  for (size_t i = 0; i < transformed_plan.poses.size(); i++) {
-      double path_x = transformed_plan.poses[i].pose.position.x;
-      double path_y = transformed_plan.poses[i].pose.position.y;
-      double dist = StanleyController::computeDistance(path_x, path_y, front_x, front_y);
-      
-      if (dist < min_dist) {
-        min_dist = dist;
-        target_idx_ = i;
-      }
-  }
-
-  double front_axle_vec[2] = {-std::cos(curr_yaw + M_PI / 2), -std::sin(curr_yaw + M_PI / 2)};
-  
-  error_front_axle_ = (front_x - transformed_plan.poses[target_idx_].pose.position.x) * front_axle_vec[0] 
-      + (front_y - transformed_plan.poses[target_idx_].pose.position.y) * front_axle_vec[1];
-
-  RCLCPP_INFO(logger_, "Cross Track Error: %.3f", error_front_axle_);
+  RCLCPP_INFO(logger_,
+    "Closest Point (X Y) in Robot TF: (%.2f %.2f)", Closest_Point_X, Closest_Point_Y);
+  RCLCPP_INFO(logger_,
+    "Distance to nearest point: %.2f, with Index: %zu", min_dist, idx);
 
 }
 
-void StanleyController::computeSteeringAngle(const geometry_msgs::msg::PoseStamped & robot_pose,
-    double vel) {
+double StanleyController::computeCrossTrackError(const geometry_msgs::msg::PoseStamped & robot_pose) {
+  
+  // Transform the global plan into the robot frame
+  nav_msgs::msg::Path transformed_plan = StanleyController::transformGlobalPlan(robot_pose);
+
+  // Compute the front‐axle location with respect to the center of the rover
   double curr_yaw = StanleyController::getNormalizedAngle(tf2::getYaw(robot_pose.pose.orientation));
+  double front_x  = (wheel_base_ / 2.0) * std::cos(curr_yaw);
+  double front_y  = (wheel_base_ / 2.0) * std::sin(curr_yaw);
+
+  // Find the closest waypoint to the front axle
+  auto [target_idx, min_dist] = StanleyController::findNearestIndex(transformed_plan, front_x, front_y);
+
+  // Build the unit normal vector (90° to heading)
+  double nx = -std::cos(curr_yaw + M_PI / 2.0);
+  double ny = -std::sin(curr_yaw + M_PI / 2.0);
+
+  // Get the coordinates of that closest point
+  double Closest_Point_X = transformed_plan.poses[target_idx].pose.position.x;
+  double Closest_Point_Y = transformed_plan.poses[target_idx].pose.position.y;
+
+  // Compute cross‐track error using dot product to project onto the unit vector
+  double cte = (front_x - Closest_Point_X) * nx + (front_y - Closest_Point_Y) * ny;
+  // RCLCPP_INFO(logger_, "Cross Track Error: %.5f", cte);
+
+  return cte;
+
+}
+double StanleyController::computeSpeed(double k, double target_vel, geometry_msgs::msg::Twist curr_vel) {
+  return k * (target_vel - curr_vel.linear.x);
+}
+
+double StanleyController::computeSteeringAngle(const geometry_msgs::msg::PoseStamped & robot_pose,
+    double vel) {
+
+  // rover yaw
+  double curr_yaw = StanleyController::getNormalizedAngle(tf2::getYaw(robot_pose.pose.orientation));
+  // double curr_yaw_deg = StanleyController::radToDeg(curr_yaw);
 
   double first_x = global_plan_.poses.front().pose.position.x;
-  double last_x = global_plan_.poses.back().pose.position.x;
+  double last_x = global_plan_.poses[max_wpts_].pose.position.x;
 
   double first_y = global_plan_.poses.front().pose.position.y;
-  double last_y = global_plan_.poses.back().pose.position.y;
+  double last_y = global_plan_.poses[max_wpts_].pose.position.y;
 
   double yaw_path = StanleyController::getNormalizedAngle(std::atan2(last_y - first_y, last_x - first_x));
+  // double yaw_path_deg = StanleyController::radToDeg(yaw_path);
 
-  double theta_e = StanleyController::getNormalizedAngle(yaw_path - curr_yaw);
-  double delta_t = std::atan2(k_ * error_front_axle_, vel);
-  double delta =  StanleyController::getNormalizedAngle(theta_e + delta_t);
+  // angle_err is the angle error between the rover and global path angles
+  double angle_err = StanleyController::getNormalizedAngle(yaw_path - curr_yaw);
+  // double angle_err_deg = StanleyController::radToDeg(angle_err);
+  
+  // track_err_corr is the adjustment to rover angle to correct the cross track error
+  double cte = StanleyController::computeCrossTrackError(robot_pose);
+  double xtrack_err_corr = std::atan2(k_ * cte, vel);
+  // double xtrack_err_corr_deg = StanleyController::radToDeg(xtrack_err_corr);
 
-  RCLCPP_INFO(logger_, "Yaw Path: %.3f Theta E: %.3f Error FA: %.3f, Vel: %.2f, Delta T: %.5f Delta: %.3f", yaw_path, theta_e, error_front_axle_, vel, delta_t, delta);
+  // delta is the final adjustment to the rover angle, adds the angle_err adjustment
+  double delta =  StanleyController::getNormalizedAngle(angle_err + xtrack_err_corr);
+  double delta_deg = StanleyController::radToDeg(delta);
+
+  // RCLCPP_INFO(logger_, "Rover Yaw: %.3f Yaw Path: %.3f Theta E: %.3f, Vel: %.2f", curr_yaw_deg, yaw_path_deg, theta_e_deg, vel);
+  // RCLCPP_INFO(logger_, "Rover Yaw: %.3f Yaw Path: %.3f Angle Error: %.3f", curr_yaw_deg, yaw_path_deg, angle_err_deg);
+  // RCLCPP_INFO(logger_, "X-Track Correction: %.5f Delta: %.3f", xtrack_err_corr_deg, delta_deg);
+
+  return delta_deg;
 
 }
+
+// void StanleyController::publishAckermannDrive(double speed, double steering_angle) {
+//   ackermann_msgs::msg::AckermannDriveStamped drive_msg;
+
+// }
 
 double StanleyController::getLookAheadDistance(
   const geometry_msgs::msg::Twist & speed)
@@ -503,11 +545,18 @@ geometry_msgs::msg::TwistStamped StanleyController::computeVelocityCommands(
   last_cmd_vel_ = speed;
   last_cmd_vel_ = cmd_vel.twist;
 
+  double cte, target_angle;
+
   findNearestWpt(pose);
 
-  computeCrossTrackError(pose, wheel_base_, target_idx_);
+  cte = computeCrossTrackError(pose);
 
-  computeSteeringAngle(pose, linear_vel);
+  target_angle = computeSteeringAngle(pose, linear_vel);
+
+  double stanley_vel;
+  stanley_vel = computeSpeed(k_, desired_linear_vel_, speed);
+
+  RCLCPP_INFO(logger_, "CTE: %.3f Tgt Angle: %.3f Stanley Vel: %.3f, Tgt Vel: %.3f, Curr Vel: %.3f", cte, target_angle, stanley_vel, desired_linear_vel_, speed.linear.x);
   
   // Markers
 
@@ -535,9 +584,10 @@ geometry_msgs::msg::TwistStamped StanleyController::computeVelocityCommands(
       pt.x = pose_stamped.pose.position.x;
       pt.y = pose_stamped.pose.position.y;
       pt.z = 0.1;
-
+      
+      auto idx = StanleyController::findNearestIndex(transformed_plan).first;
       std_msgs::msg::ColorRGBA color;
-      if (static_cast<int>(i) == target_idx_)
+      if (static_cast<size_t>(i) == idx)
       {
           color.r = 1.0f;
           color.g = 0.0f;
@@ -1018,7 +1068,7 @@ nav_msgs::msg::Path StanleyController::transformGlobalPlan(
     throw nav2_core::PlannerException("Unable to transform robot pose into global plan's frame");
   }
 
-  // We'll discard points on the plan that are outside the local costmap
+  // discard points on the plan that are outside the local costmap
   double max_costmap_extent = getCostmapMaxExtent();
 
   auto closest_pose_upper_bound =
@@ -1094,6 +1144,7 @@ bool StanleyController::transformPose(
   return false;
 }
 
+// returns the size of the costmap (meters from center point to each side)
 double StanleyController::getCostmapMaxExtent() const
 {
   const double max_costmap_dim_meters = std::max(
@@ -1101,7 +1152,7 @@ double StanleyController::getCostmapMaxExtent() const
   return max_costmap_dim_meters / 2.0;
 }
 
-
+// allows us to update parameters by name during runtime
 rcl_interfaces::msg::SetParametersResult StanleyController::dynamicParametersCallback(
   std::vector<rclcpp::Parameter> parameters)
 {
@@ -1111,6 +1162,19 @@ rcl_interfaces::msg::SetParametersResult StanleyController::dynamicParametersCal
   for (auto parameter : parameters) {
     const auto & type = parameter.get_type();
     const auto & name = parameter.get_name();
+
+    // stanley parameters (can be updated using "ros2 param set /node some_param param_value")
+    
+    if (type == ParameterType::PARAMETER_DOUBLE) {
+      if (name == plugin_name_ + ".k") k_ = parameter.as_double();
+      else if (name == plugin_name_ + ".epsilon") epsilon_ = parameter.as_double();
+      else if (name == plugin_name_ + ".wheel_base") wheel_base_ = parameter.as_double();
+      else if (name == plugin_name_ + ".desired_linear_vel") desired_linear_vel_ = parameter.as_double();
+    } else if (type == ParameterType::PARAMETER_INTEGER) {
+      if (name == plugin_name_ + ".max_wpts") max_wpts_ = parameter.as_int();
+    }
+
+    // old vector pursuit parameters
 
     if (type == ParameterType::PARAMETER_DOUBLE) {
       if (name == plugin_name_ + ".inflation_cost_scaling_factor") {

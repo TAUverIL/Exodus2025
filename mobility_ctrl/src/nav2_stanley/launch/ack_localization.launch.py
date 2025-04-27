@@ -7,57 +7,27 @@ from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch_ros.actions import Node
 
+import os
+
+from launch.actions import DeclareLaunchArgument
+from launch.substitutions import LaunchConfiguration
 
 def generate_launch_description():
 
     pkg_share = get_package_share_directory('nav2_stanley')
 
-  
-    map_transform_node = Node(
-        package='tf2_ros',
-        executable='static_transform_publisher',
-        name='map_transform',
-        output='screen',
-        arguments = "--x -1 --y 0 --z 0 --roll 0 --pitch 0 --yaw 0 --frame-id map --child-frame-id odom".split(' '),
-        )
-    
-    navsat_transform_node = Node(
+    ekf_localization_node = Node(
         package='robot_localization',
-        executable='navsat_transform_node',
-        name='navsat_transform_node',
+        executable='ekf_node',
+        name='ekf_node',
         output='screen',
-        parameters=[{
-            "magnetic_declination_radians": 0.0,
-            "yaw_offset": 0.0,
-            "zero_altitude": True,
-            "use_odometry_yaw": False,
-            "wait_for_datum": False,
-            "publish_filtered_gps": False,
-            "broadcast_utm_transform": False,
-            "use_simtime": True,
-        }],
-        remappings=[
-            ('/odometry/filtered', '/odom'),
-        ]
-        )
-
-    ukf_localization_node = Node(
-        package='robot_localization',
-        executable='ukf_node',
-        name='ukf_node',
-        output='screen',
-        respawn=True,
-        parameters=[os.path.join(pkg_share, 'config/ukf.yaml')],
-        remappings=[
-            ('/odometry/filtered', '/odom'),
-        ]
+        parameters=[os.path.join(pkg_share, 'config/ekf.yaml'), {'use_sim_time': LaunchConfiguration('use_sim_time')}]
         )
 
     return LaunchDescription(
         [
-            ukf_localization_node,
-            navsat_transform_node,
-            map_transform_node,
+            DeclareLaunchArgument(name='use_sim_time', default_value='True', description='Flag to enable use_sim_time'),
+            ekf_localization_node
         ]
     )
 

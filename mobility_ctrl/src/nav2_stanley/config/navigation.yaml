@@ -120,7 +120,6 @@ controller_server:
     progress_checker_plugin: "progress_checker"
     goal_checker_plugins: ["general_goal_checker"] # "precise_goal_checker"
     controller_plugins: ["FollowPath"]
-    # controller_plugins: ["Stanley"]
 
     # Progress checker parameters
     progress_checker:
@@ -138,15 +137,14 @@ controller_server:
       plugin: "nav2_controller::SimpleGoalChecker"
       xy_goal_tolerance: 0.25
       yaw_goal_tolerance: 0.25
-    # Vector Pursuit parameters - demo: vector_pursuit_controller::VectorPursuitController
-    # FollowPath:
-    #   plugin: "vec_pursuit_controller::VecPursuitController"
+    # Stanley parameters - vector pursuit demo: vector_pursuit_controller::VectorPursuitController
     FollowPath:
       plugin: "stanley_controller::StanleyController"
       wheel_base: 1.6
       min_lookahead_dist: 1.0
       max_lookahead_dist: 2.0
       allow_reversing: true
+      max_wpts: 20              # Number of waypoints to use for calculating global plan yaw angle
 
 local_costmap:
   local_costmap:
@@ -161,6 +159,7 @@ local_costmap:
       height: 3
       resolution: 0.05
       # footprint: "[[-1.0, -0.7], [1.0, -0.7], [1.0, 0.7], [-1.0, 0.7]]"
+      # footprint: "[ [1.0, 0.7], [1.0, -0.7], [-1.0, -0.7], [-1.0, 0.7] ]" # new
       robot_radius: 0.6
       plugins: ["voxel_layer", "inflation_layer"]
       inflation_layer:

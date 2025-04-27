@@ -72,8 +72,14 @@ public:
    * Create a hash table for interpolation if necessary
    */
 
-   // calculate the distance between two points (any), return double
+   // calculates the distance between two points (any), return double
    static double computeDistance(double x1, double y1, double x2, double y2); 
+
+   static double radToDeg(double angle);
+   
+   // finds the nearest index on a path object to a certain reference point (x_ref, y_ref)
+   std::pair<size_t, double> findNearestIndex(const nav_msgs::msg::Path & path,
+     double x_ref = 0.0, double y_ref = 0.0) const;
 
    // makes a short vector of nearest waypoints, find closest
    void findNearestWpt(const geometry_msgs::msg::PoseStamped & robot_pose); 
@@ -82,13 +88,14 @@ public:
    static double getNormalizedAngle(double angle);
    
    // use pose and yaw (AckermannDrive msg), L (?) and wpt position
-   void computeCrossTrackError(const geometry_msgs::msg::PoseStamped & robot_pose, 
-     double wheel_base, int target_idx);
+   double computeCrossTrackError(const geometry_msgs::msg::PoseStamped & robot_pose);
 
 
-   void computePID();
+   double computeSpeed(double k, double target_vel, geometry_msgs::msg::Twist curr_vel);
 
-   void computeSteeringAngle(const geometry_msgs::msg::PoseStamped & robot_pose, double vel);
+   double computeSteeringAngle(const geometry_msgs::msg::PoseStamped & robot_pose, double vel);
+
+  //  void StanleyController::publishAckermannDrive(double speed, double steering_angle);
 
   /**
    * @brief Compute the best command given the current pose and velocity, with possible debug information
@@ -319,8 +326,8 @@ protected:
   // Stanley parameters
   double k_, epsilon_;
   double wheel_base_; 
-  double target_idx_ = 0.0;
-  double error_front_axle_ = 0.0;
+  // int target_idx_ = 0;
+  int max_wpts_ = 20;
 
   double desired_linear_vel_, base_desired_linear_vel_;
   double lookahead_dist_;
