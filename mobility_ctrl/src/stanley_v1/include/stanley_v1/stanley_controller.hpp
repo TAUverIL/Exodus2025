@@ -135,8 +135,8 @@ public:
    * @param target_pose The target pose to calculate the turning radius
    * @return The turning radius of the robot
    */
-  double calcTurningRadius(
-    const geometry_msgs::msg::PoseStamped & target_pose);
+  // double calcTurningRadius(
+  //   const geometry_msgs::msg::PoseStamped & target_pose);
 
   /**
    * @brief Limits the maximum linear speed of the robot.
@@ -170,137 +170,137 @@ protected:
     const geometry_msgs::msg::PoseStamped & in_pose,
     geometry_msgs::msg::PoseStamped & out_pose) const;
 
-  /**
-   * @brief Get lookahead distance
-   * @param cmd the current speed to use to compute lookahead point
-   * @return lookahead distance
-   */
-  double getLookAheadDistance(const geometry_msgs::msg::Twist &);
+  // /**
+  //  * @brief Get lookahead distance
+  //  * @param cmd the current speed to use to compute lookahead point
+  //  * @return lookahead distance
+  //  */
+  // double getLookAheadDistance(const geometry_msgs::msg::Twist &);
 
-  /**
-   * @brief Find the intersection a circle and a line segment.
-   * This assumes the circle is centered at the origin.
-   * If no intersection is found, a floating point error will occur.
-   * @param p1 first endpoint of line segment
-   * @param p2 second endpoint of line segment
-   * @param r radius of circle
-   * @return point of intersection
-   */
-  static geometry_msgs::msg::Point circleSegmentIntersection(
-    const geometry_msgs::msg::Point & p1,
-    const geometry_msgs::msg::Point & p2,
-    double r);
+  // /**
+  //  * @brief Find the intersection a circle and a line segment.
+  //  * This assumes the circle is centered at the origin.
+  //  * If no intersection is found, a floating point error will occur.
+  //  * @param p1 first endpoint of line segment
+  //  * @param p2 second endpoint of line segment
+  //  * @param r radius of circle
+  //  * @return point of intersection
+  //  */
+  // static geometry_msgs::msg::Point circleSegmentIntersection(
+  //   const geometry_msgs::msg::Point & p1,
+  //   const geometry_msgs::msg::Point & p2,
+  //   double r);
 
-  /**
-   * @brief checks for collision at projected pose
-   * @param x Pose of pose x
-   * @param y Pose of pose y
-   * @param theta orientation of Yaw
-   * @return Whether in collision
-   */
-  bool inCollision(
-    const double & x,
-    const double & y,
-    const double & theta);
+  // /**
+  //  * @brief checks for collision at projected pose
+  //  * @param x Pose of pose x
+  //  * @param y Pose of pose y
+  //  * @param theta orientation of Yaw
+  //  * @return Whether in collision
+  //  */
+  // bool inCollision(
+  //   const double & x,
+  //   const double & y,
+  //   const double & theta);
 
-  /**
-   * @brief Whether collision is imminent
-   * @param robot_pose Pose of robot
-   * @param linear_vel linear velocity to forward project
-   * @param angular_vel angular velocity to forward project
-   * @param target_dist Distance to the lookahead point
-   * @return Whether collision is imminent
-   */
-  bool isCollisionImminent(
-    const geometry_msgs::msg::PoseStamped & robot_pose,
-    const double & linear_vel, const double & angular_vel,
-    const double & target_dist);
+  // /**
+  //  * @brief Whether collision is imminent
+  //  * @param robot_pose Pose of robot
+  //  * @param linear_vel linear velocity to forward project
+  //  * @param angular_vel angular velocity to forward project
+  //  * @param target_dist Distance to the lookahead point
+  //  * @return Whether collision is imminent
+  //  */
+  // bool isCollisionImminent(
+  //   const geometry_msgs::msg::PoseStamped & robot_pose,
+  //   const double & linear_vel, const double & angular_vel,
+  //   const double & target_dist);
 
-  /**
-    * @brief Get lookahead point
-    * @param lookahead_dist Optimal lookahead distance
-    * @param path Current global path
-    * @return Lookahead point
-    * @details The lookahead point could:
-    * 1. Be discrete/interpolated
-    * 2. Have a heading:
-    *    a. Directly from path (discrete)
-    *    b. Directly from path (interpolated) (if use_interpolation_ is true)
-    *    c. Computed from path (if use_heading_from_path_ is false)
-    *
-    * Hence the flags use_interpolation_ and use_heading_from_path_
-    * play important roles here.
-    */
-  geometry_msgs::msg::PoseStamped getLookAheadPoint(const double &, const nav_msgs::msg::Path &);
+  // /**
+  //   * @brief Get lookahead point
+  //   * @param lookahead_dist Optimal lookahead distance
+  //   * @param path Current global path
+  //   * @return Lookahead point
+  //   * @details The lookahead point could:
+  //   * 1. Be discrete/interpolated
+  //   * 2. Have a heading:
+  //   *    a. Directly from path (discrete)
+  //   *    b. Directly from path (interpolated) (if use_interpolation_ is true)
+  //   *    c. Computed from path (if use_heading_from_path_ is false)
+  //   *
+  //   * Hence the flags use_interpolation_ and use_heading_from_path_
+  //   * play important roles here.
+  //   */
+  // geometry_msgs::msg::PoseStamped getLookAheadPoint(const double &, const nav_msgs::msg::Path &);
 
-  /**
-   * @brief Cost at a point
-   * @param x Pose of pose x
-   * @param y Pose of pose y
-   * @return Cost of pose in costmap
-   */
-  double costAtPose(const double & x, const double & y);
+  // /**
+  //  * @brief Cost at a point
+  //  * @param x Pose of pose x
+  //  * @param y Pose of pose y
+  //  * @return Cost of pose in costmap
+  //  */
+  // double costAtPose(const double & x, const double & y);
 
-  double approachVelocityScalingFactor(
-    const nav_msgs::msg::Path & path
-  ) const;
+  // double approachVelocityScalingFactor(
+  //   const nav_msgs::msg::Path & path
+  // ) const;
 
-  /**
-   * @brief Apply approach velocity scaling to the system
-   * @param path Transformed global path
-   * @param linear_vel robot command linear velocity input
-   */
-  void applyApproachVelocityScaling(
-    const nav_msgs::msg::Path & path,
-    double & linear_vel
-  ) const;
+  // /**
+  //  * @brief Apply approach velocity scaling to the system
+  //  * @param path Transformed global path
+  //  * @param linear_vel robot command linear velocity input
+  //  */
+  // void applyApproachVelocityScaling(
+  //   const nav_msgs::msg::Path & path,
+  //   double & linear_vel
+  // ) const;
 
-  /**
-   * @brief Apply cost and curvature constraints to the system
-   * @param curvature curvature of path
-   * @param curr_speed Speed of robot
-   * @param pose_cost cost at this pose
-   * @param linear_vel robot command linear velocity input
-   * @param path Transformed global path
-   */
-  void applyConstraints(
-    const double & curvature, const geometry_msgs::msg::Twist & curr_speed,
-    const double & pose_cost, double & linear_vel, const nav_msgs::msg::Path & path, double & sign);
+  // /**
+  //  * @brief Apply cost and curvature constraints to the system
+  //  * @param curvature curvature of path
+  //  * @param curr_speed Speed of robot
+  //  * @param pose_cost cost at this pose
+  //  * @param linear_vel robot command linear velocity input
+  //  * @param path Transformed global path
+  //  */
+  // void applyConstraints(
+  //   const double & curvature, const geometry_msgs::msg::Twist & curr_speed,
+  //   const double & pose_cost, double & linear_vel, const nav_msgs::msg::Path & path, double & sign);
 
-  /**
-   * @brief Whether robot should rotate to rough path heading
-   * @param target_pose current lookahead point
-   * @param angle_to_path Angle of robot output relative to lookahead point
-   * @return Whether should rotate to path heading
-   */
-  bool shouldRotateToPath(
-    const geometry_msgs::msg::PoseStamped & target_pose,
-    double & angle_to_path, double & sign);
+  // /**
+  //  * @brief Whether robot should rotate to rough path heading
+  //  * @param target_pose current lookahead point
+  //  * @param angle_to_path Angle of robot output relative to lookahead point
+  //  * @return Whether should rotate to path heading
+  //  */
+  // bool shouldRotateToPath(
+  //   const geometry_msgs::msg::PoseStamped & target_pose,
+  //   double & angle_to_path, double & sign);
 
-  /**
-   * @brief Whether robot should rotate to final goal orientation
-   * @param target_pose current lookahead point
-   * @return Whether should rotate to goal heading
-   */
-  bool shouldRotateToGoalHeading(const geometry_msgs::msg::PoseStamped & target_pose);
+  // /**
+  //  * @brief Whether robot should rotate to final goal orientation
+  //  * @param target_pose current lookahead point
+  //  * @return Whether should rotate to goal heading
+  //  */
+  // bool shouldRotateToGoalHeading(const geometry_msgs::msg::PoseStamped & target_pose);
 
-  /**
-   * @brief checks for the cusp position
-   * @param pose Pose input to determine the cusp position
-   * @return robot distance from the cusp
-   */
-  double getCuspDist(const nav_msgs::msg::Path & transformed_plan);
+  // /**
+  //  * @brief checks for the cusp position
+  //  * @param pose Pose input to determine the cusp position
+  //  * @return robot distance from the cusp
+  //  */
+  // double getCuspDist(const nav_msgs::msg::Path & transformed_plan);
 
-  /**
-   * @brief Create a smooth and kinematically smoothed rotation command
-   * @param linear_vel linear velocity
-   * @param angular_vel angular velocity
-   * @param angle_to_path Angle of robot output relative to lookahead point
-   * @param curr_speed the current robot speed
-   */
-  void rotateToHeading(
-    double & linear_vel, double & angular_vel,
-    const double & angle_to_path, const geometry_msgs::msg::Twist & curr_speed);
+  // /**
+  //  * @brief Create a smooth and kinematically smoothed rotation command
+  //  * @param linear_vel linear velocity
+  //  * @param angular_vel angular velocity
+  //  * @param angle_to_path Angle of robot output relative to lookahead point
+  //  * @param curr_speed the current robot speed
+  //  */
+  // void rotateToHeading(
+  //   double & linear_vel, double & angular_vel,
+  //   const double & angle_to_path, const geometry_msgs::msg::Twist & curr_speed);
 
   /**
    * Get the greatest extent of the costmap in meters from the center.
@@ -324,51 +324,56 @@ protected:
   rclcpp::Clock::SharedPtr clock_;
 
   // Stanley parameters
-  double k_, epsilon_;
+  double k_vel_, k_steer_, epsilon_;
   double wheel_base_; 
-  // int target_idx_ = 0;
   int max_wpts_ = 20;
-
   double desired_linear_vel_, base_desired_linear_vel_;
-  double lookahead_dist_;
-  double rotate_to_heading_angular_vel_;
-  double max_lookahead_dist_;
-  double min_lookahead_dist_;
-  double lookahead_time_;
-  bool use_velocity_scaled_lookahead_dist_;
-  tf2::Duration transform_tolerance_;
-  double min_approach_linear_velocity_;
-  double approach_velocity_scaling_dist_;
-  double min_turning_radius_;
-  double min_linear_velocity_;
-  double max_lateral_accel_;
-  double control_duration_;
-  double max_allowed_time_to_collision_up_to_target_;
-  bool use_collision_detection_;
-  bool use_cost_regulated_linear_velocity_scaling_;
-  double cost_scaling_dist_;
-  double cost_scaling_gain_;
-  double inflation_cost_scaling_factor_;
-  bool use_rotate_to_heading_;
-  double max_angular_accel_;
-  double max_linear_accel_;
-  double rotate_to_heading_min_angle_;
-  double goal_dist_tol_;
   double max_robot_pose_search_dist_;
-  bool use_interpolation_;
+  bool use_collision_detection_;
   bool allow_reversing_;
-  bool is_reversing_;
-  bool use_heading_from_path_;
+  tf2::Duration transform_tolerance_;
+  double goal_dist_tol_;
+
+  // double desired_linear_vel_, base_desired_linear_vel_;
+  // double lookahead_dist_;
+  // double rotate_to_heading_angular_vel_;
+  // double max_lookahead_dist_;
+  // double min_lookahead_dist_;
+  // double lookahead_time_;
+  // bool use_velocity_scaled_lookahead_dist_;
+  // tf2::Duration transform_tolerance_;
+  // double min_approach_linear_velocity_;
+  // double approach_velocity_scaling_dist_;
+  // double min_turning_radius_;
+  // double min_linear_velocity_;
+  // double max_lateral_accel_;
+  // double control_duration_;
+  // double max_allowed_time_to_collision_up_to_target_;
+  // bool use_collision_detection_;
+  // bool use_cost_regulated_linear_velocity_scaling_;
+  // double cost_scaling_dist_;
+  // double cost_scaling_gain_;
+  // double inflation_cost_scaling_factor_;
+  // bool use_rotate_to_heading_;
+  // double max_angular_accel_;
+  // double max_linear_accel_;
+  // double rotate_to_heading_min_angle_;
+  // double goal_dist_tol_;
+  // double max_robot_pose_search_dist_;
+  // bool use_interpolation_;
+  // bool allow_reversing_;
+  // bool is_reversing_;
+  // bool use_heading_from_path_;
 
   geometry_msgs::msg::Twist last_cmd_vel_;
 
   nav_msgs::msg::Path global_plan_;
   std::shared_ptr<rclcpp_lifecycle::LifecyclePublisher<nav_msgs::msg::Path>> global_path_pub_;
-  std::shared_ptr<rclcpp_lifecycle::LifecyclePublisher<geometry_msgs::msg::PoseStamped>>
-  target_pub_;
-  std::shared_ptr<rclcpp_lifecycle::LifecyclePublisher<nav_msgs::msg::Path>> target_arc_pub_;
-  std::unique_ptr<nav2_costmap_2d::FootprintCollisionChecker<nav2_costmap_2d::Costmap2D *>>
-  collision_checker_;
+  // std::shared_ptr<rclcpp_lifecycle::LifecyclePublisher<geometry_msgs::msg::PoseStamped>>
+  // target_pub_;
+  // std::shared_ptr<rclcpp_lifecycle::LifecyclePublisher<nav_msgs::msg::Path>> target_arc_pub_;
+  // std::unique_ptr<nav2_costmap_2d::FootprintCollisionChecker<nav2_costmap_2d::Costmap2D *>>
+  // collision_checker_;
   rclcpp::Publisher<visualization_msgs::msg::Marker>::SharedPtr marker_pub_;
 
   // Dynamic parameters handler
