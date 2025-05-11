@@ -76,6 +76,8 @@ public:
    static double computeDistance(double x1, double y1, double x2, double y2); 
 
    static double radToDeg(double angle);
+
+   double computeRoverYaw();
    
    // finds the nearest index on a path object to a certain reference point (x_ref, y_ref)
    std::pair<size_t, double> findNearestIndex(const nav_msgs::msg::Path & path,

@@ -1,7 +1,0 @@
-<library path="stanley_v1">
-  <class name="stanley_controller::StanleyController" type="stanley_controller::StanleyController" base_class_type="nav2_core::Controller">
-    <description>
-      A demo Stanley controller plugin.
-    </description>
-  </class>
-</library>

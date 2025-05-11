@@ -302,6 +302,25 @@ double StanleyController::radToDeg(double angle) {
   return (angle * 180) / M_PI;
 }
 
+double StanleyController::computeRoverYaw() {
+  geometry_msgs::msg::TransformStamped tf_map_bl =
+    tf_buffer_->lookupTransform("map",           // target frame
+                                "base_link",     // source frame
+                                tf2::TimePointZero);  // latest available
+
+  // CONVERT QUATERNION TO YAW EXPLICITLY
+  tf2::Quaternion q(
+      tf_map_bl.transform.rotation.x,
+      tf_map_bl.transform.rotation.y,
+      tf_map_bl.transform.rotation.z,
+      tf_map_bl.transform.rotation.w);
+
+  double roll, pitch, yaw;                         // radians
+  tf2::Matrix3x3(q).getRPY(roll, pitch, yaw);
+
+  return yaw;
+}
+
 double StanleyController::getNormalizedAngle(double angle) {
   if (angle > M_PI) angle -= 2 * M_PI;
   if (angle < -M_PI) angle += 2 * M_PI;
@@ -357,7 +376,7 @@ double StanleyController::computeCrossTrackError(const geometry_msgs::msg::PoseS
   nav_msgs::msg::Path transformed_plan = StanleyController::transformGlobalPlan(robot_pose);
 
   // Compute the front‐axle location with respect to the center of the rover
-  double curr_yaw = StanleyController::getNormalizedAngle(tf2::getYaw(robot_pose.pose.orientation));
+  double curr_yaw = StanleyController::computeRoverYaw();
   // double front_x  = (wheel_base_ / 2.0) * std::cos(curr_yaw);
   // double front_y  = (wheel_base_ / 2.0) * std::sin(curr_yaw);
   double front_x  = wheel_base_ / 2.0;
@@ -394,20 +413,7 @@ double StanleyController::computeSteeringAngle(const geometry_msgs::msg::PoseSta
   // double curr_yaw = tf2::getYaw(robot_pose.pose.orientation);
   // double curr_yaw_deg = StanleyController::radToDeg(curr_yaw);
 
-  geometry_msgs::msg::TransformStamped tf_map_bl =
-    tf_buffer_->lookupTransform("map",           // target frame
-                                "base_link",     // source frame
-                                tf2::TimePointZero);  // latest available
-
-  // CONVERT QUATERNION TO YAW EXPLICITLY
-  tf2::Quaternion q(
-      tf_map_bl.transform.rotation.x,
-      tf_map_bl.transform.rotation.y,
-      tf_map_bl.transform.rotation.z,
-      tf_map_bl.transform.rotation.w);
-
-  double rover_roll, rover_pitch, rover_yaw;                         // radians
-  tf2::Matrix3x3(q).getRPY(rover_roll, rover_pitch, rover_yaw);
+  double rover_yaw = StanleyController::computeRoverYaw();
   double curr_yaw_deg = StanleyController::radToDeg(rover_yaw);
   // RCLCPP_INFO(logger_, "Yaw using Quarternions: %.3f, in degrees: %.3f", rover_yaw, StanleyController::radToDeg(rover_yaw));
 
@@ -422,8 +428,8 @@ double StanleyController::computeSteeringAngle(const geometry_msgs::msg::PoseSta
   // double first_y = global_plan_.poses.front().pose.position.y;
   double first_y = global_plan_.poses[begin_wpt].pose.position.y;
   double last_y = global_plan_.poses[end_wpt].pose.position.y;
-  RCLCPP_INFO(logger_, "Begin Wpt: %.3f, Last Wpt: %.3f, First_y: %.3f, Last_y: %.3f", 
-    first_x, last_x, first_y, last_y);
+  RCLCPP_INFO(logger_, "Begin Wpt X: %.3f, Last Wpt X: %.3f, Final Wpt X: %.3f", 
+    first_x, last_x, global_plan_.poses[last_wpt].pose.position.x);
 
   double yaw_path = std::atan2(last_y - first_y, last_x - first_x);
   double yaw_path_deg = StanleyController::radToDeg(yaw_path);
