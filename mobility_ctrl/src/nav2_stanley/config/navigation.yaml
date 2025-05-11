@@ -135,16 +135,18 @@ controller_server:
     general_goal_checker:
       stateful: True
       plugin: "nav2_controller::SimpleGoalChecker"
-      xy_goal_tolerance: 0.25
-      yaw_goal_tolerance: 0.25
+      xy_goal_tolerance: 0.5
+      yaw_goal_tolerance: 0.5
     # Stanley parameters - vector pursuit demo: vector_pursuit_controller::VectorPursuitController
     FollowPath:
       plugin: "stanley_controller::StanleyController"
       wheel_base: 1.6
-      min_lookahead_dist: 1.0
-      max_lookahead_dist: 2.0
+      k_steer: 0.5
+      k_vel: 1.0
       allow_reversing: true
-      max_wpts: 20              # Number of waypoints to use for calculating global plan yaw angle
+      max_wpts: 15      # Number of waypoints to use for calculating global plan yaw angle
+      min_wpts: 5
+      desired_linear_vel: 0.7
 
 local_costmap:
   local_costmap:
@@ -307,10 +309,10 @@ velocity_smoother:
     smoothing_frequency: 20.0
     scale_velocities: False
     feedback: "OPEN_LOOP"
-    # max_velocity: [1.0, 0.0, 1.0]
-    # min_velocity: [-1.0, 0.0, -1.0]
-    max_velocity: [0.5, 0.0, 0.5]
-    min_velocity: [-0.5, 0.0, -0.5]
+    max_velocity: [1.0, 0.0, 1.0]
+    min_velocity: [-1.0, 0.0, -1.0]
+    # max_velocity: [0.3, 0.0, 0.3]
+    # min_velocity: [-0.3, 0.0, -0.3]
     max_accel: [2.5, 0.0, 3.2]
     max_decel: [-2.5, 0.0, -3.2]
     odom_topic: "odom"
