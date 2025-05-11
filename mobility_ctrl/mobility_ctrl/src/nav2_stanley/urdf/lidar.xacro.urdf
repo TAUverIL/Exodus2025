@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+    <xacro:property name="chassis_height" value="0.5"/>
+    
+    <!-- LiDAR Parameters -->
+    <xacro:property name="lidar_height" value="0.1"/>
+    <xacro:property name="lidar_offset_z" value="0.2"/>
+    <xacro:property name="lidar_position" value="0.5 0 ${chassis_height+lidar_height+lidar_offset_z}"/>
+    
+    <!-- LiDAR -->
+
+    <link name="laser_frame">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="0.125"/>
+        <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001" />
+      </inertial>
+
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <cylinder radius="0.0508" length="0.055"/>
+        </geometry>
+      </collision>
+
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <cylinder radius="0.2" length="0.1"/>
+        </geometry>
+        <material name="Red" />
+      </visual>
+    </link>
+
+    <joint name="laser_joint" type="fixed">
+      <parent link="chassis"/>
+      <child link="laser_frame"/>
+      <origin xyz="${lidar_position}" rpy="0 0 0"/>
+    </joint>
+
+    <!-- LiDAR -->
+
+    <gazebo reference="laser_frame">
+
+
+        <material>Gazebo/Red</material>
+
+        <sensor name="lidar" type="gpu_lidar">
+            <always_on>true</always_on>
+            <visualize>true</visualize>
+            <update_rate>10</update_rate>
+            <topic>scan</topic>
+            <ignition_frame_id>laser_frame</ignition_frame_id>
+            <ray>
+                <scan>
+                    <horizontal>
+                        <samples>360</samples>
+                        <resolution>1.000000</resolution>
+                        <min_angle>-3.14</min_angle>
+                        <max_angle>3.14</max_angle>
+                    </horizontal>
+                </scan>
+                <range>
+                    <min>0.3</min>
+                    <max>12</max>
+                    <resolution>0.01</resolution>
+                </range>
+                <noise>
+                    <type>gaussian</type>
+                    <mean>0.0</mean>
+                    <stddev>0.01</stddev>
+                </noise>
+            </ray>
+        </sensor>
+
+        <plugin filename="ignition-gazebo-lidar-plugin" name="ignition::gazebo::systems::Lidar">
+          <ros>
+            <topic>/scan</topic>
+            <frame_name>laser_frame</frame_name>
+          </ros>
+        </plugin>
+
+    </gazebo>
+
+
+</robot>
