@@ -147,6 +147,9 @@ controller_server:
       max_wpts: 15      # Number of waypoints to use for calculating global plan yaw angle
       min_wpts: 5
       desired_linear_vel: 0.7
+      slow_down_dist: 1.5
+      stop_dist: 0.5
+
 
 local_costmap:
   local_costmap:
