@@ -14,7 +14,7 @@ class WaypointFollower(Node):
         super().__init__('waypoint_follower')
 
         # tolerance for “close enough”
-        self.goal_tolerance = 0.2  # meters
+        self.goal_tolerance = 0.5  # meters
 
         # TF to check final pose
         self._tf_buffer   = tf2_ros.Buffer()
