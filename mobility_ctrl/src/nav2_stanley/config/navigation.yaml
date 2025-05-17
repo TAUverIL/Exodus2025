@@ -136,7 +136,7 @@ controller_server:
       stateful: True
       plugin: "nav2_controller::SimpleGoalChecker"
       xy_goal_tolerance: 0.5
-      yaw_goal_tolerance: 0.5
+      yaw_goal_tolerance: 1.57
     # Stanley parameters - vector pursuit demo: vector_pursuit_controller::VectorPursuitController
     FollowPath:
       plugin: "stanley_controller::StanleyController"
@@ -255,6 +255,7 @@ planner_server:
     GridBased:
       plugin: "nav2_smac_planner/SmacPlannerHybrid"
       cost_penalty: 4.0
+      goal_heading_mode:      "ALL_DIRECTION"
 
 smoother_server:
   ros__parameters:

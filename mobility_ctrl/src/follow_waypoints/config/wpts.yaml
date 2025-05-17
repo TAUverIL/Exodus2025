@@ -1,0 +1,76 @@
+header:
+  frame_id: map
+poses:
+  # 6 points around sph1 (centered at x=16, y=2, radius≈7m)
+  - header:
+      frame_id: map
+    pose:
+      position:
+        x: 6.0
+        y: 2.0
+        z: 0.0
+      orientation:
+        x: 0.0
+        y: 0.0
+        z: 0.0
+        w: 1.0
+  - header:
+      frame_id: map
+    pose:
+      position:
+        x: 19.5
+        y: 8.062
+        z: 0.0
+      orientation:
+        x: 0.0
+        y: 0.0
+        z: 0.0
+        w: 1.0
+  - header:
+      frame_id: map
+    pose:
+      position:
+        x: 12.5
+        y: 8.062
+        z: 0.0
+      orientation:
+        x: 0.0
+        y: 0.0
+        z: 0.0
+        w: 1.0
+  - header:
+      frame_id: map
+    pose:
+      position:
+        x: 9.0
+        y: 2.0
+        z: 0.0
+      orientation:
+        x: 0.0
+        y: 0.0
+        z: 0.0
+        w: 1.0
+  - header:
+      frame_id: map
+    pose:
+      position:
+        x: 12.5
+        y: -4.062
+        z: 0.0
+      orientation:
+        x: 0.0
+        y: 0.0
+        z: 0.0
+        w: 1.0
+  - header:
+      frame_id: map
+    pose:
+      position:
+        x: 19.5
+        y: -4.062
+        z: 0.0
+      orientation:
+        x: 0.0
+        y: 0.0
+        z: 0.0
+        w: 1.0
