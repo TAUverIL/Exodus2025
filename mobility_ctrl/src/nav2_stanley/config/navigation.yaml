@@ -127,11 +127,6 @@ controller_server:
       required_movement_radius: 0.5
       movement_time_allowance: 10.0
     # Goal checker parameters
-    #precise_goal_checker:
-    #  plugin: "nav2_controller::SimpleGoalChecker"
-    #  xy_goal_tolerance: 0.25
-    #  yaw_goal_tolerance: 0.25
-    #  stateful: True
     general_goal_checker:
       stateful: True
       plugin: "nav2_controller::SimpleGoalChecker"
@@ -149,6 +144,7 @@ controller_server:
       desired_linear_vel: 0.7
       slow_down_dist: 1.5
       stop_dist: 0.5
+      max_steer_angle: 85.0
 
 
 local_costmap:
