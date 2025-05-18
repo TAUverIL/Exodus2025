@@ -8,7 +8,7 @@ sdf_data = r"""<?xml version="1.0"?>
   <world name="world_trial">
     <!-- SDF snippet -->
     <model name="box1">
-      <pose>-3 0 7 0 0 0</pose>
+      <pose>-3 0 0 0 0 0</pose>
       <link name="box_link1">
         <collision name="box_collision">
           <geometry>
@@ -21,12 +21,12 @@ sdf_data = r"""<?xml version="1.0"?>
     </model>
 
     <model name="box2">
-      <pose>2 -7 1 0 0 0</pose>
+      <pose>1 -7 1 0 0 0</pose>
       <link name="box_link2">
         <collision name="box_collision">
           <geometry>
             <box>
-              <size>1 5 1</size>
+              <size>1 3 1</size>
             </box>
           </geometry>
         </collision>
@@ -34,12 +34,12 @@ sdf_data = r"""<?xml version="1.0"?>
     </model>
 
     <model name="sph1">
-      <pose>16 2 0 0 0 0</pose>
+      <pose>14 2 0 0 0 0</pose>
       <link name="sph_link1">
         <collision name="sph_collision">
           <geometry>
             <sphere>
-              <radius>5</radius>
+              <radius>3</radius>
             </sphere>
           </geometry>
         </collision>
@@ -47,12 +47,12 @@ sdf_data = r"""<?xml version="1.0"?>
     </model>
 
     <model name="sph2">
-      <pose>11 -13 0 0 0 0</pose>
+      <pose>11 -11 0 0 0 0</pose>
       <link name="sph_link2">
         <collision name="sph_collision2">
           <geometry>
             <sphere>
-              <radius>3</radius>
+              <radius>2</radius>
             </sphere>
           </geometry>
         </collision>
@@ -65,7 +65,7 @@ sdf_data = r"""<?xml version="1.0"?>
         <collision name="sph_collision3">
           <geometry>
             <sphere>
-              <radius>3</radius>
+              <radius>2</radius>
             </sphere>
           </geometry>
         </collision>

@@ -127,24 +127,25 @@ controller_server:
       required_movement_radius: 0.5
       movement_time_allowance: 10.0
     # Goal checker parameters
-    #precise_goal_checker:
-    #  plugin: "nav2_controller::SimpleGoalChecker"
-    #  xy_goal_tolerance: 0.25
-    #  yaw_goal_tolerance: 0.25
-    #  stateful: True
     general_goal_checker:
       stateful: True
       plugin: "nav2_controller::SimpleGoalChecker"
-      xy_goal_tolerance: 0.25
-      yaw_goal_tolerance: 0.25
+      xy_goal_tolerance: 0.5
+      yaw_goal_tolerance: 1.57
     # Stanley parameters - vector pursuit demo: vector_pursuit_controller::VectorPursuitController
     FollowPath:
       plugin: "stanley_controller::StanleyController"
       wheel_base: 1.6
-      min_lookahead_dist: 1.0
-      max_lookahead_dist: 2.0
+      k_steer: 0.5
+      k_vel: 1.0
       allow_reversing: true
-      max_wpts: 20              # Number of waypoints to use for calculating global plan yaw angle
+      max_wpts: 15      # Number of waypoints to use for calculating global plan yaw angle
+      min_wpts: 5
+      desired_linear_vel: 0.7
+      slow_down_dist: 1.5
+      stop_dist: 0.5
+      max_steer_angle: 85.0
+
 
 local_costmap:
   local_costmap:
@@ -250,6 +251,7 @@ planner_server:
     GridBased:
       plugin: "nav2_smac_planner/SmacPlannerHybrid"
       cost_penalty: 4.0
+      goal_heading_mode:      "ALL_DIRECTION"
 
 smoother_server:
   ros__parameters:
@@ -307,10 +309,10 @@ velocity_smoother:
     smoothing_frequency: 20.0
     scale_velocities: False
     feedback: "OPEN_LOOP"
-    # max_velocity: [1.0, 0.0, 1.0]
-    # min_velocity: [-1.0, 0.0, -1.0]
-    max_velocity: [0.5, 0.0, 0.5]
-    min_velocity: [-0.5, 0.0, -0.5]
+    max_velocity: [1.0, 0.0, 1.0]
+    min_velocity: [-1.0, 0.0, -1.0]
+    # max_velocity: [0.3, 0.0, 0.3]
+    # min_velocity: [-0.3, 0.0, -0.3]
     max_accel: [2.5, 0.0, 3.2]
     max_decel: [-2.5, 0.0, -3.2]
     odom_topic: "odom"
