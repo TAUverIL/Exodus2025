@@ -73,6 +73,9 @@ void StanleyController::configure(
   declare_parameter_if_not_declared(
     node, plugin_name_ + ".allow_reversing", rclcpp::ParameterValue(false));
 
+  declare_parameter_if_not_declared(
+    node, plugin_name_ + ".max_steer_angle", rclcpp::ParameterValue(85.0));
+
   // FIXME - see how we can change this for Stanley
   declare_parameter_if_not_declared(
     node, plugin_name_ + ".max_robot_pose_search_dist",
@@ -100,6 +103,7 @@ void StanleyController::configure(
   node->get_parameter(plugin_name_ + ".desired_linear_vel", desired_linear_vel_);
   node->get_parameter(plugin_name_ + ".use_collision_detection", use_collision_detection_);
   node->get_parameter(plugin_name_ + ".allow_reversing", allow_reversing_);
+  node->get_parameter(plugin_name_ + ".max_steer_angle", max_steer_angle_);
   node->get_parameter(plugin_name_ + ".max_robot_pose_search_dist", max_robot_pose_search_dist_);
   node->get_parameter(plugin_name_ + ".transform_tolerance", transform_tolerance);
   node->get_parameter(plugin_name_ + ".slow_down_dist", slow_down_dist_);
@@ -312,7 +316,11 @@ double StanleyController::computeSteeringAngle(const geometry_msgs::msg::PoseSta
   double xtrack_err_corr_deg = StanleyController::radToDeg(xtrack_err_corr);
 
   // delta is the final adjustment to the rover angle, adds the angle_err adjustment
-  double delta = StanleyController::getNormalizedAngle(angle_err + xtrack_err_corr);
+  double pre_delta = angle_err + xtrack_err_corr;
+  double max_steer_rad = (M_PI / 180) * max_steer_angle_;
+  double delta = (pre_delta > max_steer_rad) ? max_steer_rad :
+                 (pre_delta < -max_steer_rad) ? -max_steer_rad :
+                  pre_delta;
 
   RCLCPP_INFO(logger_, "Yaw Path: %.3f, Curr Yaw: %.3f, Angle Err: %.3f, X-track Err: %.3f, Delta: %.3f", 
     yaw_path_deg, curr_yaw_deg, StanleyController::radToDeg(angle_err), xtrack_err_corr_deg, StanleyController::radToDeg(delta));
@@ -671,7 +679,7 @@ nav_msgs::msg::Path StanleyController::transformGlobalPlan(
     throw nav2_core::PlannerException("Unable to transform robot pose into global plan's frame");
   }
 
-  // discard points on the plan that are outside the local costmap
+  // discard points on the plan that are outside the local costmap - FIXME
   double max_costmap_extent = getCostmapMaxExtent();
 
   auto closest_pose_upper_bound =

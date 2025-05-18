@@ -240,6 +240,7 @@ protected:
   tf2::Duration transform_tolerance_;
   double goal_dist_tol_;
   double slow_down_dist_, stop_dist_, min_speed_;
+  double max_steer_angle_;
 
   nav_msgs::msg::Path global_plan_;
   std::shared_ptr<rclcpp_lifecycle::LifecyclePublisher<nav_msgs::msg::Path>> global_path_pub_;
