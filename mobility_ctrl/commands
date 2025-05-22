@@ -28,6 +28,35 @@ File locations:
 * Package contents: /opt/ros/humble/share
 * Gazebo worlds: /usr/share/ignition/ignition-gazebo6/worlds/
 
+Quarternions:
+This table shows quaternion values for planar yaw orientations around the Z-axis, in 45° increments (counter-clockwise rotation from +X).
+| Angle (°) | Yaw (rad) | Quaternion (x, y, z, w)               |
+|-----------|-----------|---------------------------------------|
+| 0°        | 0         | (0.0, 0.0, 0.0000, 1.0000)            |
+| 45°       | π/4       | (0.0, 0.0, 0.3827, 0.9239)            |
+| 90°       | π/2       | (0.0, 0.0, 0.7071, 0.7071)            |
+| 135°      | 3π/4      | (0.0, 0.0, 0.9239, 0.3827)            |
+| 180°      | π         | (0.0, 0.0, 1.0000, 0.0000)            |
+| 225°      | 5π/4      | (0.0, 0.0, 0.9239, -0.3827)           |
+| 270°      | 3π/2      | (0.0, 0.0, 0.7071, -0.7071)           |
+| 315°      | 7π/4      | (0.0, 0.0, 0.3827, -0.9239)           |
+
+Waypoint follower node:
+ros2 run follow_waypoints follow_waypoints
+
+Publish list of waypoints when using waypoint follower node:
+```
+ros2 topic pub /waypoints nav_msgs/Path "{
+    header: { frame_id: 'map' },
+    poses: [
+         { header: { frame_id: 'map' }, pose: { position: { x: 12.553, y: -5.205, z: 0.0 }, orientation: { x: 0.0, y: 0.0, z: 0.0, w: 1.0 } } },
+         { header: { frame_id: 'map' }, pose: { position: { x: 16.795, y: -9.447, z: 0.0 }, orientation: { x: 0.0, y: 0.0, z: 0.0, w: 1.0 } } },
+         { header: { frame_id: 'map' }, pose: { position: { x: 17.243, y: -16.243, z: 0.0 }, orientation: { x: 0.0, y: 0.0, z: 0.0, w: 1.0 } } },
+         { header: { frame_id: 'map' }, pose: { position: { x: 9.447,  y: -16.795, z: 0.0 }, orientation: { x: 0.0, y: 0.0, z: 0.0, w: 1.0 } } },
+         { header: { frame_id: 'map' }, pose: { position: { x: 5.205,  y: -12.553, z: 0.0 }, orientation: { x: 0.0, y: 0.0, z: 0.0, w: 1.0 } } }
+    ]
+}" --once
+```
 GIT commands:
 * Check which branch we're in (and which files have changed): git status
 * Checkout a branch: git checkout branch_name
