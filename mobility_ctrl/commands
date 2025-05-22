@@ -45,7 +45,7 @@ Waypoint follower node:
 ros2 run follow_waypoints follow_waypoints
 
 Publish list of waypoints when using waypoint follower node:
-```
+
 ros2 topic pub /waypoints nav_msgs/Path "{
     header: { frame_id: 'map' },
     poses: [
@@ -56,7 +56,7 @@ ros2 topic pub /waypoints nav_msgs/Path "{
          { header: { frame_id: 'map' }, pose: { position: { x: 5.205,  y: -12.553, z: 0.0 }, orientation: { x: 0.0, y: 0.0, z: 0.0, w: 1.0 } } }
     ]
 }" --once
-```
+
 GIT commands:
 * Check which branch we're in (and which files have changed): git status
 * Checkout a branch: git checkout branch_name
