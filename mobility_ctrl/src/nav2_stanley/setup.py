@@ -18,7 +18,8 @@ setup(
         (os.path.join('share', package_name, 'config'), glob('config/*')),
         # Include urdf files
         (os.path.join('share', package_name, 'urdf'), glob('urdf/*.xacro.urdf')),
-        (os.path.join('share', package_name, 'urdf'), glob('urdf/*.xacro')),
+        (os.path.join('share', package_name, 'urdf', 'ackermann'), glob('urdf/ackermann/*.xacro.urdf')),
+        (os.path.join('share', package_name, 'urdf', 'diff_drive'), glob('urdf/diff_drive/*.xacro.urdf')),
         # Include world files
         (os.path.join('share', package_name, 'world'), glob('world/*')),
         # Include rviz files

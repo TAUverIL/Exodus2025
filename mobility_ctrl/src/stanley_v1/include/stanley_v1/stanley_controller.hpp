@@ -22,6 +22,8 @@
 #include "tf2_geometry_msgs/tf2_geometry_msgs.hpp"
 #include "visualization_msgs/msg/marker.hpp"
 #include "nav2_msgs/msg/speed_limit.hpp"
+#include "action_msgs/msg/goal_status_array.hpp"  // for GoalStatusArray
+#include "action_msgs/msg/goal_status.hpp"        // for GoalStatus constants
 
 namespace stanley_controller
 {
@@ -124,6 +126,8 @@ public:
    * or in absolute values in false case.
    */
   void setSpeedLimit(const double & speed_limit, const bool & percentage) override;
+
+  void statusCallback(const action_msgs::msg::GoalStatusArray::SharedPtr msg);
 
   double adjustSpeedLimit(const geometry_msgs::msg::PoseStamped & pose);
 
@@ -241,13 +245,13 @@ protected:
   double goal_dist_tol_;
   double slow_down_dist_, stop_dist_, min_speed_;
   double max_steer_angle_;
+  bool goal_reached_;
 
   nav_msgs::msg::Path global_plan_;
   std::shared_ptr<rclcpp_lifecycle::LifecyclePublisher<nav_msgs::msg::Path>> global_path_pub_;
   std::unique_ptr<nav2_costmap_2d::FootprintCollisionChecker<nav2_costmap_2d::Costmap2D *>> collision_checker_;
   rclcpp::Publisher<visualization_msgs::msg::Marker>::SharedPtr marker_pub_;
-  // rclcpp_lifecycle::LifecyclePublisher<nav2_msgs::msg::SpeedLimit>::SharedPtr 
-  //     end_goal_speed_limit_pub_;
+  rclcpp::Subscription<action_msgs::msg::GoalStatusArray>::SharedPtr status_sub_;
 
   // Dynamic parameters handler
   std::mutex mutex_;

@@ -3,43 +3,46 @@ from launch.actions import DeclareLaunchArgument, ExecuteProcess, IncludeLaunchD
 from launch.actions import RegisterEventHandler
 from launch.event_handlers import OnProcessExit
 from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch.substitutions import Command, FindExecutable, LaunchConfiguration, PathJoinSubstitution
-from launch.actions import DeclareLaunchArgument
+from launch.substitutions import Command, FindExecutable, LaunchConfiguration, PathJoinSubstitution, PythonExpression
 from launch.conditions import IfCondition, UnlessCondition
 import os
 
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
 
-
 def generate_launch_description():
     # Launch Arguments
     use_sim_time = LaunchConfiguration('use_sim_time', default=True)
     pkg_share = FindPackageShare(package='nav2_stanley').find('nav2_stanley')
-    default_model_path = os.path.join(pkg_share, 'src', 'urdf', 'ack_rover.xacro.urdf')
+    default_model_path = os.path.join(pkg_share, 'src', 'urdf', 'main_rover.xacro.urdf')
     default_rviz_config_path = os.path.join(pkg_share, 'rviz', 'config.rviz')
     # default_world_path = os.path.join(pkg_share, 'world', 'empty.sdf')
     default_world_path = os.path.join(pkg_share, 'world', 'world_trial.sdf')
+    controller = LaunchConfiguration('controller')
 
-    # Get URDF via xacro
-    robot_description_content = Command(
-        [
-            PathJoinSubstitution([FindExecutable(name='xacro')]),
-            ' ',
-            PathJoinSubstitution(
-                [FindPackageShare('nav2_stanley'),
-                 'urdf', 'ack_rover.xacro.urdf']
-            ),
-        ]
-    )
-    robot_description = {'robot_description': robot_description_content}
+    # Robot description with xacro command
+    xacro_file = PathJoinSubstitution([
+        FindPackageShare('nav2_stanley'), 'urdf', 'main_rover.xacro.urdf'
+    ])
 
+    robot_description_content = Command([
+        FindExecutable(name='xacro'),
+        ' ',
+        xacro_file,
+        ' ',
+        'controller:=',
+        controller
+    ])
+
+    # Robot State Publisher node
     node_robot_state_publisher = Node(
         package='robot_state_publisher',
         executable='robot_state_publisher',
         output='screen',
-        parameters=[robot_description, {'use_sim_time': use_sim_time}]
-        #parameters=[{'robot_description': robot_description}, {'use_sim_time': LaunchConfiguration('use_sim_time')}]
+        parameters=[
+            {'robot_description': robot_description_content},
+            {'use_sim_time': use_sim_time}
+        ]
     )
 
     gz_spawn_entity = Node(
@@ -54,7 +57,17 @@ def generate_launch_description():
         package='joint_state_publisher',
         executable='joint_state_publisher',
         name='joint_state_publisher',
-        parameters=[{'robot_description': Command(['xacro ', default_model_path])}, {'use_sim_time': use_sim_time}],
+        parameters=[
+            {'robot_description': Command([
+                FindExecutable(name='xacro'),
+                ' ',
+                LaunchConfiguration('model'),
+                ' ',
+                'controller:=',
+                controller
+            ])}, 
+            {'use_sim_time': use_sim_time}
+        ],
         condition=UnlessCondition(LaunchConfiguration('gui'))
     )
 
@@ -67,15 +80,16 @@ def generate_launch_description():
     load_ackermann_controller = ExecuteProcess(
         cmd=['ros2', 'control', 'load_controller', '--set-state', 'active',
              'ackermann_steering_controller'],
-        output='screen'
+        output='screen',
+        condition=IfCondition(PythonExpression(["'", controller, "' == 'ackermann'"]))
     )
 
-    # joint_state_publisher_gui_node = Node(
-    #     package='joint_state_publisher_gui',
-    #     executable='joint_state_publisher_gui',
-    #     name='joint_state_publisher_gui',
-    #     condition=IfCondition(LaunchConfiguration('gui'))
-    # )
+    load_diff_drive_controller = ExecuteProcess(
+        cmd=['ros2', 'control', 'load_controller', '--set-state', 'active',
+            'diff_drive_controller'],
+        output='screen',
+        condition=IfCondition(PythonExpression(["'", controller, "' == 'diff_drive'"]))
+    )
 
     rviz_node = Node(
         package='rviz2',
@@ -113,6 +127,15 @@ def generate_launch_description():
         DeclareLaunchArgument(name='use_sim_time', default_value='True', description='Flag to enable use_sim_time'),
         DeclareLaunchArgument(name='model', default_value=default_model_path, description='Absolute path to robot model file'),
         DeclareLaunchArgument(name='rvizconfig', default_value=default_rviz_config_path, description='Absolute path to rviz config file'),
+        DeclareLaunchArgument(name='controller', default_value='ackermann', description='Choose controller to use'),
+        # ExecuteProcess(
+        #     cmd=['echo', 'Using ACKERMANN controller'],
+        #     condition=IfCondition(PythonExpression([controller, " == 'ackermann'"]))
+        # ),
+        # ExecuteProcess(
+        #     cmd=['echo', 'Using DIFF DRIVE controller'],
+        #     condition=IfCondition(PythonExpression([controller, " == 'diff_drive'"]))
+        # ),
         bridge,
         # Launch gazebo environment
         IncludeLaunchDescription(
@@ -130,17 +153,11 @@ def generate_launch_description():
         RegisterEventHandler(
             event_handler=OnProcessExit(
                 target_action=load_joint_state_broadcaster,
-                on_exit=[load_ackermann_controller],
+                on_exit=[load_ackermann_controller, load_diff_drive_controller],
             )
         ),
         node_robot_state_publisher,
         joint_state_publisher_node,
         gz_spawn_entity,
-        # joint_state_publisher_gui_node,
         rviz_node,
-        # Launch Arguments
-        DeclareLaunchArgument(
-            'use_sim_time',
-            default_value=use_sim_time,
-            description='If true, use simulated clock')
     ])

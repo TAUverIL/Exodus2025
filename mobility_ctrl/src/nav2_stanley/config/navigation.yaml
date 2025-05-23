@@ -41,6 +41,7 @@ amcl:
 
 bt_navigator:
   ros__parameters:
+    planner_patience: 1000.0
     use_sim_time: True
     global_frame: map
     robot_base_frame: base_link
@@ -131,7 +132,7 @@ controller_server:
       stateful: True
       plugin: "nav2_controller::SimpleGoalChecker"
       xy_goal_tolerance: 0.5
-      yaw_goal_tolerance: 1.57
+      yaw_goal_tolerance: 6.28
     # Stanley parameters - vector pursuit demo: vector_pursuit_controller::VectorPursuitController
     FollowPath:
       plugin: "stanley_controller::StanleyController"
@@ -145,6 +146,7 @@ controller_server:
       slow_down_dist: 1.5
       stop_dist: 0.5
       max_steer_angle: 85.0
+      use_collision_detection: false
 
 
 local_costmap:
@@ -245,13 +247,16 @@ map_saver:
 
 planner_server:
   ros__parameters:
-    expected_planner_frequency: 20.0
+    expected_planner_frequency: 0.001
     use_sim_time: True
     planner_plugins: ["GridBased"]
     GridBased:
       plugin: "nav2_smac_planner/SmacPlannerHybrid"
       cost_penalty: 4.0
       goal_heading_mode:      "ALL_DIRECTION"
+      minimum_turning_radius: 2.5
+      angle_goal_tolerance: 6.28
+      analytic_expansion_ratio: 0.0
 
 smoother_server:
   ros__parameters:

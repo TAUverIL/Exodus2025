@@ -14,6 +14,8 @@
 #include "nav2_util/node_utils.hpp"
 #include "nav2_costmap_2d/costmap_filters/filter_values.hpp"
 #include "visualization_msgs/msg/marker.hpp"
+#include "action_msgs/msg/goal_status_array.hpp"  // for GoalStatusArray
+#include "action_msgs/msg/goal_status.hpp"        // for GoalStatus constants
 
 using nav2_util::declare_parameter_if_not_declared;
 using nav2_util::geometry_utils::euclidean_distance;
@@ -93,6 +95,9 @@ void StanleyController::configure(
 
   declare_parameter_if_not_declared(
     node, plugin_name_ + ".min_speed", rclcpp::ParameterValue(0.1));
+  
+  declare_parameter_if_not_declared(
+    node, plugin_name_ + ".goal_reached", rclcpp::ParameterValue(false));
     
   node->get_parameter(plugin_name_ + ".k_steer", k_steer_);
   node->get_parameter(plugin_name_ + ".k_vel", k_vel_);
@@ -109,6 +114,7 @@ void StanleyController::configure(
   node->get_parameter(plugin_name_ + ".slow_down_dist", slow_down_dist_);
   node->get_parameter(plugin_name_ + ".stop_dist", stop_dist_);
   node->get_parameter(plugin_name_ + ".min_speed", min_speed_);
+  node->get_parameter(plugin_name_ + ".goal_reached", goal_reached_);
 
   // FIXME - check how this affects Stanley
   base_desired_linear_vel_ = desired_linear_vel_;
@@ -116,13 +122,10 @@ void StanleyController::configure(
   // publishers
   global_path_pub_ = node->create_publisher<nav_msgs::msg::Path>("received_global_plan", 1);
   marker_pub_ = node->create_publisher<visualization_msgs::msg::Marker>("/visualization_marker", 1);
-  // end_goal_speed_limit_pub_ = 
-  //     node->create_publisher<nav2_msgs::msg::SpeedLimit>("/end_goal_speed_limit", rclcpp::QoS(1),
-  //         [this](const nav2_msgs::msg::SpeedLimit::SharedPtr msg){
-  //             end_goal_speed_limit_ = msg->speed_limit;
-  //             end_goal_percentage_ = msg->percentage;
-  //         }
-  //     );
+  status_sub_ = node->create_subscription<action_msgs::msg::GoalStatusArray>(
+    "/follow_waypoint/_action/goal_status", 
+    10,
+    std::bind(&StanleyController::statusCallback, this, std::placeholders::_1));
 
   // initialize collision checker and set costmap
   collision_checker_ = std::make_unique<nav2_costmap_2d::
@@ -622,6 +625,18 @@ bool StanleyController::inCollision(
   return footprint_cost >= static_cast<double>(nav2_costmap_2d::LETHAL_OBSTACLE);
 }
 
+void StanleyController::statusCallback(
+  const action_msgs::msg::GoalStatusArray::SharedPtr msg)
+{
+  using GoalStatus = action_msgs::msg::GoalStatus;
+  for (const auto & status : msg->status_list) {
+    if (status.status == GoalStatus::STATUS_SUCCEEDED) {
+      goal_reached_ = true;
+      break;
+    }
+  }
+}
+
 void StanleyController::setSpeedLimit(
   const double & speed_limit,
   const bool & percentage)
@@ -642,6 +657,10 @@ void StanleyController::setSpeedLimit(
 
 double StanleyController::adjustSpeedLimit(const geometry_msgs::msg::PoseStamped & robot_pose) 
 {
+  if (goal_reached_) {
+    return 0.0;
+  }
+
   double end_goal_desired_linear_vel;
   auto transformed_plan = transformGlobalPlan(robot_pose);
 
@@ -650,7 +669,7 @@ double StanleyController::adjustSpeedLimit(const geometry_msgs::msg::PoseStamped
   double dy = transformed_plan.poses[goal_idx].pose.position.y;
   double dist_to_goal = std::hypot(dx, dy);
 
-  if (dist_to_goal < stop_dist_) end_goal_desired_linear_vel = 0.0;   // If really close to final wpt
+  if (dist_to_goal < stop_dist_) end_goal_desired_linear_vel = min_speed_; // If really close to final wpt
   else if (dist_to_goal < slow_down_dist_) {                          // Close to final wpt
     double gradient = dist_to_goal / (slow_down_dist_ - stop_dist_);
     end_goal_desired_linear_vel = min_speed_ + (base_desired_linear_vel_ - min_speed_) * gradient;

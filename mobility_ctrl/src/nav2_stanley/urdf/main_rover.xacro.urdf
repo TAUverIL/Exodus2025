@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<robot name="main_rover" xmlns:xacro="http://ros.org/wiki/xacro">
+
+    <xacro:arg name="controller" default="ackermann" />
+    <xacro:property name="controller" value="$(arg controller)"/>
+
+    <xacro:if value="${controller == 'ackermann'}">
+        <xacro:include filename="$(find nav2_stanley)/urdf/ackermann/ackermann_drive.xacro.urdf" />
+    </xacro:if>
+
+    <xacro:if value="${controller == 'diff_drive'}">
+        <xacro:include filename="$(find nav2_stanley)/urdf/diff_drive/diff_drive.xacro.urdf" />
+    </xacro:if>
+
+</robot>
