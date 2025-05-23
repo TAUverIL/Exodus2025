@@ -80,12 +80,7 @@
 
     <gazebo>
         <plugin filename="ign_ros2_control-system" name="ign_ros2_control::IgnitionROS2ControlPlugin">
-            <parameters>$(find nav2_stanley)/config/ackermann_drive_controller.yaml</parameters>
-            <ros>
-                <remapping>/ackermann_steering_controller/tf_odometry:=/tf</remapping>
-                <remapping>/ackermann_steering_controller/odometry:=/odom</remapping>
-                <remapping>/ackermann_steering_controller/reference_unstamped:=/cmd_vel</remapping>
-            </ros>
+            <parameters>$(find nav2_stanley)/config/diff_drive_controller.yaml</parameters>
         </plugin>
 
         <plugin

@@ -1,0 +1,25 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 10  # Hz
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+
+    diff_drive_controller:
+      type: 'diff_drive_controller/DiffDriveController'
+
+diff_drive_controller:
+  ros__parameters:
+    wheels_per_side: 2
+    left_wheel_names:  ["front_left_wheel_joint",   "rear_left_wheel_joint"]
+    right_wheel_names: ["front_right_wheel_joint",  "rear_right_wheel_joint"]
+
+    wheel_separation: 1.0          # metres centre-to-centre
+    wheel_radius:     0.3          # metres
+    publish_rate:     10           # Hz for /odom
+    base_frame_id:    base_link
+    open_loop:        false        # true → no wheel feedback
+    enable_odom_tf:   true         # publish tf /odom→/base_link
+    use_stamped_vel:  false        # true if you want TwistStamped cmd
+    velocity_rolling_window_size: 10

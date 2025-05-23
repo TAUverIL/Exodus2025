@@ -11,7 +11,7 @@ controller_manager:
 
 ackermann_steering_controller:
   ros__parameters:
-    wheelbase: 1.94
+    wheelbase: 1.6
     front_wheel_track: 1.0
     rear_wheel_track: 1.0
     front_wheels_radius: 0.3
