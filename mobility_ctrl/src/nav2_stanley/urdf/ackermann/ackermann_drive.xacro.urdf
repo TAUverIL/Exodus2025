@@ -140,10 +140,33 @@
   <!-- Rear Left Wheel Link -->
   <link name="rear_left_wheel">
 
-    <collision>
+    <!-- <collision>
       <geometry>
         <cylinder length="${wheel_length}" radius="${wheel_radius}" />
       </geometry>
+    </collision> -->
+
+    <collision name="rear_left_wheel_collision">
+      <geometry>
+        <cylinder length="${wheel_length}" radius="${wheel_radius}"/>
+      </geometry>
+      <surface>
+        <!-- eliminate bounce -->
+        <bounce>
+          <restitution_coefficient>0.0</restitution_coefficient>
+          <threshold>1e+06</threshold>
+        </bounce>
+        <friction>
+          <ode>
+            <!-- sideways grip -->
+            <mu>10.0</mu>
+            <!-- forward/back grip -->
+            <mu2>10.0</mu2>
+            <!-- resists free roll -->
+            <rolling_friction>0.5</rolling_friction>
+          </ode>
+        </friction>
+      </surface>
     </collision>
 
     <visual>
@@ -172,10 +195,33 @@
   <!-- Rear Right Wheel Link -->
   <link name="rear_right_wheel">
 
-    <collision>
+    <!-- <collision>
       <geometry>
         <cylinder length="${wheel_length}" radius="${wheel_radius}" />
       </geometry>
+    </collision> -->
+
+    <collision name="rear_right_wheel_collision">
+      <geometry>
+        <cylinder length="${wheel_length}" radius="${wheel_radius}"/>
+      </geometry>
+      <surface>
+        <!-- eliminate bounce -->
+        <bounce>
+          <restitution_coefficient>0.0</restitution_coefficient>
+          <threshold>1e+06</threshold>
+        </bounce>
+        <friction>
+          <ode>
+            <!-- sideways grip -->
+            <mu>10.0</mu>
+            <!-- forward/back grip -->
+            <mu2>10.0</mu2>
+            <!-- resists free roll -->
+            <rolling_friction>0.5</rolling_friction>
+          </ode>
+        </friction>
+      </surface>
     </collision>
 
     <visual>
@@ -248,10 +294,33 @@
   <!-- Front Left Wheel Link -->
   <link name="front_left_wheel">
 
-    <collision>
+    <!-- <collision>
       <geometry>
         <cylinder length="${wheel_length}" radius="${wheel_radius}" />
       </geometry>
+    </collision> -->
+
+    <collision name="front_left_wheel_collision">
+      <geometry>
+        <cylinder length="${wheel_length}" radius="${wheel_radius}"/>
+      </geometry>
+      <surface>
+        <!-- eliminate bounce -->
+        <bounce>
+          <restitution_coefficient>0.0</restitution_coefficient>
+          <threshold>1e+06</threshold>
+        </bounce>
+        <friction>
+          <ode>
+            <!-- sideways grip -->
+            <mu>10.0</mu>
+            <!-- forward/back grip -->
+            <mu2>10.0</mu2>
+            <!-- resists free roll -->
+            <rolling_friction>0.5</rolling_friction>
+          </ode>
+        </friction>
+      </surface>
     </collision>
 
     <visual>
@@ -280,10 +349,33 @@
   <!-- Front Right Wheel Link -->
   <link name="front_right_wheel">
 
-    <collision>
+    <!-- <collision>
       <geometry>
         <cylinder length="${wheel_length}" radius="${wheel_radius}" />
       </geometry>
+    </collision> -->
+
+    <collision name="front_right_wheel_collision">
+      <geometry>
+        <cylinder length="${wheel_length}" radius="${wheel_radius}"/>
+      </geometry>
+      <surface>
+        <!-- eliminate bounce -->
+        <bounce>
+          <restitution_coefficient>0.0</restitution_coefficient>
+          <threshold>1e+06</threshold>
+        </bounce>
+        <friction>
+          <ode>
+            <!-- sideways grip -->
+            <mu>10.0</mu>
+            <!-- forward/back grip -->
+            <mu2>10.0</mu2>
+            <!-- resists free roll -->
+            <rolling_friction>0.5</rolling_friction>
+          </ode>
+        </friction>
+      </surface>
     </collision>
 
     <visual>

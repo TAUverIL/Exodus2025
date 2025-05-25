@@ -17,7 +17,7 @@ def generate_launch_description():
     default_model_path = os.path.join(pkg_share, 'src', 'urdf', 'main_rover.xacro.urdf')
     default_rviz_config_path = os.path.join(pkg_share, 'rviz', 'config.rviz')
     # default_world_path = os.path.join(pkg_share, 'world', 'empty.sdf')
-    default_world_path = os.path.join(pkg_share, 'world', 'world_trial.sdf')
+    default_world_path = os.path.join(pkg_share, 'world', 'empty.sdf')
     controller = LaunchConfiguration('controller')
 
     # Robot description with xacro command
@@ -128,14 +128,6 @@ def generate_launch_description():
         DeclareLaunchArgument(name='model', default_value=default_model_path, description='Absolute path to robot model file'),
         DeclareLaunchArgument(name='rvizconfig', default_value=default_rviz_config_path, description='Absolute path to rviz config file'),
         DeclareLaunchArgument(name='controller', default_value='ackermann', description='Choose controller to use'),
-        # ExecuteProcess(
-        #     cmd=['echo', 'Using ACKERMANN controller'],
-        #     condition=IfCondition(PythonExpression([controller, " == 'ackermann'"]))
-        # ),
-        # ExecuteProcess(
-        #     cmd=['echo', 'Using DIFF DRIVE controller'],
-        #     condition=IfCondition(PythonExpression([controller, " == 'diff_drive'"]))
-        # ),
         bridge,
         # Launch gazebo environment
         IncludeLaunchDescription(

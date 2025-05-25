@@ -7,70 +7,7 @@ sdf_data = r"""<?xml version="1.0"?>
 <sdf version="1.6">
   <world name="world_trial">
     <!-- SDF snippet -->
-    <model name="box1">
-      <pose>-3 0 0 0 0 0</pose>
-      <link name="box_link1">
-        <collision name="box_collision">
-          <geometry>
-            <box>
-              <size>1 1 1</size>
-            </box>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-
-    <model name="box2">
-      <pose>1 -7 1 0 0 0</pose>
-      <link name="box_link2">
-        <collision name="box_collision">
-          <geometry>
-            <box>
-              <size>1 3 1</size>
-            </box>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-
-    <model name="sph1">
-      <pose>14 2 0 0 0 0</pose>
-      <link name="sph_link1">
-        <collision name="sph_collision">
-          <geometry>
-            <sphere>
-              <radius>3</radius>
-            </sphere>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-
-    <model name="sph2">
-      <pose>11 -11 0 0 0 0</pose>
-      <link name="sph_link2">
-        <collision name="sph_collision2">
-          <geometry>
-            <sphere>
-              <radius>2</radius>
-            </sphere>
-          </geometry>
-        </collision>
-      </link>
-    </model>
-
-    <model name="sph3">
-      <pose>11 17 0 0 0 0</pose>
-      <link name="sph_link3">
-        <collision name="sph_collision3">
-          <geometry>
-            <sphere>
-              <radius>2</radius>
-            </sphere>
-          </geometry>
-        </collision>
-      </link>
-    </model>
+    
   </world>
 </sdf>
 """
@@ -118,8 +55,8 @@ for model in root.findall(".//model"):
         })
 
 # 2) Create a 2D grid covering x=-20..20, y=-20..20 with resolution=0.05
-x_min, x_max = -20.0, 20.0
-y_min, y_max = -20.0, 20.0
+x_min, x_max = -80.0, 80.0
+y_min, y_max = -80.0, 80.0
 resolution = 0.05  # meters/pixel
 
 width  = int((x_max - x_min) / resolution)  # 800

@@ -35,7 +35,7 @@ def generate_launch_description():
 
     diff_nav2_bringup_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(os.path.join(pkg_nav2_bringup, 'launch/navigation_launch.py')),
-        launch_arguments={'use_sim_time': 'True', 'params_file': ack_params_file}.items(),
+        launch_arguments={'use_sim_time': 'True', 'params_file': diff_params_file}.items(),
         condition=IfCondition(PythonExpression(["'", controller, "' == 'diff_drive'"]))
     )
 

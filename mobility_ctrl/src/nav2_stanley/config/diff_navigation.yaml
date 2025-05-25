@@ -161,7 +161,6 @@ controller_server:
       max_robot_pose_search_dist: 10.0
       stateful: true
 
-
 local_costmap:
   local_costmap:
     ros__parameters:

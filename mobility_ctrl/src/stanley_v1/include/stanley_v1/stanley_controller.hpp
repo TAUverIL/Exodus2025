@@ -154,6 +154,8 @@ protected:
     const geometry_msgs::msg::PoseStamped & in_pose,
     geometry_msgs::msg::PoseStamped & out_pose) const;
 
+  void printCorrectedOdometry(const geometry_msgs::msg::PoseStamped & raw_pose);
+
   /**
    * @brief checks for collision at projected pose
    * @param x Pose of pose x

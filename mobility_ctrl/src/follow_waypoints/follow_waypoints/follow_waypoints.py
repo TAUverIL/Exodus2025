@@ -35,7 +35,11 @@ class WaypointFollower(Node):
         self._last_goal = None
 
     def _on_waypoints(self, path_msg: Path):
-        # load all poses into the queue and start
+        now_msg = self.get_clock().now().to_msg()
+        path_msg.header.stamp = now_msg
+        for pose in path_msg.poses:
+            pose.header.stamp = now_msg
+
         self._queue = list(path_msg.poses)
         self.get_logger().info(f'Received {len(self._queue)} waypoints.')
         self._try_send_next()

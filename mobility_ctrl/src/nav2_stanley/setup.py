@@ -26,6 +26,8 @@ setup(
         (os.path.join('share', package_name, 'rviz'), glob('rviz/*.rviz')),
         # Include map files
         (os.path.join('share', package_name, 'maps'), glob('maps/*')),
+        # Include behaviour tree files
+        (os.path.join('share', package_name, 'bt'), glob('bt/*')),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
