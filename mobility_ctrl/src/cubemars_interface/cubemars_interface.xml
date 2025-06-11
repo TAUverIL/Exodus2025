@@ -1,0 +1,9 @@
+<library path="cubemars_interface">
+  <class name="cubemars_interface/CubeMarsSystemHardware"
+         type="cubemars_interface::CubeMarsSystemHardware"
+         base_class_type="hardware_interface::SystemInterface">
+    <description>
+      The ros2_control CubeMars plugin using a system hardware interface-type.
+    </description>
+  </class>
+</library>
