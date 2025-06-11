@@ -8,6 +8,7 @@ src/log
 src/nav2_outdoor_example
 src/f1_tenth_ros2
 src/.vscode/c_cpp_properties.json
+src/cubemars_hardware
 
 # Ignore Python cache files
 *.pyc
