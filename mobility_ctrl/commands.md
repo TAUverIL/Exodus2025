@@ -58,6 +58,12 @@ ros2 topic pub /waypoints nav_msgs/Path "{
     ]
 }" --once
 ```
+CAN connection:
+* Motors are connected to the battery via the middle connector (verify + and - connections). CAN connections are wired to the CANL (blue) and CANH (white) inputs on the CANable. No ground is necessary. To connect to the "Upper Computer" software on windows, connect the UART as well (via the R-Link)
+* Set up data connection using ```sudo ip link set dev can0 up type can bitrate 1000000``` - DATA on CANable lights up (turn off using ```sudo ip link set dev can0 down``` if necessary)
+* To print out the CAN data straight to the computer, use ```candump can0``` from the command line
+* To check that CAN is always connected (in the background), open the SavvyCAN software - enter the ```SavvyCAN``` folder in the Linux computer ```/home``` directory and type ```./SavvyCAN```. Connecting to the CAN network via the SavvyCAN requires opening the connections window and selecting the ```socketcan``` option and verifying that ```can0``` appears, and then configuring the message rate to 1000000 and saving the changes
+* We can test out commands using the TMotorCanControl files on the Linux computer ```/home``` directory (not really necessary)
 
 ROS2 command for single motor:
 * Name of package: ```cubemars_test```
