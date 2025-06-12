@@ -45,6 +45,9 @@ hardware_interface::CallbackReturn CubeMarsSystemHardware::on_init(
 
   for (const hardware_interface::ComponentInfo & joint : info_.joints)
   {
+    RCLCPP_INFO(rclcpp::get_logger("CubeMarsSystemHardware"), "Number of can_id parameters for each joint: %ld, can_id val: %ld", 
+      joint.parameters.count("can_id"), std::stoul(joint.parameters.at("can_id")));
+
     if (joint.parameters.count("can_id") != 0 &&
       joint.parameters.count("kt") != 0 &&
       joint.parameters.count("pole_pairs") != 0 &&
@@ -306,6 +309,8 @@ hardware_interface::return_type CubeMarsSystemHardware::read(
   // read all buffered CAN messages
   while (can_.read_nonblocking(read_id, read_data, read_len))
   {
+    RCLCPP_INFO(
+          rclcpp::get_logger("CubeMarsSystemHardware"), "Entered the while!");
     if (read_data[7] != 0)
     {
       switch(read_data[7])

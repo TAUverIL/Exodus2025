@@ -38,7 +38,7 @@
       <param name="can_interface">can0</param>
     </hardware>
     <joint name="${joint_name}">
-      <param name="can_id">30</param>
+      <param name="can_id">105</param>
       <param name="pole_pairs">21</param>
       <param name="gear_ratio">9</param>
       <param name="kt">0.1</param>

@@ -6,6 +6,8 @@
 #include <sys/ioctl.h>
 #include <sys/socket.h>
 #include <unistd.h>
+#include <fcntl.h>    // for fcntl(), F_GETFL, F_SETFL, O_NONBLOCK
+#include <unistd.h>   // for close()
 
 #include "rclcpp/rclcpp.hpp"
 
@@ -21,7 +23,7 @@ bool CanSocket::connect(std::string can_itf, const std::vector<canid_t> & can_id
       "Could not create socket");
     return false;
   }
-  fprintf(stderr, ">>> Got Here!! <<<");
+
   // get CAN interface index
   struct ifreq ifr;
   strcpy(ifr.ifr_name, can_itf.c_str());
@@ -54,14 +56,28 @@ bool CanSocket::connect(std::string can_itf, const std::vector<canid_t> & can_id
   {
     // rfilter[i].can_id = can_ids[i];
     // rfilter[i].can_mask = can_mask_;
+    constexpr uint8_t prefix = 0x29;
+    uint8_t suffix = can_ids[i];
+    uint32_t full_id_shift = (static_cast<uint32_t>(prefix) << 8) | suffix;  // 0x291E
 
-    uint32_t id = can_ids[i] | CAN_EFF_FLAG;
+    uint32_t id = full_id_shift | CAN_EFF_FLAG;
     uint32_t mask = CAN_EFF_MASK | CAN_EFF_FLAG;
     rfilter[i].can_id = id;
     rfilter[i].can_mask = mask;
-    RCLCPP_INFO(logger, "CAN filter results: can_id=0x%08X, can_mask=0x%08X", id, mask);
+    RCLCPP_INFO(logger, "CAN filter results: can_id=0x%08X, can_mask=0x%08X", rfilter[i].can_id, mask);
   }
   setsockopt(socket_, SOL_CAN_RAW, CAN_RAW_FILTER, &rfilter, sizeof(rfilter));
+
+  int flags = fcntl(socket_, F_GETFL, 0);
+  if (flags < 0) {
+    RCLCPP_ERROR(logger, "fcntl(F_GETFL) failed: %s", std::strerror(errno));
+    return false;
+  }
+  if (fcntl(socket_, F_SETFL, flags | O_NONBLOCK) < 0) {
+    RCLCPP_ERROR(logger, "fcntl(F_SETFL) failed: %s", std::strerror(errno));
+    return false;
+  }
+  fcntl(socket_, F_SETFL, flags | O_NONBLOCK);
 
   // write test message
   if (!write_message(0, NULL, 0))
@@ -90,25 +106,34 @@ bool CanSocket::disconnect()
 bool CanSocket::read_nonblocking(std::uint32_t & id, std::uint8_t data[], std::uint8_t & len)
 {
   struct can_frame frame;
-  if (recv(socket_, &frame, sizeof(struct can_frame), MSG_DONTWAIT) < 0)
-  {
-    if (errno == EAGAIN)
-    {
-      // no message in buffer
-    }
-    else
-    {
+
+  ssize_t recval;
+
+  do {
+    recval = recv(socket_, &frame, sizeof(frame), 0);
+  } while (recval < 0 && errno == EINTR);
+
+  if (recval < 0) {
+    int err = errno;
+    if (err == EAGAIN) {
+      RCLCPP_INFO(rclcpp::get_logger("CubeMarsSystemHardware"), "no message in buffer (EAGAIN)");
+    } else {
       RCLCPP_ERROR(
         rclcpp::get_logger("CubeMarsSystemHardware"),
-        "Could not read CAN socket");
+        "recv() failed: %s (errno=%d)",
+        std::strerror(err),
+        err);
     }
     return false;
-  }
+  } 
+
+  constexpr uint32_t CAN_EFF_MASK_NEW = 0x1FFFFFFFU;
 
   memcpy(data, frame.data, frame.len);
-  id = frame.can_id & can_mask_;
+  id = (frame.can_id & CAN_EFF_MASK_NEW) & 0xFF;
   len = frame.len;
-
+  RCLCPP_INFO(rclcpp::get_logger("CubeMarsSystemHardware"),
+          "Read ID can.cpp= 0x%x, before mask = 0x%x, can_mask = 0x%x", id, frame.can_id, CAN_EFF_MASK_NEW);
   return true;
 }
 
