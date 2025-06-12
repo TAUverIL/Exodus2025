@@ -58,6 +58,22 @@ ros2 topic pub /waypoints nav_msgs/Path "{
     ]
 }" --once
 ```
+
+ROS2 command for single motor:
+* Name of package: ```cubemars_test```
+* Single motor launch file for testing:  ```ros2 launch cubemars_test cubemars_test.launch.py```
+  This is a simple package containing only a single motor, with the position_controller control server (and only the steering motors have been tested so far)
+  The URDF contains a hardware interface - ```<hardware>``` tags inside ```ros2_control``` - with position, velocity, effort and acceleration command interfaces.
+  We have chosen to claim only the position command interface as of now, others can be chosen inside the ```cubemars_system.yaml``` config file.
+  When switching wheels, only change the hardware parameters according to what's defined in the Upper Computer software:
+```                               
+ <param name="can_id">105</param>
+ <param name="pole_pairs">21</param>
+ <param name="gear_ratio">9</param>
+ <param name="kt">0.1</param>
+````
+* The hardware interface is defined in the ```cubemars_interface``` package (similar to ```cubemars_hardware``` but with required changes to the code)
+
 GIT commands:
 * Check which branch we're in (and which files have changed): ```git status```
 * Checkout a branch: ```git checkout branch_name```
