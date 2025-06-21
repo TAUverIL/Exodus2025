@@ -322,15 +322,8 @@ double StanleyController::computeSteeringAngle(const geometry_msgs::msg::PoseSta
 
   double yaw_path = tf2::getYaw(global_plan_.poses[path_idx].pose.orientation);
 
-  // double first_x = global_plan_.poses[begin_wpt].pose.position.x;
-  // double last_x = global_plan_.poses[end_wpt].pose.position.x;
-
-  // double first_y = global_plan_.poses[begin_wpt].pose.position.y;
-  // double last_y = global_plan_.poses[end_wpt].pose.position.y;
   // RCLCPP_INFO(logger_, "Begin Wpt X: %.3f, Last Wpt X: %.3f, Final Wpt X: %.3f", 
   //   first_x, last_x, global_plan_.poses[last_wpt].pose.position.x);
-
-  // double yaw_path = std::atan2(last_y - first_y, last_x - first_x);
   double yaw_path_deg = StanleyController::radToDeg(yaw_path);
 
   // angle_err is the angle error between the rover and global path angles
@@ -339,8 +332,11 @@ double StanleyController::computeSteeringAngle(const geometry_msgs::msg::PoseSta
   
   // track_err_corr is the adjustment to rover angle to correct the cross track error
   double cte = StanleyController::computeCrossTrackError(robot_pose);
-  // double control_vel = (desired_lin_vel >= 0.1) ? vel : 0.1;
-  double xtrack_err_corr = std::atan2(k_steer_ * cte, vel);
+
+  // double desired_lin_vel = std::min(desired_linear_vel_, StanleyController::adjustSpeedLimit(robot_pose));
+
+  double control_vel = 0.2;
+  double xtrack_err_corr = std::atan2(k_steer_ * cte, (vel + control_vel));
   double xtrack_err_corr_deg = StanleyController::radToDeg(xtrack_err_corr);
 
   // delta is the final adjustment to the rover angle, adds the angle_err adjustment
@@ -379,13 +375,13 @@ geometry_msgs::msg::TwistStamped StanleyController::computeVelocityCommands(
 
   double target_angle;
 
-  double desired_lin_vel = std::min(desired_linear_vel_, StanleyController::adjustSpeedLimit(pose));
+  // double desired_lin_vel = std::min(desired_linear_vel_, StanleyController::adjustSpeedLimit(pose));
 
   // FIXME - check if we need to use speed or desired_lin_vel
-  target_angle = computeSteeringAngle(pose, desired_lin_vel);
+  target_angle = computeSteeringAngle(pose, speed.linear.x);
 
   double speed_update;
-  speed_update = computeSpeed(k_vel_, desired_lin_vel, speed) + speed.linear.x;
+  speed_update = computeSpeed(k_vel_, desired_linear_vel_, speed) + speed.linear.x;
 
   double angle_update;
   angle_update = speed_update * std::tan(target_angle) / wheel_base_;

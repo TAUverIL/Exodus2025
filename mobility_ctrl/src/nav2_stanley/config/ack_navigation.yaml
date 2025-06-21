@@ -137,19 +137,45 @@ controller_server:
       xy_goal_tolerance: 0.5
       yaw_goal_tolerance: 6.28
     # Stanley parameters - vector pursuit demo: vector_pursuit_controller::VectorPursuitController
+    # FollowPath:
+    #   plugin: "stanley_controller::StanleyController"
+    #   wheel_base: 1.6
+    #   k_steer: 0.35
+    #   k_vel: 1.0
+    #   allow_reversing: true
+    #   max_wpts: 12      # Number of waypoints to use for calculating global plan yaw angle
+    #   min_wpts: 5
+    #   desired_linear_vel: 1.0
+    #   slow_down_dist: 1.5
+    #   stop_dist: 0.5
+    #   max_steer_angle: 85.0
+    #   use_collision_detection: false
     FollowPath:
-      plugin: "stanley_controller::StanleyController"
-      wheel_base: 1.6
-      k_steer: 0.5
-      k_vel: 1.0
-      allow_reversing: true
-      max_wpts: 15      # Number of waypoints to use for calculating global plan yaw angle
-      min_wpts: 5
-      desired_linear_vel: 1.0
-      slow_down_dist: 1.5
-      stop_dist: 0.5
-      max_steer_angle: 85.0
+      plugin: "nav2_regulated_pure_pursuit_controller::RegulatedPurePursuitController"
+      desired_linear_vel: 0.7
+      lookahead_dist: 1.5
+      min_lookahead_dist: 1.0
+      max_lookahead_dist: 2.0
+      lookahead_time: 1.5
+      rotate_to_heading_angular_vel: 1.8
+      transform_tolerance: 0.5
+      use_velocity_scaled_lookahead_dist: false
+      min_approach_linear_velocity: 0.05
+      approach_velocity_scaling_dist: 0.6
       use_collision_detection: false
+      max_allowed_time_to_collision_up_to_carrot: 1.0
+      use_regulated_linear_velocity_scaling: true
+      use_fixed_curvature_lookahead: false
+      curvature_lookahead_dist: 0.25
+      use_cost_regulated_linear_velocity_scaling: false
+      regulated_linear_scaling_min_radius: 0.9
+      regulated_linear_scaling_min_speed: 0.25
+      use_rotate_to_heading: true
+      allow_reversing: false
+      rotate_to_heading_min_angle: 0.785
+      max_angular_accel: 3.2
+      max_robot_pose_search_dist: 10.0
+      stateful: true
 
 
 local_costmap:
@@ -257,7 +283,7 @@ planner_server:
       plugin: "nav2_smac_planner/SmacPlannerHybrid"
       cost_penalty: 4.0
       goal_heading_mode:      "ALL_DIRECTION"
-      minimum_turning_radius: 5.0
+      minimum_turning_radius: 6.0
       angle_goal_tolerance: 6.28
       analytic_expansion_ratio: 0.0
 
