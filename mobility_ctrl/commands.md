@@ -92,6 +92,7 @@ SLCAN Commands for Jetson:
 * Print CAN messages: ```candump slcan0```
 * URDF changes: Verify ```slcan0``` in Xacro ROS2 Control
 * Close connection: ```sudo pkill slcand```
+
 GIT commands:
 * Check which branch we're in (and which files have changed): ```git status```
 * Checkout a branch: ```git checkout branch_name```
