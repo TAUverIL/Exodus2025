@@ -85,7 +85,13 @@ for angle in $(seq 0 0.1 1.57); do   ros2 topic pub --once /position_controller/
 ```
 * Code to print steering position: ```ros2 topic echo /joint_states```
 * The hardware interface is defined in the ```cubemars_interface``` package (similar to ```cubemars_hardware``` but with required changes to the code)
-
+SLCAN Commands for Jetson:
+* Verify CAN connection: ```ip link```
+* Connect w/ bitrate 1Mbps: ```sudo slcand -o -c -s8 /dev/ttyACM1 slcan0```
+* Set up link: ```sudo ip link set slcan0 up```
+* Print CAN messages: ```candump slcan0```
+* URDF changes: Verify ```slcan0``` in Xacro ROS2 Control
+* Close connection: ```sudo pkill slcand```
 GIT commands:
 * Check which branch we're in (and which files have changed): ```git status```
 * Checkout a branch: ```git checkout branch_name```
