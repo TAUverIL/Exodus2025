@@ -3,7 +3,7 @@
 ukf_node:
   ros__parameters:
 
-    use_sim_time: True
+    use_sim_time: true
 
     frequency: 25.0
     sensor_timeout: 1.0

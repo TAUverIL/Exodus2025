@@ -1,0 +1,17 @@
+zed_config:
+  cam_names: "[camera1,camera2]"
+  cam_models: "[zed2i,zed2i]"
+  cam_serials: "[32514439,31718458]"
+  disable_tf: "false"
+
+launch_flags:
+  rviz: false
+  rtabmapviz: false
+  multicamera_odom: true
+
+rtabmap_params:
+  frame_id: "camera1_camera_link"
+  subscribe_rgbd: true
+  rgbd_cameras: 0
+  approx_sync: false
+  Vis/EstimationType: "0"

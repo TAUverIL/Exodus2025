@@ -31,13 +31,13 @@
 
     <!-- Initial Pose -->
 
-    <gazebo>
+    <!-- <gazebo>
         <pose>3.0 0.0 0.0 0 0 0</pose>
-    </gazebo>
+    </gazebo> -->
 
     <!-- GPS Gazebo Parameters -->
 
-    <gazebo reference="gnss_link">
+    <!-- <gazebo reference="gnss_link">
         <sensor name="GazeboNavSat" type="navsat">
             <always_on>1</always_on>
             <update_rate>25.0</update_rate>
@@ -45,11 +45,11 @@
             <topic>gps/fix</topic>
             <ignition_frame_id>gnss_link</ignition_frame_id>
         </sensor>
-    </gazebo>
+    </gazebo> -->
 
     <!-- Camera Gazebo Parameters -->
 
-    <gazebo reference="camera_link">
+    <!-- <gazebo reference="camera_link">
         <material>Gazebo/Black</material>
 
         <sensor name="camera" type="camera">
@@ -72,7 +72,7 @@
             <plugin filename="libgazebo_ros_camera.so" name="ignition::gazebo::systems::Camera">
                 <ignition_frame_id>camera_link</ignition_frame_id>
             </plugin>
-        </sensor>
+        </sensor> -->
 
         <!-- <sensor name="depth_camera" type="rgbd_camera">
             <always_on>true</always_on>
@@ -105,7 +105,7 @@
             <focalLength>0</focalLength>
             <hackBaseline>0</hackBaseline>
         </sensor> -->
-    </gazebo>
+    <!-- </gazebo> -->
 
     <!-- Ackermann Controller -->
 

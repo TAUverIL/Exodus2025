@@ -59,9 +59,12 @@
     <xacro:property name="steering_velocity" value="30"/>
 
     <!-- Base Link -->
-
-    <link name="base_link" />
-
+    <xacro:arg name="camera_name_1"   default="camera1" />
+    <joint name="base_link_joint" type="fixed">
+        <parent link="$(arg camera_name_1)_camera_link"/>
+        <child link="base_link"/>
+        <origin xyz="0 0 -1.5" rpy="0 0 0"/>
+    </joint>
     <!-- Base_Footprint Link -->
 
     <joint name="base_footprint_joint" type="fixed">
