@@ -51,6 +51,11 @@ def generate_launch_description():
         package='controller_manager',
         executable='spawner',
         arguments=['ackermann_steering_controller'],
+        remappings=[
+        ('/ackermann_steering_controller/reference_unstamped', '/cmd_vel'),
+        ('/ackermann_steering_controller/tf_odometry', '/tf'),
+        ('/ackermann_steering_controller/odometry', '/odom'),
+        ],
         output='screen'
     )
 
