@@ -9,6 +9,7 @@ src/nav2_outdoor_example
 src/f1_tenth_ros2
 src/zed-ros2-wrapper
 src/.vscode/c_cpp_properties.json
+src/cubemars_hardware
 src/zed-ros2-examples
 
 

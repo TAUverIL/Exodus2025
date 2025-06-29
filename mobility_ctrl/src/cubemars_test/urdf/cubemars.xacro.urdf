@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="cubemars_motor">
+
+  <!-- parameters for easy re-use -->
+  <xacro:property name="can_interface" value="can0"/>
+  <xacro:property name="joint_name"    value="wheel_joint"/>
+  <xacro:property name="can_id"        value="30"/>
+  <xacro:property name="pole_pairs"    value="7"/>
+  <xacro:property name="gear_ratio"    value="21"/>
+  <xacro:property name="kt"            value="0.1"/>
+
+  <!-- a tiny dummy link so ros2_control has something to attach to -->
+  <link name="${joint_name}_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="0.1" ixy="0.0" ixz="0.0"
+               iyy="0.1" iyz="0.0" izz="0.1"/>
+    </inertial>
+    <visual>
+      <geometry><sphere radius="0.05"/></geometry>
+    </visual>
+    <collision>
+      <geometry><sphere radius="0.05"/></geometry>
+    </collision>
+  </link>
+
+  <joint name="${joint_name}" type="continuous">
+    <parent link="world"/>
+    <child  link="${joint_name}_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis   xyz="0 0 1"/>
+  </joint>
+
+  <ros2_control name="CubemarsSystem" type="system">
+    <hardware>
+      <plugin>cubemars_interface/CubeMarsSystemHardware</plugin>
+      <param name="can_interface">can0</param>
+    </hardware>
+    <joint name="${joint_name}">
+      <param name="can_id">105</param>
+      <param name="pole_pairs">21</param>
+      <param name="gear_ratio">9</param>
+      <param name="kt">0.1</param>
+      <command_interface name="position"/>
+      <command_interface name="velocity"/>
+      <command_interface name="acceleration"/>
+      <command_interface name="effort"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+  </ros2_control>
+
+</robot>
