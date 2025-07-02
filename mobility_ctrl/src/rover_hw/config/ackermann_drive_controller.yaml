@@ -8,6 +8,9 @@ controller_manager:
     ackermann_steering_controller:
       type: 'ackermann_steering_controller/AckermannSteeringController'
 
+    rear_steering_controller:
+      type: position_controllers/JointGroupPositionController
+
 ackermann_steering_controller:
   ros__parameters:
     wheelbase: 1.6
@@ -28,3 +31,9 @@ ackermann_steering_controller:
     pose_covariance_diagonal: [0.0, 7.0, 14.0, 21.0, 28.0, 35.0]
     position_feedback: true
     publish_rate: 50.0  # Frequency of publishing odometry
+
+rear_steering_controller:
+  ros__parameters:
+    joints:
+      - left_rear_steering_joint
+      - right_rear_steering_joint

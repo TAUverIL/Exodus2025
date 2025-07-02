@@ -58,6 +58,14 @@ def generate_launch_description():
         ],
         output='screen'
     )
+    
+    # run command: ros2 topic pub /rear_steering_controller/commands std_msgs/msg/Float64MultiArray "{data: [0.0, 0.0]}"
+    rear_steering = Node(
+    package='controller_manager',
+    executable='spawner',
+    arguments=['rear_steering_controller'],
+    output='screen'
+    )
 
     rviz_node = Node(
         package='rviz2',
@@ -68,4 +76,4 @@ def generate_launch_description():
         parameters=[{'use_sim_time': False}],
     )
 
-    return LaunchDescription([control_node, jsb, ackermann, rviz_node])
+    return LaunchDescription([control_node, jsb, ackermann, rear_steering, rviz_node])

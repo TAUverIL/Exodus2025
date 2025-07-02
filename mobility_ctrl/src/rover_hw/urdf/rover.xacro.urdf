@@ -139,6 +139,38 @@
 
   </joint>
 
+  <link name="right_rear_steering">
+    <inertial>
+      <mass value="${steering_mass}"/>
+      <inertia ixx="0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+  </link>
+
+  <joint name="right_rear_steering_joint" type="revolute">
+    <origin xyz="-${steering_offset_x} -${wheel_offset_y} ${wheel_offset_z}" rpy="${pi_div_2} 0 0" />
+    <parent link="chassis" />
+    <child link="right_rear_steering" />
+    <axis xyz="${steering_axis}" />
+    <dynamics damping="${wheel_damping}" />
+    <limit effort="${steering_effort}" lower="${steering_limit_lower}" upper="${steering_limit_upper}" velocity="${steering_velocity}"/>
+  </joint>
+
+  <link name="left_rear_steering">
+    <inertial>
+      <mass value="${steering_mass}"/>
+      <inertia ixx="0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+  </link>
+
+  <joint name="left_rear_steering_joint" type="revolute">
+    <origin xyz="-${steering_offset_x} ${wheel_offset_y} ${wheel_offset_z}" rpy="${pi_div_2} 0 0" />
+    <parent link="chassis" />
+    <child link="right_rear_steering" />
+    <axis xyz="${steering_axis}" />
+    <dynamics damping="${wheel_damping}" />
+    <limit effort="${steering_effort}" lower="${steering_limit_lower}" upper="${steering_limit_upper}" velocity="${steering_velocity}"/>
+  </joint>
+
   <!-- Rear Right Wheel Link -->
   <link name="rear_right_wheel">
 
@@ -305,6 +337,24 @@
       <param name="kt">0.1</param>
       <command_interface name="velocity"/>
       <state_interface name="velocity" />
+      <state_interface name="position" />
+    </joint>
+
+    <joint name="left_rear_steering_joint">
+      <param name="can_id">111</param>
+      <param name="pole_pairs">21</param>
+      <param name="gear_ratio">9</param>
+      <param name="kt">0.1</param>
+      <command_interface name="position" />
+      <state_interface name="position" />
+    </joint>
+
+    <joint name="right_rear_steering_joint">
+      <param name="can_id">112</param>
+      <param name="pole_pairs">21</param>
+      <param name="gear_ratio">9</param>
+      <param name="kt">0.1</param>
+      <command_interface name="position" />
       <state_interface name="position" />
     </joint>
 
