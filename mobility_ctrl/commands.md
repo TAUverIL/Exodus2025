@@ -58,6 +58,41 @@ ros2 topic pub /waypoints nav_msgs/Path "{
     ]
 }" --once
 ```
+CAN connection:
+* Motors are connected to the battery via the middle connector (verify + and - connections). CAN connections are wired to the CANL (blue) and CANH (white) inputs on the CANable. No ground is necessary. To connect to the "Upper Computer" software on windows, connect the UART as well (via the R-Link)
+* Set up data connection using ```sudo ip link set dev can0 up type can bitrate 1000000``` - DATA on CANable lights up (turn off using ```sudo ip link set dev can0 down``` if necessary)
+* To print out the CAN data straight to the computer, use ```candump can0``` from the command line
+* To check that CAN is always connected (in the background), open the SavvyCAN software - enter the ```SavvyCAN``` folder in the Linux computer ```/home``` directory and type ```./SavvyCAN```. Connecting to the CAN network via the SavvyCAN requires opening the connections window and selecting the ```socketcan``` option and verifying that ```can0``` appears, and then configuring the message rate to 1000000 and saving the changes
+* We can test out commands using the TMotorCanControl files on the Linux computer ```/home``` directory (not really necessary)
+
+ROS2 command for single motor:
+* Name of package: ```cubemars_test```
+* Single motor launch file for testing:  ```ros2 launch cubemars_test cubemars_test.launch.py```
+* This is a simple package containing only a single motor, with the position_controller control server (and only the steering motors have been tested so far)
+* The URDF contains a hardware interface - ```<hardware>``` tags inside ```ros2_control``` - with position, velocity, effort and acceleration command interfaces.
+* We have chosen to claim only the position command interface as of now, others can be chosen inside the ```cubemars_system.yaml``` config file.
+* Steering commands are posted to ```/position_controller/commands```.
+* When switching wheels, only change the hardware parameters according to what's defined in the Upper Computer software:
+```                               
+ <param name="can_id">105</param>
+ <param name="pole_pairs">21</param>
+ <param name="gear_ratio">9</param>
+ <param name="kt">0.1</param>
+````
+* Code to rotate 180 degrees in 0.1 radian increments for testing steering (via command line):
+```
+for angle in $(seq 0 0.1 1.57); do   ros2 topic pub --once /position_controller/commands std_msgs/msg/Float64MultiArray "{ data: [${angle}] }";   sleep 0.1; done
+```
+* Code to print steering position: ```ros2 topic echo /joint_states```
+* The hardware interface is defined in the ```cubemars_interface``` package (similar to ```cubemars_hardware``` but with required changes to the code)
+SLCAN Commands for Jetson:
+* Verify CAN connection: ```ip link```
+* Connect w/ bitrate 1Mbps: ```sudo slcand -o -c -s8 /dev/ttyACM1 slcan0```
+* Set up link: ```sudo ip link set slcan0 up```
+* Print CAN messages: ```candump slcan0```
+* URDF changes: Verify ```slcan0``` in Xacro ROS2 Control
+* Close connection: ```sudo pkill slcand```
+
 GIT commands:
 * Check which branch we're in (and which files have changed): ```git status```
 * Checkout a branch: ```git checkout branch_name```
