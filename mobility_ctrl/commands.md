@@ -1,35 +1,35 @@
-Spawning the rover and running control nodes:
+**Spawning the rover and running control nodes:**
 * Running launch file and spawning rover:  ```ros2 launch nav2_stanley ack_bringup.launch.py```
 * Running initial control node:  ```ros2 run gazebo_ackermann_control control_node```
 * Teleop command: ```ros2 run teleop_twist_keyboard teleop_twist_keyboard```
 
-Creating SDF:
+**Creating SDF:**
 * Xacro -> URDF conversion:  ```xacro ack_rover.xacro.urdf > ack_rover.urdf```
 * URDF -> SDF conversion:  ```ign sdf -p ack_rover.urdf > ack_rover.sdf```
 
-ROS2 topics:
+**ROS2 topics:**
 * List current topics: ```ros2 topic list```
 * Echo to screen: ```ros2 topic echo /topic_name```
 
-IGN topics:
+**IGN topics:**
 * List ignition topics: ```ign topic -l```
 * Echo to screen: ```ign -e -t /topic_name```
 
-Check transforms:
+**Check transforms:**
 * Create TF tree (saves PDF in current location): ```ros2 run tf2_tools view_frames```
 * Verify transform exists between two TFs (for example, using map and odom TFs): ```ros2 run tf2_ros tf2_echo map odom```
 
-General:
+**General:**
 * Format for package creation with NAV2:
   ```ros2 pkg create <package_name> --build-type ament_python --dependencies rclpy geometry_msgs rviz2 robot_localization ros_gs_bridge ros_gz_sim nav2_bringup nav2_map_server nav2_lifecycle_manager tf2_ros```
 * Make python file executable: ```chmod +x <filename>.py```
 
-File locations:
+**File locations:**
 * All packages installed with sudo apt install: ```/opt/ros/humble/lib```
 * Package contents: ```/opt/ros/humble/share```
 * Gazebo worlds: ```/usr/share/ignition/ignition-gazebo6/worlds/```
 
-Quarternions:
+**Quarternions:**
 This table shows quaternion values for planar yaw orientations around the Z-axis, in 45° increments (counter-clockwise rotation from +X).
 | Angle (°) | Yaw (rad) | Quaternion (x, y, z, w)               |
 |-----------|-----------|---------------------------------------|
@@ -42,10 +42,10 @@ This table shows quaternion values for planar yaw orientations around the Z-axis
 | 270°      | 3π/2      | (0.0, 0.0, 0.7071, -0.7071)           |
 | 315°      | 7π/4      | (0.0, 0.0, 0.3827, -0.9239)           |
 
-Waypoint follower node:
+**Waypoint follower node:**
 ```ros2 run follow_waypoints follow_waypoints```
 
-Publish list of waypoints when using waypoint follower node:
+**Publish list of waypoints when using waypoint follower node:**
 ```
 ros2 topic pub /waypoints nav_msgs/Path "{
     header: { frame_id: 'map' },
@@ -58,14 +58,23 @@ ros2 topic pub /waypoints nav_msgs/Path "{
     ]
 }" --once
 ```
-CAN connection:
+**CAN connection (Linux desktop computer only! Jetson below):**
 * Motors are connected to the battery via the middle connector (verify + and - connections). CAN connections are wired to the CANL (blue) and CANH (white) inputs on the CANable. No ground is necessary. To connect to the "Upper Computer" software on windows, connect the UART as well (via the R-Link)
 * Set up data connection using ```sudo ip link set dev can0 up type can bitrate 1000000``` - DATA on CANable lights up (turn off using ```sudo ip link set dev can0 down``` if necessary)
 * To print out the CAN data straight to the computer, use ```candump can0``` from the command line
 * To check that CAN is always connected (in the background), open the SavvyCAN software - enter the ```SavvyCAN``` folder in the Linux computer ```/home``` directory and type ```./SavvyCAN```. Connecting to the CAN network via the SavvyCAN requires opening the connections window and selecting the ```socketcan``` option and verifying that ```can0``` appears, and then configuring the message rate to 1000000 and saving the changes
 * We can test out commands using the TMotorCanControl files on the Linux computer ```/home``` directory (not really necessary)
 
-ROS2 command for single motor:
+**SLCAN Commands for Jetson:**
+* Check which ACM is connected: ```ls -l /dev/ttyACM*```
+* Connect w/ bitrate 1Mbps: ```sudo slcand -o -c -s8 /dev/ttyACM# slcan0``` (using the # ACM from the above step (this can change when disconnecting and reconnecting)
+* Set up link: ```sudo ip link set slcan0 up```
+* Verify CAN connection: ```ip link```
+* Print CAN messages: ```candump slcan0```
+* URDF changes: Verify ```slcan0``` in Xacro ROS2 Control
+* Close connection: ```ssudo ip link set slcan0 down```
+
+**ROS2 command for single motor:**
 * Name of package: ```cubemars_test```
 * Single motor launch file for testing:  ```ros2 launch cubemars_test cubemars_test.launch.py```
 * This is a simple package containing only a single motor, with the position_controller control server (and only the steering motors have been tested so far)
@@ -85,15 +94,13 @@ for angle in $(seq 0 0.1 1.57); do   ros2 topic pub --once /position_controller/
 ```
 * Code to print steering position: ```ros2 topic echo /joint_states```
 * The hardware interface is defined in the ```cubemars_interface``` package (similar to ```cubemars_hardware``` but with required changes to the code)
-SLCAN Commands for Jetson:
-* Verify CAN connection: ```ip link```
-* Connect w/ bitrate 1Mbps: ```sudo slcand -o -c -s8 /dev/ttyACM1 slcan0```
-* Set up link: ```sudo ip link set slcan0 up```
-* Print CAN messages: ```candump slcan0```
-* URDF changes: Verify ```slcan0``` in Xacro ROS2 Control
-* Close connection: ```sudo pkill slcand```
+* Code for driving four driving motors at once (add angle to array according to wheel number for a single angle):
+```
+for angle in $(seq 0 0.1 1.57); do   ros2 topic pub --once /position_controller/commands std_msgs/msg/Float64MultiArray     "{data: [${angle}, ${angle}, ${angle}, ${angle}]}";   sleep 0.1; done
+```
+* Check position of wheel/s: ```ros2 topic echo /joint_states```
 
-GIT commands:
+**GIT commands:**
 * Check which branch we're in (and which files have changed): ```git status```
 * Checkout a branch: ```git checkout branch_name```
 * Create and checkout branch: ```git checkout -b new_branch_name```
