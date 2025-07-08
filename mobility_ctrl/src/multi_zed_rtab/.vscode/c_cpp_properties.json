@@ -1,0 +1,29 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/tauver/Exodus2025/mobility_ctrl/install/zed_ipc/include/**",
+        "/home/tauver/Exodus2025/mobility_ctrl/install/zed_topic_benchmark_component/include/**",
+        "/home/tauver/Exodus2025/mobility_ctrl/install/zed_topic_benchmark_interfaces/include/**",
+        "/home/tauver/Exodus2025/mobility_ctrl/install/zed_rgb_convert/include/**",
+        "/home/tauver/Exodus2025/mobility_ctrl/install/zed_aruco_localization/include/**",
+        "/home/tauver/Exodus2025/mobility_ctrl/install/zed_components/include/**",
+        "/home/tauver/Exodus2025/mobility_ctrl/install/stanley_v1/include/**",
+        "/home/tauver/Exodus2025/mobility_ctrl/install/rviz_plugin_zed_od/include/**",
+        "/home/tauver/ros2_ws/install/zed_components/include/**",
+        "/opt/ros/humble/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-arm64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

@@ -1,0 +1,26 @@
+[robot_state_publisher-3] [INFO] [1749715822.829289601] [robot_state_publisher]: got segment front_left_wheel
+[robot_state_publisher-3] [INFO] [1749715822.829297793] [robot_state_publisher]: got segment front_right_wheel
+[robot_state_publisher-3] [INFO] [1749715822.829306017] [robot_state_publisher]: got segment left_wheel_steering
+[robot_state_publisher-3] [INFO] [1749715822.829314753] [robot_state_publisher]: got segment rear_left_wheel
+[robot_state_publisher-3] [INFO] [1749715822.829322849] [robot_state_publisher]: got segment rear_right_wheel
+[robot_state_publisher-3] [INFO] [1749715822.829331297] [robot_state_publisher]: got segment right_wheel_steering
+[ruby $(which ign) gazebo-2] [1;32m[Msg] [0m[1;32mMaterial service on [[0m[1;32m/world/world_trial/wheel_slip[0m[1;32m][0m[1;32m[0m
+[rviz2-5] [ERROR] [1749715829.746961066] [rviz2]: The link left_wheel_steering is has unrealistic inertia, so the equivalent inertia box will not be shown.
+[ruby $(which ign) gazebo-2] [1;33mWarning [Model.cc:206][0m Non-unique name[front_left_wheel] detected 2 times in XML children of model with name[ack_rover].
+[ruby $(which ign) gazebo-2] [1;33mWarning [Model.cc:206][0m Non-unique name[front_left_wheel_joint] detected 2 times in XML children of model with name[ack_rover].
+[ruby $(which ign) gazebo-2] [1;33mWarning [Model.cc:206][0m Non-unique name[front_right_wheel] detected 2 times in XML children of model with name[ack_rover].
+[ruby $(which ign) gazebo-2] [1;33mWarning [Model.cc:206][0m Non-unique name[front_right_wheel_joint] detected 2 times in XML children of model with name[ack_rover].
+[ruby $(which ign) gazebo-2] [1;33mWarning [Model.cc:206][0m Non-unique name[left_wheel_steering] detected 2 times in XML children of model with name[ack_rover].
+[ruby $(which ign) gazebo-2] [1;33mWarning [Model.cc:206][0m Non-unique name[left_wheel_steering_joint] detected 2 times in XML children of model with name[ack_rover].
+[ruby $(which ign) gazebo-2] [1;33mWarning [Model.cc:206][0m Non-unique name[rear_left_wheel] detected 2 times in XML children of model with name[ack_rover].
+[ruby $(which ign) gazebo-2] [1;33mWarning [Model.cc:206][0m Non-unique name[rear_left_wheel_joint] detected 2 times in XML children of model with name[ack_rover].
+[ruby $(which ign) gazebo-2] [1;33mWarning [Model.cc:206][0m Non-unique name[rear_right_wheel] detected 2 times in XML children of model with name[ack_rover].
+[ruby $(which ign) gazebo-2] [1;33mWarning [Model.cc:206][0m Non-unique name[rear_right_wheel_joint] detected 2 times in XML children of model with name[ack_rover].
+[ruby $(which ign) gazebo-2] [1;33mWarning [Model.cc:206][0m Non-unique name[right_wheel_steering] detected 2 times in XML children of model with name[ack_rover].
+[ruby $(which ign) gazebo-2] [1;33mWarning [Model.cc:206][0m Non-unique name[right_wheel_steering_joint] detected 2 times in XML children of model with name[ack_rover].
+[ruby $(which ign) gazebo-2] [1;31m[Err] [UserCommands.cc:1138] [0m[1;31mError Code [0m[1;31m2[0m[1;31m: [0m[1;31mMsg: [0m[1;31mlink with name[left_wheel_steering] already exists.[0m[1;31m[0m
+[ruby $(which ign) gazebo-2] [1;31m[Err] [UserCommands.cc:1138] [0m[1;31mError Code [0m[1;31m2[0m[1;31m: [0m[1;31mMsg: [0m[1;31mlink with name[front_left_wheel] already exists.[0m[1;31m[0m
+[ruby $(which ign) gazebo-2] [1;31m[Err] [UserCommands.cc:1138] [0m[1;31mError Code [0m[1;31m2[0m[1;31m: [0m[1;31mMsg: [0m[1;31mlink with name[rear_left_wheel] already exists.[0m[1;31m[0m
+[ruby $(which ign) gazebo-2] [1;31m[Err] [UserCommands.cc:1138] [0m[1;31mError Code [0m[1;31m2[0m[1;31m: [0m[1;31mMsg: [0m[1;31mlink with name[rear_right_wheel] already exists.[0m[1;31m[0m
+[ruby $(which ign) gazebo-2] [1;31m[Err] [UserCommands.cc:1138] [0m[1;31mError Code [0m[1;31m2[0m[1;31m: [0m[1;31mMsg: [0m[1;31mlink with name[right_wheel_steering] already exists.[0m[1;31m[0m
+[ruby $(which ign) gazebo-2] [1;31m[Err] [UserCommands.cc:1138] [0m[1;31mError Code [0m[1;31m2[0m[1;31m: [0m[1;31mMsg: 

@@ -1,20 +1,3 @@
-# ros2_control:
-#   ros__parameters:
-#     # run controller manager at 100 Hz
-#     update_rate: 100
-
-#     # load our hardware plugin over CAN
-#     hardware_plugin: 'cubemars_hardware/CubeMarsSystemHardware'
-#     can_interface: 'can0'
-
-#     # define one joint backed by CAN ID 30
-#     joints:
-#       - name: 'wheel_joint'
-#         can_id: 30
-#         pole_pairs: 7
-#         gear_ratio: 21
-#         kt: 0.1
-
 controller_manager:
   ros__parameters:
     update_rate: 100
@@ -28,9 +11,12 @@ controller_manager:
       type: position_controllers/JointGroupPositionController
 
     joints:
-      - wheel_joint
+      - wheel_1_joint
+      # - wheel_2_joint
+      # - wheel_3_joint
+      # - wheel_4_joint
     command_interfaces:
-      - effort
+      - position
     state_interfaces:
       - position
       - velocity
@@ -44,4 +30,7 @@ controller_manager:
 position_controller:
   ros__parameters:
     joints:
-      - wheel_joint
+      - wheel_1_joint
+      # - wheel_2_joint
+      # - wheel_3_joint
+      # - wheel_4_joint

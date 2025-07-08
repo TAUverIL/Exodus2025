@@ -1,0 +1,33 @@
+running egg_info
+creating ../../../build/multi_zed_rtab/multi_zed_rtab.egg-info
+writing ../../../build/multi_zed_rtab/multi_zed_rtab.egg-info/PKG-INFO
+writing dependency_links to ../../../build/multi_zed_rtab/multi_zed_rtab.egg-info/dependency_links.txt
+writing entry points to ../../../build/multi_zed_rtab/multi_zed_rtab.egg-info/entry_points.txt
+writing requirements to ../../../build/multi_zed_rtab/multi_zed_rtab.egg-info/requires.txt
+writing top-level names to ../../../build/multi_zed_rtab/multi_zed_rtab.egg-info/top_level.txt
+writing manifest file '../../../build/multi_zed_rtab/multi_zed_rtab.egg-info/SOURCES.txt'
+reading manifest file '../../../build/multi_zed_rtab/multi_zed_rtab.egg-info/SOURCES.txt'
+writing manifest file '../../../build/multi_zed_rtab/multi_zed_rtab.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/tauver/Exodus2025/build/multi_zed_rtab/build
+creating /home/tauver/Exodus2025/build/multi_zed_rtab/build/lib
+creating /home/tauver/Exodus2025/build/multi_zed_rtab/build/lib/multi_zed_rtab
+copying multi_zed_rtab/__init__.py -> /home/tauver/Exodus2025/build/multi_zed_rtab/build/lib/multi_zed_rtab
+running install
+running install_lib
+creating /home/tauver/Exodus2025/install/multi_zed_rtab/lib/python3.10/site-packages/multi_zed_rtab
+copying /home/tauver/Exodus2025/build/multi_zed_rtab/build/lib/multi_zed_rtab/__init__.py -> /home/tauver/Exodus2025/install/multi_zed_rtab/lib/python3.10/site-packages/multi_zed_rtab
+byte-compiling /home/tauver/Exodus2025/install/multi_zed_rtab/lib/python3.10/site-packages/multi_zed_rtab/__init__.py to __init__.cpython-310.pyc
+running install_data
+creating /home/tauver/Exodus2025/install/multi_zed_rtab/share/ament_index
+creating /home/tauver/Exodus2025/install/multi_zed_rtab/share/ament_index/resource_index
+creating /home/tauver/Exodus2025/install/multi_zed_rtab/share/ament_index/resource_index/packages
+copying resource/multi_zed_rtab -> /home/tauver/Exodus2025/install/multi_zed_rtab/share/ament_index/resource_index/packages
+copying package.xml -> /home/tauver/Exodus2025/install/multi_zed_rtab/share/multi_zed_rtab
+creating /home/tauver/Exodus2025/install/multi_zed_rtab/share/multi_zed_rtab/launch
+copying launch/multi_zed_rtab.launch.py -> /home/tauver/Exodus2025/install/multi_zed_rtab/share/multi_zed_rtab/launch
+running install_egg_info
+Copying ../../../build/multi_zed_rtab/multi_zed_rtab.egg-info to /home/tauver/Exodus2025/install/multi_zed_rtab/lib/python3.10/site-packages/multi_zed_rtab-0.0.0-py3.10.egg-info
+running install_scripts
+writing list of installed files to '/home/tauver/Exodus2025/build/multi_zed_rtab/install.log'

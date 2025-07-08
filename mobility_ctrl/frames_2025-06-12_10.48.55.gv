@@ -1,0 +1,24 @@
+digraph G {
+"odom" -> "camera1_camera_link"[label=" Broadcaster: default_authority\nAverage rate: 0.776\nBuffer length: 3.866\nMost recent transform: 1749714529.898534\nOldest transform: 1749714526.032303\n"];
+"map" -> "odom"[label=" Broadcaster: default_authority\nAverage rate: 2.609\nBuffer length: 0.767\nMost recent transform: 1749714529.898534\nOldest transform: 1749714529.131858\n"];
+"camera1_camera_link" -> "camera1_camera_center"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"camera1_camera_center" -> "camera1_left_camera_frame"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"camera1_left_camera_frame" -> "camera1_left_camera_optical_frame"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"camera1_camera_center" -> "camera1_right_camera_frame"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"camera1_right_camera_frame" -> "camera1_right_camera_optical_frame"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"camera1_left_camera_frame" -> "camera1_imu_link"[label=" Broadcaster: default_authority\nAverage rate: 400.0\nBuffer length: 0.035\nMost recent transform: 27.389\nOldest transform: 27.354\n"];
+"camera2_left_camera_frame" -> "camera2_imu_link"[label=" Broadcaster: default_authority\nAverage rate: 169.014\nBuffer length: 0.071\nMost recent transform: 27.389\nOldest transform: 27.318\n"];
+"camera2_camera_center" -> "camera2_left_camera_frame"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"camera2_camera_link" -> "camera2_camera_center"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"base_link" -> "camera2_camera_link"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"camera2_left_camera_frame" -> "camera2_left_camera_optical_frame"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"camera2_camera_center" -> "camera2_right_camera_frame"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"camera2_right_camera_frame" -> "camera2_right_camera_optical_frame"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"base_link" -> "base_footprint"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"camera1_camera_link" -> "base_link"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"base_link" -> "chassis"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 1749714535.2361479"[ shape=plaintext ] ;
+}->"map";
+}
