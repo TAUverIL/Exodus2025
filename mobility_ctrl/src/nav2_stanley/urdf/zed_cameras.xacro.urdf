@@ -16,7 +16,7 @@
 // limitations under the License.
 -->
 
-<robot name="zedbot_scoutm" xmlns:xacro="http://ros.org/wiki/xacro">
+<robot name="zed_cameras" xmlns:xacro="http://ros.org/wiki/xacro">
   <xacro:arg name="camera_name_1"   default="camera1" />
   <xacro:arg name="camera_name_2"   default="camera2" />
   <xacro:arg name="camera_model_1"  default="zed2i" />

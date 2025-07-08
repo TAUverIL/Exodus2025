@@ -1,0 +1,775 @@
+[0.263s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--packages-select', 'multi_zed_rtab']
+[0.263s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=4, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=['multi_zed_rtab'], packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0xffffaeec02b0>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0xffffaf095db0>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0xffffaf095db0>>)
+[0.698s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.698s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.698s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.698s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.698s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.699s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.699s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/tauver/Exodus2025'
+[0.699s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.699s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.699s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.700s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.700s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.700s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.700s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.700s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.700s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.724s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.724s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.725s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.725s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.725s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.725s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.725s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.725s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.726s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.726s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.726s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.726s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.727s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.727s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.727s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl) by extensions ['ignore', 'ignore_ament_install']
+[0.727s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl) by extension 'ignore'
+[0.727s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl) by extension 'ignore_ament_install'
+[0.727s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl) by extensions ['colcon_pkg']
+[0.727s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl) by extension 'colcon_pkg'
+[0.727s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl) by extensions ['colcon_meta']
+[0.728s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl) by extension 'colcon_meta'
+[0.728s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl) by extensions ['ros']
+[0.728s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl) by extension 'ros'
+[0.728s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl) by extensions ['cmake', 'python']
+[0.728s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl) by extension 'cmake'
+[0.728s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl) by extension 'python'
+[0.728s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl) by extensions ['python_setup_py']
+[0.728s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl) by extension 'python_setup_py'
+[0.729s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/build) by extensions ['ignore', 'ignore_ament_install']
+[0.729s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/build) by extension 'ignore'
+[0.729s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/build) ignored
+[0.729s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/config) by extensions ['ignore', 'ignore_ament_install']
+[0.729s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/config) by extension 'ignore'
+[0.729s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/config) by extension 'ignore_ament_install'
+[0.729s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/config) by extensions ['colcon_pkg']
+[0.729s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/config) by extension 'colcon_pkg'
+[0.730s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/config) by extensions ['colcon_meta']
+[0.730s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/config) by extension 'colcon_meta'
+[0.730s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/config) by extensions ['ros']
+[0.730s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/config) by extension 'ros'
+[0.730s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/config) by extensions ['cmake', 'python']
+[0.730s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/config) by extension 'cmake'
+[0.730s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/config) by extension 'python'
+[0.730s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/config) by extensions ['python_setup_py']
+[0.730s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/config) by extension 'python_setup_py'
+[0.731s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/install) by extensions ['ignore', 'ignore_ament_install']
+[0.731s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/install) by extension 'ignore'
+[0.731s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/install) ignored
+[0.731s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/log) by extensions ['ignore', 'ignore_ament_install']
+[0.731s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/log) by extension 'ignore'
+[0.732s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/log) ignored
+[0.732s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src) by extensions ['ignore', 'ignore_ament_install']
+[0.732s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src) by extension 'ignore'
+[0.732s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src) by extension 'ignore_ament_install'
+[0.732s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src) by extensions ['colcon_pkg']
+[0.732s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src) by extension 'colcon_pkg'
+[0.732s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src) by extensions ['colcon_meta']
+[0.732s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src) by extension 'colcon_meta'
+[0.732s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src) by extensions ['ros']
+[0.733s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src) by extension 'ros'
+[0.733s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src) by extensions ['cmake', 'python']
+[0.733s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src) by extension 'cmake'
+[0.733s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src) by extension 'python'
+[0.733s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src) by extensions ['python_setup_py']
+[0.733s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src) by extension 'python_setup_py'
+[0.733s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/DualCameraLaunch) by extensions ['ignore', 'ignore_ament_install']
+[0.733s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/DualCameraLaunch) by extension 'ignore'
+[0.734s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/DualCameraLaunch) by extension 'ignore_ament_install'
+[0.734s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/DualCameraLaunch) by extensions ['colcon_pkg']
+[0.734s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/DualCameraLaunch) by extension 'colcon_pkg'
+[0.734s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/DualCameraLaunch) by extensions ['colcon_meta']
+[0.734s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/DualCameraLaunch) by extension 'colcon_meta'
+[0.734s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/DualCameraLaunch) by extensions ['ros']
+[0.734s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/DualCameraLaunch) by extension 'ros'
+[0.741s] DEBUG:colcon.colcon_core.package_identification:Package 'mobility_ctrl/src/DualCameraLaunch' with type 'ros.ament_python' and name 'DualCameraLaunch'
+[0.741s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/build) by extensions ['ignore', 'ignore_ament_install']
+[0.741s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/build) by extension 'ignore'
+[0.742s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/build) ignored
+[0.742s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/can_transceiver) by extensions ['ignore', 'ignore_ament_install']
+[0.742s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/can_transceiver) by extension 'ignore'
+[0.742s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/can_transceiver) by extension 'ignore_ament_install'
+[0.742s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/can_transceiver) by extensions ['colcon_pkg']
+[0.742s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/can_transceiver) by extension 'colcon_pkg'
+[0.743s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/can_transceiver) by extensions ['colcon_meta']
+[0.743s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/can_transceiver) by extension 'colcon_meta'
+[0.743s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/can_transceiver) by extensions ['ros']
+[0.743s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/can_transceiver) by extension 'ros'
+[0.744s] DEBUG:colcon.colcon_core.package_identification:Package 'mobility_ctrl/src/can_transceiver' with type 'ros.ament_python' and name 'can_transceiver'
+[0.744s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/description) by extensions ['ignore', 'ignore_ament_install']
+[0.745s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/description) by extension 'ignore'
+[0.745s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/description) by extension 'ignore_ament_install'
+[0.745s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/description) by extensions ['colcon_pkg']
+[0.745s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/description) by extension 'colcon_pkg'
+[0.745s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/description) by extensions ['colcon_meta']
+[0.745s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/description) by extension 'colcon_meta'
+[0.745s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/description) by extensions ['ros']
+[0.745s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/description) by extension 'ros'
+[0.746s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/description) by extensions ['cmake', 'python']
+[0.746s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/description) by extension 'cmake'
+[0.746s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/description) by extension 'python'
+[0.746s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/description) by extensions ['python_setup_py']
+[0.746s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/description) by extension 'python_setup_py'
+[0.746s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/drive_motor) by extensions ['ignore', 'ignore_ament_install']
+[0.746s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/drive_motor) by extension 'ignore'
+[0.746s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/drive_motor) by extension 'ignore_ament_install'
+[0.747s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/drive_motor) by extensions ['colcon_pkg']
+[0.747s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/drive_motor) by extension 'colcon_pkg'
+[0.747s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/drive_motor) by extensions ['colcon_meta']
+[0.747s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/drive_motor) by extension 'colcon_meta'
+[0.747s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/drive_motor) by extensions ['ros']
+[0.747s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/drive_motor) by extension 'ros'
+[0.748s] DEBUG:colcon.colcon_core.package_identification:Package 'mobility_ctrl/src/drive_motor' with type 'ros.ament_python' and name 'drive_motor'
+[0.749s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/fl_switch) by extensions ['ignore', 'ignore_ament_install']
+[0.749s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/fl_switch) by extension 'ignore'
+[0.749s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/fl_switch) by extension 'ignore_ament_install'
+[0.749s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/fl_switch) by extensions ['colcon_pkg']
+[0.749s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/fl_switch) by extension 'colcon_pkg'
+[0.749s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/fl_switch) by extensions ['colcon_meta']
+[0.749s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/fl_switch) by extension 'colcon_meta'
+[0.749s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/fl_switch) by extensions ['ros']
+[0.750s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/fl_switch) by extension 'ros'
+[0.751s] DEBUG:colcon.colcon_core.package_identification:Package 'mobility_ctrl/src/fl_switch' with type 'ros.ament_python' and name 'fl_switch'
+[0.751s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/follow_waypoints) by extensions ['ignore', 'ignore_ament_install']
+[0.751s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/follow_waypoints) by extension 'ignore'
+[0.751s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/follow_waypoints) by extension 'ignore_ament_install'
+[0.752s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/follow_waypoints) by extensions ['colcon_pkg']
+[0.752s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/follow_waypoints) by extension 'colcon_pkg'
+[0.752s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/follow_waypoints) by extensions ['colcon_meta']
+[0.752s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/follow_waypoints) by extension 'colcon_meta'
+[0.752s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/follow_waypoints) by extensions ['ros']
+[0.752s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/follow_waypoints) by extension 'ros'
+[0.754s] DEBUG:colcon.colcon_core.package_identification:Package 'mobility_ctrl/src/follow_waypoints' with type 'ros.ament_python' and name 'follow_waypoints'
+[0.755s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/install) by extensions ['ignore', 'ignore_ament_install']
+[0.755s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/install) by extension 'ignore'
+[0.755s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/install) ignored
+[0.755s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/jetson_arm_control) by extensions ['ignore', 'ignore_ament_install']
+[0.756s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/jetson_arm_control) by extension 'ignore'
+[0.756s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/jetson_arm_control) by extension 'ignore_ament_install'
+[0.756s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/jetson_arm_control) by extensions ['colcon_pkg']
+[0.756s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/jetson_arm_control) by extension 'colcon_pkg'
+[0.756s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/jetson_arm_control) by extensions ['colcon_meta']
+[0.756s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/jetson_arm_control) by extension 'colcon_meta'
+[0.756s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/jetson_arm_control) by extensions ['ros']
+[0.756s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/jetson_arm_control) by extension 'ros'
+[0.758s] DEBUG:colcon.colcon_core.package_identification:Package 'mobility_ctrl/src/jetson_arm_control' with type 'ros.ament_python' and name 'jetson_arm_control'
+[0.758s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/jetson_orin_nx_mcu) by extensions ['ignore', 'ignore_ament_install']
+[0.758s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/jetson_orin_nx_mcu) by extension 'ignore'
+[0.758s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/jetson_orin_nx_mcu) by extension 'ignore_ament_install'
+[0.758s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/jetson_orin_nx_mcu) by extensions ['colcon_pkg']
+[0.759s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/jetson_orin_nx_mcu) by extension 'colcon_pkg'
+[0.759s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/jetson_orin_nx_mcu) by extensions ['colcon_meta']
+[0.759s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/jetson_orin_nx_mcu) by extension 'colcon_meta'
+[0.759s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/jetson_orin_nx_mcu) by extensions ['ros']
+[0.759s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/jetson_orin_nx_mcu) by extension 'ros'
+[0.760s] DEBUG:colcon.colcon_core.package_identification:Package 'mobility_ctrl/src/jetson_orin_nx_mcu' with type 'ros.ament_python' and name 'jetson_orin_nx_mcu'
+[0.760s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/launch_testing) by extensions ['ignore', 'ignore_ament_install']
+[0.761s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/launch_testing) by extension 'ignore'
+[0.761s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/launch_testing) by extension 'ignore_ament_install'
+[0.761s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/launch_testing) by extensions ['colcon_pkg']
+[0.761s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/launch_testing) by extension 'colcon_pkg'
+[0.761s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/launch_testing) by extensions ['colcon_meta']
+[0.761s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/launch_testing) by extension 'colcon_meta'
+[0.761s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/launch_testing) by extensions ['ros']
+[0.761s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/launch_testing) by extension 'ros'
+[0.762s] DEBUG:colcon.colcon_core.package_identification:Failed to parse potential ROS package manifest in'mobility_ctrl/src/launch_testing': Error(s) in package 'mobility_ctrl/src/launch_testing/package.xml':
+The manifest contains invalid XML:
+no element found: line 1, column 0
+[0.762s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/launch_testing) by extensions ['cmake', 'python']
+[0.762s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/launch_testing) by extension 'cmake'
+[0.762s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/launch_testing) by extension 'python'
+[0.762s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/launch_testing) by extensions ['python_setup_py']
+[0.762s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/launch_testing) by extension 'python_setup_py'
+[0.763s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/launch_testing/__pycache__) by extensions ['ignore', 'ignore_ament_install']
+[0.763s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/launch_testing/__pycache__) by extension 'ignore'
+[0.763s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/launch_testing/__pycache__) by extension 'ignore_ament_install'
+[0.763s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/launch_testing/__pycache__) by extensions ['colcon_pkg']
+[0.763s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/launch_testing/__pycache__) by extension 'colcon_pkg'
+[0.763s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/launch_testing/__pycache__) by extensions ['colcon_meta']
+[0.763s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/launch_testing/__pycache__) by extension 'colcon_meta'
+[0.764s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/launch_testing/__pycache__) by extensions ['ros']
+[0.764s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/launch_testing/__pycache__) by extension 'ros'
+[0.764s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/launch_testing/__pycache__) by extensions ['cmake', 'python']
+[0.764s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/launch_testing/__pycache__) by extension 'cmake'
+[0.764s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/launch_testing/__pycache__) by extension 'python'
+[0.764s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/launch_testing/__pycache__) by extensions ['python_setup_py']
+[0.764s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/launch_testing/__pycache__) by extension 'python_setup_py'
+[0.764s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/launch_testing/launch) by extensions ['ignore', 'ignore_ament_install']
+[0.764s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/launch_testing/launch) by extension 'ignore'
+[0.765s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/launch_testing/launch) by extension 'ignore_ament_install'
+[0.765s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/launch_testing/launch) by extensions ['colcon_pkg']
+[0.765s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/launch_testing/launch) by extension 'colcon_pkg'
+[0.765s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/launch_testing/launch) by extensions ['colcon_meta']
+[0.765s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/launch_testing/launch) by extension 'colcon_meta'
+[0.765s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/launch_testing/launch) by extensions ['ros']
+[0.765s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/launch_testing/launch) by extension 'ros'
+[0.765s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/launch_testing/launch) by extensions ['cmake', 'python']
+[0.765s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/launch_testing/launch) by extension 'cmake'
+[0.765s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/launch_testing/launch) by extension 'python'
+[0.766s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/launch_testing/launch) by extensions ['python_setup_py']
+[0.766s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/launch_testing/launch) by extension 'python_setup_py'
+[0.766s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/log) by extensions ['ignore', 'ignore_ament_install']
+[0.766s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/log) by extension 'ignore'
+[0.766s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/log) ignored
+[0.766s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/multi_zed_rtab) by extensions ['ignore', 'ignore_ament_install']
+[0.767s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/multi_zed_rtab) by extension 'ignore'
+[0.767s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/multi_zed_rtab) by extension 'ignore_ament_install'
+[0.767s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/multi_zed_rtab) by extensions ['colcon_pkg']
+[0.767s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/multi_zed_rtab) by extension 'colcon_pkg'
+[0.767s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/multi_zed_rtab) by extensions ['colcon_meta']
+[0.767s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/multi_zed_rtab) by extension 'colcon_meta'
+[0.767s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/multi_zed_rtab) by extensions ['ros']
+[0.767s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/multi_zed_rtab) by extension 'ros'
+[0.768s] DEBUG:colcon.colcon_core.package_identification:Package 'mobility_ctrl/src/multi_zed_rtab' with type 'ros.ament_python' and name 'multi_zed_rtab'
+[0.769s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/nav2_stanley) by extensions ['ignore', 'ignore_ament_install']
+[0.769s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/nav2_stanley) by extension 'ignore'
+[0.769s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/nav2_stanley) by extension 'ignore_ament_install'
+[0.769s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/nav2_stanley) by extensions ['colcon_pkg']
+[0.769s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/nav2_stanley) by extension 'colcon_pkg'
+[0.769s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/nav2_stanley) by extensions ['colcon_meta']
+[0.769s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/nav2_stanley) by extension 'colcon_meta'
+[0.770s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/nav2_stanley) by extensions ['ros']
+[0.770s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/nav2_stanley) by extension 'ros'
+[0.773s] DEBUG:colcon.colcon_core.package_identification:Package 'mobility_ctrl/src/nav2_stanley' with type 'ros.ament_python' and name 'nav2_stanley'
+[0.773s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/pivot_motor) by extensions ['ignore', 'ignore_ament_install']
+[0.773s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/pivot_motor) by extension 'ignore'
+[0.773s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/pivot_motor) by extension 'ignore_ament_install'
+[0.773s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/pivot_motor) by extensions ['colcon_pkg']
+[0.773s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/pivot_motor) by extension 'colcon_pkg'
+[0.774s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/pivot_motor) by extensions ['colcon_meta']
+[0.774s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/pivot_motor) by extension 'colcon_meta'
+[0.774s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/pivot_motor) by extensions ['ros']
+[0.774s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/pivot_motor) by extension 'ros'
+[0.775s] DEBUG:colcon.colcon_core.package_identification:Package 'mobility_ctrl/src/pivot_motor' with type 'ros.ament_python' and name 'pivot_motor'
+[0.775s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/science_module) by extensions ['ignore', 'ignore_ament_install']
+[0.776s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/science_module) by extension 'ignore'
+[0.776s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/science_module) by extension 'ignore_ament_install'
+[0.776s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/science_module) by extensions ['colcon_pkg']
+[0.776s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/science_module) by extension 'colcon_pkg'
+[0.776s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/science_module) by extensions ['colcon_meta']
+[0.776s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/science_module) by extension 'colcon_meta'
+[0.776s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/science_module) by extensions ['ros']
+[0.776s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/science_module) by extension 'ros'
+[0.780s] DEBUG:colcon.colcon_core.package_identification:Package 'mobility_ctrl/src/science_module' with type 'ros.ament_python' and name 'science_module'
+[0.781s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/stanley_v1) by extensions ['ignore', 'ignore_ament_install']
+[0.781s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/stanley_v1) by extension 'ignore'
+[0.781s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/stanley_v1) by extension 'ignore_ament_install'
+[0.781s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/stanley_v1) by extensions ['colcon_pkg']
+[0.781s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/stanley_v1) by extension 'colcon_pkg'
+[0.782s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/stanley_v1) by extensions ['colcon_meta']
+[0.782s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/stanley_v1) by extension 'colcon_meta'
+[0.782s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/stanley_v1) by extensions ['ros']
+[0.782s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/stanley_v1) by extension 'ros'
+[0.785s] DEBUG:colcon.colcon_core.package_identification:Package 'mobility_ctrl/src/stanley_v1' with type 'ros.ament_cmake' and name 'stanley_v1'
+[0.785s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/telecom_module) by extensions ['ignore', 'ignore_ament_install']
+[0.785s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/telecom_module) by extension 'ignore'
+[0.785s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/telecom_module) by extension 'ignore_ament_install'
+[0.785s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/telecom_module) by extensions ['colcon_pkg']
+[0.785s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/telecom_module) by extension 'colcon_pkg'
+[0.786s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/telecom_module) by extensions ['colcon_meta']
+[0.786s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/telecom_module) by extension 'colcon_meta'
+[0.786s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/telecom_module) by extensions ['ros']
+[0.786s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/telecom_module) by extension 'ros'
+[0.787s] DEBUG:colcon.colcon_core.package_identification:Package 'mobility_ctrl/src/telecom_module' with type 'ros.ament_python' and name 'telecom_module'
+[0.787s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/usb_camera_1) by extensions ['ignore', 'ignore_ament_install']
+[0.788s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/usb_camera_1) by extension 'ignore'
+[0.788s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/usb_camera_1) by extension 'ignore_ament_install'
+[0.788s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/usb_camera_1) by extensions ['colcon_pkg']
+[0.788s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/usb_camera_1) by extension 'colcon_pkg'
+[0.788s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/usb_camera_1) by extensions ['colcon_meta']
+[0.788s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/usb_camera_1) by extension 'colcon_meta'
+[0.788s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/usb_camera_1) by extensions ['ros']
+[0.788s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/usb_camera_1) by extension 'ros'
+[0.790s] DEBUG:colcon.colcon_core.package_identification:Package 'mobility_ctrl/src/usb_camera_1' with type 'ros.ament_python' and name 'usb_camera_1'
+[0.790s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/worlds) by extensions ['ignore', 'ignore_ament_install']
+[0.790s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/worlds) by extension 'ignore'
+[0.790s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/worlds) by extension 'ignore_ament_install'
+[0.790s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/worlds) by extensions ['colcon_pkg']
+[0.790s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/worlds) by extension 'colcon_pkg'
+[0.791s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/worlds) by extensions ['colcon_meta']
+[0.791s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/worlds) by extension 'colcon_meta'
+[0.791s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/worlds) by extensions ['ros']
+[0.791s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/worlds) by extension 'ros'
+[0.791s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/worlds) by extensions ['cmake', 'python']
+[0.791s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/worlds) by extension 'cmake'
+[0.791s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/worlds) by extension 'python'
+[0.791s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/worlds) by extensions ['python_setup_py']
+[0.791s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/worlds) by extension 'python_setup_py'
+[0.792s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples) by extensions ['ignore', 'ignore_ament_install']
+[0.792s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples) by extension 'ignore'
+[0.792s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples) by extension 'ignore_ament_install'
+[0.792s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples) by extensions ['colcon_pkg']
+[0.792s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples) by extension 'colcon_pkg'
+[0.792s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples) by extensions ['colcon_meta']
+[0.792s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples) by extension 'colcon_meta'
+[0.792s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples) by extensions ['ros']
+[0.792s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples) by extension 'ros'
+[0.793s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples) by extensions ['cmake', 'python']
+[0.793s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples) by extension 'cmake'
+[0.793s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples) by extension 'python'
+[0.793s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples) by extensions ['python_setup_py']
+[0.793s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples) by extension 'python_setup_py'
+[0.793s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/examples) by extensions ['ignore', 'ignore_ament_install']
+[0.793s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/examples) by extension 'ignore'
+[0.794s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/examples) by extension 'ignore_ament_install'
+[0.794s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/examples) by extensions ['colcon_pkg']
+[0.794s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/examples) by extension 'colcon_pkg'
+[0.794s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/examples) by extensions ['colcon_meta']
+[0.794s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/examples) by extension 'colcon_meta'
+[0.794s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/examples) by extensions ['ros']
+[0.794s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/examples) by extension 'ros'
+[0.794s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/examples) by extensions ['cmake', 'python']
+[0.794s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/examples) by extension 'cmake'
+[0.794s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/examples) by extension 'python'
+[0.795s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/examples) by extensions ['python_setup_py']
+[0.795s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/examples) by extension 'python_setup_py'
+[0.795s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/examples/zed_aruco_localization) by extensions ['ignore', 'ignore_ament_install']
+[0.795s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/examples/zed_aruco_localization) by extension 'ignore'
+[0.795s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/examples/zed_aruco_localization) by extension 'ignore_ament_install'
+[0.795s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/examples/zed_aruco_localization) by extensions ['colcon_pkg']
+[0.795s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/examples/zed_aruco_localization) by extension 'colcon_pkg'
+[0.796s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/examples/zed_aruco_localization) by extensions ['colcon_meta']
+[0.796s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/examples/zed_aruco_localization) by extension 'colcon_meta'
+[0.796s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/examples/zed_aruco_localization) by extensions ['ros']
+[0.796s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/examples/zed_aruco_localization) by extension 'ros'
+[0.825s] DEBUG:colcon.colcon_core.package_identification:Package 'mobility_ctrl/src/zed-ros2-examples/examples/zed_aruco_localization' with type 'ros.ament_cmake' and name 'zed_aruco_localization'
+[0.826s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/examples/zed_depth_to_laserscan) by extensions ['ignore', 'ignore_ament_install']
+[0.826s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/examples/zed_depth_to_laserscan) by extension 'ignore'
+[0.827s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/examples/zed_depth_to_laserscan) by extension 'ignore_ament_install'
+[0.827s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/examples/zed_depth_to_laserscan) by extensions ['colcon_pkg']
+[0.827s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/examples/zed_depth_to_laserscan) by extension 'colcon_pkg'
+[0.827s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/examples/zed_depth_to_laserscan) by extensions ['colcon_meta']
+[0.827s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/examples/zed_depth_to_laserscan) by extension 'colcon_meta'
+[0.827s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/examples/zed_depth_to_laserscan) by extensions ['ros']
+[0.827s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/examples/zed_depth_to_laserscan) by extension 'ros'
+[0.829s] DEBUG:colcon.colcon_core.package_identification:Package 'mobility_ctrl/src/zed-ros2-examples/examples/zed_depth_to_laserscan' with type 'ros.ament_cmake' and name 'zed_depth_to_laserscan'
+[0.830s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/images) by extensions ['ignore', 'ignore_ament_install']
+[0.830s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/images) by extension 'ignore'
+[0.830s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/images) by extension 'ignore_ament_install'
+[0.830s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/images) by extensions ['colcon_pkg']
+[0.830s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/images) by extension 'colcon_pkg'
+[0.830s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/images) by extensions ['colcon_meta']
+[0.830s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/images) by extension 'colcon_meta'
+[0.830s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/images) by extensions ['ros']
+[0.831s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/images) by extension 'ros'
+[0.831s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/images) by extensions ['cmake', 'python']
+[0.831s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/images) by extension 'cmake'
+[0.831s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/images) by extension 'python'
+[0.831s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/images) by extensions ['python_setup_py']
+[0.831s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/images) by extension 'python_setup_py'
+[0.831s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/rviz-plugin-zed-od) by extensions ['ignore', 'ignore_ament_install']
+[0.832s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/rviz-plugin-zed-od) by extension 'ignore'
+[0.832s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/rviz-plugin-zed-od) by extension 'ignore_ament_install'
+[0.832s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/rviz-plugin-zed-od) by extensions ['colcon_pkg']
+[0.832s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/rviz-plugin-zed-od) by extension 'colcon_pkg'
+[0.832s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/rviz-plugin-zed-od) by extensions ['colcon_meta']
+[0.832s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/rviz-plugin-zed-od) by extension 'colcon_meta'
+[0.832s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/rviz-plugin-zed-od) by extensions ['ros']
+[0.832s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/rviz-plugin-zed-od) by extension 'ros'
+[0.834s] DEBUG:colcon.colcon_core.package_identification:Package 'mobility_ctrl/src/zed-ros2-examples/rviz-plugin-zed-od' with type 'ros.ament_cmake' and name 'rviz_plugin_zed_od'
+[0.834s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tools) by extensions ['ignore', 'ignore_ament_install']
+[0.834s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tools) by extension 'ignore'
+[0.835s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tools) by extension 'ignore_ament_install'
+[0.835s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tools) by extensions ['colcon_pkg']
+[0.835s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tools) by extension 'colcon_pkg'
+[0.835s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tools) by extensions ['colcon_meta']
+[0.835s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tools) by extension 'colcon_meta'
+[0.835s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tools) by extensions ['ros']
+[0.835s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tools) by extension 'ros'
+[0.835s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tools) by extensions ['cmake', 'python']
+[0.835s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tools) by extension 'cmake'
+[0.836s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tools) by extension 'python'
+[0.836s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tools) by extensions ['python_setup_py']
+[0.836s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tools) by extension 'python_setup_py'
+[0.836s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tools/zed_benchmark) by extensions ['ignore', 'ignore_ament_install']
+[0.836s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tools/zed_benchmark) by extension 'ignore'
+[0.836s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tools/zed_benchmark) by extension 'ignore_ament_install'
+[0.836s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tools/zed_benchmark) by extensions ['colcon_pkg']
+[0.837s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tools/zed_benchmark) by extension 'colcon_pkg'
+[0.837s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tools/zed_benchmark) by extensions ['colcon_meta']
+[0.837s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tools/zed_benchmark) by extension 'colcon_meta'
+[0.837s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tools/zed_benchmark) by extensions ['ros']
+[0.837s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tools/zed_benchmark) by extension 'ros'
+[0.838s] DEBUG:colcon.colcon_core.package_identification:Package 'mobility_ctrl/src/zed-ros2-examples/tools/zed_benchmark' with type 'ros.ament_cmake' and name 'zed_topic_benchmark'
+[0.839s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tools/zed_benchmark_component) by extensions ['ignore', 'ignore_ament_install']
+[0.839s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tools/zed_benchmark_component) by extension 'ignore'
+[0.839s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tools/zed_benchmark_component) by extension 'ignore_ament_install'
+[0.839s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tools/zed_benchmark_component) by extensions ['colcon_pkg']
+[0.839s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tools/zed_benchmark_component) by extension 'colcon_pkg'
+[0.839s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tools/zed_benchmark_component) by extensions ['colcon_meta']
+[0.839s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tools/zed_benchmark_component) by extension 'colcon_meta'
+[0.840s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tools/zed_benchmark_component) by extensions ['ros']
+[0.840s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tools/zed_benchmark_component) by extension 'ros'
+[0.841s] DEBUG:colcon.colcon_core.package_identification:Package 'mobility_ctrl/src/zed-ros2-examples/tools/zed_benchmark_component' with type 'ros.ament_cmake' and name 'zed_topic_benchmark_component'
+[0.841s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tools/zed_benchmark_interfaces) by extensions ['ignore', 'ignore_ament_install']
+[0.841s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tools/zed_benchmark_interfaces) by extension 'ignore'
+[0.841s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tools/zed_benchmark_interfaces) by extension 'ignore_ament_install'
+[0.842s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tools/zed_benchmark_interfaces) by extensions ['colcon_pkg']
+[0.842s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tools/zed_benchmark_interfaces) by extension 'colcon_pkg'
+[0.842s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tools/zed_benchmark_interfaces) by extensions ['colcon_meta']
+[0.842s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tools/zed_benchmark_interfaces) by extension 'colcon_meta'
+[0.842s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tools/zed_benchmark_interfaces) by extensions ['ros']
+[0.842s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tools/zed_benchmark_interfaces) by extension 'ros'
+[0.843s] DEBUG:colcon.colcon_core.package_identification:Package 'mobility_ctrl/src/zed-ros2-examples/tools/zed_benchmark_interfaces' with type 'ros.ament_cmake' and name 'zed_topic_benchmark_interfaces'
+[0.844s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials) by extensions ['ignore', 'ignore_ament_install']
+[0.844s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials) by extension 'ignore'
+[0.844s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials) by extension 'ignore_ament_install'
+[0.844s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials) by extensions ['colcon_pkg']
+[0.844s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials) by extension 'colcon_pkg'
+[0.844s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials) by extensions ['colcon_meta']
+[0.844s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials) by extension 'colcon_meta'
+[0.844s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials) by extensions ['ros']
+[0.845s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials) by extension 'ros'
+[0.845s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials) by extensions ['cmake', 'python']
+[0.845s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials) by extension 'cmake'
+[0.845s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials) by extension 'python'
+[0.845s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials) by extensions ['python_setup_py']
+[0.845s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials) by extension 'python_setup_py'
+[0.845s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_depth_tutorial) by extensions ['ignore', 'ignore_ament_install']
+[0.846s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_depth_tutorial) by extension 'ignore'
+[0.846s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_depth_tutorial) by extension 'ignore_ament_install'
+[0.846s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_depth_tutorial) by extensions ['colcon_pkg']
+[0.846s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_depth_tutorial) by extension 'colcon_pkg'
+[0.846s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_depth_tutorial) by extensions ['colcon_meta']
+[0.846s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_depth_tutorial) by extension 'colcon_meta'
+[0.846s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_depth_tutorial) by extensions ['ros']
+[0.846s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_depth_tutorial) by extension 'ros'
+[0.848s] DEBUG:colcon.colcon_core.package_identification:Package 'mobility_ctrl/src/zed-ros2-examples/tutorials/zed_depth_tutorial' with type 'ros.ament_cmake' and name 'zed_tutorial_depth'
+[0.848s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_ipc) by extensions ['ignore', 'ignore_ament_install']
+[0.848s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_ipc) by extension 'ignore'
+[0.848s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_ipc) by extension 'ignore_ament_install'
+[0.848s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_ipc) by extensions ['colcon_pkg']
+[0.849s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_ipc) by extension 'colcon_pkg'
+[0.849s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_ipc) by extensions ['colcon_meta']
+[0.849s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_ipc) by extension 'colcon_meta'
+[0.849s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_ipc) by extensions ['ros']
+[0.849s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_ipc) by extension 'ros'
+[0.851s] DEBUG:colcon.colcon_core.package_identification:Package 'mobility_ctrl/src/zed-ros2-examples/tutorials/zed_ipc' with type 'ros.ament_cmake' and name 'zed_ipc'
+[0.851s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_multi_camera) by extensions ['ignore', 'ignore_ament_install']
+[0.852s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_multi_camera) by extension 'ignore'
+[0.852s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_multi_camera) by extension 'ignore_ament_install'
+[0.852s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_multi_camera) by extensions ['colcon_pkg']
+[0.852s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_multi_camera) by extension 'colcon_pkg'
+[0.852s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_multi_camera) by extensions ['colcon_meta']
+[0.852s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_multi_camera) by extension 'colcon_meta'
+[0.852s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_multi_camera) by extensions ['ros']
+[0.852s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_multi_camera) by extension 'ros'
+[0.854s] DEBUG:colcon.colcon_core.package_identification:Package 'mobility_ctrl/src/zed-ros2-examples/tutorials/zed_multi_camera' with type 'ros.ament_cmake' and name 'zed_multi_camera'
+[0.854s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_pose_tutorial) by extensions ['ignore', 'ignore_ament_install']
+[0.854s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_pose_tutorial) by extension 'ignore'
+[0.854s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_pose_tutorial) by extension 'ignore_ament_install'
+[0.854s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_pose_tutorial) by extensions ['colcon_pkg']
+[0.854s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_pose_tutorial) by extension 'colcon_pkg'
+[0.854s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_pose_tutorial) by extensions ['colcon_meta']
+[0.855s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_pose_tutorial) by extension 'colcon_meta'
+[0.855s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_pose_tutorial) by extensions ['ros']
+[0.855s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_pose_tutorial) by extension 'ros'
+[0.857s] DEBUG:colcon.colcon_core.package_identification:Package 'mobility_ctrl/src/zed-ros2-examples/tutorials/zed_pose_tutorial' with type 'ros.ament_cmake' and name 'zed_tutorial_pos_tracking'
+[0.857s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_rgb_convert) by extensions ['ignore', 'ignore_ament_install']
+[0.857s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_rgb_convert) by extension 'ignore'
+[0.857s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_rgb_convert) by extension 'ignore_ament_install'
+[0.857s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_rgb_convert) by extensions ['colcon_pkg']
+[0.857s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_rgb_convert) by extension 'colcon_pkg'
+[0.857s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_rgb_convert) by extensions ['colcon_meta']
+[0.858s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_rgb_convert) by extension 'colcon_meta'
+[0.858s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_rgb_convert) by extensions ['ros']
+[0.858s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_rgb_convert) by extension 'ros'
+[0.859s] DEBUG:colcon.colcon_core.package_identification:Package 'mobility_ctrl/src/zed-ros2-examples/tutorials/zed_rgb_convert' with type 'ros.ament_cmake' and name 'zed_rgb_convert'
+[0.860s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_robot_integration) by extensions ['ignore', 'ignore_ament_install']
+[0.860s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_robot_integration) by extension 'ignore'
+[0.860s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_robot_integration) by extension 'ignore_ament_install'
+[0.860s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_robot_integration) by extensions ['colcon_pkg']
+[0.860s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_robot_integration) by extension 'colcon_pkg'
+[0.860s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_robot_integration) by extensions ['colcon_meta']
+[0.860s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_robot_integration) by extension 'colcon_meta'
+[0.860s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_robot_integration) by extensions ['ros']
+[0.860s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_robot_integration) by extension 'ros'
+[0.862s] DEBUG:colcon.colcon_core.package_identification:Package 'mobility_ctrl/src/zed-ros2-examples/tutorials/zed_robot_integration' with type 'ros.ament_cmake' and name 'zed_robot_integration'
+[0.862s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_video_tutorial) by extensions ['ignore', 'ignore_ament_install']
+[0.862s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_video_tutorial) by extension 'ignore'
+[0.862s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_video_tutorial) by extension 'ignore_ament_install'
+[0.862s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_video_tutorial) by extensions ['colcon_pkg']
+[0.862s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_video_tutorial) by extension 'colcon_pkg'
+[0.863s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_video_tutorial) by extensions ['colcon_meta']
+[0.863s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_video_tutorial) by extension 'colcon_meta'
+[0.863s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_video_tutorial) by extensions ['ros']
+[0.863s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/tutorials/zed_video_tutorial) by extension 'ros'
+[0.864s] DEBUG:colcon.colcon_core.package_identification:Package 'mobility_ctrl/src/zed-ros2-examples/tutorials/zed_video_tutorial' with type 'ros.ament_cmake' and name 'zed_tutorial_video'
+[0.865s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/zed_display_foxglove) by extensions ['ignore', 'ignore_ament_install']
+[0.865s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/zed_display_foxglove) by extension 'ignore'
+[0.865s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/zed_display_foxglove) by extension 'ignore_ament_install'
+[0.865s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/zed_display_foxglove) by extensions ['colcon_pkg']
+[0.865s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/zed_display_foxglove) by extension 'colcon_pkg'
+[0.865s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/zed_display_foxglove) by extensions ['colcon_meta']
+[0.865s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/zed_display_foxglove) by extension 'colcon_meta'
+[0.866s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/zed_display_foxglove) by extensions ['ros']
+[0.866s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/zed_display_foxglove) by extension 'ros'
+[0.866s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/zed_display_foxglove) by extensions ['cmake', 'python']
+[0.866s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/zed_display_foxglove) by extension 'cmake'
+[0.866s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/zed_display_foxglove) by extension 'python'
+[0.866s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/zed_display_foxglove) by extensions ['python_setup_py']
+[0.866s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/zed_display_foxglove) by extension 'python_setup_py'
+[0.866s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/zed_display_foxglove/images) by extensions ['ignore', 'ignore_ament_install']
+[0.867s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/zed_display_foxglove/images) by extension 'ignore'
+[0.867s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/zed_display_foxglove/images) by extension 'ignore_ament_install'
+[0.867s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/zed_display_foxglove/images) by extensions ['colcon_pkg']
+[0.867s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/zed_display_foxglove/images) by extension 'colcon_pkg'
+[0.867s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/zed_display_foxglove/images) by extensions ['colcon_meta']
+[0.867s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/zed_display_foxglove/images) by extension 'colcon_meta'
+[0.867s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/zed_display_foxglove/images) by extensions ['ros']
+[0.867s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/zed_display_foxglove/images) by extension 'ros'
+[0.867s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/zed_display_foxglove/images) by extensions ['cmake', 'python']
+[0.868s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/zed_display_foxglove/images) by extension 'cmake'
+[0.868s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/zed_display_foxglove/images) by extension 'python'
+[0.868s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/zed_display_foxglove/images) by extensions ['python_setup_py']
+[0.868s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/zed_display_foxglove/images) by extension 'python_setup_py'
+[0.868s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/zed_display_foxglove/layouts) by extensions ['ignore', 'ignore_ament_install']
+[0.868s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/zed_display_foxglove/layouts) by extension 'ignore'
+[0.868s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/zed_display_foxglove/layouts) by extension 'ignore_ament_install'
+[0.868s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/zed_display_foxglove/layouts) by extensions ['colcon_pkg']
+[0.869s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/zed_display_foxglove/layouts) by extension 'colcon_pkg'
+[0.869s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/zed_display_foxglove/layouts) by extensions ['colcon_meta']
+[0.869s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/zed_display_foxglove/layouts) by extension 'colcon_meta'
+[0.869s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/zed_display_foxglove/layouts) by extensions ['ros']
+[0.869s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/zed_display_foxglove/layouts) by extension 'ros'
+[0.869s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/zed_display_foxglove/layouts) by extensions ['cmake', 'python']
+[0.869s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/zed_display_foxglove/layouts) by extension 'cmake'
+[0.869s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/zed_display_foxglove/layouts) by extension 'python'
+[0.869s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/zed_display_foxglove/layouts) by extensions ['python_setup_py']
+[0.869s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/zed_display_foxglove/layouts) by extension 'python_setup_py'
+[0.870s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/zed_display_rviz2) by extensions ['ignore', 'ignore_ament_install']
+[0.870s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/zed_display_rviz2) by extension 'ignore'
+[0.870s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/zed_display_rviz2) by extension 'ignore_ament_install'
+[0.870s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/zed_display_rviz2) by extensions ['colcon_pkg']
+[0.870s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/zed_display_rviz2) by extension 'colcon_pkg'
+[0.870s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/zed_display_rviz2) by extensions ['colcon_meta']
+[0.870s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/zed_display_rviz2) by extension 'colcon_meta'
+[0.870s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/zed_display_rviz2) by extensions ['ros']
+[0.870s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-examples/zed_display_rviz2) by extension 'ros'
+[0.872s] DEBUG:colcon.colcon_core.package_identification:Package 'mobility_ctrl/src/zed-ros2-examples/zed_display_rviz2' with type 'ros.ament_cmake' and name 'zed_display_rviz2'
+[0.872s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper) by extensions ['ignore', 'ignore_ament_install']
+[0.872s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper) by extension 'ignore'
+[0.872s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper) by extension 'ignore_ament_install'
+[0.872s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper) by extensions ['colcon_pkg']
+[0.873s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper) by extension 'colcon_pkg'
+[0.873s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper) by extensions ['colcon_meta']
+[0.873s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper) by extension 'colcon_meta'
+[0.873s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper) by extensions ['ros']
+[0.873s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper) by extension 'ros'
+[0.873s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper) by extensions ['cmake', 'python']
+[0.873s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper) by extension 'cmake'
+[0.873s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper) by extension 'python'
+[0.873s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper) by extensions ['python_setup_py']
+[0.873s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper) by extension 'python_setup_py'
+[0.874s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/docker) by extensions ['ignore', 'ignore_ament_install']
+[0.874s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/docker) by extension 'ignore'
+[0.874s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/docker) by extension 'ignore_ament_install'
+[0.874s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/docker) by extensions ['colcon_pkg']
+[0.874s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/docker) by extension 'colcon_pkg'
+[0.874s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/docker) by extensions ['colcon_meta']
+[0.874s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/docker) by extension 'colcon_meta'
+[0.874s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/docker) by extensions ['ros']
+[0.875s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/docker) by extension 'ros'
+[0.875s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/docker) by extensions ['cmake', 'python']
+[0.875s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/docker) by extension 'cmake'
+[0.875s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/docker) by extension 'python'
+[0.875s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/docker) by extensions ['python_setup_py']
+[0.875s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/docker) by extension 'python_setup_py'
+[0.875s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/images) by extensions ['ignore', 'ignore_ament_install']
+[0.875s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/images) by extension 'ignore'
+[0.876s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/images) by extension 'ignore_ament_install'
+[0.876s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/images) by extensions ['colcon_pkg']
+[0.876s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/images) by extension 'colcon_pkg'
+[0.876s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/images) by extensions ['colcon_meta']
+[0.876s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/images) by extension 'colcon_meta'
+[0.876s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/images) by extensions ['ros']
+[0.876s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/images) by extension 'ros'
+[0.876s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/images) by extensions ['cmake', 'python']
+[0.876s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/images) by extension 'cmake'
+[0.876s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/images) by extension 'python'
+[0.877s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/images) by extensions ['python_setup_py']
+[0.877s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/images) by extension 'python_setup_py'
+[0.877s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/zed_components) by extensions ['ignore', 'ignore_ament_install']
+[0.877s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/zed_components) by extension 'ignore'
+[0.877s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/zed_components) by extension 'ignore_ament_install'
+[0.877s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/zed_components) by extensions ['colcon_pkg']
+[0.877s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/zed_components) by extension 'colcon_pkg'
+[0.877s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/zed_components) by extensions ['colcon_meta']
+[0.877s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/zed_components) by extension 'colcon_meta'
+[0.878s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/zed_components) by extensions ['ros']
+[0.878s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/zed_components) by extension 'ros'
+[0.880s] DEBUG:colcon.colcon_core.package_identification:Package 'mobility_ctrl/src/zed-ros2-wrapper/zed_components' with type 'ros.ament_cmake' and name 'zed_components'
+[0.880s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/zed_ros2) by extensions ['ignore', 'ignore_ament_install']
+[0.881s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/zed_ros2) by extension 'ignore'
+[0.881s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/zed_ros2) by extension 'ignore_ament_install'
+[0.881s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/zed_ros2) by extensions ['colcon_pkg']
+[0.881s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/zed_ros2) by extension 'colcon_pkg'
+[0.881s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/zed_ros2) by extensions ['colcon_meta']
+[0.881s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/zed_ros2) by extension 'colcon_meta'
+[0.881s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/zed_ros2) by extensions ['ros']
+[0.881s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/zed_ros2) by extension 'ros'
+[0.883s] DEBUG:colcon.colcon_core.package_identification:Package 'mobility_ctrl/src/zed-ros2-wrapper/zed_ros2' with type 'ros.ament_cmake' and name 'zed_ros2'
+[0.883s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/zed_wrapper) by extensions ['ignore', 'ignore_ament_install']
+[0.883s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/zed_wrapper) by extension 'ignore'
+[0.884s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/zed_wrapper) by extension 'ignore_ament_install'
+[0.884s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/zed_wrapper) by extensions ['colcon_pkg']
+[0.884s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/zed_wrapper) by extension 'colcon_pkg'
+[0.884s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/zed_wrapper) by extensions ['colcon_meta']
+[0.884s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/zed_wrapper) by extension 'colcon_meta'
+[0.884s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/zed_wrapper) by extensions ['ros']
+[0.884s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed-ros2-wrapper/zed_wrapper) by extension 'ros'
+[0.886s] DEBUG:colcon.colcon_core.package_identification:Package 'mobility_ctrl/src/zed-ros2-wrapper/zed_wrapper' with type 'ros.ament_cmake' and name 'zed_wrapper'
+[0.886s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed2i_camera_1) by extensions ['ignore', 'ignore_ament_install']
+[0.886s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed2i_camera_1) by extension 'ignore'
+[0.886s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed2i_camera_1) by extension 'ignore_ament_install'
+[0.886s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed2i_camera_1) by extensions ['colcon_pkg']
+[0.887s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed2i_camera_1) by extension 'colcon_pkg'
+[0.887s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed2i_camera_1) by extensions ['colcon_meta']
+[0.887s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed2i_camera_1) by extension 'colcon_meta'
+[0.887s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed2i_camera_1) by extensions ['ros']
+[0.887s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed2i_camera_1) by extension 'ros'
+[0.888s] DEBUG:colcon.colcon_core.package_identification:Package 'mobility_ctrl/src/zed2i_camera_1' with type 'ros.ament_python' and name 'zed2i_camera_1'
+[0.889s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed2i_camera_2) by extensions ['ignore', 'ignore_ament_install']
+[0.889s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed2i_camera_2) by extension 'ignore'
+[0.889s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed2i_camera_2) by extension 'ignore_ament_install'
+[0.889s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed2i_camera_2) by extensions ['colcon_pkg']
+[0.889s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed2i_camera_2) by extension 'colcon_pkg'
+[0.889s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed2i_camera_2) by extensions ['colcon_meta']
+[0.889s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed2i_camera_2) by extension 'colcon_meta'
+[0.889s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed2i_camera_2) by extensions ['ros']
+[0.889s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed2i_camera_2) by extension 'ros'
+[0.891s] DEBUG:colcon.colcon_core.package_identification:Package 'mobility_ctrl/src/zed2i_camera_2' with type 'ros.ament_python' and name 'zed2i_camera_2'
+[0.891s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed2i_camera_3) by extensions ['ignore', 'ignore_ament_install']
+[0.891s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed2i_camera_3) by extension 'ignore'
+[0.891s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed2i_camera_3) by extension 'ignore_ament_install'
+[0.891s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed2i_camera_3) by extensions ['colcon_pkg']
+[0.892s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed2i_camera_3) by extension 'colcon_pkg'
+[0.892s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed2i_camera_3) by extensions ['colcon_meta']
+[0.892s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed2i_camera_3) by extension 'colcon_meta'
+[0.892s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed2i_camera_3) by extensions ['ros']
+[0.892s] Level 1:colcon.colcon_core.package_identification:_identify(mobility_ctrl/src/zed2i_camera_3) by extension 'ros'
+[0.893s] DEBUG:colcon.colcon_core.package_identification:Package 'mobility_ctrl/src/zed2i_camera_3' with type 'ros.ament_python' and name 'zed2i_camera_3'
+[0.894s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.894s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.894s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.894s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.894s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.961s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'DualCameraLaunch' in 'mobility_ctrl/src/DualCameraLaunch'
+[0.961s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'can_transceiver' in 'mobility_ctrl/src/can_transceiver'
+[0.961s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'drive_motor' in 'mobility_ctrl/src/drive_motor'
+[0.961s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'fl_switch' in 'mobility_ctrl/src/fl_switch'
+[0.961s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'follow_waypoints' in 'mobility_ctrl/src/follow_waypoints'
+[0.961s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'jetson_arm_control' in 'mobility_ctrl/src/jetson_arm_control'
+[0.962s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'jetson_orin_nx_mcu' in 'mobility_ctrl/src/jetson_orin_nx_mcu'
+[0.962s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'nav2_stanley' in 'mobility_ctrl/src/nav2_stanley'
+[0.962s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'pivot_motor' in 'mobility_ctrl/src/pivot_motor'
+[0.962s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'rviz_plugin_zed_od' in 'mobility_ctrl/src/zed-ros2-examples/rviz-plugin-zed-od'
+[0.962s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'science_module' in 'mobility_ctrl/src/science_module'
+[0.962s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'stanley_v1' in 'mobility_ctrl/src/stanley_v1'
+[0.962s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'telecom_module' in 'mobility_ctrl/src/telecom_module'
+[0.962s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'usb_camera_1' in 'mobility_ctrl/src/usb_camera_1'
+[0.962s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'zed2i_camera_1' in 'mobility_ctrl/src/zed2i_camera_1'
+[0.962s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'zed2i_camera_2' in 'mobility_ctrl/src/zed2i_camera_2'
+[0.962s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'zed2i_camera_3' in 'mobility_ctrl/src/zed2i_camera_3'
+[0.962s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'zed_components' in 'mobility_ctrl/src/zed-ros2-wrapper/zed_components'
+[0.962s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'zed_topic_benchmark_interfaces' in 'mobility_ctrl/src/zed-ros2-examples/tools/zed_benchmark_interfaces'
+[0.962s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'zed_tutorial_depth' in 'mobility_ctrl/src/zed-ros2-examples/tutorials/zed_depth_tutorial'
+[0.962s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'zed_tutorial_pos_tracking' in 'mobility_ctrl/src/zed-ros2-examples/tutorials/zed_pose_tutorial'
+[0.962s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'zed_tutorial_video' in 'mobility_ctrl/src/zed-ros2-examples/tutorials/zed_video_tutorial'
+[0.962s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'zed_aruco_localization' in 'mobility_ctrl/src/zed-ros2-examples/examples/zed_aruco_localization'
+[0.962s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'zed_rgb_convert' in 'mobility_ctrl/src/zed-ros2-examples/tutorials/zed_rgb_convert'
+[0.962s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'zed_topic_benchmark_component' in 'mobility_ctrl/src/zed-ros2-examples/tools/zed_benchmark_component'
+[0.962s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'zed_wrapper' in 'mobility_ctrl/src/zed-ros2-wrapper/zed_wrapper'
+[0.963s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'zed_depth_to_laserscan' in 'mobility_ctrl/src/zed-ros2-examples/examples/zed_depth_to_laserscan'
+[0.963s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'zed_display_rviz2' in 'mobility_ctrl/src/zed-ros2-examples/zed_display_rviz2'
+[0.963s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'zed_multi_camera' in 'mobility_ctrl/src/zed-ros2-examples/tutorials/zed_multi_camera'
+[0.963s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'zed_robot_integration' in 'mobility_ctrl/src/zed-ros2-examples/tutorials/zed_robot_integration'
+[0.963s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'zed_ros2' in 'mobility_ctrl/src/zed-ros2-wrapper/zed_ros2'
+[0.963s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'zed_topic_benchmark' in 'mobility_ctrl/src/zed-ros2-examples/tools/zed_benchmark'
+[0.963s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'zed_ipc' in 'mobility_ctrl/src/zed-ros2-examples/tutorials/zed_ipc'
+[0.964s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.964s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.973s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 34 installed packages in /home/tauver/Exodus2025/mobility_ctrl/install
+[0.974s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 3 installed packages in /home/tauver/ros2_ws/install
+[0.976s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 1 installed packages in /home/tauver/Exodus2025/mobility_ctrl/src/multi_zed_rtab/install
+[0.979s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 420 installed packages in /opt/ros/humble
+[0.983s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[1.100s] Level 5:colcon.colcon_core.verb:set package 'multi_zed_rtab' build argument 'cmake_args' from command line to 'None'
+[1.100s] Level 5:colcon.colcon_core.verb:set package 'multi_zed_rtab' build argument 'cmake_target' from command line to 'None'
+[1.100s] Level 5:colcon.colcon_core.verb:set package 'multi_zed_rtab' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.100s] Level 5:colcon.colcon_core.verb:set package 'multi_zed_rtab' build argument 'cmake_clean_cache' from command line to 'False'
+[1.100s] Level 5:colcon.colcon_core.verb:set package 'multi_zed_rtab' build argument 'cmake_clean_first' from command line to 'False'
+[1.100s] Level 5:colcon.colcon_core.verb:set package 'multi_zed_rtab' build argument 'cmake_force_configure' from command line to 'False'
+[1.100s] Level 5:colcon.colcon_core.verb:set package 'multi_zed_rtab' build argument 'ament_cmake_args' from command line to 'None'
+[1.100s] Level 5:colcon.colcon_core.verb:set package 'multi_zed_rtab' build argument 'catkin_cmake_args' from command line to 'None'
+[1.100s] Level 5:colcon.colcon_core.verb:set package 'multi_zed_rtab' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.100s] DEBUG:colcon.colcon_core.verb:Building package 'multi_zed_rtab' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/tauver/Exodus2025/build/multi_zed_rtab', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/tauver/Exodus2025/install/multi_zed_rtab', 'merge_install': False, 'path': '/home/tauver/Exodus2025/mobility_ctrl/src/multi_zed_rtab', 'symlink_install': False, 'test_result_base': None}
+[1.101s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[1.103s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[1.104s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/tauver/Exodus2025/mobility_ctrl/src/multi_zed_rtab' with build type 'ament_python'
+[1.104s] Level 1:colcon.colcon_core.shell:create_environment_hook('multi_zed_rtab', 'ament_prefix_path')
+[1.110s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[1.111s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tauver/Exodus2025/install/multi_zed_rtab/share/multi_zed_rtab/hook/ament_prefix_path.ps1'
+[1.112s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tauver/Exodus2025/install/multi_zed_rtab/share/multi_zed_rtab/hook/ament_prefix_path.dsv'
+[1.113s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tauver/Exodus2025/install/multi_zed_rtab/share/multi_zed_rtab/hook/ament_prefix_path.sh'
+[1.115s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.115s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.128s] WARNING:colcon.colcon_core.shell:The following packages are in the workspace but haven't been built:
+- zed_components
+- zed_wrapper
+- zed_multi_camera
+They are being used from the following locations instead:
+- /home/tauver/Exodus2025/mobility_ctrl/install/zed_components
+- /home/tauver/Exodus2025/mobility_ctrl/install/zed_wrapper
+- /home/tauver/Exodus2025/mobility_ctrl/install/zed_multi_camera
+To suppress this warning ignore these packages in the workspace:
+--packages-ignore zed_components zed_wrapper zed_multi_camera
+[1.808s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/tauver/Exodus2025/mobility_ctrl/src/multi_zed_rtab'
+[1.808s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.809s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.918s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/tauver/Exodus2025/mobility_ctrl/src/multi_zed_rtab': PYTHONPATH=/home/tauver/Exodus2025/build/multi_zed_rtab/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tauver/Exodus2025/install/multi_zed_rtab/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/multi_zed_rtab build --build-base /home/tauver/Exodus2025/build/multi_zed_rtab/build install --record /home/tauver/Exodus2025/build/multi_zed_rtab/install.log --single-version-externally-managed install_data
+[3.681s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/tauver/Exodus2025/mobility_ctrl/src/multi_zed_rtab' returned '0': PYTHONPATH=/home/tauver/Exodus2025/build/multi_zed_rtab/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tauver/Exodus2025/install/multi_zed_rtab/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/multi_zed_rtab build --build-base /home/tauver/Exodus2025/build/multi_zed_rtab/build install --record /home/tauver/Exodus2025/build/multi_zed_rtab/install.log --single-version-externally-managed install_data
+[3.690s] Level 1:colcon.colcon_core.environment:checking '/home/tauver/Exodus2025/install/multi_zed_rtab' for CMake module files
+[3.692s] Level 1:colcon.colcon_core.environment:checking '/home/tauver/Exodus2025/install/multi_zed_rtab' for CMake config files
+[3.694s] Level 1:colcon.colcon_core.environment:checking '/home/tauver/Exodus2025/install/multi_zed_rtab/lib'
+[3.695s] Level 1:colcon.colcon_core.environment:checking '/home/tauver/Exodus2025/install/multi_zed_rtab/bin'
+[3.695s] Level 1:colcon.colcon_core.environment:checking '/home/tauver/Exodus2025/install/multi_zed_rtab/lib/pkgconfig/multi_zed_rtab.pc'
+[3.696s] Level 1:colcon.colcon_core.environment:checking '/home/tauver/Exodus2025/install/multi_zed_rtab/lib/python3.10/site-packages'
+[3.696s] Level 1:colcon.colcon_core.shell:create_environment_hook('multi_zed_rtab', 'pythonpath')
+[3.697s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tauver/Exodus2025/install/multi_zed_rtab/share/multi_zed_rtab/hook/pythonpath.ps1'
+[3.699s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tauver/Exodus2025/install/multi_zed_rtab/share/multi_zed_rtab/hook/pythonpath.dsv'
+[3.700s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tauver/Exodus2025/install/multi_zed_rtab/share/multi_zed_rtab/hook/pythonpath.sh'
+[3.702s] Level 1:colcon.colcon_core.environment:checking '/home/tauver/Exodus2025/install/multi_zed_rtab/bin'
+[3.702s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(multi_zed_rtab)
+[3.704s] INFO:colcon.colcon_core.shell:Creating package script '/home/tauver/Exodus2025/install/multi_zed_rtab/share/multi_zed_rtab/package.ps1'
+[3.707s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/tauver/Exodus2025/install/multi_zed_rtab/share/multi_zed_rtab/package.dsv'
+[3.709s] INFO:colcon.colcon_core.shell:Creating package script '/home/tauver/Exodus2025/install/multi_zed_rtab/share/multi_zed_rtab/package.sh'
+[3.712s] INFO:colcon.colcon_core.shell:Creating package script '/home/tauver/Exodus2025/install/multi_zed_rtab/share/multi_zed_rtab/package.bash'
+[3.715s] INFO:colcon.colcon_core.shell:Creating package script '/home/tauver/Exodus2025/install/multi_zed_rtab/share/multi_zed_rtab/package.zsh'
+[3.718s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/tauver/Exodus2025/install/multi_zed_rtab/share/colcon-core/packages/multi_zed_rtab)
+[3.719s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[3.720s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[3.721s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[3.721s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[3.742s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[3.742s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[3.742s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[3.783s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[3.785s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/tauver/Exodus2025/install/local_setup.ps1'
+[3.788s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/tauver/Exodus2025/install/_local_setup_util_ps1.py'
+[3.793s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/tauver/Exodus2025/install/setup.ps1'
+[3.803s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/tauver/Exodus2025/install/local_setup.sh'
+[3.806s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/tauver/Exodus2025/install/_local_setup_util_sh.py'
+[3.808s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/tauver/Exodus2025/install/setup.sh'
+[3.816s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/tauver/Exodus2025/install/local_setup.bash'
+[3.819s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/tauver/Exodus2025/install/setup.bash'
+[3.827s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/tauver/Exodus2025/install/local_setup.zsh'
+[3.829s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/tauver/Exodus2025/install/setup.zsh'

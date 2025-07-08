@@ -1,0 +1,20 @@
+[1.811s] Invoking command in '/home/tauver/Exodus2025/mobility_ctrl/src/multi_zed_rtab': PYTHONPATH=/home/tauver/Exodus2025/build/multi_zed_rtab/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tauver/Exodus2025/install/multi_zed_rtab/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/multi_zed_rtab build --build-base /home/tauver/Exodus2025/build/multi_zed_rtab/build install --record /home/tauver/Exodus2025/build/multi_zed_rtab/install.log --single-version-externally-managed install_data
+[2.432s] running egg_info
+[2.433s] writing ../../../build/multi_zed_rtab/multi_zed_rtab.egg-info/PKG-INFO
+[2.434s] writing dependency_links to ../../../build/multi_zed_rtab/multi_zed_rtab.egg-info/dependency_links.txt
+[2.434s] writing entry points to ../../../build/multi_zed_rtab/multi_zed_rtab.egg-info/entry_points.txt
+[2.434s] writing requirements to ../../../build/multi_zed_rtab/multi_zed_rtab.egg-info/requires.txt
+[2.434s] writing top-level names to ../../../build/multi_zed_rtab/multi_zed_rtab.egg-info/top_level.txt
+[2.439s] reading manifest file '../../../build/multi_zed_rtab/multi_zed_rtab.egg-info/SOURCES.txt'
+[2.440s] writing manifest file '../../../build/multi_zed_rtab/multi_zed_rtab.egg-info/SOURCES.txt'
+[2.441s] running build
+[2.441s] running build_py
+[2.441s] running install
+[2.442s] running install_lib
+[2.446s] running install_data
+[2.446s] running install_egg_info
+[2.450s] removing '/home/tauver/Exodus2025/install/multi_zed_rtab/lib/python3.10/site-packages/multi_zed_rtab-0.0.0-py3.10.egg-info' (and everything under it)
+[2.451s] Copying ../../../build/multi_zed_rtab/multi_zed_rtab.egg-info to /home/tauver/Exodus2025/install/multi_zed_rtab/lib/python3.10/site-packages/multi_zed_rtab-0.0.0-py3.10.egg-info
+[2.453s] running install_scripts
+[2.500s] writing list of installed files to '/home/tauver/Exodus2025/build/multi_zed_rtab/install.log'
+[2.573s] Invoked command in '/home/tauver/Exodus2025/mobility_ctrl/src/multi_zed_rtab' returned '0': PYTHONPATH=/home/tauver/Exodus2025/build/multi_zed_rtab/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tauver/Exodus2025/install/multi_zed_rtab/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/multi_zed_rtab build --build-base /home/tauver/Exodus2025/build/multi_zed_rtab/build install --record /home/tauver/Exodus2025/build/multi_zed_rtab/install.log --single-version-externally-managed install_data

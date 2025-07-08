@@ -1,0 +1,101 @@
+[0.000000] (-) TimerEvent: {}
+[0.001121] (-) JobUnselected: {'identifier': 'DualCameraLaunch'}
+[0.001502] (-) JobUnselected: {'identifier': 'can_transceiver'}
+[0.001838] (-) JobUnselected: {'identifier': 'drive_motor'}
+[0.001954] (-) JobUnselected: {'identifier': 'fl_switch'}
+[0.002138] (-) JobUnselected: {'identifier': 'follow_waypoints'}
+[0.002226] (-) JobUnselected: {'identifier': 'jetson_arm_control'}
+[0.002269] (-) JobUnselected: {'identifier': 'jetson_orin_nx_mcu'}
+[0.002312] (-) JobUnselected: {'identifier': 'nav2_stanley'}
+[0.002377] (-) JobUnselected: {'identifier': 'pivot_motor'}
+[0.002420] (-) JobUnselected: {'identifier': 'rviz_plugin_zed_od'}
+[0.002457] (-) JobUnselected: {'identifier': 'science_module'}
+[0.002493] (-) JobUnselected: {'identifier': 'stanley_v1'}
+[0.002548] (-) JobUnselected: {'identifier': 'telecom_module'}
+[0.002983] (-) JobUnselected: {'identifier': 'usb_camera_1'}
+[0.003065] (-) JobUnselected: {'identifier': 'zed2i_camera_1'}
+[0.003262] (-) JobUnselected: {'identifier': 'zed2i_camera_2'}
+[0.003334] (-) JobUnselected: {'identifier': 'zed2i_camera_3'}
+[0.003385] (-) JobUnselected: {'identifier': 'zed_aruco_localization'}
+[0.003464] (-) JobUnselected: {'identifier': 'zed_components'}
+[0.003513] (-) JobUnselected: {'identifier': 'zed_depth_to_laserscan'}
+[0.003560] (-) JobUnselected: {'identifier': 'zed_display_rviz2'}
+[0.003595] (-) JobUnselected: {'identifier': 'zed_ipc'}
+[0.003632] (-) JobUnselected: {'identifier': 'zed_multi_camera'}
+[0.003689] (-) JobUnselected: {'identifier': 'zed_rgb_convert'}
+[0.003736] (-) JobUnselected: {'identifier': 'zed_robot_integration'}
+[0.003772] (-) JobUnselected: {'identifier': 'zed_ros2'}
+[0.003807] (-) JobUnselected: {'identifier': 'zed_topic_benchmark'}
+[0.003841] (-) JobUnselected: {'identifier': 'zed_topic_benchmark_component'}
+[0.003876] (-) JobUnselected: {'identifier': 'zed_topic_benchmark_interfaces'}
+[0.003935] (-) JobUnselected: {'identifier': 'zed_tutorial_depth'}
+[0.004249] (-) JobUnselected: {'identifier': 'zed_tutorial_pos_tracking'}
+[0.004332] (-) JobUnselected: {'identifier': 'zed_tutorial_video'}
+[0.004466] (-) JobUnselected: {'identifier': 'zed_wrapper'}
+[0.004546] (multi_zed_rtab) JobQueued: {'identifier': 'multi_zed_rtab', 'dependencies': OrderedDict([('zed_components', '/home/tauver/Exodus2025/install/zed_components'), ('zed_wrapper', '/home/tauver/Exodus2025/install/zed_wrapper'), ('zed_multi_camera', '/home/tauver/Exodus2025/install/zed_multi_camera')])}
+[0.004621] (multi_zed_rtab) JobStarted: {'identifier': 'multi_zed_rtab'}
+[0.099061] (-) TimerEvent: {}
+[0.199725] (-) TimerEvent: {}
+[0.300347] (-) TimerEvent: {}
+[0.401093] (-) TimerEvent: {}
+[0.503328] (-) TimerEvent: {}
+[0.604331] (-) TimerEvent: {}
+[0.704984] (-) TimerEvent: {}
+[0.805635] (-) TimerEvent: {}
+[0.906298] (-) TimerEvent: {}
+[1.006884] (-) TimerEvent: {}
+[1.107482] (-) TimerEvent: {}
+[1.208134] (-) TimerEvent: {}
+[1.308734] (-) TimerEvent: {}
+[1.409500] (-) TimerEvent: {}
+[1.510117] (-) TimerEvent: {}
+[1.610740] (-) TimerEvent: {}
+[1.711405] (-) TimerEvent: {}
+[1.812241] (-) TimerEvent: {}
+[1.913153] (-) TimerEvent: {}
+[1.964637] (multi_zed_rtab) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../../build/multi_zed_rtab', 'build', '--build-base', '/home/tauver/Exodus2025/build/multi_zed_rtab/build', 'install', '--record', '/home/tauver/Exodus2025/build/multi_zed_rtab/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/tauver/Exodus2025/mobility_ctrl/src/multi_zed_rtab', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'tauver', 'XDG_SESSION_TYPE': 'x11', 'SHLVL': '1', 'LIBGL_ALWAYS_SOFTWARE': '1', 'LD_LIBRARY_PATH': '/home/tauver/Exodus2025/mobility_ctrl/install/zed_ipc/lib:/home/tauver/Exodus2025/mobility_ctrl/install/zed_topic_benchmark_component/lib:/home/tauver/Exodus2025/mobility_ctrl/install/zed_topic_benchmark_interfaces/lib:/home/tauver/Exodus2025/mobility_ctrl/install/zed_rgb_convert/lib:/home/tauver/Exodus2025/mobility_ctrl/install/zed_aruco_localization/lib:/home/tauver/Exodus2025/mobility_ctrl/install/zed_components/lib:/home/tauver/Exodus2025/mobility_ctrl/install/stanley_v1/lib:/home/tauver/Exodus2025/mobility_ctrl/install/rviz_plugin_zed_od/lib:/home/tauver/ros2_ws/install/zed_components/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib:/usr/local/cuda-12.6/lib64:', 'HOME': '/home/tauver', 'OLDPWD': '/home/tauver/Exodus2025/mobility_ctrl', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'SYSTEMD_EXEC_PID': '2395', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'IM_CONFIG_PHASE': '1', 'COLCON_PREFIX_PATH': '/home/tauver/Exodus2025/mobility_ctrl/install:/home/tauver/ros2_ws/install:/home/tauver/Exodus2025/mobility_ctrl/src/multi_zed_rtab/install', 'ROS_DISTRO': 'humble', 'GTK_IM_MODULE': 'ibus', 'LOGNAME': 'tauver', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'tauver', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'WINDOWPATH': '2', 'PATH': '/opt/ros/humble/bin:/usr/local/cuda-12.6/bin:/home/tauver/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/ubuntu:@/tmp/.ICE-unix/2371,unix/ubuntu:/tmp/.ICE-unix/2371', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/224200df_06d3_43f1_80ce_7343610c93d5', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':1', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/gdm/Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'GNOME_TERMINAL_SERVICE': ':1.165', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/tauver/Exodus2025/mobility_ctrl/install/zed_ros2:/home/tauver/Exodus2025/mobility_ctrl/install/zed_robot_integration:/home/tauver/Exodus2025/mobility_ctrl/install/zed_ipc:/home/tauver/Exodus2025/mobility_ctrl/install/multi_zed_rtab:/home/tauver/Exodus2025/mobility_ctrl/install/zed_multi_camera:/home/tauver/Exodus2025/mobility_ctrl/install/zed_display_rviz2:/home/tauver/Exodus2025/mobility_ctrl/install/zed_depth_to_laserscan:/home/tauver/Exodus2025/mobility_ctrl/install/zed_wrapper:/home/tauver/Exodus2025/mobility_ctrl/install/zed_tutorial_video:/home/tauver/Exodus2025/mobility_ctrl/install/zed_tutorial_pos_tracking:/home/tauver/Exodus2025/mobility_ctrl/install/zed_tutorial_depth:/home/tauver/Exodus2025/mobility_ctrl/install/zed_topic_benchmark:/home/tauver/Exodus2025/mobility_ctrl/install/zed_topic_benchmark_component:/home/tauver/Exodus2025/mobility_ctrl/install/zed_topic_benchmark_interfaces:/home/tauver/Exodus2025/mobility_ctrl/install/zed_rgb_convert:/home/tauver/Exodus2025/mobility_ctrl/install/zed_aruco_localization:/home/tauver/Exodus2025/mobility_ctrl/install/zed_components:/home/tauver/Exodus2025/mobility_ctrl/install/zed2i_camera_3:/home/tauver/Exodus2025/mobility_ctrl/install/zed2i_camera_2:/home/tauver/Exodus2025/mobility_ctrl/install/zed2i_camera_1:/home/tauver/Exodus2025/mobility_ctrl/install/usb_camera_1:/home/tauver/Exodus2025/mobility_ctrl/install/telecom_module:/home/tauver/Exodus2025/mobility_ctrl/install/stanley_v1:/home/tauver/Exodus2025/mobility_ctrl/install/science_module:/home/tauver/Exodus2025/mobility_ctrl/install/rviz_plugin_zed_od:/home/tauver/Exodus2025/mobility_ctrl/install/pivot_motor:/home/tauver/Exodus2025/mobility_ctrl/install/nav2_stanley:/home/tauver/Exodus2025/mobility_ctrl/install/jetson_orin_nx_mcu:/home/tauver/Exodus2025/mobility_ctrl/install/jetson_arm_control:/home/tauver/Exodus2025/mobility_ctrl/install/follow_waypoints:/home/tauver/Exodus2025/mobility_ctrl/install/fl_switch:/home/tauver/Exodus2025/mobility_ctrl/install/drive_motor:/home/tauver/Exodus2025/mobility_ctrl/install/can_transceiver:/home/tauver/Exodus2025/mobility_ctrl/install/DualCameraLaunch:/home/tauver/Exodus2025/mobility_ctrl/src/multi_zed_rtab/install/multi_zed_rtab:/home/tauver/ros2_ws/install/zed_ros2:/home/tauver/ros2_ws/install/zed_wrapper:/home/tauver/ros2_ws/install/zed_components:/opt/ros/humble', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/tauver/Exodus2025/build/multi_zed_rtab', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/tauver/Exodus2025/build/multi_zed_rtab/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tauver/Exodus2025/install/multi_zed_rtab/lib/python3.10/site-packages:/home/tauver/Exodus2025/mobility_ctrl/install/multi_zed_rtab/lib/python3.10/site-packages:/home/tauver/Exodus2025/mobility_ctrl/install/zed_topic_benchmark_interfaces/local/lib/python3.10/dist-packages:/home/tauver/Exodus2025/mobility_ctrl/install/zed2i_camera_3/lib/python3.10/site-packages:/home/tauver/Exodus2025/mobility_ctrl/install/zed2i_camera_2/lib/python3.10/site-packages:/home/tauver/Exodus2025/mobility_ctrl/install/zed2i_camera_1/lib/python3.10/site-packages:/home/tauver/Exodus2025/mobility_ctrl/install/usb_camera_1/lib/python3.10/site-packages:/home/tauver/Exodus2025/mobility_ctrl/install/telecom_module/lib/python3.10/site-packages:/home/tauver/Exodus2025/mobility_ctrl/install/science_module/lib/python3.10/site-packages:/home/tauver/Exodus2025/mobility_ctrl/install/pivot_motor/lib/python3.10/site-packages:/home/tauver/Exodus2025/mobility_ctrl/install/nav2_stanley/lib/python3.10/site-packages:/home/tauver/Exodus2025/mobility_ctrl/install/jetson_orin_nx_mcu/lib/python3.10/site-packages:/home/tauver/Exodus2025/mobility_ctrl/install/jetson_arm_control/lib/python3.10/site-packages:/home/tauver/Exodus2025/mobility_ctrl/install/follow_waypoints/lib/python3.10/site-packages:/home/tauver/Exodus2025/mobility_ctrl/install/fl_switch/lib/python3.10/site-packages:/home/tauver/Exodus2025/mobility_ctrl/install/drive_motor/lib/python3.10/site-packages:/home/tauver/Exodus2025/mobility_ctrl/install/can_transceiver/lib/python3.10/site-packages:/home/tauver/Exodus2025/mobility_ctrl/install/DualCameraLaunch/lib/python3.10/site-packages:/home/tauver/Exodus2025/mobility_ctrl/src/multi_zed_rtab/install/multi_zed_rtab/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1', 'VTE_VERSION': '6800', 'CMAKE_PREFIX_PATH': '/home/tauver/Exodus2025/mobility_ctrl/install/zed_ros2:/home/tauver/Exodus2025/mobility_ctrl/install/zed_robot_integration:/home/tauver/Exodus2025/mobility_ctrl/install/zed_ipc:/home/tauver/Exodus2025/mobility_ctrl/install/zed_multi_camera:/home/tauver/Exodus2025/mobility_ctrl/install/zed_display_rviz2:/home/tauver/Exodus2025/mobility_ctrl/install/zed_depth_to_laserscan:/home/tauver/Exodus2025/mobility_ctrl/install/zed_wrapper:/home/tauver/Exodus2025/mobility_ctrl/install/zed_tutorial_video:/home/tauver/Exodus2025/mobility_ctrl/install/zed_tutorial_pos_tracking:/home/tauver/Exodus2025/mobility_ctrl/install/zed_tutorial_depth:/home/tauver/Exodus2025/mobility_ctrl/install/zed_topic_benchmark:/home/tauver/Exodus2025/mobility_ctrl/install/zed_topic_benchmark_component:/home/tauver/Exodus2025/mobility_ctrl/install/zed_topic_benchmark_interfaces:/home/tauver/Exodus2025/mobility_ctrl/install/zed_rgb_convert:/home/tauver/Exodus2025/mobility_ctrl/install/zed_aruco_localization:/home/tauver/Exodus2025/mobility_ctrl/install/zed_components:/home/tauver/Exodus2025/mobility_ctrl/install/stanley_v1:/home/tauver/Exodus2025/mobility_ctrl/install/rviz_plugin_zed_od:/home/tauver/ros2_ws/install/zed_ros2:/home/tauver/ros2_ws/install/zed_wrapper:/home/tauver/ros2_ws/install/zed_components'}, 'shell': False}
+[2.013327] (-) TimerEvent: {}
+[2.113988] (-) TimerEvent: {}
+[2.214695] (-) TimerEvent: {}
+[2.315371] (-) TimerEvent: {}
+[2.421676] (-) TimerEvent: {}
+[2.522332] (-) TimerEvent: {}
+[2.623230] (-) TimerEvent: {}
+[2.642853] (multi_zed_rtab) StdoutLine: {'line': b'running egg_info\n'}
+[2.644609] (multi_zed_rtab) StdoutLine: {'line': b'creating ../../../build/multi_zed_rtab/multi_zed_rtab.egg-info\n'}
+[2.645158] (multi_zed_rtab) StdoutLine: {'line': b'writing ../../../build/multi_zed_rtab/multi_zed_rtab.egg-info/PKG-INFO\n'}
+[2.645853] (multi_zed_rtab) StdoutLine: {'line': b'writing dependency_links to ../../../build/multi_zed_rtab/multi_zed_rtab.egg-info/dependency_links.txt\n'}
+[2.646733] (multi_zed_rtab) StdoutLine: {'line': b'writing entry points to ../../../build/multi_zed_rtab/multi_zed_rtab.egg-info/entry_points.txt\n'}
+[2.646968] (multi_zed_rtab) StdoutLine: {'line': b'writing requirements to ../../../build/multi_zed_rtab/multi_zed_rtab.egg-info/requires.txt\n'}
+[2.647117] (multi_zed_rtab) StdoutLine: {'line': b'writing top-level names to ../../../build/multi_zed_rtab/multi_zed_rtab.egg-info/top_level.txt\n'}
+[2.647340] (multi_zed_rtab) StdoutLine: {'line': b"writing manifest file '../../../build/multi_zed_rtab/multi_zed_rtab.egg-info/SOURCES.txt'\n"}
+[2.651377] (multi_zed_rtab) StdoutLine: {'line': b"reading manifest file '../../../build/multi_zed_rtab/multi_zed_rtab.egg-info/SOURCES.txt'\n"}
+[2.653309] (multi_zed_rtab) StdoutLine: {'line': b"writing manifest file '../../../build/multi_zed_rtab/multi_zed_rtab.egg-info/SOURCES.txt'\n"}
+[2.653648] (multi_zed_rtab) StdoutLine: {'line': b'running build\n'}
+[2.654027] (multi_zed_rtab) StdoutLine: {'line': b'running build_py\n'}
+[2.654235] (multi_zed_rtab) StdoutLine: {'line': b'creating /home/tauver/Exodus2025/build/multi_zed_rtab/build\n'}
+[2.654385] (multi_zed_rtab) StdoutLine: {'line': b'creating /home/tauver/Exodus2025/build/multi_zed_rtab/build/lib\n'}
+[2.654601] (multi_zed_rtab) StdoutLine: {'line': b'creating /home/tauver/Exodus2025/build/multi_zed_rtab/build/lib/multi_zed_rtab\n'}
+[2.654757] (multi_zed_rtab) StdoutLine: {'line': b'copying multi_zed_rtab/__init__.py -> /home/tauver/Exodus2025/build/multi_zed_rtab/build/lib/multi_zed_rtab\n'}
+[2.654949] (multi_zed_rtab) StdoutLine: {'line': b'running install\n'}
+[2.655683] (multi_zed_rtab) StdoutLine: {'line': b'running install_lib\n'}
+[2.658204] (multi_zed_rtab) StdoutLine: {'line': b'creating /home/tauver/Exodus2025/install/multi_zed_rtab/lib/python3.10/site-packages/multi_zed_rtab\n'}
+[2.658631] (multi_zed_rtab) StdoutLine: {'line': b'copying /home/tauver/Exodus2025/build/multi_zed_rtab/build/lib/multi_zed_rtab/__init__.py -> /home/tauver/Exodus2025/install/multi_zed_rtab/lib/python3.10/site-packages/multi_zed_rtab\n'}
+[2.660272] (multi_zed_rtab) StdoutLine: {'line': b'byte-compiling /home/tauver/Exodus2025/install/multi_zed_rtab/lib/python3.10/site-packages/multi_zed_rtab/__init__.py to __init__.cpython-310.pyc\n'}
+[2.661091] (multi_zed_rtab) StdoutLine: {'line': b'running install_data\n'}
+[2.661413] (multi_zed_rtab) StdoutLine: {'line': b'creating /home/tauver/Exodus2025/install/multi_zed_rtab/share/ament_index\n'}
+[2.661678] (multi_zed_rtab) StdoutLine: {'line': b'creating /home/tauver/Exodus2025/install/multi_zed_rtab/share/ament_index/resource_index\n'}
+[2.662301] (multi_zed_rtab) StdoutLine: {'line': b'creating /home/tauver/Exodus2025/install/multi_zed_rtab/share/ament_index/resource_index/packages\n'}
+[2.662536] (multi_zed_rtab) StdoutLine: {'line': b'copying resource/multi_zed_rtab -> /home/tauver/Exodus2025/install/multi_zed_rtab/share/ament_index/resource_index/packages\n'}
+[2.662793] (multi_zed_rtab) StdoutLine: {'line': b'copying package.xml -> /home/tauver/Exodus2025/install/multi_zed_rtab/share/multi_zed_rtab\n'}
+[2.663078] (multi_zed_rtab) StdoutLine: {'line': b'creating /home/tauver/Exodus2025/install/multi_zed_rtab/share/multi_zed_rtab/launch\n'}
+[2.663366] (multi_zed_rtab) StdoutLine: {'line': b'copying launch/multi_zed_rtab.launch.py -> /home/tauver/Exodus2025/install/multi_zed_rtab/share/multi_zed_rtab/launch\n'}
+[2.663716] (multi_zed_rtab) StdoutLine: {'line': b'running install_egg_info\n'}
+[2.668998] (multi_zed_rtab) StdoutLine: {'line': b'Copying ../../../build/multi_zed_rtab/multi_zed_rtab.egg-info to /home/tauver/Exodus2025/install/multi_zed_rtab/lib/python3.10/site-packages/multi_zed_rtab-0.0.0-py3.10.egg-info\n'}
+[2.671302] (multi_zed_rtab) StdoutLine: {'line': b'running install_scripts\n'}
+[2.723377] (-) TimerEvent: {}
+[2.727030] (multi_zed_rtab) StdoutLine: {'line': b"writing list of installed files to '/home/tauver/Exodus2025/build/multi_zed_rtab/install.log'\n"}
+[2.817774] (multi_zed_rtab) CommandEnded: {'returncode': 0}
+[2.823804] (-) TimerEvent: {}
+[2.843246] (multi_zed_rtab) JobEnded: {'identifier': 'multi_zed_rtab', 'rc': 0}
+[2.844838] (-) EventReactorShutdown: {}

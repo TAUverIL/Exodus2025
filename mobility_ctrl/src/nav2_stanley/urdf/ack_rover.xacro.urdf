@@ -3,7 +3,8 @@
 
   <xacro:include filename="inertial_macros.xacro.urdf"/>
   <xacro:include filename="ack_rover_gazebo.xacro.urdf"/>
-  <xacro:include filename="zed_cameras.xacro.urdf"/>
+  <xacro:include filename="$(find zed_multi_camera)/urdf/zed_multi.urdf.xacro"/>
+  <!-- <xacro:include filename="zed_cameras.xacro.urdf"/> -->
 
   <!-- Colours -->
   <material name="Black">
@@ -58,9 +59,20 @@
     <xacro:property name="steering_limit_lower" value="-${pi_div_2}"/>
     <xacro:property name="steering_velocity" value="30"/>
 
+    <!-- Instantiate the multi-camera system with default args -->
+    <xacro:arg name="multi_link" default="zed_multi_link"/>
+    <xacro:arg name="camera_name_0" default="zed_front"/>
+    <xacro:arg name="camera_name_1" default="zed_rear"/>
+
     <!-- Base Link -->
 
     <link name="base_link" />
+
+    <joint name="base_to_plate" type="fixed">
+        <parent link="zed_multi_link"/>
+        <child link="base_link"/>
+        <origin xyz="0 0 -0.8" rpy="0 0 0"/>
+    </joint>
 
     <!-- Base_Footprint Link -->
 
@@ -312,13 +324,11 @@
     </joint>
 
     <joint name="left_wheel_steering_joint">
-      <!-- <command_interface name="velocity" /> -->
       <command_interface name="position" />
       <state_interface name="position" />
     </joint>
 
     <joint name="right_wheel_steering_joint">
-      <!-- <command_interface name="velocity" /> -->
       <command_interface name="position" />
       <state_interface name="position" />
     </joint>
