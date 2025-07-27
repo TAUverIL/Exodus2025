@@ -55,11 +55,11 @@ def generate_launch_description():
     )
 
     # spawn a simple position controller
-    effort = Node(
+    pos = Node(
         package='controller_manager',
         executable='spawner',
         arguments=['position_controller'],
         output='screen'
     )
 
-    return LaunchDescription([control_node, jsb, effort])
+    return LaunchDescription([control_node, jsb, pos])

@@ -7,7 +7,7 @@
 #include <sys/socket.h>
 #include <unistd.h>
 #include <fcntl.h>    // for fcntl(), F_GETFL, F_SETFL, O_NONBLOCK
-#include <unistd.h>   // for close()
+#include <unistd.h>   // forcan_frame close()
 
 #include "rclcpp/rclcpp.hpp"
 
@@ -64,7 +64,7 @@ bool CanSocket::connect(std::string can_itf, const std::vector<canid_t> & can_id
     uint32_t mask = CAN_EFF_MASK | CAN_EFF_FLAG;
     rfilter[i].can_id = id;
     rfilter[i].can_mask = mask;
-    RCLCPP_INFO(logger, "CAN filter results: can_id=0x%08X, can_mask=0x%08X", rfilter[i].can_id, mask);
+    // RCLCPP_INFO(logger, "CAN filter results: can_id=0x%08X, can_mask=0x%08X", rfilter[i].can_id, mask);
   }
   setsockopt(socket_, SOL_CAN_RAW, CAN_RAW_FILTER, &rfilter, sizeof(rfilter));
 
@@ -116,7 +116,7 @@ bool CanSocket::read_nonblocking(std::uint32_t & id, std::uint8_t data[], std::u
   if (recval < 0) {
     int err = errno;
     if (err == EAGAIN) {
-      RCLCPP_INFO(rclcpp::get_logger("CubeMarsSystemHardware"), "no message in buffer (EAGAIN)");
+      // RCLCPP_INFO(rclcpp::get_logger("CubeMarsSystemHardware"), "no message in buffer (EAGAIN)");
     } else {
       RCLCPP_ERROR(
         rclcpp::get_logger("CubeMarsSystemHardware"),
@@ -132,8 +132,8 @@ bool CanSocket::read_nonblocking(std::uint32_t & id, std::uint8_t data[], std::u
   memcpy(data, frame.data, frame.len);
   id = (frame.can_id & CAN_EFF_MASK_NEW) & 0xFF;
   len = frame.len;
-  RCLCPP_INFO(rclcpp::get_logger("CubeMarsSystemHardware"),
-          "Read ID can.cpp= 0x%x, before mask = 0x%x, can_mask = 0x%x", id, frame.can_id, CAN_EFF_MASK_NEW);
+  // RCLCPP_INFO(rclcpp::get_logger("CubeMarsSystemHardware"),
+  //         "Read ID can.cpp= 0x%x, before mask = 0x%x, can_mask = 0x%x", id, frame.can_id, CAN_EFF_MASK_NEW);
   return true;
 }
 

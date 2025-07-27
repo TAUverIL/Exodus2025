@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<robot name="ack_rover" xmlns:xacro="http://ros.org/wiki/xacro">
+<robot name="rover" xmlns:xacro="http://ros.org/wiki/xacro">
 
   <xacro:include filename="inertial_macros.xacro.urdf"/>
 
@@ -45,15 +45,16 @@
     <xacro:property name="wheel_offset_y" value="0.32"/>
     <xacro:property name="wheel_offset_z" value="0.0925"/>
     <xacro:property name="wheel_damping" value="0.2"/>
-    <xacro:property name="wheel_axis" value="0 0 1"/>
+    <xacro:property name="wheel_axis_right" value="0 0 1"/>
+    <xacro:property name="wheel_axis_left" value="0 0 1"/>
 
     <!-- Steering Parameters -->
     <xacro:property name="steering_mass" value="1.0"/>
     <xacro:property name="steering_offset_x" value="0.4"/>
-    <xacro:property name="steering_axis" value="0 1 0"/>
+    <xacro:property name="steering_axis" value="0 -1 0"/>
     <xacro:property name="steering_effort" value="20.0"/>
-    <xacro:property name="steering_limit_upper" value="${pi_div_2}"/>
-    <xacro:property name="steering_limit_lower" value="-${pi_div_2}"/>
+    <xacro:property name="steering_limit_upper" value="0.75"/>
+    <xacro:property name="steering_limit_lower" value="-0.75"/>
     <xacro:property name="steering_velocity" value="0.5"/>
 
     <!-- Base Link -->
@@ -131,15 +132,15 @@
 
   <joint name="rear_left_wheel_joint" type="continuous">
 
-    <origin xyz="-${wheel_offset_x} ${wheel_offset_y} ${wheel_offset_z}" rpy="-${pi_div_2} 0 0" />
+    <origin xyz="-${wheel_offset_x} ${wheel_offset_y} ${wheel_offset_z}" rpy="-${pi_div_2} 0 3.14159" />
     <parent link="chassis" />
     <child link="rear_left_wheel" />
-    <axis xyz="${wheel_axis}" />
+    <axis xyz="${wheel_axis_left}" />
     <dynamics damping="${wheel_damping}" />
 
   </joint>
 
-  <link name="right_rear_steering">
+  <!-- <link name="right_rear_steering">
     <inertial>
       <mass value="${steering_mass}"/>
       <inertia ixx="0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
@@ -153,9 +154,9 @@
     <axis xyz="${steering_axis}" />
     <dynamics damping="${wheel_damping}" />
     <limit effort="${steering_effort}" lower="${steering_limit_lower}" upper="${steering_limit_upper}" velocity="${steering_velocity}"/>
-  </joint>
+  </joint> -->
 
-  <link name="left_rear_steering">
+  <!-- <link name="left_rear_steering">
     <inertial>
       <mass value="${steering_mass}"/>
       <inertia ixx="0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
@@ -169,7 +170,7 @@
     <axis xyz="${steering_axis}" />
     <dynamics damping="${wheel_damping}" />
     <limit effort="${steering_effort}" lower="${steering_limit_lower}" upper="${steering_limit_upper}" velocity="${steering_velocity}"/>
-  </joint>
+  </joint> -->
 
   <!-- Rear Right Wheel Link -->
   <link name="rear_right_wheel">
@@ -198,7 +199,7 @@
     <origin xyz="-${wheel_offset_x} -${wheel_offset_y} ${wheel_offset_z}" rpy="-${pi_div_2} 0 0" />
     <parent link="chassis" />
     <child link="rear_right_wheel" />
-    <axis xyz="${wheel_axis}" />
+    <axis xyz="${wheel_axis_right}" />
     <dynamics damping="${wheel_damping}" />
 
   </joint>
@@ -274,7 +275,7 @@
     <origin xyz="0 0 0" rpy="0 0 0" />
     <parent link="left_wheel_steering" />
     <child link="front_left_wheel" />
-    <axis xyz="${wheel_axis}" />
+    <axis xyz="${wheel_axis_left}" />
     <dynamics damping="${wheel_damping}" />
 
   </joint>
@@ -306,7 +307,7 @@
     <origin xyz="0 0 0" rpy="0 0 0" />
     <parent link="right_wheel_steering" />
     <child link="front_right_wheel" />
-    <axis xyz="${wheel_axis}" />
+    <axis xyz="${wheel_axis_right}" />
     <dynamics damping="${wheel_damping}" />
 
   </joint>
