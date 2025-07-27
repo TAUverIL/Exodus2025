@@ -182,7 +182,7 @@
     <parent link="chassis" />
     <child link="rear_right_wheel" />
     <axis xyz="${wheel_axis}" />
-    <dynamics damping="${wheel_damping}" />
+    <dynamics damping="${wheel_steering_axisdamping}" />
 
   </joint>
 

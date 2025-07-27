@@ -96,6 +96,28 @@
   <joint name="$wheel_4_joint" type="continuous">
     <parent link="base_link"/>
     <child  link="wheel_4_link"/>
+    <origin xyz="0.25 0.25 0" rpy="0 0 0"/>
+    <axis   xyz="0 0 1"/>
+  </joint> -->
+
+  <!-- link name="wheel_5_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="0.1" ixy="0.0" ixz="0.0"
+               iyy="0.1" iyz="0.0" izz="0.1"/>
+    </inertial>
+    <visual>
+      <geometry><sphere radius="0.05"/></geometry>
+    </visual>
+    <collision>
+      <geometry><sphere radius="0.05"/></geometry>
+    </collision>
+  </link>
+
+  <joint name="$wheel_5_joint" type="continuous">
+    <parent link="base_link"/>
+    <child  link="wheel_5_link"/>
     <origin xyz="-0.5 -0.5 0" rpy="0 0 0"/>
     <axis   xyz="0 0 1"/>
   </joint> -->
@@ -108,10 +130,11 @@
       <param name="can_interface">slcan0</param>
     </hardware>
     <joint name="wheel_1_joint">
-      <param name="can_id">31</param>
+      <param name="can_id">14</param>
       <param name="pole_pairs">21</param>
-      <param name="gear_ratio">64</param>
-      <param name="kt">0.136</param>
+      <param name="gear_ratio">9</param>
+      <param name="kt">0.105</param>
+      <param name="vel_limit">1</param>
       <command_interface name="position"/>
       <command_interface name="velocity"/>
       <command_interface name="acceleration"/>
@@ -121,10 +144,11 @@
       <state_interface name="effort"/>
     </joint>
     <!-- <joint name="wheel_2_joint">
-      <param name="can_id">12</param>
+      <param name="can_id">32</param>
       <param name="pole_pairs">21</param>
-      <param name="gear_ratio">9</param>
-      <param name="kt">0.1</param>
+      <param name="gear_ratio">64</param>
+      <param name="kt">0.105</param>
+      <param name="vel_limit">1</param>
       <command_interface name="position"/>
       <command_interface name="velocity"/>
       <command_interface name="acceleration"/>
@@ -134,10 +158,11 @@
       <state_interface name="effort"/>
     </joint>
     <joint name="wheel_3_joint">
-      <param name="can_id">13</param>
+      <param name="can_id">33</param>
       <param name="pole_pairs">21</param>
       <param name="gear_ratio">9</param>
-      <param name="kt">0.1</param>
+      <param name="kt">0.105</param>
+      <param name="vel_limit">1</param>
       <command_interface name="position"/>
       <command_interface name="velocity"/>
       <command_interface name="acceleration"/>
@@ -147,6 +172,20 @@
       <state_interface name="effort"/>
     </joint>
     <joint name="wheel_4_joint">
+      <param name="can_id">34</param>
+      <param name="pole_pairs">21</param>
+      <param name="gear_ratio">9</param>
+      <param name="kt">0.105</param>
+      <param name="vel_limit">1</param>
+      <command_interface name="position"/>
+      <command_interface name="velocity"/>
+      <command_interface name="acceleration"/>
+      <command_interface name="effort"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint> -->
+    <!-- <joint name="wheel_4_joint">
       <param name="can_id">14</param>
       <param name="pole_pairs">21</param>
       <param name="gear_ratio">9</param>

@@ -306,11 +306,14 @@ hardware_interface::return_type CubeMarsSystemHardware::read(
 
   std::int16_t pos_int;
 
+  constexpr double right_steering_offset = 0.0;
+  constexpr double left_steering_offset = 0.0;
+
   // read all buffered CAN messages
   while (can_.read_nonblocking(read_id, read_data, read_len))
   {
     RCLCPP_INFO(
-          rclcpp::get_logger("CubeMarsSystemHardware"), "Entered the while!");
+          rclcpp::get_logger("CubeMarsSystemHardware"), "Got message from CAN ID: %d", read_id);
     if (read_data[7] != 0)
     {
       switch(read_data[7])
@@ -362,15 +365,19 @@ hardware_interface::return_type CubeMarsSystemHardware::read(
   {
     if (!all_ids[i])
     {
-      RCLCPP_WARN(
-        rclcpp::get_logger("CubeMarsSystemHardware"),
-        "No CAN message received from CAN ID: %u. ",
-        can_ids_[i]);
+      // RCLCPP_WARN(
+      //   rclcpp::get_logger("CubeMarsSystemHardware"),
+      //   "No CAN message received from CAN ID: %u. ",
+      //   can_ids_[i]);
     }
     else
     {
+      double offset = (i == 4) ? left_steering_offset  : 
+                      (i == 5) ? right_steering_offset : 0.0;
       // Unit conversions
-      hw_states_positions_[i] = hw_states_positions_[i] * 0.1 * M_PI / 180 - enc_offs_[i];
+      double pos = hw_states_positions_[i] * 0.1 * M_PI / 180 - enc_offs_[i] - offset;
+      hw_states_positions_[i] = std::remainder(pos, 2 * M_PI);
+
       hw_states_velocities_[i] = hw_states_velocities_[i] * 10 / erpm_conversions_[i];
       hw_states_efforts_[i] = hw_states_efforts_[i] * 0.01 * torque_constants_[i] *
         std::stoi(info_.joints[i].parameters.at("gear_ratio"));
