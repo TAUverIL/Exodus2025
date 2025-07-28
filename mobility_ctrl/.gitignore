@@ -11,6 +11,7 @@ src/zed-ros2-wrapper
 src/.vscode/c_cpp_properties.json
 src/cubemars_hardware
 src/zed-ros2-examples
+src/.vscode/settings.json
 
 
 # Ignore Python cache files
