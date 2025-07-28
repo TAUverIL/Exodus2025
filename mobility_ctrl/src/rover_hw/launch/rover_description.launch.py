@@ -17,9 +17,8 @@ from launch.actions import IncludeLaunchDescription
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 
 def generate_launch_description():
+    
     pkg_share = get_package_share_directory('rover_hw')
-    default_rviz_config_path = os.path.join(pkg_share, 'rviz', 'config.rviz')
-
 
     # Get URDF via xacro
     robot_description_content = Command(
@@ -39,7 +38,6 @@ def generate_launch_description():
         executable='robot_state_publisher',
         output='screen',
         parameters=[robot_description, {'use_sim_time': False}]
-        #parameters=[{'robot_description': robot_description}, {'use_sim_time': LaunchConfiguration('use_sim_time')}]
     )
 
     controller_config = os.path.join(pkg_share, 'config', 'ackermann_drive_controller.yaml')
@@ -72,46 +70,10 @@ def generate_launch_description():
         ],
         output='screen'
     )
-    
-    declare_rviz_arg = DeclareLaunchArgument(
-        'rvizconfig',
-        default_value=default_rviz_config_path,
-        description='Full path to the RViz config file'
-    )
-
-    rviz_node = Node(
-        package='rviz2',
-        executable='rviz2',
-        name='rviz2',
-        output='screen',
-        arguments=['-d', LaunchConfiguration('rvizconfig')],
-        parameters=[{'use_sim_time': False}],
-    )
-    
-    description = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(os.path.join(pkg_share, 'launch/rover_description.launch.py'))
-    )
-    
-    # Launch Nav2 packages
-    navigation = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(os.path.join(pkg_share, 'launch/rover_nav.launch.py'))
-    )
-
-    # Launch EKF node (currently only including IMU)
-    # ack_localization_ukf uses UKF node instead (not in use)
-    localization = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(os.path.join(pkg_share, 'launch/rover_localization.launch.py'))
-    )
 
     return LaunchDescription([
-        DeclareLaunchArgument(name='rvizconfig', default_value=default_rviz_config_path, description='Absolute path to rviz config file'),
         node_robot_state_publisher,
         control_node, 
         jsb, 
-        ackermann, 
-        declare_rviz_arg, 
-        rviz_node,
-        description,
-        navigation,
-        localization
+        ackermann
     ])

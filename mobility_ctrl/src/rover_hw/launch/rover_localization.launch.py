@@ -11,18 +11,14 @@ from launch.substitutions import LaunchConfiguration
 
 def generate_launch_description():
 
-    pkg_share = get_package_share_directory('nav2_stanley')
-    # Path to the multi_zed_rtab.launch.py file (adjust package and path as needed)
+    pkg_share = get_package_share_directory('rover_hw')
+    
     multi_zed_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
-            os.path.join(
-                get_package_share_directory('multi_zed_rtab'),  # Replace with the correct package if needed
-                'launch',
-                'multi_zed_rtab.launch.py'
+            os.path.join(pkg_share, 'launch', 'rover_zed.launch.py'
             )
         ),
-        # Optionally pass launch arguments here
-        # launch_arguments={'config_file': LaunchConfiguration('config_file')}.items()
+        launch_arguments={'config_file': LaunchConfiguration(os.path.join(pkg_share, 'config/zed_config.yaml'))}.items()
     )
 
     ekf_localization_node = Node(
@@ -34,9 +30,9 @@ def generate_launch_description():
     )
 
     return LaunchDescription([
-        DeclareLaunchArgument(name='use_sim_time', default_value='true', description='Flag to enable use_sim_time'),
-        multi_zed_launch,  # This line adds your multi-zed launch!
-        # ekf_localization_node,
+        DeclareLaunchArgument(name='use_sim_time', default_value='false', description='Flag to enable use_sim_time'),
+        multi_zed_launch,
+        ekf_localization_node
     ])
 
 
