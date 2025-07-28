@@ -20,6 +20,8 @@ setup(
         (os.path.join('share', package_name, 'urdf'), glob('urdf/*.xacro.urdf')),
         # Include rviz files
         (os.path.join('share', package_name, 'rviz'), glob('rviz/*.rviz')),
+        # Include node files
+        (os.path.join('share', package_name, 'rover_hw'), glob('rover_hw/*')),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -30,6 +32,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'offset_cmd = rover_hw.offset_cmd:main',
         ],
     },
 )
