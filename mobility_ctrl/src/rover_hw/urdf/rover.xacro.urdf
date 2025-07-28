@@ -46,7 +46,7 @@
     <xacro:property name="wheel_offset_z" value="0.0925"/>
     <xacro:property name="wheel_damping" value="0.2"/>
     <xacro:property name="wheel_axis_right_front" value="0 0 1"/>
-    <xacro:property name="wheel_axis_left_front" value="0 0 -1"/>
+    <xacro:property name="wheel_axis_left_front" value="0 0 1"/>
     <xacro:property name="wheel_axis_right_rear" value="0 0 1"/>
     <xacro:property name="wheel_axis_left_rear" value="0 0 1"/>
 
