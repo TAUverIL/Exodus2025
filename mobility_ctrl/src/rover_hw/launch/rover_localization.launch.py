@@ -18,7 +18,7 @@ def generate_launch_description():
             os.path.join(pkg_share, 'launch', 'rover_zed.launch.py'
             )
         ),
-        launch_arguments={'config_file': LaunchConfiguration(os.path.join(pkg_share, 'config/zed_config.yaml'))}.items()
+        launch_arguments={'config_file': LaunchConfiguration(os.path.join(pkg_share, 'config', 'zed_config.yaml'))}.items()
     )
 
     ekf_localization_node = Node(
