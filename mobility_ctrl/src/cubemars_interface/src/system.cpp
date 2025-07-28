@@ -395,13 +395,13 @@ hardware_interface::return_type CubeMarsSystemHardware::read(
       double lower_lim = -0.75;
 
       // Unit conversions
-      double pos = ((i == 1) ? -hw_states_positions_[i] : hw_states_positions_[i]) * 0.1 * M_PI / 180 - enc_offs_[i];
+      double pos = ((i == 1 || i == 2) ? -hw_states_positions_[i] : hw_states_positions_[i]) * 0.1 * M_PI / 180 - enc_offs_[i];
       pos = (pos > upper_lim && (i == 4 || i == 5)) ? upper_lim :
             (pos < lower_lim && (i == 4 || i == 5)) ? lower_lim : pos;
 
       hw_states_positions_[i] = pos;
 
-      hw_states_velocities_[i] = hw_states_velocities_[i] * 10 / erpm_conversions_[i];
+      hw_states_velocities_[i] = ((i == 1 || i == 2) ? -hw_states_velocities_[i] : hw_states_velocities_[i]) * 10 / erpm_conversions_[i];
       hw_states_efforts_[i] = hw_states_efforts_[i] * 0.01 * torque_constants_[i] *
         std::stoi(info_.joints[i].parameters.at("gear_ratio"));
       hw_states_temperatures_[i] = read_data[6];
@@ -480,7 +480,7 @@ hardware_interface::return_type CubeMarsSystemHardware::write(
         {
           if (!std::isnan(hw_commands_velocities_[i]))
           {
-            std::int32_t speed = hw_commands_velocities_[i] * erpm_conversions_[i];
+            std::int32_t speed = ((i == 1 || i == 2) ? -hw_commands_velocities_[i] : hw_commands_velocities_[i]) * erpm_conversions_[i];
             if (std::abs(speed) >= 100000)
             {
               RCLCPP_ERROR(
@@ -506,7 +506,7 @@ hardware_interface::return_type CubeMarsSystemHardware::write(
         {
           if (!std::isnan(hw_commands_positions_[i]))
           {
-            std::int32_t position = (((i == 1) ? -hw_commands_positions_[i] : hw_commands_positions_[i]) + enc_offs_[i]) * 10000 * 180 / M_PI;
+            std::int32_t position = (((i == 1 || i == 2) ? -hw_commands_positions_[i] : hw_commands_positions_[i]) + enc_offs_[i]) * 10000 * 180 / M_PI;
             if (std::abs(position) >= 360000000)
             {
               RCLCPP_ERROR(
@@ -531,9 +531,9 @@ hardware_interface::return_type CubeMarsSystemHardware::write(
         {
           if (!std::isnan(hw_commands_positions_[i]))
           {
-            std::int32_t position = (((i == 1) ? -hw_commands_positions_[i] : hw_commands_positions_[i]) + enc_offs_[i]) * 10000 * 180 / M_PI;
-            std::int16_t vel = limits_[i].first;
-            std::int16_t acc = limits_[i].second;
+            std::int32_t position = (((i == 1 || i == 2) ? -hw_commands_positions_[i] : hw_commands_positions_[i]) + enc_offs_[i]) * 10000 * 180 / M_PI;
+            std::int16_t vel = (i == 1 || i == 2) ? -limits_[i].first : limits_[i].first;
+            std::int16_t acc = (i == 1 || i == 2) ? -limits_[i].second : limits_[i].second;
             if (std::abs(position) >= 360000000)
             {
               RCLCPP_ERROR(
