@@ -45,13 +45,16 @@
     <xacro:property name="wheel_offset_y" value="0.32"/>
     <xacro:property name="wheel_offset_z" value="0.0925"/>
     <xacro:property name="wheel_damping" value="0.2"/>
-    <xacro:property name="wheel_axis_right" value="0 0 1"/>
-    <xacro:property name="wheel_axis_left" value="0 0 1"/>
+    <xacro:property name="wheel_axis_right_front" value="0 0 1"/>
+    <xacro:property name="wheel_axis_left_front" value="0 0 -1"/>
+    <xacro:property name="wheel_axis_right_rear" value="0 0 1"/>
+    <xacro:property name="wheel_axis_left_rear" value="0 0 1"/>
 
     <!-- Steering Parameters -->
     <xacro:property name="steering_mass" value="1.0"/>
     <xacro:property name="steering_offset_x" value="0.4"/>
-    <xacro:property name="steering_axis" value="0 -1 0"/>
+    <xacro:property name="steering_axis_left" value="0 1 0"/>
+    <xacro:property name="steering_axis_right" value="0 1 0"/>
     <xacro:property name="steering_effort" value="20.0"/>
     <xacro:property name="steering_limit_upper" value="0.75"/>
     <xacro:property name="steering_limit_lower" value="-0.75"/>
@@ -132,45 +135,13 @@
 
   <joint name="rear_left_wheel_joint" type="continuous">
 
-    <origin xyz="-${wheel_offset_x} ${wheel_offset_y} ${wheel_offset_z}" rpy="-${pi_div_2} 0 3.14159" />
+    <origin xyz="-${wheel_offset_x} ${wheel_offset_y} ${wheel_offset_z}" rpy="-${pi_div_2} 0 0" />
     <parent link="chassis" />
     <child link="rear_left_wheel" />
-    <axis xyz="${wheel_axis_left}" />
+    <axis xyz="${wheel_axis_left_rear}" />
     <dynamics damping="${wheel_damping}" />
 
   </joint>
-
-  <!-- <link name="right_rear_steering">
-    <inertial>
-      <mass value="${steering_mass}"/>
-      <inertia ixx="0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
-    </inertial>
-  </link>
-
-  <joint name="right_rear_steering_joint" type="revolute">
-    <origin xyz="-${steering_offset_x} -${wheel_offset_y} ${wheel_offset_z}" rpy="${pi_div_2} 0 0" />
-    <parent link="chassis" />
-    <child link="right_rear_steering" />
-    <axis xyz="${steering_axis}" />
-    <dynamics damping="${wheel_damping}" />
-    <limit effort="${steering_effort}" lower="${steering_limit_lower}" upper="${steering_limit_upper}" velocity="${steering_velocity}"/>
-  </joint> -->
-
-  <!-- <link name="left_rear_steering">
-    <inertial>
-      <mass value="${steering_mass}"/>
-      <inertia ixx="0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
-    </inertial>
-  </link>
-
-  <joint name="left_rear_steering_joint" type="revolute">
-    <origin xyz="-${steering_offset_x} ${wheel_offset_y} ${wheel_offset_z}" rpy="${pi_div_2} 0 0" />
-    <parent link="chassis" />
-    <child link="right_rear_steering" />
-    <axis xyz="${steering_axis}" />
-    <dynamics damping="${wheel_damping}" />
-    <limit effort="${steering_effort}" lower="${steering_limit_lower}" upper="${steering_limit_upper}" velocity="${steering_velocity}"/>
-  </joint> -->
 
   <!-- Rear Right Wheel Link -->
   <link name="rear_right_wheel">
@@ -199,7 +170,7 @@
     <origin xyz="-${wheel_offset_x} -${wheel_offset_y} ${wheel_offset_z}" rpy="-${pi_div_2} 0 0" />
     <parent link="chassis" />
     <child link="rear_right_wheel" />
-    <axis xyz="${wheel_axis_right}" />
+    <axis xyz="${wheel_axis_right_rear}" />
     <dynamics damping="${wheel_damping}" />
 
   </joint>
@@ -218,10 +189,10 @@
 
   <joint name="left_wheel_steering_joint" type="revolute">
 
-    <origin xyz="${steering_offset_x} ${wheel_offset_y} ${wheel_offset_z}" rpy="${pi_div_2} 0 0" />
+    <origin xyz="${steering_offset_x} ${wheel_offset_y} ${wheel_offset_z}" rpy="-${pi_div_2} 0 0" />
     <parent link="chassis" />
     <child link="left_wheel_steering" />
-    <axis xyz="${steering_axis}" />
+    <axis xyz="${steering_axis_left}" />
     <dynamics damping="${wheel_damping}" />
     <limit effort="${steering_effort}" lower="${steering_limit_lower}" upper="${steering_limit_upper}" velocity="${steering_velocity}"/>
 
@@ -239,10 +210,10 @@
 
   <joint name="right_wheel_steering_joint" type="revolute">
 
-    <origin xyz="${steering_offset_x} -${wheel_offset_y} ${wheel_offset_z}" rpy="${pi_div_2} 0 0" />
+    <origin xyz="${steering_offset_x} -${wheel_offset_y} ${wheel_offset_z}" rpy="-${pi_div_2} 0 0" />
     <parent link="chassis" />
     <child link="right_wheel_steering" />
-    <axis xyz="${steering_axis}" />
+    <axis xyz="${steering_axis_right}" />
     <dynamics damping="${wheel_damping}" />
     <limit effort="${steering_effort}" lower="${steering_limit_lower}" upper="${steering_limit_upper}" velocity="${steering_velocity}"/>
 
@@ -275,7 +246,7 @@
     <origin xyz="0 0 0" rpy="0 0 0" />
     <parent link="left_wheel_steering" />
     <child link="front_left_wheel" />
-    <axis xyz="${wheel_axis_left}" />
+    <axis xyz="${wheel_axis_left_front}" />
     <dynamics damping="${wheel_damping}" />
 
   </joint>
@@ -307,7 +278,7 @@
     <origin xyz="0 0 0" rpy="0 0 0" />
     <parent link="right_wheel_steering" />
     <child link="front_right_wheel" />
-    <axis xyz="${wheel_axis_right}" />
+    <axis xyz="${wheel_axis_right_front}" />
     <dynamics damping="${wheel_damping}" />
 
   </joint>
@@ -341,24 +312,6 @@
       <state_interface name="position" />
     </joint>
 
-    <!-- <joint name="left_rear_steering_joint">
-      <param name="can_id">4</param>
-      <param name="pole_pairs">21</param>
-      <param name="gear_ratio">9</param>
-      <param name="kt">0.1</param>
-      <command_interface name="position" />
-      <state_interface name="position" />
-    </joint>
-
-    <joint name="right_rear_steering_joint">
-      <param name="can_id">2</param>
-      <param name="pole_pairs">21</param>
-      <param name="gear_ratio">9</param>
-      <param name="kt">0.1</param>
-      <command_interface name="position" />
-      <state_interface name="position" />
-    </joint> -->
-
     <joint name="front_left_wheel_joint">
       <param name="can_id">13</param>
       <param name="pole_pairs">21</param>
@@ -382,6 +335,7 @@
       <param name="pole_pairs">21</param>
       <param name="gear_ratio">9</param>
       <param name="kt">0.1</param>
+      <param name="enc_off">-0.478</param>
       <command_interface name="position" />
       <state_interface name="position" />
     </joint>
@@ -391,6 +345,7 @@
       <param name="pole_pairs">21</param>
       <param name="gear_ratio">9</param>
       <param name="kt">0.1</param>
+      <param name="enc_off">0.271</param>
       <command_interface name="position" />
       <state_interface name="position" />
     </joint>

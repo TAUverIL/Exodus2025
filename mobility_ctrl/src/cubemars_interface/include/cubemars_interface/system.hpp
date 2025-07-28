@@ -71,6 +71,9 @@ public:
     const rclcpp::Time & time, const rclcpp::Duration & period) override;
 
 private:
+  // std::vector<double> lower_pos_limit_;
+  // std::vector<double> upper_pos_limit_;
+  
   std::vector<double> hw_commands_positions_;
   std::vector<double> hw_commands_velocities_;
   std::vector<double> hw_commands_accelerations_;

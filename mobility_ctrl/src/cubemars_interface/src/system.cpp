@@ -97,10 +97,14 @@ hardware_interface::CallbackReturn CubeMarsSystemHardware::on_init(
     if (joint.parameters.count("enc_off") != 0)
     {
       enc_offs_.emplace_back(std::stod(joint.parameters.at("enc_off")));
+      RCLCPP_INFO(rclcpp::get_logger("CubeMarsSystemHardware"), "Encoder offset: %f", 
+        std::stod(joint.parameters.at("enc_off")));
     }
     else
     {
       enc_offs_.emplace_back(0);
+      // RCLCPP_INFO(rclcpp::get_logger("CubeMarsSystemHardware"), "Encoder offset: %f", 
+      //   std::stod(joint.parameters.at("enc_off")));
     }
 
     if (joint.parameters.count("trq_limit") != 0 && std::stod(joint.parameters.at("trq_limit")) > 0)
@@ -120,6 +124,24 @@ hardware_interface::CallbackReturn CubeMarsSystemHardware::on_init(
     {
       read_only_.emplace_back(false);
     }
+
+    // if (joint.parameters.count("lower_pos_limit") != 0)
+    // {
+    //   lower_pos_limit_.emplace_back(std::stoi(joint.parameters.at("lower_pos_limit")));
+    // }
+    // else
+    // {
+    //   lower_pos_limit_.emplace_back(-std::numeric_limits<double>::infinity());
+    // }
+
+    // if (joint.parameters.count("upper_pos_limit") != 0)
+    // {
+    //   upper_pos_limit_.emplace_back(std::stoi(joint.parameters.at("upper_pos_limit")));
+    // }
+    // else
+    // {
+    //   upper_pos_limit_.emplace_back(std::numeric_limits<double>::infinity());
+    // }
   }
 
   return hardware_interface::CallbackReturn::SUCCESS;
@@ -306,9 +328,6 @@ hardware_interface::return_type CubeMarsSystemHardware::read(
 
   std::int16_t pos_int;
 
-  constexpr double right_steering_offset = 0.0;
-  constexpr double left_steering_offset = 0.0;
-
   // read all buffered CAN messages
   while (can_.read_nonblocking(read_id, read_data, read_len))
   {
@@ -372,11 +391,15 @@ hardware_interface::return_type CubeMarsSystemHardware::read(
     }
     else
     {
-      double offset = (i == 4) ? left_steering_offset  : 
-                      (i == 5) ? right_steering_offset : 0.0;
+      double upper_lim = 0.75;
+      double lower_lim = -0.75;
+
       // Unit conversions
-      double pos = hw_states_positions_[i] * 0.1 * M_PI / 180 - enc_offs_[i] - offset;
-      hw_states_positions_[i] = std::remainder(pos, 2 * M_PI);
+      double pos = ((i == 1) ? -hw_states_positions_[i] : hw_states_positions_[i]) * 0.1 * M_PI / 180 - enc_offs_[i];
+      pos = (pos > upper_lim && (i == 4 || i == 5)) ? upper_lim :
+            (pos < lower_lim && (i == 4 || i == 5)) ? lower_lim : pos;
+
+      hw_states_positions_[i] = pos;
 
       hw_states_velocities_[i] = hw_states_velocities_[i] * 10 / erpm_conversions_[i];
       hw_states_efforts_[i] = hw_states_efforts_[i] * 0.01 * torque_constants_[i] *
@@ -483,7 +506,7 @@ hardware_interface::return_type CubeMarsSystemHardware::write(
         {
           if (!std::isnan(hw_commands_positions_[i]))
           {
-            std::int32_t position = (hw_commands_positions_[i] + enc_offs_[i]) * 10000 * 180 / M_PI;
+            std::int32_t position = (((i == 1) ? -hw_commands_positions_[i] : hw_commands_positions_[i]) + enc_offs_[i]) * 10000 * 180 / M_PI;
             if (std::abs(position) >= 360000000)
             {
               RCLCPP_ERROR(
@@ -508,7 +531,7 @@ hardware_interface::return_type CubeMarsSystemHardware::write(
         {
           if (!std::isnan(hw_commands_positions_[i]))
           {
-            std::int32_t position = (hw_commands_positions_[i] + enc_offs_[i]) * 10000 * 180 / M_PI;
+            std::int32_t position = (((i == 1) ? -hw_commands_positions_[i] : hw_commands_positions_[i]) + enc_offs_[i]) * 10000 * 180 / M_PI;
             std::int16_t vel = limits_[i].first;
             std::int16_t acc = limits_[i].second;
             if (std::abs(position) >= 360000000)
