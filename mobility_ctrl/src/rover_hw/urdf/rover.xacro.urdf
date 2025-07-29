@@ -43,7 +43,7 @@
     <xacro:property name="wheel_mass" value="1.5"/>
     <xacro:property name="wheel_offset_x" value="0.4"/>
     <xacro:property name="wheel_offset_y" value="0.32"/>
-    <xacro:property name="wheel_offset_z" value="0.0925"/>
+    <xacro:property name="wheel_offset_z" value="-0.1825"/>
     <xacro:property name="wheel_damping" value="0.2"/>
     <xacro:property name="wheel_axis_right_front" value="0 0 1"/>
     <xacro:property name="wheel_axis_left_front" value="0 0 1"/>
@@ -74,8 +74,8 @@
     <xacro:include filename="$(find zed_wrapper)/urdf/zed_macro.urdf.xacro" />
 
     <xacro:arg name="multi_link" default="zed_multi_link" />
-    <xacro:arg name="camera_name_0" default="zed_front" />
-    <xacro:arg name="camera_name_1" default="zed_rear" />
+    <xacro:arg name="camera_name_0" default="camera1" />
+    <xacro:arg name="camera_name_1" default="camera2" />
 
     <!-- Camera links -->
 
@@ -83,7 +83,7 @@
         We must only provide the position of each of them with respect to the reference link -->
 
     <!-- Define the position of the front camera with respect to the reference link -->
-    <link name="$(arg camera_name_0)_camera_link" />
+    <!-- <link name="$(arg camera_name_0)_camera_link" /> -->
     <joint name="$(arg camera_name_0)_camera_joint" type="fixed">
         <parent link="$(arg camera_name_0)_camera_link"/>
         <child link="$(arg multi_link)"/>
@@ -99,7 +99,7 @@
     </xacro:zed_camera>
 
     <!-- Define the position of the rear camera with respect to the reference link -->
-    <link name="$(arg camera_name_1)_camera_link" />
+    <!-- <link name="$(arg camera_name_1)_camera_link" /> -->
     <joint name="$(arg camera_name_1)_camera_joint" type="fixed">
         <parent link="$(arg multi_link)"/>
         <child link="$(arg camera_name_1)_camera_link"/>
@@ -151,7 +151,7 @@
   <link name="chassis">
 
     <visual>
-      <origin xyz="${chassis_offset_x}  ${chassis_offset_y} ${chassis_offset_z}" rpy="${origin_rpy}" />
+      <origin xyz="0 0 0" rpy="${origin_rpy}" />
       <geometry>
         <box size="${chassis_length} ${chassis_width} ${chassis_height}" />
       </geometry>
@@ -159,7 +159,7 @@
     </visual>
 
     <collision>
-        <origin xyz="${chassis_offset_x} 0 ${chassis_height/2}"/>
+        <origin xyz="0 0 0"/>
         <geometry>
             <box size="${chassis_length} ${chassis_width} ${chassis_height}"/>
         </geometry>

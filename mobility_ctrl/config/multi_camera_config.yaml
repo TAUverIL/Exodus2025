@@ -2,7 +2,7 @@ zed_config:
   cam_names: "[camera1,camera2]"
   cam_models: "[zed2i,zed2i]"
   cam_serials: "[32514439,31718458]"
-  disable_tf: "True"
+  disable_tf: "False"
   
 
 launch_flags:
