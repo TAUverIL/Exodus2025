@@ -17,7 +17,7 @@ def generate_launch_description():
 
     # Update navigation parameters (find yaml file) and map file path
     params_file = os.path.join(pkg_share, 'config/navigation.yaml')
-    map_file = os.path.join(pkg_share, 'maps/map_config.yaml')
+    # map_file = os.path.join(pkg_share, 'maps/map_config.yaml')
 
     pkg_nav2_bringup = get_package_share_directory('nav2_bringup')
 
@@ -27,29 +27,29 @@ def generate_launch_description():
         launch_arguments={'use_sim_time': 'false', 'params_file': params_file}.items(),
     )
 
-    map_server_node = Node(
-                package='nav2_map_server',
-                executable='map_server',
-                name='map_server',
-                output='screen',
-                parameters=[{'yaml_filename': map_file}],
-                arguments=['--ros-args', '--log-level', 'info'])
+    # map_server_node = Node(
+    #             package='nav2_map_server',
+    #             executable='map_server',
+    #             name='map_server',
+    #             output='screen',
+    #             parameters=[{'yaml_filename': map_file}],
+    #             arguments=['--ros-args', '--log-level', 'info'])
     
-    map_server_lifecycle_node = Node(
-                package='nav2_lifecycle_manager',
-                executable='lifecycle_manager',
-                name='lifecycle_manager_localization',
-                output='screen',
-                arguments=['--ros-args', '--log-level', 'info'],
-                parameters=[{'use_sim_time': False},
-                            {'autostart': True},
-                            {'node_names': ['map_server']}])
+    # map_server_lifecycle_node = Node(
+    #             package='nav2_lifecycle_manager',
+    #             executable='lifecycle_manager',
+    #             name='lifecycle_manager_localization',
+    #             output='screen',
+    #             arguments=['--ros-args', '--log-level', 'info'],
+    #             parameters=[{'use_sim_time': False},
+    #                         {'autostart': True},
+    #                         {'node_names': ['map_server']}])
 
     return LaunchDescription(
         [
-            nav2_bringup_launch,
-            map_server_node,
-            map_server_lifecycle_node
+            nav2_bringup_launch
+            # map_server_node,
+            # map_server_lifecycle_node
         ]
     )
 

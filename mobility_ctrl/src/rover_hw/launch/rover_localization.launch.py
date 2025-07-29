@@ -13,12 +13,18 @@ def generate_launch_description():
 
     pkg_share = get_package_share_directory('rover_hw')
     
+    # multi_zed_launch = IncludeLaunchDescription(
+    #     PythonLaunchDescriptionSource(
+    #         os.path.join(pkg_share, 'launch', 'rover_zed.launch.py')
+    #     ),
+    #     launch_arguments={'config_file': os.path.join(pkg_share, 'config', 'zed_config.yaml')}.items()
+    # )
+    
     multi_zed_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
-            os.path.join(pkg_share, 'launch', 'rover_zed.launch.py'
-            )
-        ),
-        launch_arguments={'config_file': LaunchConfiguration(os.path.join(pkg_share, 'config', 'zed_config.yaml'))}.items()
+            os.path.join(get_package_share_directory('multi_zed_rtab'), 'launch', 'multi_zed_rtab.launch.py')
+        )
+        # launch_arguments={'config_file': os.path.join(get_package_share_directory('multi_'), 'config', 'zed_config.yaml')}.items()
     )
 
     ekf_localization_node = Node(

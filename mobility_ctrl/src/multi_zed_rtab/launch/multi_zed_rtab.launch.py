@@ -17,7 +17,7 @@ def load_yaml_params(context, config_path):
 
     from ament_index_python.packages import get_package_share_directory
     rtabmap_ros_dir = get_package_share_directory('rtabmap_ros')
-    use_sim_time = LaunchConfiguration('use_sim_time', default=True)
+    use_sim_time = LaunchConfiguration('use_sim_time', default=False)
 
     zed_launcher = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(

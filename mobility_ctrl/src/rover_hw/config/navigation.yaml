@@ -233,7 +233,7 @@ map_server:
     use_sim_time: false
     # Overridden in launch by the "map" launch configuration or provided default value.
     # To use in yaml, remove the default "map" value in the tb3_simulation_launch.py file & provide full path to map below.
-    yaml_filename: "maps/map_config.yaml"
+    # yaml_filename: "maps/map_config.yaml"
 
 map_saver:
   ros__parameters:
