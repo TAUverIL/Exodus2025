@@ -152,6 +152,7 @@ local_costmap:
     ros__parameters:
       update_frequency: 5.0
       publish_frequency: 2.0
+      transform_tolerance: 1.0
       global_frame: odom
       robot_base_frame: camera1_camera_link
       use_sim_time: false
@@ -198,6 +199,7 @@ global_costmap:
     ros__parameters:
       update_frequency: 1.0
       publish_frequency: 1.0
+      transform_tolerance: 1.0
       global_frame: map
       robot_base_frame: camera1_camera_link
       use_sim_time: false
