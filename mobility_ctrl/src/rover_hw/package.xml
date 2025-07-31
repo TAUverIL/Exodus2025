@@ -18,6 +18,9 @@
   <depend>nav2_lifecycle_manager</depend>
   <depend>tf2_ros</depend>
 
+  <exec_depend>zed_multi_camera</exec_depend>
+  <exec_depend>rtabmap_ros</exec_depend>
+  <exec_depend>rtabmap_viz</exec_depend>
   <exec_depend>ackermann_msgs</exec_depend>
 
   <test_depend>ament_copyright</test_depend>

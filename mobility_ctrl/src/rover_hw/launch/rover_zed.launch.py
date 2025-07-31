@@ -6,6 +6,7 @@ from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 import os
 import yaml
+from ament_index_python.packages import get_package_share_directory
 
 def load_yaml_params(context, config_path):
     with open(config_path, 'r') as f:
@@ -15,8 +16,8 @@ def load_yaml_params(context, config_path):
     launch_flags = config.get('launch_flags', {})
     rtabmap_params = config.get('rtabmap_params', {})
 
-    from ament_index_python.packages import get_package_share_directory
     rtabmap_ros_dir = get_package_share_directory('rtabmap_ros')
+    
     use_sim_time = LaunchConfiguration('use_sim_time', default=False)
 
     zed_launcher = IncludeLaunchDescription(
@@ -152,13 +153,13 @@ def load_yaml_params(context, config_path):
     parameters=[rtabmap_params,{'use_sim_time':use_sim_time}]
 )
 
-    rviz_node = Node(
-        condition=IfCondition(str(launch_flags.get('rviz', 'false')).lower()),
-        package='rviz2',
-        executable='rviz2',
-        name='rviz',
-        arguments=['-d', os.path.join(rtabmap_ros_dir, 'launch', 'config', 'rgbd.rviz')],
-    )
+    # rviz_node = Node(
+    #     condition=IfCondition(str(launch_flags.get('rviz', 'false')).lower()),
+    #     package='rviz2',
+    #     executable='rviz2',
+    #     name='rviz',
+    #     arguments=['-d', os.path.join(rtabmap_ros_dir, 'launch', 'config', 'rgbd.rviz')],
+    # )
 
     return [
         zed_launcher,
@@ -167,23 +168,18 @@ def load_yaml_params(context, config_path):
         rgbdx_sync,
         odometry_node,
         rtabmap_node,
-        rtabmapviz_node,
-        rviz_node
+        rtabmapviz_node
+        # rviz_node
     ]
 
 def generate_launch_description():
+    pkg_share = get_package_share_directory('rover_hw')
     config_file_arg = DeclareLaunchArgument(
         'config_file',
-        default_value=os.path.join(
-            os.path.expanduser('~'),
-            'Exodus2025',
-            'mobility_ctrl',
-            'config',
-            'multi_camera_config.yaml'
-        ),
+        default_value=os.path.join(pkg_share, 'config', 'zed_config.yaml'),
         description='Path to YAML config file.'
     )
-
+    
     return LaunchDescription([
         config_file_arg,
         OpaqueFunction(function=lambda context: load_yaml_params(

@@ -22,6 +22,8 @@ setup(
         (os.path.join('share', package_name, 'rviz'), glob('rviz/*.rviz')),
         # Include node files
         (os.path.join('share', package_name, 'rover_hw'), glob('rover_hw/*')),
+        # Include map files
+        (os.path.join('share', package_name, 'maps'), glob('maps/*')),
     ],
     install_requires=['setuptools'],
     zip_safe=True,

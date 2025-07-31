@@ -331,8 +331,8 @@ hardware_interface::return_type CubeMarsSystemHardware::read(
   // read all buffered CAN messages
   while (can_.read_nonblocking(read_id, read_data, read_len))
   {
-    RCLCPP_INFO(
-          rclcpp::get_logger("CubeMarsSystemHardware"), "Got message from CAN ID: %d", read_id);
+    // RCLCPP_INFO(rclcpp::get_logger("CubeMarsSystemHardware"), "Got message from CAN ID: %d", read_id);
+
     if (read_data[7] != 0)
     {
       switch(read_data[7])

@@ -43,7 +43,7 @@
     <xacro:property name="wheel_mass" value="1.5"/>
     <xacro:property name="wheel_offset_x" value="0.4"/>
     <xacro:property name="wheel_offset_y" value="0.32"/>
-    <xacro:property name="wheel_offset_z" value="0.0925"/>
+    <xacro:property name="wheel_offset_z" value="-0.1825"/>
     <xacro:property name="wheel_damping" value="0.2"/>
     <xacro:property name="wheel_axis_right_front" value="0 0 1"/>
     <xacro:property name="wheel_axis_left_front" value="0 0 1"/>
@@ -60,7 +60,67 @@
     <xacro:property name="steering_limit_lower" value="-0.75"/>
     <xacro:property name="steering_velocity" value="0.5"/>
 
+    <xacro:property name="M_PI"     value="3.1415926535897931" />
+  
+    <!-- Camera parameters -->
+
+    <xacro:arg name="camera_model"  default="zed2i" />
+    <xacro:arg name="custom_baseline"  default="0.0" />
+    <xacro:arg name="enable_gnss"   default="false" />
+    <xacro:arg name="gnss_x" default="0.0" />
+    <xacro:arg name="gnss_y" default="0.0" />
+    <xacro:arg name="gnss_z" default="0.0" />
+
+    <xacro:include filename="$(find zed_wrapper)/urdf/zed_macro.urdf.xacro" />
+
+    <xacro:arg name="multi_link" default="zed_multi_link" />
+    <xacro:arg name="camera_name_0" default="camera1" />
+    <xacro:arg name="camera_name_1" default="camera2" />
+
+    <!-- Camera links -->
+
+    <!-- Note the URDF of the cameras are loaded by the respective launch files.
+        We must only provide the position of each of them with respect to the reference link -->
+
+    <!-- Define the position of the front camera with respect to the reference link -->
+    <joint name="$(arg camera_name_0)_camera_joint" type="fixed">
+        <parent link="$(arg camera_name_0)_camera_link"/>
+        <child link="$(arg multi_link)"/>
+        <origin xyz="-0.06 0.0 0.0" rpy="0 0 0" />
+    </joint>
+
+    <xacro:zed_camera 
+      name="$(arg camera_name_0)" 
+      model="$(arg camera_model)" 
+      custom_baseline="$(arg custom_baseline)" 
+      enable_gnss="$(arg enable_gnss)">
+	    <origin xyz="$(arg gnss_x) $(arg gnss_y) $(arg gnss_z)" rpy="0 0 0"/>
+    </xacro:zed_camera>
+
+    <!-- Define the position of the rear camera with respect to the reference link -->
+    <joint name="$(arg camera_name_1)_camera_joint" type="fixed">
+        <parent link="$(arg multi_link)"/>
+        <child link="$(arg camera_name_1)_camera_link"/>
+        <origin xyz="-0.06 0.0 0.0" rpy="0 0 ${M_PI}" />
+    </joint>
+
+    <xacro:zed_camera 
+      name="$(arg camera_name_1)" 
+      model="$(arg camera_model)" 
+      custom_baseline="$(arg custom_baseline)" 
+      enable_gnss="$(arg enable_gnss)">
+	    <origin xyz="$(arg gnss_x) $(arg gnss_y) $(arg gnss_z)" rpy="0 0 0"/>
+    </xacro:zed_camera>
+
+    <link name="$(arg multi_link)" />
+
     <!-- Base Link -->
+    <joint name="base_link_joint" type="fixed">
+        <parent link="$(arg camera_name_0)_camera_link"/>
+        <child link="base_link"/>
+        <origin xyz="0.03 0 -0.4" rpy="0 0 0"/>
+    </joint>
+
     <link name="base_link" />
 
     <!-- Base_Footprint Link -->
@@ -89,7 +149,7 @@
   <link name="chassis">
 
     <visual>
-      <origin xyz="${chassis_offset_x}  ${chassis_offset_y} ${chassis_offset_z}" rpy="${origin_rpy}" />
+      <origin xyz="0 0 0" rpy="${origin_rpy}" />
       <geometry>
         <box size="${chassis_length} ${chassis_width} ${chassis_height}" />
       </geometry>
@@ -97,7 +157,7 @@
     </visual>
 
     <collision>
-        <origin xyz="${chassis_offset_x} 0 ${chassis_height/2}"/>
+        <origin xyz="0 0 0"/>
         <geometry>
             <box size="${chassis_length} ${chassis_width} ${chassis_height}"/>
         </geometry>
@@ -335,7 +395,7 @@
       <param name="pole_pairs">21</param>
       <param name="gear_ratio">9</param>
       <param name="kt">0.1</param>
-      <param name="enc_off">-0.478</param>
+      <param name="enc_off">-1.172</param>
       <command_interface name="position" />
       <state_interface name="position" />
     </joint>
@@ -345,7 +405,7 @@
       <param name="pole_pairs">21</param>
       <param name="gear_ratio">9</param>
       <param name="kt">0.1</param>
-      <param name="enc_off">0.271</param>
+      <param name="enc_off">0.936</param>
       <command_interface name="position" />
       <state_interface name="position" />
     </joint>
