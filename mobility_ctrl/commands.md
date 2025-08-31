@@ -58,6 +58,19 @@ ros2 topic pub /waypoints nav_msgs/Path "{
     ]
 }" --once
 ```
+
+Newer code:
+```
+ros2 topic pub /waypoints nav_msgs/Path "{
+    header: { frame_id: 'map' },
+    poses: [
+        { header: { frame_id: 'map' }, pose: { position: { x: 10.000, y: 0.000, z: 0.0 }, orientation: { x: 0.0, y: 0.0, z: 0.0, w: 1.0 } } },
+        { header: { frame_id: 'map' }, pose: { position: { x: 10.000, y: -25.000, z: 0.0 }, orientation: { x: 0.0, y: 0.0, z: 0.7071, w: -0.7071 } } },
+        { header: { frame_id: 'map' }, pose: { position: { x: -25.000, y: -25.000, z: 0.0 }, orientation: { x: 0.0, y: 0.0, z: 1.0, w: 0.0 } } },
+        { header: { frame_id: 'map' }, pose: { position: { x: 5.000,  y: -55.000, z: 0.0 }, orientation: { x: 0.0, y: 0.0, z: 0.0, w: 1.0 } } }
+    ]
+}" --once
+```
 **CAN connection (Linux desktop computer only! Jetson below):**
 * Motors are connected to the battery via the middle connector (verify + and - connections). CAN connections are wired to the CANL (blue) and CANH (white) inputs on the CANable. No ground is necessary. To connect to the "Upper Computer" software on windows, connect the UART as well (via the R-Link)
 * Set up data connection using ```sudo ip link set dev can0 up type can bitrate 1000000``` - DATA on CANable lights up (turn off using ```sudo ip link set dev can0 down``` if necessary)
