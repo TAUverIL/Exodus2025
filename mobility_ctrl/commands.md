@@ -64,10 +64,9 @@ Newer code:
 ros2 topic pub /waypoints nav_msgs/Path "{
     header: { frame_id: 'map' },
     poses: [
-        { header: { frame_id: 'map' }, pose: { position: { x: 10.000, y: 0.000, z: 0.0 }, orientation: { x: 0.0, y: 0.0, z: 0.0, w: 1.0 } } },
-        { header: { frame_id: 'map' }, pose: { position: { x: 10.000, y: -25.000, z: 0.0 }, orientation: { x: 0.0, y: 0.0, z: 0.7071, w: -0.7071 } } },
-        { header: { frame_id: 'map' }, pose: { position: { x: -25.000, y: -25.000, z: 0.0 }, orientation: { x: 0.0, y: 0.0, z: 1.0, w: 0.0 } } },
-        { header: { frame_id: 'map' }, pose: { position: { x: 5.000,  y: -55.000, z: 0.0 }, orientation: { x: 0.0, y: 0.0, z: 0.0, w: 1.0 } } }
+        { header: { frame_id: 'map' }, pose: { position: { x: 5.000, y: 0.000, z: 0.0 }, orientation: { x: 0.0, y: 0.0, z: 0.0, w: 1.0 } } },
+        { header: { frame_id: 'map' }, pose: { position: { x: 20.000, y: -20.000, z: 0.0 }, orientation: { x: 0.0, y: 0.0, z: 0.7071, w: -0.7071 } } },
+        { header: { frame_id: 'map' }, pose: { position: { x: -25.000,  y: -20.000, z: 0.0 }, orientation: { x: 0.0, y: 0.0, z: 1.0, w: 0.0 } } }
     ]
 }" --once
 ```
