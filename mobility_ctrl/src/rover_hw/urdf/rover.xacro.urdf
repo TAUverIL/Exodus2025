@@ -395,7 +395,7 @@
       <param name="pole_pairs">21</param>
       <param name="gear_ratio">9</param>
       <param name="kt">0.1</param>
-      <param name="enc_off">-1.172</param>
+      <param name="enc_off">2.55</param>
       <command_interface name="position" />
       <state_interface name="position" />
     </joint>
@@ -405,7 +405,7 @@
       <param name="pole_pairs">21</param>
       <param name="gear_ratio">9</param>
       <param name="kt">0.1</param>
-      <param name="enc_off">0.936</param>
+      <param name="enc_off">0.264</param>
       <command_interface name="position" />
       <state_interface name="position" />
     </joint>
